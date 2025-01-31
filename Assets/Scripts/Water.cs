@@ -6,7 +6,7 @@ public class Water : MonoBehaviour
 {
     public int Damage;
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
     }

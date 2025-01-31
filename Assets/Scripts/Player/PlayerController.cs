@@ -67,6 +67,10 @@ public class PlayerController : MonoBehaviour
         {
             playerMovement.isJumping = false;
         }
+        if (coll.gameObject.CompareTag("Water"))
+        {
+            playerHealth.TakeDamage(1);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -90,11 +94,6 @@ public class PlayerController : MonoBehaviour
                 default:
                     break;
             }
-        }
-
-        if (other.gameObject.CompareTag("Water"))
-        {
-            playerHealth.TakeDamage(1);
         }
     }
 }
