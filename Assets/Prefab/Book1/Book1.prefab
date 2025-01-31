@@ -52,8 +52,49 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 172723c14ac92fd4789238537417381e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 172723c14ac92fd4789238537417381e, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8164078558771037576, guid: 172723c14ac92fd4789238537417381e, type: 3}
+      propertyPath: m_TagString
+      value: Obstacle
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8164078558771037576, guid: 172723c14ac92fd4789238537417381e, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5733501452341406841}
   m_SourcePrefab: {fileID: 100100000, guid: 172723c14ac92fd4789238537417381e, type: 3}
+--- !u!1 &273449983237067343 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: 172723c14ac92fd4789238537417381e, type: 3}
+  m_PrefabInstance: {fileID: 8252810575365593031}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &5733501452341406841
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 273449983237067343}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 4.3999996, y: 1.5, z: 5.2}
+  m_Center: {x: -0.100000024, y: 2.45, z: 0.30000007}
