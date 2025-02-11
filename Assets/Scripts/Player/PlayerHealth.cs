@@ -62,7 +62,7 @@ public class PlayerHealth : MonoBehaviour
         healthText.text = $"X{currentHealth.ToString()}";
     }
 
-    void Die()
+    public void Die()
     {
         Debug.Log("Die");
     }

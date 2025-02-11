@@ -6,20 +6,25 @@ public class PlayerMovement : MonoBehaviour
     public float rotationSpeed = 10f;
     public float jumpForce = 5f;
     public float mouseSensitivity = 2f;
+    public float dashSpeed = 2f;
 
     public bool isJumping;
+    public bool isDashing;
+    public bool canDash;
     private float lastCameraYaw;
     private float cameraPitch = 0f;
 
     private Camera cam;
     public Rigidbody rb;
     private PlayerHealth playerHealth;
+    private PlayerStamina playerStamina;
 
     void Start()
     {
         cam = Camera.main;
         rb = GetComponent<Rigidbody>();
         playerHealth = GetComponent<PlayerHealth>();
+        playerStamina = GetComponent<PlayerStamina>();
         lastCameraYaw = cam.transform.rotation.eulerAngles.y;
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -27,8 +32,15 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        Move();
-        Jump();
+        if (canDash)
+        {
+            Dash();
+        }
+        else
+        {
+            Move();
+            Jump();
+        }
         UpdateRotation();
     }
 
@@ -70,5 +82,13 @@ public class PlayerMovement : MonoBehaviour
         cam.transform.localRotation = Quaternion.Euler(cameraPitch, 0, 0);
     }
 
-    
+    public void Dash()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector3 dashDirection = transform.forward;
+            rb.velocity = dashDirection * dashSpeed;
+            playerStamina.DecreaseStamina(1);
+        }
+    }
 }
