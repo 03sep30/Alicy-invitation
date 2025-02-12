@@ -10,7 +10,7 @@ public class PlayerMovement : MonoBehaviour
 
     public bool isJumping;
     public bool isDashing;
-    public bool canDash;
+    public bool isBreaking;
     private float lastCameraYaw;
     private float cameraPitch = 0f;
 
@@ -18,25 +18,37 @@ public class PlayerMovement : MonoBehaviour
     public Rigidbody rb;
     private PlayerHealth playerHealth;
     private PlayerStamina playerStamina;
+    private PlayerController playerController;
 
     void Start()
     {
         cam = Camera.main;
+
         rb = GetComponent<Rigidbody>();
         playerHealth = GetComponent<PlayerHealth>();
         playerStamina = GetComponent<PlayerStamina>();
+        playerController = GetComponent<PlayerController>();
+
         lastCameraYaw = cam.transform.rotation.eulerAngles.y;
+
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        playerController.currentSize = CharacterSize.Normal;
     }
 
     void Update()
     {
-        if (canDash)
+        if (playerController.currentSize == CharacterSize.Small)
         {
             Dash();
         }
-        else
+        if (playerController.currentSize == CharacterSize.Normal)
+        {
+            Move();
+            Jump();
+        }
+        if (playerController.currentSize == CharacterSize.Big)
         {
             Move();
             Jump();
@@ -59,12 +71,19 @@ public class PlayerMovement : MonoBehaviour
 
     void Jump()
     {
-        if (!isJumping && Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            isJumping = true;
-            if (!playerHealth.isDrinkingTeacup)
-            playerHealth.TakeDamage(1);
+            if (playerController.currentSize == CharacterSize.Normal && !isJumping)
+            {
+                isJumping = true;
+                if (!playerHealth.isDrinkingTeacup)
+                    playerHealth.TakeDamage(1);
+            }
+            if (playerController.currentSize == CharacterSize.Big && !isBreaking)
+            {
+                isBreaking = true;
+            }
         }
     }
 
