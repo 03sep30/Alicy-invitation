@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5122500937471337321}
   - component: {fileID: 7907812953321959308}
   - component: {fileID: 4247685338976369719}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Parrying
   m_TagString: ParryingObj
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -130,15 +130,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0.22
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.56
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -16.77
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       propertyPath: m_LocalRotation.w
@@ -146,7 +146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       propertyPath: m_LocalRotation.y
@@ -185,9 +185,6 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
       insertIndex: -1
       addedObject: {fileID: 3773923689409198694}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 5711905823010256586}
   m_SourcePrefab: {fileID: 100100000, guid: bac338bed4f468344aaa7d7bb7cf844d, type: 3}
 --- !u!4 &8418970274947537203 stripped
 Transform:
@@ -247,16 +244,3 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.91294134, y: 1.1857252, z: 1.5107445}
   m_Center: {x: -0.043529347, y: 0.59199953, z: -0.052235186}
---- !u!114 &5711905823010256586
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9195752788458619785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1d06fab84142c04439155a9ac79c4a9c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Damage: 1

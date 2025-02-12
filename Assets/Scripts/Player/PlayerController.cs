@@ -3,9 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum CharacterSize
+{
+    Small,
+    Normal,
+    Big
+}
+
 public class PlayerController : MonoBehaviour
 {
     public float maxPosition = 0;
+    public CharacterSize currentSize;
     
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
@@ -13,6 +21,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
+        currentSize = CharacterSize.Normal;
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponent<PlayerHealth>();
     }
@@ -66,33 +75,41 @@ public class PlayerController : MonoBehaviour
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
+            playerMovement.isBreaking = false;
         }
         if (coll.gameObject.CompareTag("Water"))
         {
             playerHealth.TakeDamage(1);
         }
+        if (playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
+        {
+            coll.gameObject.GetComponent<ObstacleController>().Explosion();
+            playerMovement.isBreaking = false;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("ParryingObj"))
+        if (other.gameObject.layer == 6)
         {
-            var parryingObj = other.gameObject.GetComponent<ParryingObj>();
-
-            switch (parryingObj.ID)
+            if (other.gameObject.CompareTag("ParryingObj"))
             {
-                case 0:
-                    playerHealth.TakeHealth(parryingObj.heal);
-                    parryingObj.UpdateSize(gameObject);
-                    UpdateCameraRig();
-                    Destroy(other.transform.parent.gameObject);
-                    break;
-                case 1:
-                    parryingObj.Invincibility(gameObject);
-                    Destroy(other.transform.parent.gameObject);
-                    break;
-                default:
-                    break;
+                var parryingObj = other.gameObject.GetComponent<ParryingObj>();
+                switch (parryingObj.ID)
+                {
+                    case 0:
+                        playerHealth.TakeHealth(parryingObj.heal);
+                        parryingObj.UpdateSize(gameObject);
+                        UpdateCameraRig();
+                        Destroy(other.transform.parent.gameObject);
+                        break;
+                    case 1:
+                        parryingObj.Invincibility(gameObject);
+                        Destroy(other.transform.parent.gameObject);
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     }
