@@ -6,8 +6,6 @@ public class Teacup : ParryingObj
 {
     public override void Invincibility(GameObject player)
     {
-        base.Invincibility(player);
-        player.GetComponent<PlayerHealth>().shield = 1;
+        player.GetComponent<PlayerHealth>().isDrinkingTeacup = true;
     }
-
 }

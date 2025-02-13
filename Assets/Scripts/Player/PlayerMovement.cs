@@ -1,5 +1,13 @@
 using UnityEngine;
 
+enum CharacterState
+{
+    Idle,
+    Walking,
+    Running,
+    Dead
+}
+
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5f;
@@ -11,9 +19,13 @@ public class PlayerMovement : MonoBehaviour
     public bool isJumping;
     public bool isDashing;
     public bool isBreaking;
+
+    public bool fanAvailable = false;
+
     private float lastCameraYaw;
     private float cameraPitch = 0f;
 
+    private Animator animator;
     private Camera cam;
     public Rigidbody rb;
     private PlayerHealth playerHealth;
@@ -28,6 +40,7 @@ public class PlayerMovement : MonoBehaviour
         playerHealth = GetComponent<PlayerHealth>();
         playerStamina = GetComponent<PlayerStamina>();
         playerController = GetComponent<PlayerController>();
+        animator = GetComponent<Animator>();
 
         lastCameraYaw = cam.transform.rotation.eulerAngles.y;
 
@@ -39,18 +52,22 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (playerController.currentSize == CharacterSize.Small)
+        if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Small)
         {
             Dash();
         }
-        if (playerController.currentSize == CharacterSize.Normal)
+        if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
         {
             Move();
             Jump();
         }
-        if (playerController.currentSize == CharacterSize.Big)
+        if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
         {
             Move();
+            Dash();
+        }
+        else
+        {
             Jump();
         }
         UpdateRotation();
@@ -66,6 +83,13 @@ public class PlayerMovement : MonoBehaviour
             Vector3 moveDirection = cameraDir * moveDir.z + cam.transform.right * moveDir.x;
 
             rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
+
+            animator.SetInteger("State", (int)CharacterState.Walking);
+        }
+
+        else
+        {
+            animator.SetInteger("State", (int)CharacterState.Idle);
         }
     }
 
@@ -73,16 +97,20 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             if (playerController.currentSize == CharacterSize.Normal && !isJumping)
             {
+                if (fanAvailable)
+                {
+                    rb.AddForce(Vector3.up * (jumpForce * 1.5f), ForceMode.Impulse);
+                    fanAvailable = false;
+                }
+                else
+                {
+                    rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                }
                 isJumping = true;
                 if (!playerHealth.isDrinkingTeacup)
                     playerHealth.TakeDamage(1);
-            }
-            if (playerController.currentSize == CharacterSize.Big && !isBreaking)
-            {
-                isBreaking = true;
             }
         }
     }
@@ -105,9 +133,15 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            animator.SetInteger("State", (int)CharacterState.Running);
             Vector3 dashDirection = transform.forward;
             rb.velocity = dashDirection * dashSpeed;
             playerStamina.DecreaseStamina(1);
+            
+            if (playerController.currentSize == CharacterSize.Big && !isBreaking)
+            {
+                isBreaking = true;
+            }
         }
     }
 }

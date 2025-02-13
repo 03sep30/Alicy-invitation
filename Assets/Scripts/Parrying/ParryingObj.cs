@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class ParryingObj : MonoBehaviour
 {
-    public int ID;
+    public string Name;
     public int heal;
 
     public virtual void UpdateSize(GameObject player)

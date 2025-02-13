@@ -8,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
     [Header("Ã¼·Â")]
     public int maxHealth = 30;
     public int currentHealth;
-    public int shield = 0;
     public bool isDrinkingTeacup = false;
 
     public TextMeshProUGUI healthText;
@@ -35,15 +34,11 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        if (currentHealth > 0 && shield == 0)
+        if (currentHealth > 0 && !isDrinkingTeacup)
         {
             currentHealth -= damage;
             HealthTextUpdate();
             StartCoroutine(DamageEffect());
-        }
-        else if (currentHealth > 0 && shield > 0)
-        {
-            shield--;
         }
         else Die();
     }
@@ -65,6 +60,8 @@ public class PlayerHealth : MonoBehaviour
     public void Die()
     {
         Debug.Log("Die");
+        currentHealth = 0;
+        HealthTextUpdate();
     }
 
     IEnumerator DamageEffect()

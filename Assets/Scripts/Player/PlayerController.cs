@@ -7,13 +7,16 @@ public enum CharacterSize
 {
     Small,
     Normal,
-    Big
+    Big,
+    None
 }
 
 public class PlayerController : MonoBehaviour
 {
     public float maxPosition = 0;
     public CharacterSize currentSize;
+
+    public GameObject LineObj;
     
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
@@ -33,34 +36,38 @@ public class PlayerController : MonoBehaviour
 
     void DropCalculation()
     {
-        if (!playerMovement.isJumping)
+        if (transform.position.y < LineObj.transform.position.y)
         {
-            if (maxPosition - transform.position.y > 10)
-            {
-                if (!playerHealth.isDrinkingTeacup)
-                {
-                    playerHealth.TakeDamage(5);
-                }
-            }
-            maxPosition = 0;
+            playerHealth.Die();
         }
-        else
-        {
-            if (playerMovement.rb.velocity.y < 0 && maxPosition < transform.position.y)
-            {
-                maxPosition = transform.position.y;
-            }
-        }
+
+        //if (!playerMovement.isJumping)
+        //{
+        //    if (maxPosition - transform.position.y > 10)
+        //    {
+        //        if (!playerHealth.isDrinkingTeacup)
+        //        {
+        //            playerHealth.Die();
+        //        }
+        //    }
+        //    maxPosition = 0;
+        //}
+        //else
+        //{
+        //    if (playerMovement.rb.velocity.y < 0 && maxPosition < transform.position.y)
+        //    {
+        //        maxPosition = transform.position.y;
+        //    }
+        //}
     }
 
     private void UpdateCameraRig()
     {
-        float playerHeight = gameObject.transform.localScale.y;
-        if (playerHeight >= 10f)
+        if (currentSize == CharacterSize.Big)
         {
             CinemachineFreeLook.m_YAxis.Value = 1f;
         }
-        else if(playerHeight <= 2.5f)
+        if(currentSize == CharacterSize.Small)
         {
             CinemachineFreeLook.m_YAxis.Value = 0f;
         }
@@ -70,12 +77,13 @@ public class PlayerController : MonoBehaviour
         }
     }    
 
+    
+
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
-            playerMovement.isBreaking = false;
         }
         if (coll.gameObject.CompareTag("Water"))
         {
@@ -95,16 +103,27 @@ public class PlayerController : MonoBehaviour
             if (other.gameObject.CompareTag("ParryingObj"))
             {
                 var parryingObj = other.gameObject.GetComponent<ParryingObj>();
-                switch (parryingObj.ID)
+                switch (parryingObj.Name)
                 {
-                    case 0:
+                    case "Juice":
                         playerHealth.TakeHealth(parryingObj.heal);
                         parryingObj.UpdateSize(gameObject);
                         UpdateCameraRig();
                         Destroy(other.transform.parent.gameObject);
                         break;
-                    case 1:
+                    case "TeaCup":
                         parryingObj.Invincibility(gameObject);
+                        StartCoroutine(TeaCupTime());
+                        Destroy(other.transform.parent.gameObject);
+                        break;
+                    case "Raisin":
+                        playerHealth.TakeHealth(parryingObj.heal);
+                        parryingObj.UpdateSize(gameObject);
+                        UpdateCameraRig();
+                        Destroy(other.transform.parent.gameObject);
+                        break;
+                    case "Fan":
+                        playerMovement.fanAvailable = true;
                         Destroy(other.transform.parent.gameObject);
                         break;
                     default:
@@ -112,5 +131,16 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+    }
+
+    IEnumerator TeaCupTime()
+    {
+        float originalJumpForce = playerMovement.jumpForce;
+        playerMovement.jumpForce *= 2f;
+
+        yield return new WaitForSeconds(10f);
+
+        playerMovement.jumpForce = originalJumpForce;
+        playerHealth.isDrinkingTeacup = false;
     }
 }
