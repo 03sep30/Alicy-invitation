@@ -6,8 +6,8 @@ using UnityEngine;
 public enum CharacterSize
 {
     Small,
-    Normal,
     Big,
+    Normal,
     None
 }
 
@@ -20,7 +20,6 @@ public class PlayerController : MonoBehaviour
     
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
-    public CinemachineFreeLook CinemachineFreeLook;
 
     void Start()
     {
@@ -36,58 +35,17 @@ public class PlayerController : MonoBehaviour
 
     void DropCalculation()
     {
-        if (transform.position.y < LineObj.transform.position.y)
+        if (transform.position.y < LineObj.transform.position.y && !playerHealth.isDie)
         {
             playerHealth.Die();
         }
-
-        //if (!playerMovement.isJumping)
-        //{
-        //    if (maxPosition - transform.position.y > 10)
-        //    {
-        //        if (!playerHealth.isDrinkingTeacup)
-        //        {
-        //            playerHealth.Die();
-        //        }
-        //    }
-        //    maxPosition = 0;
-        //}
-        //else
-        //{
-        //    if (playerMovement.rb.velocity.y < 0 && maxPosition < transform.position.y)
-        //    {
-        //        maxPosition = transform.position.y;
-        //    }
-        //}
     }
-
-    private void UpdateCameraRig()
-    {
-        if (currentSize == CharacterSize.Big)
-        {
-            CinemachineFreeLook.m_YAxis.Value = 1f;
-        }
-        if(currentSize == CharacterSize.Small)
-        {
-            CinemachineFreeLook.m_YAxis.Value = 0f;
-        }
-        else
-        {
-            CinemachineFreeLook.m_YAxis.Value = 0.5f;
-        }
-    }    
-
-    
 
     void OnCollisionEnter(Collision coll)
     {
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
-        }
-        if (coll.gameObject.CompareTag("Water"))
-        {
-            playerHealth.TakeDamage(1);
         }
         if (playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
         {
@@ -103,23 +61,20 @@ public class PlayerController : MonoBehaviour
             if (other.gameObject.CompareTag("ParryingObj"))
             {
                 var parryingObj = other.gameObject.GetComponent<ParryingObj>();
+                parryingObj.Jump(gameObject);
                 switch (parryingObj.Name)
                 {
                     case "Juice":
-                        playerHealth.TakeHealth(parryingObj.heal);
                         parryingObj.UpdateSize(gameObject);
-                        UpdateCameraRig();
                         Destroy(other.transform.parent.gameObject);
                         break;
                     case "TeaCup":
-                        parryingObj.Invincibility(gameObject);
-                        StartCoroutine(TeaCupTime());
+                        //parryingObj.Invincibility(gameObject);
+                        //StartCoroutine(TeaCupTime());
                         Destroy(other.transform.parent.gameObject);
                         break;
                     case "Raisin":
-                        playerHealth.TakeHealth(parryingObj.heal);
                         parryingObj.UpdateSize(gameObject);
-                        UpdateCameraRig();
                         Destroy(other.transform.parent.gameObject);
                         break;
                     case "Fan":

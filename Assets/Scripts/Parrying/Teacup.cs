@@ -4,8 +4,15 @@ using UnityEngine;
 
 public class Teacup : ParryingObj
 {
-    public override void Invincibility(GameObject player)
+    //public override void Invincibility(GameObject player)
+    //{
+    //    player.GetComponent<PlayerHealth>().isDrinkingTeacup = true;
+    //    Debug.Log("Invincibility");
+    //}
+
+    public override void Jump(GameObject player)
     {
-        player.GetComponent<PlayerHealth>().isDrinkingTeacup = true;
+        player.GetComponent<PlayerMovement>().isJumping = false;
+        Debug.Log("Jump");
     }
 }

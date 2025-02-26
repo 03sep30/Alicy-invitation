@@ -6,11 +6,11 @@ using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     [Header("체력")]
-    public int maxHealth = 30;
-    public int currentHealth;
     public bool isDrinkingTeacup = false;
+    public bool isDie;
 
-    public TextMeshProUGUI healthText;
+    private FadeController fadeController;
+    public Transform SpawnPoint;
 
     [Header("데미지 이펙트")]
     public float damageEffectDuration = 1f;
@@ -20,48 +20,37 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealth = maxHealth;
-        HealthTextUpdate();
-
         meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        fadeController = FindAnyObjectByType<FadeController>();
 
         originalColors = new Color[meshRenderers.Length];
         for (int i = 0; i < meshRenderers.Length; i++)
         {
             originalColors[i] = meshRenderers[i].material.color;
         }
+        fadeController.OnFadeFinished += HandleFadeFinished;
     }
 
-    public void TakeDamage(int damage)
+    void OnDestroy()
     {
-        if (currentHealth > 0 && !isDrinkingTeacup)
-        {
-            currentHealth -= damage;
-            HealthTextUpdate();
-            StartCoroutine(DamageEffect());
-        }
-        else Die();
+        if (fadeController != null)
+            fadeController.OnFadeFinished -= HandleFadeFinished;
     }
 
-    public void TakeHealth(int health)
-    {
-        if (currentHealth < maxHealth)
-        {
-            currentHealth += health;
-        }
-        HealthTextUpdate();
-    }
-
-    void HealthTextUpdate()
-    {
-        healthText.text = $"X{currentHealth.ToString()}";
-    }
 
     public void Die()
     {
         Debug.Log("Die");
-        currentHealth = 0;
-        HealthTextUpdate();
+        isDie = true;
+        fadeController.StartFadeIn();
+    }
+
+    private void HandleFadeFinished()
+    {
+        if (isDie)
+        {
+            transform.position = SpawnPoint.position;
+        }
     }
 
     IEnumerator DamageEffect()
