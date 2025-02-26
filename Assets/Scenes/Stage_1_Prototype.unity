@@ -5695,16 +5695,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 586067129704817964, guid: bd7c4e8c78d9ee0468fc51094c6a061b, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.000030934207
+      value: 0.00003092991
       objectReference: {fileID: 0}
     - target: {fileID: 586067129704817964, guid: bd7c4e8c78d9ee0468fc51094c6a061b, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.0000014948172
+      value: -0.0000014946095
       objectReference: {fileID: 0}
     - target: {fileID: 996977314716020124, guid: bd7c4e8c78d9ee0468fc51094c6a061b, type: 3}
       propertyPath: jumpForce
       value: 18
       objectReference: {fileID: 0}
+    - target: {fileID: 1313436214156995753, guid: bd7c4e8c78d9ee0468fc51094c6a061b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 534d40731ab0acb47a29484d9a476a6f, type: 2}
     - target: {fileID: 1444865628196969314, guid: bd7c4e8c78d9ee0468fc51094c6a061b, type: 3}
       propertyPath: StaminaText
       value: 
@@ -5821,6 +5825,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Elysee(Anim O)
       objectReference: {fileID: 0}
+    - target: {fileID: 8913290589802855143, guid: bd7c4e8c78d9ee0468fc51094c6a061b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 534d40731ab0acb47a29484d9a476a6f, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -12301,63 +12309,6 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!1001 &518585158
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 36.117
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 170.779
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -184.54
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -8679921383154817045, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
-      propertyPath: m_Name
-      value: Elysee
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 7f2d2cc8a6eb3f84ba8aa504dea91805, type: 3}
 --- !u!1001 &659581954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -64939,7 +64890,6 @@ SceneRoots:
   - {fileID: 232273361}
   - {fileID: 1742154207}
   - {fileID: 1321761257}
-  - {fileID: 518585158}
   - {fileID: 228524388}
   - {fileID: 84988950}
   - {fileID: 1767860427}
