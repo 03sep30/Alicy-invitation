@@ -14,7 +14,7 @@ public abstract class ParryingObj : MonoBehaviour
 
     public virtual void Invincibility(GameObject player)
     {
-        player.GetComponent<PlayerHealth>().isDrinkingTeacup = true;
+        player.GetComponentInChildren<PlayerHealth>().isDrinkingTeacup = true;
         Debug.Log("Invincibility");
     }
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class CameraController : MonoBehaviour
 {
     public Transform player;
+    public Transform Point;
     public float distance = 5f;
     public float rotateSpeed = 5f;
     public float zoomSpeed = 2f;
@@ -46,7 +47,7 @@ public class CameraController : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(pitch, yaw, 0);
         transform.position = player.position + rotation * direction;
 
-        transform.LookAt(player.position);
+        transform.LookAt(Point.position);
     }
 
     public Vector3 GetCameraForward()

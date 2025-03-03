@@ -12,12 +12,14 @@ public class FadeController : MonoBehaviour
     float accumTime = 0f;
     private Coroutine fadeCor;
     public bool fadeFinished = false;
+    private PlayerHealth playerHealth;
 
     public event FadeEventHandler OnFadeFinished;
     
     private void Awake()
     {
         canvasGroup = GetComponent<CanvasGroup>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
     }
 
     public void StartFadeIn()
@@ -33,6 +35,7 @@ public class FadeController : MonoBehaviour
     private IEnumerator FadeIn()
     {
         yield return new WaitForSeconds(fadeInTime);
+        playerHealth.RandomGameOverTTS();
         accumTime = 0f;
         while (accumTime < fadeTime)
         {

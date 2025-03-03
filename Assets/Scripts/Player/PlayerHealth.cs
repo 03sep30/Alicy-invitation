@@ -5,29 +5,32 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
+    private PlayerController playerController;
+
     [Header("체력")]
     public bool isDrinkingTeacup = false;
     public bool isDie;
 
     private FadeController fadeController;
     public Transform SpawnPoint;
+    public GameObject player;
 
     [Header("데미지 이펙트")]
-    public float damageEffectDuration = 1f;
-    private MeshRenderer[] meshRenderers;
-    private Color[] originalColors;
-    
+    public GameObject GameOverVFX;
+    public float GameOverVFXDuration = 2f;
+    private SkinnedMeshRenderer[] meshRenderers;
+
+    [Header("TTS")]
+    public AudioClip GameOver0;
+    public AudioClip GameOver1;
+    public AudioClip GameOver2;
 
     void Start()
     {
-        meshRenderers = GetComponentsInChildren<MeshRenderer>();
+        meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         fadeController = FindAnyObjectByType<FadeController>();
+        playerController = FindObjectOfType<PlayerController>();
 
-        originalColors = new Color[meshRenderers.Length];
-        for (int i = 0; i < meshRenderers.Length; i++)
-        {
-            originalColors[i] = meshRenderers[i].material.color;
-        }
         fadeController.OnFadeFinished += HandleFadeFinished;
     }
 
@@ -37,34 +40,59 @@ public class PlayerHealth : MonoBehaviour
             fadeController.OnFadeFinished -= HandleFadeFinished;
     }
 
-
     public void Die()
     {
         Debug.Log("Die");
         isDie = true;
-        fadeController.StartFadeIn();
+
+        GameOverVFX.SetActive(true);
+        StartCoroutine(GameOverTime());
     }
 
     private void HandleFadeFinished()
     {
         if (isDie)
         {
-            transform.position = SpawnPoint.position;
+            GameOverVFX.SetActive(false);
+            player.transform.position = SpawnPoint.position;
+
+            foreach (SkinnedMeshRenderer meshRenderer in meshRenderers)
+            {
+                meshRenderer.gameObject.SetActive(true);
+            }
+            isDie = false;
         }
     }
 
-    IEnumerator DamageEffect()
+    IEnumerator GameOverTime()
     {
-        foreach(MeshRenderer meshRenderer in meshRenderers)
+        yield return new WaitForSeconds(GameOverVFXDuration);
+
+        foreach (SkinnedMeshRenderer meshRenderer in meshRenderers)
         {
-            meshRenderer.material.color = Color.red;
+            meshRenderer.gameObject.SetActive(false);
         }
 
-        yield return new WaitForSeconds(damageEffectDuration);
+        fadeController.StartFadeIn();
+    }
 
-        for (int i = 0; i < meshRenderers.Length; i++)
+    public void RandomGameOverTTS()
+    {
+        int random = Random.Range(0, 3);
+        switch (random)
         {
-            meshRenderers[i].material.color = originalColors[i];
+            case 0:
+                playerController.audioSource.clip = GameOver0;
+                playerController.audioSource.Play();
+                break;
+            case 1:
+                playerController.audioSource.clip = GameOver1;
+                playerController.audioSource.Play();
+                break;
+            case 2:
+                playerController.audioSource.clip = GameOver2;
+                playerController.audioSource.Play();
+                break;
         }
-    }    
+    }
 }

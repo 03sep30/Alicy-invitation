@@ -13,10 +13,12 @@ public class PlayerMovement : MonoBehaviour
     public float moveSpeed = 5f;
     public float jumpForce = 5f;
     public float dashSpeed = 2f;
+    public float bounceForce = 10f;
 
     public bool isJumping;
     public bool isDashing;
     public bool isBreaking;
+    public bool isWalking;
     public bool fanAvailable = false;
 
     private Animator animator;
@@ -26,10 +28,15 @@ public class PlayerMovement : MonoBehaviour
     private PlayerController playerController;
     private CameraController cam;
 
+    [Header("BGM")]
+    public AudioClip jumpingSound;
+    public AudioClip walkingSound;
+    public AudioClip breakingSound;    
+
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerHealth = GetComponent<PlayerHealth>();
+        playerHealth = GetComponentInChildren<PlayerHealth>();
         playerStamina = GetComponent<PlayerStamina>();
         playerController = GetComponent<PlayerController>();
         animator = GetComponent<Animator>();
@@ -62,6 +69,11 @@ public class PlayerMovement : MonoBehaviour
         {
             Jump();
         }
+
+        if (playerController.audioSource.clip == walkingSound)
+            playerController.audioSource.loop = true;
+        else
+            playerController.audioSource.loop = false;
     }
 
     void Move()
@@ -76,10 +88,21 @@ public class PlayerMovement : MonoBehaviour
             rb.MovePosition(rb.position + moveDirection * moveSpeed * Time.deltaTime);
 
             animator.SetInteger("State", (int)CharacterState.Walking);
+            isWalking = true;
+
+            
+            if (!playerController.audioSource.isPlaying)
+            {
+                playerController.audioSource.clip = walkingSound;
+                playerController.audioSource.Play();
+            }
         }
         else
         {
             animator.SetInteger("State", (int)CharacterState.Idle);
+            isWalking = false;
+            if (playerController.audioSource.isPlaying && playerController.audioSource.clip == walkingSound)
+                playerController.audioSource.Stop();
         }
     }
 
@@ -99,6 +122,10 @@ public class PlayerMovement : MonoBehaviour
                     rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
                 }
                 isJumping = true;
+
+                playerController.audioSource.clip = jumpingSound;
+                if (!playerController.audioSource.isPlaying) 
+                    playerController.audioSource.Play();
             }
         }
     }
@@ -108,14 +135,26 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             animator.SetInteger("State", (int)CharacterState.Running);
-            Vector3 dashDirection = transform.forward;
+            Vector3 dashDirection = cam.GetCameraForward();
             rb.velocity = dashDirection * dashSpeed;
-            playerStamina.DecreaseStamina(1);
-
+            //playerStamina.DecreaseStamina(1);
+            
+            if (playerController.currentSize == CharacterSize.Small && !isDashing)
+                isDashing = true;
             if (playerController.currentSize == CharacterSize.Big && !isBreaking)
             {
                 isBreaking = true;
             }
         }
+    }
+
+    public void Bounce()
+    {
+        Vector3 lookDirection = cam.GetCameraForward().normalized;
+
+        rb.velocity = Vector3.zero;
+        rb.AddForce(lookDirection * bounceForce, ForceMode.Impulse);
+        isDashing = false;
+        Debug.Log($"Bounced off wall in direction: {lookDirection}");
     }
 }

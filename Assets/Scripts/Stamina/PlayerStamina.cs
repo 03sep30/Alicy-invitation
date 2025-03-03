@@ -31,7 +31,7 @@ public class PlayerStamina : MonoBehaviour
         else
         {
             StaminaUI.StaminaText.text = $"0 / {MaxStamina}";
-            gameObject.GetComponent<PlayerHealth>().Die();
+            gameObject.GetComponentInChildren<PlayerHealth>().Die();
         }
     }
 }

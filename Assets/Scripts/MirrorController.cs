@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MirrorController : MonoBehaviour
 {
-    [Header("작아지는건 0, 커지는건 1")]
+    [Header("작아지는건 0, 커지는건 1, 원래 크기 2")]
     public int MirrorState; 
     public float waitTime = 2f;
 
@@ -30,22 +30,19 @@ public class MirrorController : MonoBehaviour
         var player = other.GetComponent<PlayerController>();
         if (player == null || isWaiting) return;
 
-        if (player.currentSize == CharacterSize.Normal)
+        if (MirrorState == 0)
         {
-            if (MirrorState == 0)
-            {
-                player.gameObject.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
-                player.currentSize = CharacterSize.Small;
-                StartWaiting();
-            }
-            if (MirrorState == 1)
-            {
-                player.gameObject.transform.localScale = new Vector3(10f, 10f, 10f);
-                player.currentSize = CharacterSize.Big;
-                StartWaiting();
-            }
+            player.gameObject.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            player.currentSize = CharacterSize.Small;
+            StartWaiting();
         }
-        else
+        if (MirrorState == 1)
+        {
+            player.gameObject.transform.localScale = new Vector3(10f, 10f, 10f);
+            player.currentSize = CharacterSize.Big;
+            StartWaiting();
+        }
+        if (MirrorState == 2)
         {
             player.gameObject.transform.localScale = new Vector3(5f, 5f, 5f);
             player.currentSize = CharacterSize.Normal;
