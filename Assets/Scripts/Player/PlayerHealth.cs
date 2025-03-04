@@ -32,6 +32,8 @@ public class PlayerHealth : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
+
+        gameObject.transform.parent.position = SpawnPoint.transform.position;
     }
 
     void OnDestroy()

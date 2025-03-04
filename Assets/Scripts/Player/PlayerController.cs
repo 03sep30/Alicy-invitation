@@ -68,7 +68,11 @@ public class PlayerController : MonoBehaviour
 
             coll.gameObject.GetComponent<ObstacleController>().Explosion();
             playerMovement.isBreaking = false;
-            
+
+        }
+        if (coll.gameObject.name == "Card.Spade")
+        {
+            gameObject.transform.parent = coll.transform;   
         }
     }
 
@@ -78,6 +82,10 @@ public class PlayerController : MonoBehaviour
         {
             isGrounded = false;
         }
+        if (collision.gameObject.name == "Card.Spade")
+        {
+            gameObject.transform.parent = null;
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -86,35 +94,39 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.GetComponent<TTSController>().PlayTTS();
         }
-        if (other.gameObject.layer == 6)
+        if (other.gameObject.CompareTag("ParryingObj"))
         {
-            if (other.gameObject.CompareTag("ParryingObj"))
+            var parryingObj = other.gameObject.GetComponent<ParryingObj>();
+
+            switch (parryingObj.Name)
             {
-                var parryingObj = other.gameObject.GetComponent<ParryingObj>();
-                parryingObj.Jump(gameObject);
-                switch (parryingObj.Name)
-                {
-                    case "Juice":
-                        parryingObj.UpdateSize(gameObject);
-                        Destroy(other.transform.parent.gameObject);
-                        break;
-                    case "TeaCup":
-                        //parryingObj.Invincibility(gameObject);
-                        //StartCoroutine(TeaCupTime());
-                        Destroy(other.transform.parent.gameObject);
-                        break;
-                    case "Raisin":
-                        parryingObj.UpdateSize(gameObject);
-                        Destroy(other.transform.parent.gameObject);
-                        break;
-                    case "Fan":
-                        playerMovement.fanAvailable = true;
-                        Destroy(other.transform.parent.gameObject);
-                        break;
-                    default:
-                        break;
-                }
+                case "Juice":
+                    parryingObj.UpdateSize(gameObject);
+                    Destroy(other.transform.parent.gameObject);
+                    break;
+                case "TeaCup":
+                    //parryingObj.Invincibility(gameObject);
+                    //StartCoroutine(TeaCupTime());
+                    Debug.Log("TEACUP");
+                    parryingObj.Jump(gameObject);
+                    //Destroy(other.transform.gameObject);
+                    break;
+                case "Raisin":
+                    parryingObj.UpdateSize(gameObject);
+                    Destroy(other.transform.parent.gameObject);
+                    break;
+                case "Fan":
+                    playerMovement.fanAvailable = true;
+                    Destroy(other.transform.parent.gameObject);
+                    break;
+                default:
+                    break;
             }
+        }
+
+        if (other.gameObject.CompareTag("SavePoint"))
+        {
+            playerHealth.SpawnPoint = other.gameObject.transform;
         }
     }
 
