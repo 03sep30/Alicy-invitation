@@ -80,7 +80,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            isGrounded = false;
+            //isGrounded = false;
         }
         if (collision.gameObject.name == "Card.Spade")
         {
