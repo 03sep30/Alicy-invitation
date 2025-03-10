@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
             lastGroundedY = transform.position.y;
             if (playerMovement.isDashing && currentSize == CharacterSize.Small)
             {
-                playerMovement.Bounce();
+
             }
         }
         if (currentSize == CharacterSize.Big && playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
@@ -128,16 +128,5 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth.SpawnPoint = other.gameObject.transform;
         }
-    }
-
-    IEnumerator TeaCupTime()
-    {
-        float originalJumpForce = playerMovement.jumpForce;
-        playerMovement.jumpForce *= 2f;
-
-        yield return new WaitForSeconds(10f);
-
-        playerMovement.jumpForce = originalJumpForce;
-        playerHealth.isDrinkingTeacup = false;
     }
 }

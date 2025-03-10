@@ -156,9 +156,9 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            JumpAndGravity();
+            //JumpAndGravity();
             GroundedCheck();
-            Move();
+            //Move();
         }
 
         private void LateUpdate()
@@ -222,7 +222,7 @@ namespace StarterAssets
                 _cinemachineTargetYaw, 0.0f);
         }
 
-        private void Move()
+        public void Move()
         {
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
@@ -290,7 +290,7 @@ namespace StarterAssets
             }
         }
 
-        private void JumpAndGravity()
+        public void JumpAndGravity()
         {
             if (Grounded)
             {
