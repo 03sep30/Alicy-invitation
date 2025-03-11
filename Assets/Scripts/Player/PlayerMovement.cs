@@ -42,19 +42,19 @@ public class PlayerMovement : MonoBehaviour
     {
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Small)
         {
-            gameObject.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             thirdPersonController.Move();
             Boost();
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
         {
-            gameObject.transform.localScale = new Vector3(5f, 5f, 5f);
+            gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             thirdPersonController.Move();
             thirdPersonController.JumpAndGravity();
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
         {
-            gameObject.transform.localScale = new Vector3(10f, 10f, 10f);
+            gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
             thirdPersonController.Move();
             Dash();
         }
@@ -79,7 +79,10 @@ public class PlayerMovement : MonoBehaviour
 
     public void Boost()
     {
-        thirdPersonController.MoveSpeed = 15f;
+        float boostSpeed = 30f;
+        float jumpForce = 5f;
+        thirdPersonController.MoveSpeed = boostSpeed;
+        thirdPersonController.JumpHeight = jumpForce;
         isBoosting = true;
     }
 }

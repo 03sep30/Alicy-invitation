@@ -110,6 +110,7 @@ namespace StarterAssets
 
         private bool _hasAnimator;
 
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -156,9 +157,9 @@ namespace StarterAssets
         {
             _hasAnimator = TryGetComponent(out _animator);
 
-            //JumpAndGravity();
+            JumpAndGravity();
             GroundedCheck();
-            //Move();
+            Move();
         }
 
         private void LateUpdate()
@@ -195,7 +196,7 @@ namespace StarterAssets
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
-                //Don't multiply mouse input by Time.deltaTime;
+                //Don't multiply mouse input by Time.deltaTime; 
                 float deltaTimeMultiplier = IsCurrentDeviceMouse ? 1.0f : Time.deltaTime;
 
                 _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
