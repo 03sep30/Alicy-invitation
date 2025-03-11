@@ -7,7 +7,7 @@ public class PlayerHealth : MonoBehaviour
 {
     private PlayerController playerController;
 
-    [Header("체력")]
+    [Header("????")]
     public bool isDrinkingTeacup = false;
     public bool isDie;
 
@@ -15,7 +15,7 @@ public class PlayerHealth : MonoBehaviour
     public Transform SpawnPoint;
     public GameObject player;
 
-    [Header("데미지 이펙트")]
+    [Header("?????? ??????")]
     public GameObject GameOverVFX;
     public float GameOverVFXDuration = 2f;
     private SkinnedMeshRenderer[] meshRenderers;
@@ -31,9 +31,9 @@ public class PlayerHealth : MonoBehaviour
         fadeController = FindAnyObjectByType<FadeController>();
         playerController = FindObjectOfType<PlayerController>();
 
-        fadeController.OnFadeFinished += HandleFadeFinished;
+        //fadeController.OnFadeFinished += HandleFadeFinished;
 
-        gameObject.transform.parent.position = SpawnPoint.transform.position;
+        //gameObject.transform.parent.position = SpawnPoint.transform.position;
     }
 
     void OnDestroy()

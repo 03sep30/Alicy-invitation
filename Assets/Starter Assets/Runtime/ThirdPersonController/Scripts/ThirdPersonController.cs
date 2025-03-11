@@ -177,21 +177,10 @@ namespace StarterAssets
 
         private void GroundedCheck()
         {
-            // set sphere position, with offset
-            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-
-            // OverlapSphere를 사용해 태그 검사
-            Collider[] hitColliders = Physics.OverlapSphere(spherePosition, GroundedRadius);
-            Grounded = false;
-
-            foreach (Collider hitCollider in hitColliders)
-            {
-                if (hitCollider.CompareTag("Obstacle")) // 바닥 태그 검사
-                {
-                    Grounded = true;
-                    break;
-                }
-            }
+            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
+                transform.position.z);
+            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
+                QueryTriggerInteraction.Ignore);
 
             // update animator if using character
             if (_hasAnimator)

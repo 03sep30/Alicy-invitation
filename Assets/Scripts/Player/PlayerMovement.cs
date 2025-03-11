@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public bool isDashing;
     public bool isBreaking;
     public bool isWalking;
-    public bool fanAvailable = false;
+    public bool isBoosting;
 
     private PlayerHealth playerHealth;
     private PlayerStamina playerStamina;
@@ -36,23 +36,25 @@ public class PlayerMovement : MonoBehaviour
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
-
-        playerController.currentSize = CharacterSize.Normal;
     }
 
     void Update()
     {
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Small)
         {
-            Dash();
+            gameObject.transform.localScale = new Vector3(2.5f, 2.5f, 2.5f);
+            thirdPersonController.Move();
+            Boost();
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
         {
+            gameObject.transform.localScale = new Vector3(5f, 5f, 5f);
             thirdPersonController.Move();
             thirdPersonController.JumpAndGravity();
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
         {
+            gameObject.transform.localScale = new Vector3(10f, 10f, 10f);
             thirdPersonController.Move();
             Dash();
         }
@@ -68,12 +70,16 @@ public class PlayerMovement : MonoBehaviour
         {
             //playerStamina.DecreaseStamina(1);
             
-            if (playerController.currentSize == CharacterSize.Small && !isDashing)
-                isDashing = true;
             if (playerController.currentSize == CharacterSize.Big && !isBreaking)
             {
                 isBreaking = true;
             }
         }
+    }
+
+    public void Boost()
+    {
+        thirdPersonController.MoveSpeed = 15f;
+        isBoosting = true;
     }
 }

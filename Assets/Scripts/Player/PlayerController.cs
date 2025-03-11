@@ -1,4 +1,5 @@
 using Cinemachine;
+using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -18,6 +19,7 @@ public class PlayerController : MonoBehaviour
     
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
+    private ThirdPersonController thirdPersonController;
 
     public bool isGrounded = false;
     [SerializeField] private float lastGroundedY;
@@ -30,6 +32,7 @@ public class PlayerController : MonoBehaviour
         currentSize = CharacterSize.Normal;
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponentInChildren<PlayerHealth>();
+        thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
     }
 
@@ -48,18 +51,13 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnCollisionEnter(Collision coll)
+    void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        Debug.Log($"{coll.gameObject.name}");
+        //Debug.Log($"{coll.gameObject.name}");
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
-            isGrounded = true;
             lastGroundedY = transform.position.y;
-            if (playerMovement.isDashing && currentSize == CharacterSize.Small)
-            {
-
-            }
         }
         if (currentSize == CharacterSize.Big && playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
         {
@@ -80,7 +78,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            //isGrounded = false;
+            
         }
         if (collision.gameObject.name == "Card.Spade")
         {
@@ -116,7 +114,7 @@ public class PlayerController : MonoBehaviour
                     Destroy(other.transform.parent.gameObject);
                     break;
                 case "Fan":
-                    playerMovement.fanAvailable = true;
+                    //playerMovement.fanAvailable = true;
                     Destroy(other.transform.parent.gameObject);
                     break;
                 default:
