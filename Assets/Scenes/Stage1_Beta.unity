@@ -170,7 +170,7 @@ GameObject:
   - component: {fileID: 9789563}
   - component: {fileID: 9789562}
   - component: {fileID: 9789564}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -242,8 +242,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9789559}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &9789564
-BoxCollider:
+--- !u!64 &9789564
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -260,9 +260,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.0000076293945, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &14917921
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,7 +276,7 @@ GameObject:
   - component: {fileID: 14917925}
   - component: {fileID: 14917924}
   - component: {fileID: 14917923}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -380,7 +381,7 @@ GameObject:
   - component: {fileID: 18503108}
   - component: {fileID: 18503107}
   - component: {fileID: 18503109}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -452,8 +453,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 18503104}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &18503109
-BoxCollider:
+--- !u!64 &18503109
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -470,9 +471,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.0000076293945, y: 0, z: -0.0000009536743}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &21307195
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,9 +487,10 @@ GameObject:
   - component: {fileID: 21307198}
   - component: {fileID: 21307197}
   - component: {fileID: 21307196}
+  - component: {fileID: 21307200}
   m_Layer: 0
   m_Name: CheckPoint (2)
-  m_TagString: Untagged
+  m_TagString: SavePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -507,7 +510,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -571,13 +574,40 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21307195}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -7268, y: 2996, z: -1763}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 543.6632, y: 340.53693, z: 91.23769}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1817151674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &21307200
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 21307195}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &21410981
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,7 +620,7 @@ GameObject:
   - component: {fileID: 21410985}
   - component: {fileID: 21410984}
   - component: {fileID: 21410986}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -662,8 +692,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 21410981}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &21410986
-BoxCollider:
+--- !u!64 &21410986
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -680,9 +710,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000048, z: 1.0000001}
-  m_Center: {x: 0.000000059604645, y: 2.9487524e-13, z: -0.00000014901161}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &31230520
 GameObject:
   m_ObjectHideFlags: 0
@@ -695,7 +726,7 @@ GameObject:
   - component: {fileID: 31230523}
   - component: {fileID: 31230522}
   - component: {fileID: 31230525}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -767,8 +798,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1680880494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &31230525
-BoxCollider:
+--- !u!64 &31230525
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -785,9 +816,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: -0.00000756979, y: -0.000015258789, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &35300297
 GameObject:
   m_ObjectHideFlags: 0
@@ -800,7 +832,7 @@ GameObject:
   - component: {fileID: 35300301}
   - component: {fileID: 35300300}
   - component: {fileID: 35300302}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -872,8 +904,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 35300297}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &35300302
-BoxCollider:
+--- !u!64 &35300302
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -890,9 +922,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &50157779
 GameObject:
   m_ObjectHideFlags: 0
@@ -905,7 +938,7 @@ GameObject:
   - component: {fileID: 50157782}
   - component: {fileID: 50157781}
   - component: {fileID: 50157783}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -977,8 +1010,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 50157779}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &50157783
-BoxCollider:
+--- !u!64 &50157783
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -995,9 +1028,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &63972205
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1044,7 @@ GameObject:
   - component: {fileID: 63972208}
   - component: {fileID: 63972207}
   - component: {fileID: 63972210}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1082,8 +1116,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 89743291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &63972210
-BoxCollider:
+--- !u!64 &63972210
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1100,9 +1134,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.0000005662441}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &89743290
 GameObject:
   m_ObjectHideFlags: 0
@@ -1149,7 +1184,7 @@ GameObject:
   - component: {fileID: 100117019}
   - component: {fileID: 100117018}
   - component: {fileID: 100117017}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1256,7 +1291,7 @@ GameObject:
   - component: {fileID: 119658900}
   - component: {fileID: 119658899}
   - component: {fileID: 119658898}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1361,7 +1396,7 @@ GameObject:
   - component: {fileID: 134368469}
   - component: {fileID: 134368468}
   - component: {fileID: 134368470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1433,8 +1468,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 134368465}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &134368470
-BoxCollider:
+--- !u!64 &134368470
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1451,9 +1486,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000002}
-  m_Center: {x: 0.0000005364418, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &137335257
 GameObject:
   m_ObjectHideFlags: 0
@@ -1466,7 +1502,7 @@ GameObject:
   - component: {fileID: 137335260}
   - component: {fileID: 137335259}
   - component: {fileID: 137335258}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1571,7 +1607,7 @@ GameObject:
   - component: {fileID: 146256684}
   - component: {fileID: 146256683}
   - component: {fileID: 146256685}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1676,7 +1712,7 @@ GameObject:
   - component: {fileID: 158309197}
   - component: {fileID: 158309196}
   - component: {fileID: 158309198}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1748,8 +1784,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 158309193}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &158309198
-BoxCollider:
+--- !u!64 &158309198
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1766,9 +1802,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.00000008940697, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &169561263
 GameObject:
   m_ObjectHideFlags: 0
@@ -1781,7 +1818,7 @@ GameObject:
   - component: {fileID: 169561267}
   - component: {fileID: 169561266}
   - component: {fileID: 169561265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1886,7 +1923,7 @@ GameObject:
   - component: {fileID: 172187687}
   - component: {fileID: 172187686}
   - component: {fileID: 172187688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -1958,8 +1995,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 172187683}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &172187688
-BoxCollider:
+--- !u!64 &172187688
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1976,9 +2013,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.00000005960465, y: 0.000015258789, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &184022052
 GameObject:
   m_ObjectHideFlags: 0
@@ -1991,7 +2029,7 @@ GameObject:
   - component: {fileID: 184022056}
   - component: {fileID: 184022055}
   - component: {fileID: 184022057}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2063,8 +2101,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 184022052}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &184022057
-BoxCollider:
+--- !u!64 &184022057
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2081,9 +2119,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000001}
-  m_Center: {x: 0.000000059604645, y: 0.000030517578, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &203844586
 GameObject:
   m_ObjectHideFlags: 0
@@ -2252,7 +2291,7 @@ GameObject:
   - component: {fileID: 235782104}
   - component: {fileID: 235782103}
   - component: {fileID: 235782102}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2357,7 +2396,7 @@ GameObject:
   - component: {fileID: 246627337}
   - component: {fileID: 246627336}
   - component: {fileID: 246627339}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2429,8 +2468,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459883044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &246627339
-BoxCollider:
+--- !u!64 &246627339
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2447,9 +2486,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.0000019669533, y: 0.00000047683716, z: -0.00000020861626}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &249619727
 GameObject:
   m_ObjectHideFlags: 0
@@ -2462,7 +2502,7 @@ GameObject:
   - component: {fileID: 249619730}
   - component: {fileID: 249619729}
   - component: {fileID: 249619732}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pancake0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2567,7 +2607,7 @@ GameObject:
   - component: {fileID: 259822620}
   - component: {fileID: 259822619}
   - component: {fileID: 259822621}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2639,8 +2679,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 259822616}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &259822621
-BoxCollider:
+--- !u!64 &259822621
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2657,9 +2697,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000036, z: 1.0000004}
-  m_Center: {x: 0.000000059604645, y: -0.0000019073486, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &260739505
 GameObject:
   m_ObjectHideFlags: 0
@@ -2672,7 +2713,7 @@ GameObject:
   - component: {fileID: 260739509}
   - component: {fileID: 260739508}
   - component: {fileID: 260739510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2744,8 +2785,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 260739505}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &260739510
-BoxCollider:
+--- !u!64 &260739510
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2762,9 +2803,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0.0000038146973, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &261112210
 GameObject:
   m_ObjectHideFlags: 0
@@ -2777,7 +2819,7 @@ GameObject:
   - component: {fileID: 261112214}
   - component: {fileID: 261112213}
   - component: {fileID: 261112215}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -2849,8 +2891,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 261112210}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &261112215
-BoxCollider:
+--- !u!64 &261112215
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -2867,9 +2909,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.0000019669533, y: 0.0000038146973, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &269259558
 GameObject:
   m_ObjectHideFlags: 0
@@ -2882,7 +2925,7 @@ GameObject:
   - component: {fileID: 269259562}
   - component: {fileID: 269259561}
   - component: {fileID: 269259560}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2987,7 +3030,7 @@ GameObject:
   - component: {fileID: 272693601}
   - component: {fileID: 272693600}
   - component: {fileID: 272693602}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3059,8 +3102,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 272693597}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &272693602
-BoxCollider:
+--- !u!64 &272693602
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3077,9 +3120,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &275154002
 GameObject:
   m_ObjectHideFlags: 0
@@ -3092,7 +3136,7 @@ GameObject:
   - component: {fileID: 275154005}
   - component: {fileID: 275154004}
   - component: {fileID: 275154003}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3197,7 +3241,7 @@ GameObject:
   - component: {fileID: 282502228}
   - component: {fileID: 282502227}
   - component: {fileID: 282502229}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3269,8 +3313,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282502224}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &282502229
-BoxCollider:
+--- !u!64 &282502229
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3287,9 +3331,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000004, y: 2.0000005, z: 1.0000002}
-  m_Center: {x: 0.00000005960466, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &282508419
 GameObject:
   m_ObjectHideFlags: 0
@@ -3302,7 +3347,7 @@ GameObject:
   - component: {fileID: 282508423}
   - component: {fileID: 282508422}
   - component: {fileID: 282508424}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3374,8 +3419,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282508419}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &282508424
-BoxCollider:
+--- !u!64 &282508424
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3392,9 +3437,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.00000756979, y: -0.000015258789, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &285200501
 GameObject:
   m_ObjectHideFlags: 0
@@ -3407,7 +3453,7 @@ GameObject:
   - component: {fileID: 285200505}
   - component: {fileID: 285200504}
   - component: {fileID: 285200506}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3479,8 +3525,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 285200501}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &285200506
-BoxCollider:
+--- !u!64 &285200506
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3497,9 +3543,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: -0.0000076293945, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &288465721
 GameObject:
   m_ObjectHideFlags: 0
@@ -3512,7 +3559,7 @@ GameObject:
   - component: {fileID: 288465724}
   - component: {fileID: 288465723}
   - component: {fileID: 288465722}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3741,37 +3788,14 @@ GameObject:
   - component: {fileID: 324405821}
   - component: {fileID: 324405820}
   - component: {fileID: 324405819}
-  - component: {fileID: 324405818}
-  m_Layer: 0
+  - component: {fileID: 324405822}
+  m_Layer: 7
   m_Name: Cone
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &324405818
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324405817}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5000001
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
 --- !u!23 &324405819
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3837,6 +3861,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1303044027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 20.276}
+--- !u!64 &324405822
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 324405817}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &334228282
 GameObject:
   m_ObjectHideFlags: 0
@@ -3849,7 +3895,7 @@ GameObject:
   - component: {fileID: 334228286}
   - component: {fileID: 334228285}
   - component: {fileID: 334228287}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -3921,8 +3967,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 334228282}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &334228287
-BoxCollider:
+--- !u!64 &334228287
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -3939,9 +3985,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.0000004172325, y: 0.0000076293945, z: -0.00000014901161}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &337621816
 GameObject:
   m_ObjectHideFlags: 0
@@ -3983,7 +4030,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 386783231822977905, guid: 2a5c4a2b636857747bef73bd829d6f89, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1775304386921265865, guid: 2a5c4a2b636857747bef73bd829d6f89, type: 3}
       propertyPath: m_LocalScale.x
@@ -4039,11 +4086,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4304859523717201089, guid: 2a5c4a2b636857747bef73bd829d6f89, type: 3}
       propertyPath: m_Name
-      value: Trail
+      value: Cheshire
       objectReference: {fileID: 0}
     - target: {fileID: 4304859523717201089, guid: 2a5c4a2b636857747bef73bd829d6f89, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4808776185851682836, guid: 2a5c4a2b636857747bef73bd829d6f89, type: 3}
       propertyPath: m_PreviewTimeScale
@@ -4074,7 +4121,7 @@ GameObject:
   - component: {fileID: 360421097}
   - component: {fileID: 360421096}
   - component: {fileID: 360421098}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4146,8 +4193,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360421093}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &360421098
-BoxCollider:
+--- !u!64 &360421098
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4164,9 +4211,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000001}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &375021472
 GameObject:
   m_ObjectHideFlags: 0
@@ -4179,7 +4227,7 @@ GameObject:
   - component: {fileID: 375021475}
   - component: {fileID: 375021474}
   - component: {fileID: 375021473}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Butter
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4284,7 +4332,7 @@ GameObject:
   - component: {fileID: 378934698}
   - component: {fileID: 378934697}
   - component: {fileID: 378934696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4504,7 +4552,7 @@ GameObject:
   - component: {fileID: 400977899}
   - component: {fileID: 400977898}
   - component: {fileID: 400977900}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4576,8 +4624,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400977895}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &400977900
-BoxCollider:
+--- !u!64 &400977900
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4594,9 +4642,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.00000756979, y: -0.000015258789, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &407642652
 GameObject:
   m_ObjectHideFlags: 0
@@ -4609,7 +4658,7 @@ GameObject:
   - component: {fileID: 407642655}
   - component: {fileID: 407642654}
   - component: {fileID: 407642653}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4714,7 +4763,7 @@ GameObject:
   - component: {fileID: 414176507}
   - component: {fileID: 414176506}
   - component: {fileID: 414176508}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4786,8 +4835,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 414176503}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &414176508
-BoxCollider:
+--- !u!64 &414176508
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -4804,9 +4853,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: -0.0000037550926, y: 0.0000038146973, z: -0.0000019967556}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &418545257
 GameObject:
   m_ObjectHideFlags: 0
@@ -4851,7 +4901,7 @@ GameObject:
   - component: {fileID: 423885413}
   - component: {fileID: 423885412}
   - component: {fileID: 423885411}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -4958,7 +5008,7 @@ GameObject:
   - component: {fileID: 427525695}
   - component: {fileID: 427525694}
   - component: {fileID: 427525693}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5063,7 +5113,7 @@ GameObject:
   - component: {fileID: 429681763}
   - component: {fileID: 429681762}
   - component: {fileID: 429681764}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5135,8 +5185,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 429681759}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &429681764
-BoxCollider:
+--- !u!64 &429681764
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5153,9 +5203,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &433123825
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5229,7 +5280,7 @@ GameObject:
   - component: {fileID: 433911615}
   - component: {fileID: 433911614}
   - component: {fileID: 433911616}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5301,8 +5352,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 433911611}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &433911616
-BoxCollider:
+--- !u!64 &433911616
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5319,9 +5370,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1.9999998, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: -0.00000047683716, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &441314615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5334,7 +5386,7 @@ GameObject:
   - component: {fileID: 441314619}
   - component: {fileID: 441314618}
   - component: {fileID: 441314620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5406,8 +5458,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 441314615}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &441314620
-BoxCollider:
+--- !u!64 &441314620
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5424,9 +5476,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999998, z: 1.0000002}
-  m_Center: {x: 0.000015318394, y: -0.000061035156, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &447589614
 GameObject:
   m_ObjectHideFlags: 0
@@ -5439,7 +5492,7 @@ GameObject:
   - component: {fileID: 447589617}
   - component: {fileID: 447589616}
   - component: {fileID: 447589615}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5694,7 +5747,7 @@ GameObject:
   - component: {fileID: 481967714}
   - component: {fileID: 481967713}
   - component: {fileID: 481967715}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5766,8 +5819,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481967711}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &481967715
-BoxCollider:
+--- !u!64 &481967715
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -5784,9 +5837,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2.0000002, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0.0000009536743, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &482404545
 GameObject:
   m_ObjectHideFlags: 0
@@ -5798,9 +5852,9 @@ GameObject:
   - component: {fileID: 482404546}
   - component: {fileID: 482404549}
   - component: {fileID: 482404548}
-  - component: {fileID: 482404550}
   - component: {fileID: 482404551}
-  m_Layer: 0
+  - component: {fileID: 482404552}
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -5872,27 +5926,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 482404545}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &482404550
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 482404545}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0.000015258789, z: -0.00000008940698}
 --- !u!95 &482404551
 Animator:
   serializedVersion: 5
@@ -5914,6 +5947,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &482404552
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482404545}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &496616895
 GameObject:
   m_ObjectHideFlags: 0
@@ -5926,7 +5981,7 @@ GameObject:
   - component: {fileID: 496616899}
   - component: {fileID: 496616898}
   - component: {fileID: 496616897}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6031,7 +6086,7 @@ GameObject:
   - component: {fileID: 507844018}
   - component: {fileID: 507844017}
   - component: {fileID: 507844016}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6136,7 +6191,7 @@ GameObject:
   - component: {fileID: 508558018}
   - component: {fileID: 508558017}
   - component: {fileID: 508558019}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6208,8 +6263,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508558014}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &508558019
-BoxCollider:
+--- !u!64 &508558019
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6226,9 +6281,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.0000019669533, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &530581607
 GameObject:
   m_ObjectHideFlags: 0
@@ -6278,7 +6334,7 @@ GameObject:
   - component: {fileID: 532173303}
   - component: {fileID: 532173302}
   - component: {fileID: 532173301}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6383,7 +6439,7 @@ GameObject:
   - component: {fileID: 533114619}
   - component: {fileID: 533114618}
   - component: {fileID: 533114620}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (13)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6455,8 +6511,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 533114615}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &533114620
-BoxCollider:
+--- !u!64 &533114620
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6473,9 +6529,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.0000012, z: 1.0000002}
-  m_Center: {x: 0.00000005960464, y: 0.000030517578, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &542364614
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6535,11 +6592,18 @@ PrefabInstance:
     - target: {fileID: 2070925441746177913, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
       propertyPath: m_LookAt
       value: 
-      objectReference: {fileID: 8338988564966734790}
+      objectReference: {fileID: 1958905941}
+    - target: {fileID: 2070925441746177913, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      propertyPath: m_Lens.FarClipPlane
+      value: 1000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1564562527}
   m_SourcePrefab: {fileID: 100100000, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
 --- !u!1 &553702460
 GameObject:
@@ -6553,7 +6617,7 @@ GameObject:
   - component: {fileID: 553702464}
   - component: {fileID: 553702463}
   - component: {fileID: 553702465}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6625,8 +6689,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 553702460}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &553702465
-BoxCollider:
+--- !u!64 &553702465
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6643,9 +6707,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.000015258789, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &557434229
 GameObject:
   m_ObjectHideFlags: 0
@@ -6658,7 +6723,7 @@ GameObject:
   - component: {fileID: 557434233}
   - component: {fileID: 557434232}
   - component: {fileID: 557434231}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6763,7 +6828,7 @@ GameObject:
   - component: {fileID: 560691493}
   - component: {fileID: 560691492}
   - component: {fileID: 560691495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6835,8 +6900,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459883044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &560691495
-BoxCollider:
+--- !u!64 &560691495
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6853,9 +6918,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: 0.00000014901161}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &567904531
 GameObject:
   m_ObjectHideFlags: 0
@@ -6868,7 +6934,7 @@ GameObject:
   - component: {fileID: 567904534}
   - component: {fileID: 567904533}
   - component: {fileID: 567904536}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: donut
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -6940,8 +7006,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1303044027}
   m_LocalEulerAnglesHint: {x: 3.743, y: -39.121, z: -85.411}
---- !u!65 &567904536
-BoxCollider:
+--- !u!64 &567904536
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6958,9 +7024,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000005, y: 2.0000021, z: 1.0000004}
-  m_Center: {x: 7.1054274e-15, y: 1.2789769e-13, z: 0.0000003874302}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &572183295
 GameObject:
   m_ObjectHideFlags: 0
@@ -6973,7 +7040,7 @@ GameObject:
   - component: {fileID: 572183298}
   - component: {fileID: 572183297}
   - component: {fileID: 572183300}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7045,8 +7112,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 89743291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &572183300
-BoxCollider:
+--- !u!64 &572183300
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7063,9 +7130,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.0000002, z: 1.0000001}
-  m_Center: {x: -0.0000037550926, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &586185234
 GameObject:
   m_ObjectHideFlags: 0
@@ -7078,7 +7146,7 @@ GameObject:
   - component: {fileID: 586185238}
   - component: {fileID: 586185237}
   - component: {fileID: 586185239}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (14)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7150,8 +7218,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 586185234}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &586185239
-BoxCollider:
+--- !u!64 &586185239
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7168,9 +7236,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1.9999999, z: 1.0000004}
-  m_Center: {x: -0.000001847744, y: 0, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &595119460
 GameObject:
   m_ObjectHideFlags: 0
@@ -7215,7 +7284,7 @@ GameObject:
   - component: {fileID: 621130970}
   - component: {fileID: 621130969}
   - component: {fileID: 621130971}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7433,7 +7502,7 @@ GameObject:
   - component: {fileID: 630092674}
   - component: {fileID: 630092673}
   - component: {fileID: 630092676}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7505,8 +7574,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459883044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &630092676
-BoxCollider:
+--- !u!64 &630092676
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7523,9 +7592,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &630308318
 GameObject:
   m_ObjectHideFlags: 0
@@ -7538,7 +7608,7 @@ GameObject:
   - component: {fileID: 630308322}
   - component: {fileID: 630308321}
   - component: {fileID: 630308323}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (14)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7610,8 +7680,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 630308318}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &630308323
-BoxCollider:
+--- !u!64 &630308323
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7628,9 +7698,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.000004, z: 1.0000004}
-  m_Center: {x: -0.0000004172325, y: -0.000015258789, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &640746066
 GameObject:
   m_ObjectHideFlags: 0
@@ -7643,7 +7714,7 @@ GameObject:
   - component: {fileID: 640746069}
   - component: {fileID: 640746068}
   - component: {fileID: 640746071}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7715,8 +7786,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1680880494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &640746071
-BoxCollider:
+--- !u!64 &640746071
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7733,9 +7804,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1.9999999, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: -0.000015258789, z: -0.0000005662441}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &644329060
 GameObject:
   m_ObjectHideFlags: 0
@@ -7781,7 +7853,7 @@ GameObject:
   - component: {fileID: 644708802}
   - component: {fileID: 644708801}
   - component: {fileID: 644708800}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (16)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7886,7 +7958,7 @@ GameObject:
   - component: {fileID: 647807215}
   - component: {fileID: 647807214}
   - component: {fileID: 647807216}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -7958,8 +8030,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 647807211}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &647807216
-BoxCollider:
+--- !u!64 &647807216
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -7976,9 +8048,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.0000076293945, y: -0.0000076293945, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &648711274
 GameObject:
   m_ObjectHideFlags: 0
@@ -8036,7 +8109,7 @@ GameObject:
   - component: {fileID: 653796140}
   - component: {fileID: 653796139}
   - component: {fileID: 653796141}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8110,8 +8183,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653796136}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &653796141
-BoxCollider:
+--- !u!64 &653796141
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8128,9 +8201,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.0000008940697, y: 0.000015258789, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &662866163
 GameObject:
   m_ObjectHideFlags: 0
@@ -8143,7 +8217,7 @@ GameObject:
   - component: {fileID: 662866166}
   - component: {fileID: 662866165}
   - component: {fileID: 662866168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pancake2
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8248,7 +8322,7 @@ GameObject:
   - component: {fileID: 675710431}
   - component: {fileID: 675710430}
   - component: {fileID: 675710432}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8320,8 +8394,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 675710427}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &675710432
-BoxCollider:
+--- !u!64 &675710432
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8338,9 +8412,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
-  m_Center: {x: -0.00000017881393, y: 0, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &698729466
 GameObject:
   m_ObjectHideFlags: 0
@@ -8353,7 +8428,7 @@ GameObject:
   - component: {fileID: 698729470}
   - component: {fileID: 698729469}
   - component: {fileID: 698729468}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8458,7 +8533,7 @@ GameObject:
   - component: {fileID: 708832780}
   - component: {fileID: 708832779}
   - component: {fileID: 708832781}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8530,8 +8605,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708832777}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &708832781
-BoxCollider:
+--- !u!64 &708832781
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8548,9 +8623,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1.9999999, z: 1.0000004}
-  m_Center: {x: 0.000003874302, y: -0.0000019073486, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &714242399
 GameObject:
   m_ObjectHideFlags: 0
@@ -8563,7 +8639,7 @@ GameObject:
   - component: {fileID: 714242403}
   - component: {fileID: 714242402}
   - component: {fileID: 714242401}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8668,7 +8744,7 @@ GameObject:
   - component: {fileID: 721585826}
   - component: {fileID: 721585825}
   - component: {fileID: 721585828}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8740,8 +8816,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459883044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &721585828
-BoxCollider:
+--- !u!64 &721585828
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8758,9 +8834,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.000001847744, y: 0.00000047683716, z: -0.00000020861626}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &730525395
 GameObject:
   m_ObjectHideFlags: 0
@@ -8773,7 +8850,7 @@ GameObject:
   - component: {fileID: 730525399}
   - component: {fileID: 730525398}
   - component: {fileID: 730525400}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8845,8 +8922,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 730525395}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &730525400
-BoxCollider:
+--- !u!64 &730525400
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8863,9 +8940,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.0000004172325, y: -0.0000076293945, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &733542570
 GameObject:
   m_ObjectHideFlags: 0
@@ -8878,7 +8956,7 @@ GameObject:
   - component: {fileID: 733542574}
   - component: {fileID: 733542573}
   - component: {fileID: 733542575}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -8950,8 +9028,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733542570}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &733542575
-BoxCollider:
+--- !u!64 &733542575
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -8968,9 +9046,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000004, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000003874302, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &739558154
 GameObject:
   m_ObjectHideFlags: 0
@@ -8983,7 +9062,7 @@ GameObject:
   - component: {fileID: 739558158}
   - component: {fileID: 739558157}
   - component: {fileID: 739558159}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (15)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9055,8 +9134,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 739558154}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &739558159
-BoxCollider:
+--- !u!64 &739558159
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9073,9 +9152,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2.0000005, z: 1.0000005}
-  m_Center: {x: 0.00000005960465, y: 0.000030517578, z: -0.00000008940699}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &742101985
 GameObject:
   m_ObjectHideFlags: 0
@@ -9121,7 +9201,7 @@ GameObject:
   - component: {fileID: 746094872}
   - component: {fileID: 746094871}
   - component: {fileID: 746094873}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9193,8 +9273,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 746094868}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &746094873
-BoxCollider:
+--- !u!64 &746094873
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9211,9 +9291,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.0000076293945, y: -0.0000076293945, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &754278747
 GameObject:
   m_ObjectHideFlags: 0
@@ -9263,7 +9344,7 @@ GameObject:
   - component: {fileID: 755263923}
   - component: {fileID: 755263922}
   - component: {fileID: 755263924}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9335,8 +9416,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 755263919}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &755263924
-BoxCollider:
+--- !u!64 &755263924
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9353,9 +9434,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.0000076293945, y: 0.0000076293945, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &761206374
 GameObject:
   m_ObjectHideFlags: 0
@@ -9401,7 +9483,7 @@ GameObject:
   - component: {fileID: 781291196}
   - component: {fileID: 781291195}
   - component: {fileID: 781291197}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9473,8 +9555,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 781291192}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &781291197
-BoxCollider:
+--- !u!64 &781291197
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9491,9 +9573,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0.0000038146973, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &800418258
 GameObject:
   m_ObjectHideFlags: 0
@@ -9539,37 +9622,14 @@ GameObject:
   - component: {fileID: 809557627}
   - component: {fileID: 809557626}
   - component: {fileID: 809557625}
-  - component: {fileID: 809557624}
-  m_Layer: 0
+  - component: {fileID: 809557628}
+  m_Layer: 7
   m_Name: IceCream0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &809557624
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 809557623}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Height: 2
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &809557625
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -9635,6 +9695,28 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1303044027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &809557628
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 809557623}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &812340061
 GameObject:
   m_ObjectHideFlags: 0
@@ -9647,7 +9729,7 @@ GameObject:
   - component: {fileID: 812340065}
   - component: {fileID: 812340064}
   - component: {fileID: 812340066}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9719,8 +9801,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 812340061}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &812340066
-BoxCollider:
+--- !u!64 &812340066
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9737,9 +9819,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1.9999999, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &822904344
 GameObject:
   m_ObjectHideFlags: 0
@@ -9752,7 +9835,7 @@ GameObject:
   - component: {fileID: 822904348}
   - component: {fileID: 822904347}
   - component: {fileID: 822904349}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9824,8 +9907,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 822904344}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &822904349
-BoxCollider:
+--- !u!64 &822904349
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9842,9 +9925,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.0000004172325, y: -0.000015258789, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &832165765
 GameObject:
   m_ObjectHideFlags: 0
@@ -9857,7 +9941,7 @@ GameObject:
   - component: {fileID: 832165769}
   - component: {fileID: 832165768}
   - component: {fileID: 832165770}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -9929,8 +10013,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 832165765}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &832165770
-BoxCollider:
+--- !u!64 &832165770
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -9947,9 +10031,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.0000005364418, y: 0, z: 0.00000014901163}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &842665261
 GameObject:
   m_ObjectHideFlags: 0
@@ -9962,7 +10047,7 @@ GameObject:
   - component: {fileID: 842665264}
   - component: {fileID: 842665263}
   - component: {fileID: 842665266}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Plate
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10067,7 +10152,7 @@ GameObject:
   - component: {fileID: 861625573}
   - component: {fileID: 861625572}
   - component: {fileID: 861625571}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10172,7 +10257,7 @@ GameObject:
   - component: {fileID: 866932991}
   - component: {fileID: 866932990}
   - component: {fileID: 866932989}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10277,7 +10362,7 @@ GameObject:
   - component: {fileID: 870049157}
   - component: {fileID: 870049156}
   - component: {fileID: 870049158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10349,8 +10434,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 870049153}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &870049158
-BoxCollider:
+--- !u!64 &870049158
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10367,9 +10452,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.0000004172325, y: 0.0000076293945, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &879225841
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10448,7 +10534,7 @@ GameObject:
   - component: {fileID: 880138701}
   - component: {fileID: 880138700}
   - component: {fileID: 880138699}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10553,7 +10639,7 @@ GameObject:
   - component: {fileID: 881249654}
   - component: {fileID: 881249653}
   - component: {fileID: 881249652}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10658,7 +10744,7 @@ GameObject:
   - component: {fileID: 887844909}
   - component: {fileID: 887844908}
   - component: {fileID: 887844910}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10730,8 +10816,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 887844905}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &887844910
-BoxCollider:
+--- !u!64 &887844910
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10748,9 +10834,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &889448627
 GameObject:
   m_ObjectHideFlags: 0
@@ -10763,7 +10850,7 @@ GameObject:
   - component: {fileID: 889448631}
   - component: {fileID: 889448630}
   - component: {fileID: 889448629}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10868,7 +10955,7 @@ GameObject:
   - component: {fileID: 892290857}
   - component: {fileID: 892290856}
   - component: {fileID: 892290859}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -10940,8 +11027,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1680880494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &892290859
-BoxCollider:
+--- !u!64 &892290859
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -10958,9 +11045,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: -0.00000756979, y: -0.000015258789, z: -0.0000005662441}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &898271558
 GameObject:
   m_ObjectHideFlags: 0
@@ -10973,7 +11061,7 @@ GameObject:
   - component: {fileID: 898271562}
   - component: {fileID: 898271561}
   - component: {fileID: 898271560}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11078,7 +11166,7 @@ GameObject:
   - component: {fileID: 908944789}
   - component: {fileID: 908944788}
   - component: {fileID: 908944790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11150,8 +11238,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 908944785}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &908944790
-BoxCollider:
+--- !u!64 &908944790
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11168,9 +11256,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.00000756979, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &911294558
 GameObject:
   m_ObjectHideFlags: 0
@@ -11183,7 +11272,7 @@ GameObject:
   - component: {fileID: 911294561}
   - component: {fileID: 911294560}
   - component: {fileID: 911294562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11255,8 +11344,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 911294558}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &911294562
-BoxCollider:
+--- !u!64 &911294562
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11273,9 +11362,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2.0000002, z: 1.0000001}
-  m_Center: {x: -0.0000037550926, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &917422312
 GameObject:
   m_ObjectHideFlags: 0
@@ -11288,7 +11378,7 @@ GameObject:
   - component: {fileID: 917422315}
   - component: {fileID: 917422314}
   - component: {fileID: 917422313}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pedal1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11393,7 +11483,7 @@ GameObject:
   - component: {fileID: 922817287}
   - component: {fileID: 922817286}
   - component: {fileID: 922817289}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11465,8 +11555,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 800418259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &922817289
-BoxCollider:
+--- !u!64 &922817289
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11483,9 +11573,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &929378181
 GameObject:
   m_ObjectHideFlags: 0
@@ -11498,7 +11589,7 @@ GameObject:
   - component: {fileID: 929378185}
   - component: {fileID: 929378184}
   - component: {fileID: 929378183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11603,7 +11694,7 @@ GameObject:
   - component: {fileID: 935237799}
   - component: {fileID: 935237798}
   - component: {fileID: 935237801}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11675,8 +11766,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1680880494}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &935237801
-BoxCollider:
+--- !u!64 &935237801
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11693,9 +11784,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2.0000002, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0.0000076293945, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &954707862
 GameObject:
   m_ObjectHideFlags: 0
@@ -11743,7 +11835,7 @@ GameObject:
   - component: {fileID: 973033987}
   - component: {fileID: 973033986}
   - component: {fileID: 973033985}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11848,7 +11940,7 @@ GameObject:
   - component: {fileID: 993452080}
   - component: {fileID: 993452079}
   - component: {fileID: 993452082}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -11920,8 +12012,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 89743291}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &993452082
-BoxCollider:
+--- !u!64 &993452082
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -11938,9 +12030,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1013923179
 GameObject:
   m_ObjectHideFlags: 0
@@ -11953,7 +12046,7 @@ GameObject:
   - component: {fileID: 1013923182}
   - component: {fileID: 1013923181}
   - component: {fileID: 1013923184}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12025,8 +12118,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1395388664}
   m_LocalEulerAnglesHint: {x: -8.957, y: -1.791, z: 11.355}
---- !u!65 &1013923184
-BoxCollider:
+--- !u!64 &1013923184
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12043,9 +12136,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.0000019669533, y: -0.00000047683716, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1018783252
 GameObject:
   m_ObjectHideFlags: 0
@@ -12058,7 +12152,7 @@ GameObject:
   - component: {fileID: 1018783255}
   - component: {fileID: 1018783254}
   - component: {fileID: 1018783253}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12339,7 +12433,7 @@ GameObject:
   - component: {fileID: 1035389276}
   - component: {fileID: 1035389275}
   - component: {fileID: 1035389274}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12432,6 +12526,86 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459883044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1035958591
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1035958594}
+  - component: {fileID: 1035958593}
+  - component: {fileID: 1035958592}
+  m_Layer: 5
+  m_Name: White
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &1035958592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035958591}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1035958593
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035958591}
+  m_CullTransparentMesh: 1
+--- !u!224 &1035958594
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035958591}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1037098488}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!224 &1037098488 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 6254567771162763639, guid: cb446314c94b74ce4be159f8eb96135a, type: 3}
+  m_PrefabInstance: {fileID: 1490805327}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1042539515
 GameObject:
   m_ObjectHideFlags: 0
@@ -12444,7 +12618,7 @@ GameObject:
   - component: {fileID: 1042539519}
   - component: {fileID: 1042539518}
   - component: {fileID: 1042539520}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (13)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12516,8 +12690,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1042539515}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1042539520
-BoxCollider:
+--- !u!64 &1042539520
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12534,9 +12708,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.0000076293945, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1059467574
 GameObject:
   m_ObjectHideFlags: 0
@@ -12586,7 +12761,7 @@ GameObject:
   - component: {fileID: 1063189254}
   - component: {fileID: 1063189253}
   - component: {fileID: 1063189252}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12693,7 +12868,7 @@ GameObject:
   - component: {fileID: 1070203182}
   - component: {fileID: 1070203181}
   - component: {fileID: 1070203183}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12765,8 +12940,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1070203178}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1070203183
-BoxCollider:
+--- !u!64 &1070203183
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12783,9 +12958,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: -0.000015258789, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1072726283
 GameObject:
   m_ObjectHideFlags: 0
@@ -12843,7 +13019,7 @@ GameObject:
   - component: {fileID: 1084904296}
   - component: {fileID: 1084904295}
   - component: {fileID: 1084904297}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -12915,8 +13091,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1084904292}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1084904297
-BoxCollider:
+--- !u!64 &1084904297
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -12933,9 +13109,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000004}
-  m_Center: {x: 0.000000059604645, y: -0.0000076293945, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1087267606
 GameObject:
   m_ObjectHideFlags: 0
@@ -12948,7 +13125,7 @@ GameObject:
   - component: {fileID: 1087267610}
   - component: {fileID: 1087267609}
   - component: {fileID: 1087267611}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13020,8 +13197,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1087267606}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1087267611
-BoxCollider:
+--- !u!64 &1087267611
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -13038,9 +13215,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.99999994, y: 2.0000002, z: 0.99999994}
-  m_Center: {x: 0, y: 0.0000019073486, z: 0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1105392406
 GameObject:
   m_ObjectHideFlags: 0
@@ -13102,7 +13280,7 @@ GameObject:
   - component: {fileID: 1110500884}
   - component: {fileID: 1110500883}
   - component: {fileID: 1110500885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13174,8 +13352,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1110500880}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1110500885
-BoxCollider:
+--- !u!64 &1110500885
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -13192,9 +13370,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.000015199184, y: 0, z: -0.0000019967556}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1119162090
 GameObject:
   m_ObjectHideFlags: 0
@@ -13207,7 +13386,7 @@ GameObject:
   - component: {fileID: 1119162094}
   - component: {fileID: 1119162093}
   - component: {fileID: 1119162092}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13312,6 +13491,7 @@ GameObject:
   - component: {fileID: 1125787953}
   - component: {fileID: 1125787952}
   - component: {fileID: 1125787955}
+  - component: {fileID: 1125787956}
   m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
@@ -13405,6 +13585,28 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!64 &1125787956
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1125787950}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1141987515
 GameObject:
   m_ObjectHideFlags: 0
@@ -13417,7 +13619,7 @@ GameObject:
   - component: {fileID: 1141987518}
   - component: {fileID: 1141987517}
   - component: {fileID: 1141987516}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13522,7 +13724,7 @@ GameObject:
   - component: {fileID: 1165418747}
   - component: {fileID: 1165418746}
   - component: {fileID: 1165418748}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (13)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13594,8 +13796,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1165418743}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1165418748
-BoxCollider:
+--- !u!64 &1165418748
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -13612,9 +13814,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000001013279, y: 0.0000019073486, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1172596275
 GameObject:
   m_ObjectHideFlags: 0
@@ -13627,7 +13830,7 @@ GameObject:
   - component: {fileID: 1172596279}
   - component: {fileID: 1172596278}
   - component: {fileID: 1172596277}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13732,7 +13935,7 @@ GameObject:
   - component: {fileID: 1197050603}
   - component: {fileID: 1197050602}
   - component: {fileID: 1197050601}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (18)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13914,7 +14117,7 @@ GameObject:
   - component: {fileID: 1208513361}
   - component: {fileID: 1208513360}
   - component: {fileID: 1208513362}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -13986,8 +14189,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1208513357}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1208513362
-BoxCollider:
+--- !u!64 &1208513362
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14004,9 +14207,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.00000756979, y: -0.000015258789, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1213690737
 GameObject:
   m_ObjectHideFlags: 0
@@ -14018,8 +14222,8 @@ GameObject:
   - component: {fileID: 1213690738}
   - component: {fileID: 1213690741}
   - component: {fileID: 1213690740}
-  - component: {fileID: 1213690739}
-  m_Layer: 0
+  - component: {fileID: 1213690742}
+  m_Layer: 7
   m_Name: Cylinder (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14041,27 +14245,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1059467575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1213690739
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1213690737}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
 --- !u!23 &1213690740
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -14111,6 +14294,28 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1213690737}
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1213690742
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213690737}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1219320537
 GameObject:
@@ -14173,7 +14378,7 @@ GameObject:
   - component: {fileID: 1223369902}
   - component: {fileID: 1223369901}
   - component: {fileID: 1223369903}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14245,8 +14450,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1223369898}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1223369903
-BoxCollider:
+--- !u!64 &1223369903
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14263,9 +14468,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
-  m_Center: {x: -0.000001847744, y: 0, z: -0.00000014901163}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1226983981
 GameObject:
   m_ObjectHideFlags: 0
@@ -14278,7 +14484,7 @@ GameObject:
   - component: {fileID: 1226983984}
   - component: {fileID: 1226983983}
   - component: {fileID: 1226983985}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14350,8 +14556,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1226983981}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1226983985
-BoxCollider:
+--- !u!64 &1226983985
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14368,9 +14574,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1227585978
 GameObject:
   m_ObjectHideFlags: 0
@@ -14383,7 +14590,7 @@ GameObject:
   - component: {fileID: 1227585982}
   - component: {fileID: 1227585981}
   - component: {fileID: 1227585980}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14488,7 +14695,7 @@ GameObject:
   - component: {fileID: 1239048413}
   - component: {fileID: 1239048412}
   - component: {fileID: 1239048415}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14560,8 +14767,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1303044027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1239048415
-BoxCollider:
+--- !u!64 &1239048415
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14578,9 +14785,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1252324429
 GameObject:
   m_ObjectHideFlags: 0
@@ -14593,7 +14801,7 @@ GameObject:
   - component: {fileID: 1252324433}
   - component: {fileID: 1252324432}
   - component: {fileID: 1252324434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14665,8 +14873,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1252324429}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1252324434
-BoxCollider:
+--- !u!64 &1252324434
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14683,9 +14891,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.0000005364418, y: 0.0000009536743, z: -0.00000020861626}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1266565388
 GameObject:
   m_ObjectHideFlags: 0
@@ -14698,7 +14907,7 @@ GameObject:
   - component: {fileID: 1266565391}
   - component: {fileID: 1266565390}
   - component: {fileID: 1266565389}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pedal0
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14803,7 +15012,7 @@ GameObject:
   - component: {fileID: 1270438047}
   - component: {fileID: 1270438046}
   - component: {fileID: 1270438048}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (15)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14875,8 +15084,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1270438043}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1270438048
-BoxCollider:
+--- !u!64 &1270438048
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14893,9 +15102,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.0000076293945, y: 0.0000076293945, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1281658327
 GameObject:
   m_ObjectHideFlags: 0
@@ -14908,7 +15118,7 @@ GameObject:
   - component: {fileID: 1281658331}
   - component: {fileID: 1281658330}
   - component: {fileID: 1281658332}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -14980,8 +15190,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1281658327}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1281658332
-BoxCollider:
+--- !u!64 &1281658332
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -14998,9 +15208,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.00000011920929, y: 0, z: -0.000000029802322}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1284185310
 GameObject:
   m_ObjectHideFlags: 0
@@ -15013,7 +15224,7 @@ GameObject:
   - component: {fileID: 1284185314}
   - component: {fileID: 1284185313}
   - component: {fileID: 1284185315}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15085,8 +15296,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1284185310}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1284185315
-BoxCollider:
+--- !u!64 &1284185315
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15103,9 +15314,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 1.9999999, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: -0.0000076293945, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1291560117
 GameObject:
   m_ObjectHideFlags: 0
@@ -15118,7 +15330,7 @@ GameObject:
   - component: {fileID: 1291560121}
   - component: {fileID: 1291560120}
   - component: {fileID: 1291560122}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15190,8 +15402,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1291560117}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1291560122
-BoxCollider:
+--- !u!64 &1291560122
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15208,9 +15420,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1303044026
 GameObject:
   m_ObjectHideFlags: 0
@@ -15263,7 +15476,7 @@ GameObject:
   - component: {fileID: 1314765868}
   - component: {fileID: 1314765867}
   - component: {fileID: 1314765866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (14)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15368,7 +15581,7 @@ GameObject:
   - component: {fileID: 1319195462}
   - component: {fileID: 1319195461}
   - component: {fileID: 1319195460}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15473,7 +15686,7 @@ GameObject:
   - component: {fileID: 1342139846}
   - component: {fileID: 1342139845}
   - component: {fileID: 1342139847}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15545,8 +15758,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1342139842}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1342139847
-BoxCollider:
+--- !u!64 &1342139847
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15563,9 +15776,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.0000002, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.000000059604638}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1342254944
 GameObject:
   m_ObjectHideFlags: 0
@@ -15578,7 +15792,7 @@ GameObject:
   - component: {fileID: 1342254948}
   - component: {fileID: 1342254947}
   - component: {fileID: 1342254949}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15683,7 +15897,7 @@ GameObject:
   - component: {fileID: 1353947742}
   - component: {fileID: 1353947741}
   - component: {fileID: 1353947743}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15755,8 +15969,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1353947738}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1353947743
-BoxCollider:
+--- !u!64 &1353947743
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15773,9 +15987,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1370331915
 GameObject:
   m_ObjectHideFlags: 0
@@ -15788,7 +16003,7 @@ GameObject:
   - component: {fileID: 1370331919}
   - component: {fileID: 1370331918}
   - component: {fileID: 1370331920}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -15860,8 +16075,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1370331915}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1370331920
-BoxCollider:
+--- !u!64 &1370331920
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -15878,9 +16093,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.0000012, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: -5.684342e-14, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1395388663
 GameObject:
   m_ObjectHideFlags: 0
@@ -15919,6 +16135,139 @@ Transform:
   - {fileID: 1013923183}
   m_Father: {fileID: 384524812}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1399230374
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1399230378}
+  - component: {fileID: 1399230377}
+  - component: {fileID: 1399230376}
+  - component: {fileID: 1399230375}
+  - component: {fileID: 1399230379}
+  m_Layer: 0
+  m_Name: CheshireSpawnObj
+  m_TagString: Cheshire
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1399230375
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399230374}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &1399230376
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399230374}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1399230377
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399230374}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1399230378
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399230374}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1852.3651, y: 371.3, z: -109.47182}
+  m_LocalScale: {x: 65.78216, y: 16.36134, z: 65.78216}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1399230379
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1399230374}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1408408476
 GameObject:
   m_ObjectHideFlags: 0
@@ -15931,7 +16280,7 @@ GameObject:
   - component: {fileID: 1408408480}
   - component: {fileID: 1408408479}
   - component: {fileID: 1408408481}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16003,8 +16352,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408408476}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1408408481
-BoxCollider:
+--- !u!64 &1408408481
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16021,9 +16370,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.000015258789, y: 0, z: -0.0000009536743}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1423957336
 GameObject:
   m_ObjectHideFlags: 0
@@ -16036,7 +16386,7 @@ GameObject:
   - component: {fileID: 1423957340}
   - component: {fileID: 1423957339}
   - component: {fileID: 1423957341}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16108,8 +16458,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1423957336}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1423957341
-BoxCollider:
+--- !u!64 &1423957341
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16126,9 +16476,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.00000756979, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1429443755
 GameObject:
   m_ObjectHideFlags: 0
@@ -16141,7 +16492,7 @@ GameObject:
   - component: {fileID: 1429443758}
   - component: {fileID: 1429443757}
   - component: {fileID: 1429443756}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16248,7 +16599,7 @@ GameObject:
   - component: {fileID: 1435522713}
   - component: {fileID: 1435522712}
   - component: {fileID: 1435522714}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16320,8 +16671,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1435522709}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1435522714
-BoxCollider:
+--- !u!64 &1435522714
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16338,9 +16689,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1454419917
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16426,7 +16778,7 @@ GameObject:
   - component: {fileID: 1466993530}
   - component: {fileID: 1466993529}
   - component: {fileID: 1466993531}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16498,8 +16850,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1466993526}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1466993531
-BoxCollider:
+--- !u!64 &1466993531
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16516,9 +16868,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.000001847744, y: 0.0000038146973, z: -0.00000010430812}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1471904785
 GameObject:
   m_ObjectHideFlags: 0
@@ -16531,7 +16884,7 @@ GameObject:
   - component: {fileID: 1471904789}
   - component: {fileID: 1471904788}
   - component: {fileID: 1471904790}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16718,7 +17071,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6254567771162763639, guid: cb446314c94b74ce4be159f8eb96135a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1035958594}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb446314c94b74ce4be159f8eb96135a, type: 3}
 --- !u!1 &1494022843
@@ -16732,8 +17088,8 @@ GameObject:
   - component: {fileID: 1494022844}
   - component: {fileID: 1494022847}
   - component: {fileID: 1494022846}
-  - component: {fileID: 1494022845}
-  m_Layer: 0
+  - component: {fileID: 1494022848}
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16755,27 +17111,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1059467575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1494022845
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1494022843}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
 --- !u!23 &1494022846
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -16826,6 +17161,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1494022843}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1494022848
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1494022843}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1501298260
 GameObject:
   m_ObjectHideFlags: 0
@@ -16838,7 +17195,7 @@ GameObject:
   - component: {fileID: 1501298264}
   - component: {fileID: 1501298263}
   - component: {fileID: 1501298265}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16910,8 +17267,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1501298260}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1501298265
-BoxCollider:
+--- !u!64 &1501298265
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -16928,9 +17285,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999998, z: 1.0000001}
-  m_Center: {x: 0.00000008940696, y: -0.0000076293945, z: -0.00000008940695}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1506229742
 GameObject:
   m_ObjectHideFlags: 0
@@ -16942,8 +17300,8 @@ GameObject:
   - component: {fileID: 1506229743}
   - component: {fileID: 1506229746}
   - component: {fileID: 1506229745}
-  - component: {fileID: 1506229744}
-  m_Layer: 0
+  - component: {fileID: 1506229747}
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -16965,27 +17323,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1059467575}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1506229744
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1506229742}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
 --- !u!23 &1506229745
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -17036,6 +17373,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506229742}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1506229747
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506229742}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1526309645
 GameObject:
   m_ObjectHideFlags: 0
@@ -17048,7 +17407,7 @@ GameObject:
   - component: {fileID: 1526309648}
   - component: {fileID: 1526309647}
   - component: {fileID: 1526309646}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17153,7 +17512,7 @@ GameObject:
   - component: {fileID: 1527259788}
   - component: {fileID: 1527259787}
   - component: {fileID: 1527259789}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17225,8 +17584,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1527259784}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1527259789
-BoxCollider:
+--- !u!64 &1527259789
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17243,9 +17602,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999998, z: 1.0000001}
-  m_Center: {x: 0.000000059604638, y: 0, z: -0.00000008940695}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1551620066
 GameObject:
   m_ObjectHideFlags: 0
@@ -17258,7 +17618,7 @@ GameObject:
   - component: {fileID: 1551620070}
   - component: {fileID: 1551620069}
   - component: {fileID: 1551620071}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17330,8 +17690,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1551620066}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1551620071
-BoxCollider:
+--- !u!64 &1551620071
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17348,9 +17708,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1553116293
 GameObject:
   m_ObjectHideFlags: 0
@@ -17363,7 +17724,7 @@ GameObject:
   - component: {fileID: 1553116297}
   - component: {fileID: 1553116296}
   - component: {fileID: 1553116298}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (11)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17435,8 +17796,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1553116293}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1553116298
-BoxCollider:
+--- !u!64 &1553116298
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17453,9 +17814,45 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: -0.0000008940697, y: 0.0000076293945, z: -0.00000011920929}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1564562524 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2070925441746177671, guid: a1a802ecaf6775746bb2a929fb554ad8, type: 3}
+  m_PrefabInstance: {fileID: 542364614}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1564562527
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1564562524}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e501d18bb52cf8c40b1853ca4904654f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_CollideAgainst:
+    serializedVersion: 2
+    m_Bits: 1
+  m_IgnoreTag: Player
+  m_TransparentLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_MinimumDistanceFromTarget: 0.5
+  m_AvoidObstacles: 1
+  m_DistanceLimit: 0
+  m_MinimumOcclusionTime: 0
+  m_CameraRadius: 0.1
+  m_Strategy: 1
+  m_MaximumEffort: 4
+  m_SmoothingTime: 0.63
+  m_Damping: 0
+  m_DampingWhenOccluded: 0
+  m_OptimalTargetDistance: 0
 --- !u!1 &1583276316
 GameObject:
   m_ObjectHideFlags: 0
@@ -17508,9 +17905,10 @@ GameObject:
   - component: {fileID: 1597930120}
   - component: {fileID: 1597930119}
   - component: {fileID: 1597930118}
+  - component: {fileID: 1597930122}
   m_Layer: 0
   m_Name: CheckPoint (1)
-  m_TagString: Untagged
+  m_TagString: SavePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -17530,7 +17928,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -17594,13 +17992,40 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1597930117}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -401, y: 1525, z: -737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 6867, y: -1471, z: 1026}
   m_LocalScale: {x: 56.806145, y: 340.53693, z: 735.13574}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1817151674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1597930122
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1597930117}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1603980954
 GameObject:
   m_ObjectHideFlags: 0
@@ -17613,7 +18038,7 @@ GameObject:
   - component: {fileID: 1603980958}
   - component: {fileID: 1603980957}
   - component: {fileID: 1603980956}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17718,7 +18143,7 @@ GameObject:
   - component: {fileID: 1606836218}
   - component: {fileID: 1606836217}
   - component: {fileID: 1606836219}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17790,8 +18215,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1606836214}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1606836219
-BoxCollider:
+--- !u!64 &1606836219
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17808,9 +18233,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1610536880
 GameObject:
   m_ObjectHideFlags: 0
@@ -17823,7 +18249,7 @@ GameObject:
   - component: {fileID: 1610536883}
   - component: {fileID: 1610536882}
   - component: {fileID: 1610536885}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -17895,8 +18321,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1836863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1610536885
-BoxCollider:
+--- !u!64 &1610536885
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -17913,9 +18339,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999998, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: -0.000061035156, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1614133825
 GameObject:
   m_ObjectHideFlags: 0
@@ -17984,7 +18411,7 @@ GameObject:
   - component: {fileID: 1615534143}
   - component: {fileID: 1615534142}
   - component: {fileID: 1615534144}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18056,8 +18483,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1615534139}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1615534144
-BoxCollider:
+--- !u!64 &1615534144
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18074,9 +18501,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: -0.000015258789, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1619938228
 GameObject:
   m_ObjectHideFlags: 0
@@ -18090,6 +18518,7 @@ GameObject:
   - component: {fileID: 1619938230}
   - component: {fileID: 1619938229}
   - component: {fileID: 1619938233}
+  - component: {fileID: 1619938234}
   m_Layer: 0
   m_Name: Oven door
   m_TagString: OvenDoor
@@ -18204,6 +18633,33 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!54 &1619938234
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619938228}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1619977788
 GameObject:
   m_ObjectHideFlags: 0
@@ -18215,8 +18671,8 @@ GameObject:
   - component: {fileID: 1619977789}
   - component: {fileID: 1619977792}
   - component: {fileID: 1619977791}
-  - component: {fileID: 1619977790}
-  m_Layer: 0
+  - component: {fileID: 1619977793}
+  m_Layer: 7
   m_Name: Cylinder (15)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18238,27 +18694,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1941577713}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1619977790
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1619977788}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: -0.0000008940697, y: 0.0000076293945, z: -0.00000011920929}
 --- !u!23 &1619977791
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -18309,6 +18744,70 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1619977788}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1619977793
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1619977788}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1629380421 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4476874686612867625, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
+  m_PrefabInstance: {fileID: 5754076052032373774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!136 &1629380423
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629380421}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.0019787243
+  m_Height: 0.0040490017
+  m_Direction: 1
+  m_Center: {x: -0.00025945867, y: -0.0005458264, z: 0.0008435701}
+--- !u!114 &1629380425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1629380421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 590bef9306438486996b19b33459c25c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheshire: {fileID: 2146343618}
+  whiteScreen: {fileID: 1035958591}
 --- !u!1 &1629505861
 GameObject:
   m_ObjectHideFlags: 0
@@ -18321,7 +18820,7 @@ GameObject:
   - component: {fileID: 1629505865}
   - component: {fileID: 1629505864}
   - component: {fileID: 1629505866}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18393,8 +18892,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1629505861}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1629505866
-BoxCollider:
+--- !u!64 &1629505866
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18411,9 +18910,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: -0.0000037550926, y: 0.0000076293945, z: -0.0000039041042}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1648776053
 GameObject:
   m_ObjectHideFlags: 0
@@ -18426,7 +18926,7 @@ GameObject:
   - component: {fileID: 1648776057}
   - component: {fileID: 1648776056}
   - component: {fileID: 1648776058}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (16)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18498,8 +18998,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648776053}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1648776058
-BoxCollider:
+--- !u!64 &1648776058
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18516,9 +19016,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.99999994, y: 2, z: 0.99999994}
-  m_Center: {x: 0, y: 0, z: 0.00000023841858}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1663625015
 GameObject:
   m_ObjectHideFlags: 0
@@ -18531,7 +19032,7 @@ GameObject:
   - component: {fileID: 1663625018}
   - component: {fileID: 1663625017}
   - component: {fileID: 1663625020}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18603,8 +19104,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 800418259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1663625020
-BoxCollider:
+--- !u!64 &1663625020
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18621,9 +19122,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1664960825
 GameObject:
   m_ObjectHideFlags: 0
@@ -18636,7 +19138,7 @@ GameObject:
   - component: {fileID: 1664960829}
   - component: {fileID: 1664960828}
   - component: {fileID: 1664960830}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18708,8 +19210,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1664960825}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1664960830
-BoxCollider:
+--- !u!64 &1664960830
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18726,9 +19228,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: -0.0000008940697, y: 0.000015258789, z: -0.00000032782555}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1669198996
 GameObject:
   m_ObjectHideFlags: 0
@@ -18741,7 +19244,7 @@ GameObject:
   - component: {fileID: 1669198999}
   - component: {fileID: 1669198998}
   - component: {fileID: 1669199001}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pancake1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18846,7 +19349,7 @@ GameObject:
   - component: {fileID: 1669650775}
   - component: {fileID: 1669650774}
   - component: {fileID: 1669650776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -18918,8 +19421,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1669650771}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1669650776
-BoxCollider:
+--- !u!64 &1669650776
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -18936,9 +19439,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2.0000002, z: 1.0000004}
-  m_Center: {x: -0.00000017881393, y: 0.0000076293945, z: -0.00000008940698}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1680880493
 GameObject:
   m_ObjectHideFlags: 0
@@ -19017,7 +19521,7 @@ GameObject:
   - component: {fileID: 1685731454}
   - component: {fileID: 1685731453}
   - component: {fileID: 1685731455}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19089,8 +19593,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1685731450}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1685731455
-BoxCollider:
+--- !u!64 &1685731455
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19107,9 +19611,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1693227518
 GameObject:
   m_ObjectHideFlags: 0
@@ -19122,7 +19627,7 @@ GameObject:
   - component: {fileID: 1693227521}
   - component: {fileID: 1693227520}
   - component: {fileID: 1693227523}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19194,8 +19699,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 800418259}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1693227523
-BoxCollider:
+--- !u!64 &1693227523
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19212,9 +19717,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.0000002, z: 1.0000001}
-  m_Center: {x: -0.0000037550926, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1718088985
 GameObject:
   m_ObjectHideFlags: 0
@@ -19227,7 +19733,7 @@ GameObject:
   - component: {fileID: 1718088988}
   - component: {fileID: 1718088987}
   - component: {fileID: 1718088990}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19299,8 +19805,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 459883044}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1718088990
-BoxCollider:
+--- !u!64 &1718088990
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19317,9 +19823,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: -0.0000037550926, y: 0, z: -0.00000008940695}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1722968950
 GameObject:
   m_ObjectHideFlags: 0
@@ -19332,7 +19839,7 @@ GameObject:
   - component: {fileID: 1722968954}
   - component: {fileID: 1722968953}
   - component: {fileID: 1722968952}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (17)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19442,7 +19949,7 @@ GameObject:
   - component: {fileID: 1761939304}
   - component: {fileID: 1761939303}
   - component: {fileID: 1761939305}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19514,8 +20021,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761939300}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1761939305
-BoxCollider:
+--- !u!64 &1761939305
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19532,9 +20039,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1773455533
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19624,7 +20132,7 @@ GameObject:
   - component: {fileID: 1780028618}
   - component: {fileID: 1780028617}
   - component: {fileID: 1780028619}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19696,8 +20204,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1780028614}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1780028619
-BoxCollider:
+--- !u!64 &1780028619
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19714,9 +20222,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.0000076293945, y: 0, z: 0.0000009536743}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1800386891
 GameObject:
   m_ObjectHideFlags: 0
@@ -19729,7 +20238,7 @@ GameObject:
   - component: {fileID: 1800386895}
   - component: {fileID: 1800386894}
   - component: {fileID: 1800386896}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -19801,8 +20310,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1800386891}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1800386896
-BoxCollider:
+--- !u!64 &1800386896
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -19819,9 +20328,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2.0000002, z: 1.0000004}
-  m_Center: {x: 0.000003874302, y: 0, z: -0.0000005662441}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1809443747
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19836,7 +20346,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: far clip plane
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 8944336655422409496, guid: f6d148d888ffbf54b9afe9936dfaec1f, type: 3}
       propertyPath: near clip plane
@@ -19907,7 +20417,7 @@ GameObject:
   - component: {fileID: 1816691788}
   - component: {fileID: 1816691787}
   - component: {fileID: 1816691786}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: IceCream1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20000,6 +20510,40 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1303044027}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1817151673
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1817151674}
+  m_Layer: 0
+  m_Name: SavePoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1817151674
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817151673}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -7268, y: 2996, z: -1763}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1949088515}
+  - {fileID: 1597930121}
+  - {fileID: 21307199}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1823579049
 GameObject:
   m_ObjectHideFlags: 0
@@ -20055,7 +20599,7 @@ GameObject:
   - component: {fileID: 1827806671}
   - component: {fileID: 1827806670}
   - component: {fileID: 1827806669}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20160,7 +20704,7 @@ GameObject:
   - component: {fileID: 1829268188}
   - component: {fileID: 1829268187}
   - component: {fileID: 1829268189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20232,8 +20776,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1829268184}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1829268189
-BoxCollider:
+--- !u!64 &1829268189
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20250,9 +20794,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.0000019967556}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1832073963
 GameObject:
   m_ObjectHideFlags: 0
@@ -20265,7 +20810,7 @@ GameObject:
   - component: {fileID: 1832073966}
   - component: {fileID: 1832073965}
   - component: {fileID: 1832073964}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow1
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20370,7 +20915,7 @@ GameObject:
   - component: {fileID: 1839201391}
   - component: {fileID: 1839201390}
   - component: {fileID: 1839201392}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20442,8 +20987,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1839201387}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1839201392
-BoxCollider:
+--- !u!64 &1839201392
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20460,9 +21005,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1849082057
 GameObject:
   m_ObjectHideFlags: 0
@@ -20475,7 +21021,7 @@ GameObject:
   - component: {fileID: 1849082060}
   - component: {fileID: 1849082059}
   - component: {fileID: 1849082062}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20547,8 +21093,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1836863}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1849082062
-BoxCollider:
+--- !u!64 &1849082062
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20565,9 +21111,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 1.9999999, z: 1.0000002}
-  m_Center: {x: -0.000015199184, y: 0, z: -0.0000019967556}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1852582218
 GameObject:
   m_ObjectHideFlags: 0
@@ -20580,7 +21127,7 @@ GameObject:
   - component: {fileID: 1852582222}
   - component: {fileID: 1852582221}
   - component: {fileID: 1852582223}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20652,8 +21199,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1852582218}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1852582223
-BoxCollider:
+--- !u!64 &1852582223
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -20670,9 +21217,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.000000059604638, y: 0.00000047683716, z: -0.00000008940695}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1858247065
 GameObject:
   m_ObjectHideFlags: 0
@@ -20754,7 +21302,7 @@ GameObject:
   - component: {fileID: 1870646420}
   - component: {fileID: 1870646419}
   - component: {fileID: 1870646418}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Fork
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20860,8 +21408,8 @@ GameObject:
   - component: {fileID: 1872731654}
   - component: {fileID: 1872731657}
   - component: {fileID: 1872731656}
-  - component: {fileID: 1872731655}
-  m_Layer: 0
+  - component: {fileID: 1872731658}
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -20883,27 +21431,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2014007242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1872731655
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1872731653}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999998, z: 1.0000001}
-  m_Center: {x: 0.00000008940696, y: -0.0000076293945, z: -0.00000008940695}
 --- !u!23 &1872731656
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -20954,6 +21481,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872731653}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &1872731658
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872731653}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1886616848
 GameObject:
   m_ObjectHideFlags: 0
@@ -20966,7 +21515,7 @@ GameObject:
   - component: {fileID: 1886616852}
   - component: {fileID: 1886616851}
   - component: {fileID: 1886616853}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (4)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21038,8 +21587,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1886616848}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1886616853
-BoxCollider:
+--- !u!64 &1886616853
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21056,9 +21605,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: -0.0000037550926, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1888340636
 GameObject:
   m_ObjectHideFlags: 0
@@ -21071,7 +21621,7 @@ GameObject:
   - component: {fileID: 1888340640}
   - component: {fileID: 1888340639}
   - component: {fileID: 1888340638}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21176,7 +21726,7 @@ GameObject:
   - component: {fileID: 1900461517}
   - component: {fileID: 1900461516}
   - component: {fileID: 1900461518}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21248,8 +21798,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1900461514}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1900461518
-BoxCollider:
+--- !u!64 &1900461518
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21266,9 +21816,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.0000019669533, y: 0, z: -0.00000044703484}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1903107667
 GameObject:
   m_ObjectHideFlags: 0
@@ -21281,7 +21832,7 @@ GameObject:
   - component: {fileID: 1903107671}
   - component: {fileID: 1903107670}
   - component: {fileID: 1903107672}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (3)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21353,8 +21904,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1903107667}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1903107672
-BoxCollider:
+--- !u!64 &1903107672
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21371,9 +21922,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1}
-  m_Center: {x: 0, y: -0.0000076293945, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1911272838
 GameObject:
   m_ObjectHideFlags: 0
@@ -21386,7 +21938,7 @@ GameObject:
   - component: {fileID: 1911272842}
   - component: {fileID: 1911272841}
   - component: {fileID: 1911272840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (15)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21491,7 +22043,7 @@ GameObject:
   - component: {fileID: 1913251191}
   - component: {fileID: 1913251190}
   - component: {fileID: 1913251189}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21640,7 +22192,7 @@ GameObject:
   - component: {fileID: 1933874367}
   - component: {fileID: 1933874366}
   - component: {fileID: 1933874368}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: marshmallow (1)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21712,8 +22264,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1933874364}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1933874368
-BoxCollider:
+--- !u!64 &1933874368
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21730,9 +22282,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1941577712
 GameObject:
   m_ObjectHideFlags: 0
@@ -21791,7 +22344,7 @@ GameObject:
   - component: {fileID: 1944039699}
   - component: {fileID: 1944039698}
   - component: {fileID: 1944039700}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21863,8 +22416,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1944039695}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1944039700
-BoxCollider:
+--- !u!64 &1944039700
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21881,9 +22434,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1946241858
 GameObject:
   m_ObjectHideFlags: 0
@@ -21896,7 +22450,7 @@ GameObject:
   - component: {fileID: 1946241862}
   - component: {fileID: 1946241861}
   - component: {fileID: 1946241863}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -21968,8 +22522,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946241858}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1946241863
-BoxCollider:
+--- !u!64 &1946241863
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -21986,9 +22540,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: -0.00000756979, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1949088511
 GameObject:
   m_ObjectHideFlags: 0
@@ -22001,9 +22556,10 @@ GameObject:
   - component: {fileID: 1949088514}
   - component: {fileID: 1949088513}
   - component: {fileID: 1949088512}
+  - component: {fileID: 1949088516}
   m_Layer: 0
   m_Name: CheckPoint
-  m_TagString: Untagged
+  m_TagString: SavePoint
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -22023,7 +22579,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22087,13 +22643,45 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1949088511}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1795.1, y: 408.1, z: -29.1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 9063.1, y: -2587.9, z: 1733.9}
   m_LocalScale: {x: 4.911052, y: 63.55457, z: 63.55457}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1817151674}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &1949088516
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1949088511}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!4 &1958905941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5163585855289141064, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
+  m_PrefabInstance: {fileID: 5754076052032373774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1966488430
 GameObject:
   m_ObjectHideFlags: 0
@@ -22106,7 +22694,7 @@ GameObject:
   - component: {fileID: 1966488434}
   - component: {fileID: 1966488433}
   - component: {fileID: 1966488435}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (7)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22178,8 +22766,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1966488430}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1966488435
-BoxCollider:
+--- !u!64 &1966488435
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22196,9 +22784,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000002, y: 2, z: 1.0000004}
-  m_Center: {x: 0.00000005960465, y: 0.000015258789, z: -0.00000014901163}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1001 &1981137929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22277,7 +22866,7 @@ GameObject:
   - component: {fileID: 1984901625}
   - component: {fileID: 1984901624}
   - component: {fileID: 1984901626}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22349,8 +22938,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1984901621}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1984901626
-BoxCollider:
+--- !u!64 &1984901626
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22367,9 +22956,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1992154669
 GameObject:
   m_ObjectHideFlags: 0
@@ -22382,7 +22972,7 @@ GameObject:
   - component: {fileID: 1992154673}
   - component: {fileID: 1992154672}
   - component: {fileID: 1992154674}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (2)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22454,8 +23044,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1992154669}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &1992154674
-BoxCollider:
+--- !u!64 &1992154674
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22472,9 +23062,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2.0000002, z: 1.0000002}
-  m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2004509632
 GameObject:
   m_ObjectHideFlags: 0
@@ -22487,7 +23078,7 @@ GameObject:
   - component: {fileID: 2004509636}
   - component: {fileID: 2004509635}
   - component: {fileID: 2004509637}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (10)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22637,7 +23228,7 @@ GameObject:
   - component: {fileID: 2015852687}
   - component: {fileID: 2015852686}
   - component: {fileID: 2015852688}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (5)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22709,8 +23300,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2015852683}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2015852688
-BoxCollider:
+--- !u!64 &2015852688
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22727,9 +23318,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0.0000005364418, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2017288505
 GameObject:
   m_ObjectHideFlags: 0
@@ -22742,7 +23334,7 @@ GameObject:
   - component: {fileID: 2017288509}
   - component: {fileID: 2017288508}
   - component: {fileID: 2017288510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (9)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22814,8 +23406,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2017288505}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2017288510
-BoxCollider:
+--- !u!64 &2017288510
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -22832,9 +23424,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1}
-  m_Center: {x: 0.0000076293945, y: 0, z: 0}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2062811379
 GameObject:
   m_ObjectHideFlags: 0
@@ -22846,8 +23439,8 @@ GameObject:
   - component: {fileID: 2062811380}
   - component: {fileID: 2062811383}
   - component: {fileID: 2062811382}
-  - component: {fileID: 2062811381}
-  m_Layer: 0
+  - component: {fileID: 2062811384}
+  m_Layer: 7
   m_Name: Cylinder (8)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -22869,27 +23462,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2014007242}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2062811381
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2062811379}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999998, z: 1.0000001}
-  m_Center: {x: 0.00000008940696, y: -0.0000076293945, z: -0.00000008940695}
 --- !u!23 &2062811382
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -22940,6 +23512,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2062811379}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!64 &2062811384
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062811379}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2066415041
 GameObject:
   m_ObjectHideFlags: 0
@@ -22952,7 +23546,7 @@ GameObject:
   - component: {fileID: 2066415045}
   - component: {fileID: 2066415044}
   - component: {fileID: 2066415046}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (6)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -23024,8 +23618,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2066415041}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2066415046
-BoxCollider:
+--- !u!64 &2066415046
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23042,9 +23636,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1.0000001, y: 2, z: 1.0000002}
-  m_Center: {x: -0.0000008940697, y: 0.000015258789, z: -0.0000005662441}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2067435153
 GameObject:
   m_ObjectHideFlags: 0
@@ -23057,7 +23652,7 @@ GameObject:
   - component: {fileID: 2067435157}
   - component: {fileID: 2067435156}
   - component: {fileID: 2067435158}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (13)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -23162,7 +23757,7 @@ GameObject:
   - component: {fileID: 2082673167}
   - component: {fileID: 2082673166}
   - component: {fileID: 2082673168}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder (12)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -23234,8 +23829,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2082673163}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2082673168
-BoxCollider:
+--- !u!64 &2082673168
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23252,9 +23847,10 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 1.9999999, z: 1.0000001}
-  m_Center: {x: 0.00000005960464, y: 0, z: -0.00000008940696}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &2117022852
 GameObject:
   m_ObjectHideFlags: 0
@@ -23306,7 +23902,7 @@ GameObject:
   - component: {fileID: 2132585815}
   - component: {fileID: 2132585814}
   - component: {fileID: 2132585816}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Capsule (14)
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
@@ -23378,8 +23974,8 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2132585811}
   m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
---- !u!65 &2132585816
-BoxCollider:
+--- !u!64 &2132585816
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -23396,9 +23992,15 @@ BoxCollider:
   m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 1, y: 2, z: 1.0000001}
-  m_Center: {x: 0, y: 0.0000076293945, z: -0.0000009536743}
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &2146343618 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4304859523717201089, guid: 2a5c4a2b636857747bef73bd829d6f89, type: 3}
+  m_PrefabInstance: {fileID: 349136022}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2146493227
 GameObject:
   m_ObjectHideFlags: 0
@@ -23470,6 +24072,14 @@ PrefabInstance:
     - target: {fileID: 4569966615208789125, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
       propertyPath: FootstepAudioVolume
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4569966615208789125, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
+      propertyPath: GroundLayers.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
+    - target: {fileID: 6842408722222147341, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
+      propertyPath: analogMovement
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7103250188686241921, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
       propertyPath: m_LocalScale.x
@@ -23549,6 +24159,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6954376802952028443, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1685374599}
+    - targetCorrespondingSourceObject: {fileID: 4476874686612867625, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1629380423}
+    - targetCorrespondingSourceObject: {fileID: 4476874686612867625, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1629380425}
   m_SourcePrefab: {fileID: 100100000, guid: cb748542dd59ee647a2e6e26bac16878, type: 3}
 --- !u!114 &6982812147417514587
 MonoBehaviour:
@@ -23582,6 +24198,8 @@ MonoBehaviour:
   isBreaking: 0
   isWalking: 0
   isBoosting: 0
+  originalMoveSpeed: 0
+  originalJumpHeight: 0
   breakingSound: {fileID: 8300000, guid: 12ec08ba771f10247b1345e9b7f92c2a, type: 3}
 --- !u!114 &6982812147417514589
 MonoBehaviour:
@@ -23713,9 +24331,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 203844589}
   - {fileID: 648711275}
-  - {fileID: 1949088515}
-  - {fileID: 1597930121}
-  - {fileID: 21307199}
+  - {fileID: 1817151674}
   - {fileID: 1219320539}
   - {fileID: 1199389922}
   - {fileID: 382647114}
@@ -23731,3 +24347,4 @@ SceneRoots:
   - {fileID: 5754076052032373774}
   - {fileID: 433123825}
   - {fileID: 1773455533}
+  - {fileID: 1399230378}

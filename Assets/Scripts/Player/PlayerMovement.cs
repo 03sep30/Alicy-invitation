@@ -19,6 +19,9 @@ public class PlayerMovement : MonoBehaviour
     public bool isWalking;
     public bool isBoosting;
 
+    public float originalMoveSpeed;
+    public float originalJumpHeight;
+
     private PlayerHealth playerHealth;
     private PlayerStamina playerStamina;
     private PlayerController playerController;
@@ -34,8 +37,8 @@ public class PlayerMovement : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         thirdPersonController = GetComponent<ThirdPersonController>();
 
-        Cursor.lockState = CursorLockMode.Locked;
-        Cursor.visible = false;
+        originalMoveSpeed = thirdPersonController.MoveSpeed;
+        originalJumpHeight = thirdPersonController.JumpHeight;
     }
 
     void Update()
@@ -48,12 +51,18 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
         {
+            thirdPersonController.MoveSpeed = originalMoveSpeed;
+            thirdPersonController.JumpHeight = originalJumpHeight;
+
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             thirdPersonController.Move();
             thirdPersonController.JumpAndGravity();
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
         {
+            thirdPersonController.MoveSpeed = originalMoveSpeed;
+            thirdPersonController.JumpHeight = originalJumpHeight;
+
             gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
             thirdPersonController.Move();
             Dash();
@@ -81,8 +90,10 @@ public class PlayerMovement : MonoBehaviour
     {
         float boostSpeed = 30f;
         float jumpForce = 5f;
+
         thirdPersonController.MoveSpeed = boostSpeed;
         thirdPersonController.JumpHeight = jumpForce;
+
         isBoosting = true;
     }
 }
