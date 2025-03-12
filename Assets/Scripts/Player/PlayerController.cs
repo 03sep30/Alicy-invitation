@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     private PlayerHealth playerHealth;
     private ThirdPersonController thirdPersonController;
 
+    public Transform teleportPoint;
+
     public bool isGrounded = false;
     [SerializeField] private float lastGroundedY;
     [SerializeField] private float deathFallHeight = 75f;
@@ -39,6 +41,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         DropCalculation();
+        if (Input.GetKeyDown(KeyCode.B))
+        {
+            gameObject.transform.position = teleportPoint.position;
+        }
     }
 
     void DropCalculation()
@@ -68,9 +74,10 @@ public class PlayerController : MonoBehaviour
             playerMovement.isBreaking = false;
 
         }
-        if (coll.gameObject.name == "Card.Spade")
+        if (coll.gameObject.CompareTag("Ani"))
         {
-            gameObject.transform.parent = coll.transform;   
+            Debug.Log("Ani");
+            gameObject.transform.parent = coll.gameObject.transform.parent;
         }
     }
 

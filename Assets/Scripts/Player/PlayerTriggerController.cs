@@ -6,6 +6,7 @@ public class PlayerTriggerController : MonoBehaviour
 {
     public GameObject cheshire;
     public GameObject whiteScreen;
+    public GameObject player;
 
     private PlayerHealth playerHealth;
 
@@ -25,6 +26,10 @@ public class PlayerTriggerController : MonoBehaviour
         {
             whiteScreen.SetActive(true);
             playerHealth.Die();
+        }
+        if (other.gameObject.CompareTag("SavePoint"))
+        {
+            playerHealth.SpawnPoint = other.gameObject.transform;
         }
     }
 }
