@@ -140,7 +140,7 @@ namespace StarterAssets
             // 카메라 높이 조정
             Vector3 newPosition = CinemachineCameraTarget.transform.localPosition;
             newPosition.y = 1.3f; // 1.2~1.5 정도로 조정
-            newPosition.x = 0.4f; // 0.3~0.5 정도로 조정
+            newPosition.x = 0.1f; // 0.3~0.5 정도로 조정
             CinemachineCameraTarget.transform.localPosition = newPosition;
 
             _hasAnimator = TryGetComponent(out _animator);
