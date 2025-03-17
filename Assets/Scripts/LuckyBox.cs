@@ -7,11 +7,6 @@ public class LuckyBox : MonoBehaviour
     private StatusEffect currentStatus;
     public List<StatusEffect> statusEffectList;
 
-    void Start()
-    {
-        OpenLuckyBox();
-    }
-
     public void OpenLuckyBox()
     {
         int RandomNum = Random.Range(0, statusEffectList.Count);

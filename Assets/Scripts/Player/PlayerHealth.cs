@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
 
     private FadeController fadeController;
     public Transform SpawnPoint;
+    public Transform startPoint;
     public GameObject player;
 
     [Header("?????? ??????")]
@@ -33,6 +34,7 @@ public class PlayerHealth : MonoBehaviour
 
         fadeController.OnFadeFinished += HandleFadeFinished;
 
+        SpawnPoint = startPoint;
         gameObject.transform.parent.position = SpawnPoint.transform.position;
     }
 
