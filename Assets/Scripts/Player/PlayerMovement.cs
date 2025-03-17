@@ -51,8 +51,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
         {
-            thirdPersonController.MoveSpeed = originalMoveSpeed;
-            thirdPersonController.JumpHeight = originalJumpHeight;
+            //thirdPersonController.MoveSpeed = originalMoveSpeed;
+            //thirdPersonController.JumpHeight = originalJumpHeight;
 
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             thirdPersonController.Move();
@@ -60,8 +60,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
         {
-            thirdPersonController.MoveSpeed = originalMoveSpeed;
-            thirdPersonController.JumpHeight = originalJumpHeight;
+            //thirdPersonController.MoveSpeed = originalMoveSpeed;
+            //thirdPersonController.JumpHeight = originalJumpHeight;
 
             gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
             thirdPersonController.Move();

@@ -79,6 +79,11 @@ public class PlayerController : MonoBehaviour
             Debug.Log("Ani");
             gameObject.transform.parent = coll.gameObject.transform.parent;
         }
+        if (coll.gameObject.CompareTag("LuckyBox"))
+        {
+            coll.gameObject.GetComponent<LuckyBox>().OpenLuckyBox();
+            Destroy(coll.gameObject);
+        }
     }
 
     private void OnCollisionExit(Collision collision)

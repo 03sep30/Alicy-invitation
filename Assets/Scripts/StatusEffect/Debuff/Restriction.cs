@@ -11,20 +11,20 @@ public class Restriction : StatusEffect
     private float originalSprintSpeed;
     private float originalJumpHeight;
 
-    void Start()
-    {
-        player = FindObjectOfType<ThirdPersonController>();
-    }
-
     public override void ApplyEffect()
     {
+        Debug.Log(this.name);
+
+        var player = FindObjectOfType<ThirdPersonController>();
+
         originalMoveSpeed = player.MoveSpeed;
         originalSprintSpeed = player.SprintSpeed;
         originalJumpHeight = player.JumpHeight;
 
-        player.MoveSpeed = originalMoveSpeed / 2;
-        player.SprintSpeed = originalSprintSpeed / 2;
+        player.MoveSpeed = 2;
+        player.SprintSpeed = 2;
         player.JumpHeight = originalJumpHeight / 2;
+        Debug.Log("qwe");
     }
     public override void RemoveEffect()
     {
