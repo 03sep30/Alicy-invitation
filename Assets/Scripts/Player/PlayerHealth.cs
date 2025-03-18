@@ -60,11 +60,15 @@ public class PlayerHealth : MonoBehaviour
             GameOverVFX.SetActive(false);
             player.transform.position = SpawnPoint.position;
 
+            // 플레이어가 스폰 포인트로 이동한 후, lastGroundedY를 업데이트
+            // 만약 PlayerController에서 관리된다면 해당 스크립트에 접근하거나 이벤트로 처리합니다.
+            FindObjectOfType<PlayerController>().lastGroundedY = SpawnPoint.position.y;
+            player.transform.position = SpawnPoint.position;
+
             foreach (SkinnedMeshRenderer meshRenderer in meshRenderers)
             {
                 meshRenderer.gameObject.SetActive(true);
             }
-            isDie = false;
         }
     }
 

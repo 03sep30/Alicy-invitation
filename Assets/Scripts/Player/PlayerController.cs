@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public Transform teleportPoint;
 
     public bool isGrounded = false;
-    [SerializeField] private float lastGroundedY;
+    public float lastGroundedY;
     [SerializeField] private float deathFallHeight = 75f;
 
     public AudioSource audioSource;
@@ -53,13 +53,14 @@ public class PlayerController : MonoBehaviour
         if (fallDistance >= deathFallHeight && !playerHealth.isDie)
         {
             playerHealth.Die();
-            lastGroundedY = playerHealth.SpawnPoint.transform.position.y;
+            //lastGroundedY = playerHealth.SpawnPoint.transform.position.y;
         }
     }
 
     void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        //Debug.Log($"{coll.gameObject.name}");
+        Debug.Log($"{coll.gameObject.name}");
+        coll.gameObject.name = "WTF";
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;

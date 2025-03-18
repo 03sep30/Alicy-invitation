@@ -1,0 +1,137 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &799264255663963818
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2321507816858999993}
+  - component: {fileID: 610359319416942618}
+  - component: {fileID: 3323910153349414469}
+  m_Layer: 0
+  m_Name: Cheval Glass2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2321507816858999993
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799264255663963818}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1282, y: -17768, z: 10075}
+  m_LocalScale: {x: 10, y: 10, z: 10}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3546421472189261083}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &610359319416942618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799264255663963818}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d242b34266e283a4b96e39c16662e1be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MirrorState: 1
+  waitTime: 2
+--- !u!65 &3323910153349414469
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799264255663963818}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.73736423, y: 1.8795166, z: 0.22431336}
+  m_Center: {x: 0.0030540468, y: -0.03664551, z: -0.009161377}
+--- !u!1001 &3944540808943092464
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2321507816858999993}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 4857
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1401.5831
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -744
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 60f4d31eaf804584baa029ec7debb160, type: 2}
+    - target: {fileID: 919132149155446097, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+      propertyPath: m_Name
+      value: Cheval glass2
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+--- !u!4 &3546421472189261083 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b25c02764e0e2f4382430d333cd6de9, type: 3}
+  m_PrefabInstance: {fileID: 3944540808943092464}
+  m_PrefabAsset: {fileID: 0}
