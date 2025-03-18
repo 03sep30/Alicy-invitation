@@ -70,15 +70,20 @@ public class PlayerController : MonoBehaviour
             playerMovement.isBreaking = false;
 
         }
-        if (coll.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            gameObject.transform.parent = coll.gameObject.transform.parent;
-        }
+        
         if (coll.gameObject.CompareTag("LuckyBox"))
         {
             coll.gameObject.GetComponent<LuckyBox>().OpenLuckyBox();
             Destroy(coll.gameObject);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ani"))
+        {
+            Debug.Log("Ani");
+            gameObject.transform.parent = collision.gameObject.transform;
         }
     }
 
@@ -92,6 +97,12 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.parent = null;
         }
+        if (collision.gameObject.CompareTag("Ani"))
+        {
+            Debug.Log("Ani");
+            gameObject.transform.parent = null;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
