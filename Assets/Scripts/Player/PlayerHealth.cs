@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerController playerController;
+    private CharacterController characterController;
 
     [Header("????")]
     public bool isDrinkingTeacup = false;
@@ -31,6 +32,7 @@ public class PlayerHealth : MonoBehaviour
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         fadeController = FindAnyObjectByType<FadeController>();
         playerController = FindObjectOfType<PlayerController>();
+        characterController = FindObjectOfType<CharacterController>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
 
@@ -58,17 +60,17 @@ public class PlayerHealth : MonoBehaviour
         if (isDie)
         {
             GameOverVFX.SetActive(false);
+            characterController.enabled = false;
             player.transform.position = SpawnPoint.position;
-
-            // 플레이어가 스폰 포인트로 이동한 후, lastGroundedY를 업데이트
-            // 만약 PlayerController에서 관리된다면 해당 스크립트에 접근하거나 이벤트로 처리합니다.
-            FindObjectOfType<PlayerController>().lastGroundedY = SpawnPoint.position.y;
-            player.transform.position = SpawnPoint.position;
+            characterController.enabled = true;
+            
+            playerController.lastGroundedY = SpawnPoint.position.y;
 
             foreach (SkinnedMeshRenderer meshRenderer in meshRenderers)
             {
                 meshRenderer.gameObject.SetActive(true);
             }
+            isDie = false;  
         }
     }
 

@@ -20,8 +20,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
     private ThirdPersonController thirdPersonController;
-
-    public Transform teleportPoint;
+    private CharacterController characterController;
 
     public bool isGrounded = false;
     public float lastGroundedY;
@@ -36,15 +35,12 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
+        characterController = GetComponent<CharacterController>();
     }
 
     void Update()
     {
         DropCalculation();
-        if (Input.GetKeyDown(KeyCode.B))
-        {
-            gameObject.transform.position = teleportPoint.position;
-        }
     }
 
     void DropCalculation()
@@ -59,8 +55,7 @@ public class PlayerController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        Debug.Log($"{coll.gameObject.name}");
-        coll.gameObject.name = "WTF";
+        //Debug.Log($"{coll.gameObject.name}");
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
@@ -101,6 +96,18 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            var portal = other.GetComponent<Portal>();
+            Transform targetPortal = portal.EnterPortal();
+
+            if (targetPortal != null)
+            {
+                characterController.enabled = false;
+                transform.position = targetPortal.position;
+                characterController.enabled = true;
+            }
+        }
         if (other.gameObject.CompareTag("TTS_Object"))
         {
             other.gameObject.GetComponent<TTSController>().PlayTTS();

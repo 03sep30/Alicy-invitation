@@ -5,14 +5,13 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public List<Transform> PortalList;
+    public GameObject player;
 
-    private void OnTriggerEnter(Collider other)
+    public Transform EnterPortal()
     {
-        if (other.CompareTag("Player"))
-        {
-            int randomNum = Random.Range(0, PortalList.Count);
-            Transform randomPortal = PortalList[randomNum];
-            other.transform.position = randomPortal.position;
-        }
+        int randomNum = Random.Range(0, PortalList.Count);
+        Transform randomPortal = PortalList[randomNum];
+
+        return randomPortal;
     }
 }

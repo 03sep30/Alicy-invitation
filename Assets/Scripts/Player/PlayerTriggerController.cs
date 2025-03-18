@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerTriggerController : MonoBehaviour
 {
     public GameObject cheshire;
-    public GameObject whiteScreen;
-    public GameObject player;
 
     private PlayerHealth playerHealth;
 
@@ -24,8 +23,7 @@ public class PlayerTriggerController : MonoBehaviour
         }
         if (other.CompareTag("OvenDoor"))
         {
-            whiteScreen.SetActive(true);
-            playerHealth.Die();
+            //스테이지 2 프로토타입 씬 이동
         }
         if (other.gameObject.CompareTag("SavePoint"))
         {
