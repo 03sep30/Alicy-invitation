@@ -49,6 +49,7 @@ public class PlayerTriggerController : MonoBehaviour
     {
         if (other.CompareTag("Cheshire"))
         {
+            Destroy(other.gameObject);
             cheshire.SetActive(true);
             Debug.Log("Cheshire");
         }
