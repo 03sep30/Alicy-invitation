@@ -51,8 +51,11 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Die");
         isDie = true;
 
-        playerController.currentEffect.RemoveEffect();
-        playerController.currentEffect = null;
+        if (playerController.currentEffect != null)
+        {
+            playerController.currentEffect.RemoveEffect();
+            playerController.currentEffect = null;
+        }
 
         GameOverVFX.SetActive(true);
         StartCoroutine(GameOverTime());
