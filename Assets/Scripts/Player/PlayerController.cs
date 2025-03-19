@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public float lastGroundedY;
     public bool enterPortal = false;
     [SerializeField] private float deathFallHeight = 75f;
+    public StatusEffect currentEffect;
 
     public AudioSource audioSource;
 
@@ -56,7 +57,7 @@ public class PlayerController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        //Debug.Log($"{coll.gameObject.name}");
+        
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
@@ -74,12 +75,25 @@ public class PlayerController : MonoBehaviour
         
         if (coll.gameObject.CompareTag("LuckyBox"))
         {
-            coll.gameObject.GetComponent<LuckyBox>().OpenLuckyBox();
+            if (currentEffect != null)
+            {
+                currentEffect.RemoveEffect();
+                currentEffect = null;
+            }
+            var luckyBox = coll.gameObject.GetComponent<LuckyBox>();
+            luckyBox.OpenLuckyBox();
+            currentEffect = luckyBox.currentStatus;
             Destroy(coll.gameObject);
         }
     }
 
-    
+    private void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.CompareTag("ParryingObj"))
+        {
+            Debug.Log($"{coll.gameObject.name}");
+        }
+    }
 
     private void OnCollisionExit(Collision collision)
     {

@@ -6,6 +6,6 @@ public abstract class StatusEffect : MonoBehaviour
 {
     public int effectID;
 
-    public abstract void ApplyEffect();
+    public abstract StatusEffect ApplyEffect();
     public abstract void RemoveEffect();
 }

@@ -9,15 +9,20 @@ public class SuperJump : StatusEffect
 
     private float originalJumpHeight;
 
-    public override void ApplyEffect()
+    void Start()
+    {
+        player = FindObjectOfType<ThirdPersonController>();
+    }
+
+    public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-
-        player = FindObjectOfType<ThirdPersonController>();
 
         originalJumpHeight = player.JumpHeight;
         
         player.JumpHeight = originalJumpHeight * 2;
+
+        return this;
     }
 
     public override void RemoveEffect()

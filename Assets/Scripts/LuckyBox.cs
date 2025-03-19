@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LuckyBox : MonoBehaviour
 {
-    private StatusEffect currentStatus;
+    public StatusEffect currentStatus;
     public List<StatusEffect> statusEffectList;
 
     public void OpenLuckyBox()
@@ -13,5 +13,6 @@ public class LuckyBox : MonoBehaviour
 
         currentStatus = statusEffectList[RandomNum];
         currentStatus.ApplyEffect();
+        Debug.Log(currentStatus.name);
     }
 }
