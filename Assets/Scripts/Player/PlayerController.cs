@@ -24,6 +24,7 @@ public class PlayerController : MonoBehaviour
 
     public bool isGrounded = false;
     public float lastGroundedY;
+    public bool enterPortal = false;
     [SerializeField] private float deathFallHeight = 75f;
 
     public AudioSource audioSource;
@@ -46,7 +47,7 @@ public class PlayerController : MonoBehaviour
     void DropCalculation()
     {
         float fallDistance = lastGroundedY - transform.position.y;
-        if (fallDistance >= deathFallHeight && !playerHealth.isDie)
+        if (fallDistance >= deathFallHeight && !playerHealth.isDie && !enterPortal)
         {
             playerHealth.Die();
             //lastGroundedY = playerHealth.SpawnPoint.transform.position.y;
@@ -78,14 +79,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            gameObject.transform.parent = collision.gameObject.transform;
-        }
-    }
+    
 
     private void OnCollisionExit(Collision collision)
     {
@@ -97,12 +91,6 @@ public class PlayerController : MonoBehaviour
         {
             gameObject.transform.parent = null;
         }
-        if (collision.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            gameObject.transform.parent = null;
-        }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -116,6 +104,7 @@ public class PlayerController : MonoBehaviour
             {
                 characterController.enabled = false;
                 transform.position = targetPortal.position;
+                lastGroundedY = targetPortal.position.y;
                 characterController.enabled = true;
             }
         }
