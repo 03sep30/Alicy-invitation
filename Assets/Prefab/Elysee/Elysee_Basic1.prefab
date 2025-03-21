@@ -157,7 +157,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2262, y: 3.68, z: 205.4}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 1
+  m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7718000484524439840}
   - {fileID: 2155579222107419688}
@@ -224,8 +224,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 8
-  SprintSpeed: 15
+  MoveSpeed: 4
+  SprintSpeed: 7.5
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -241,9 +241,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
   FootstepAudioVolume: 0.5
-  JumpHeight: 10
-  Gravity: -15
-  JumpTimeout: 0.5
+  JumpHeight: 5
+  Gravity: -10
+  JumpTimeout: 0.3
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
@@ -256,6 +256,7 @@ MonoBehaviour:
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
+  cameraRotation: 0.6
 --- !u!114 &4263564887506626914
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -404,12 +405,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxPosition: 0
   currentSize: 0
+  playerBody: {fileID: 6940055959627588506}
   isGrounded: 0
   lastGroundedY: 0
   enterPortal: 0
+  crushing: 0
   deathFallHeight: 75
   currentEffect: {fileID: 0}
   audioSource: {fileID: 0}
+  luckyBoxTime: 5
 --- !u!114 &3789162859860276566
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -422,6 +426,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64069cd0da19294a99f9b43516930b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  blindnessPanel: {fileID: 0}
   dashSpeed: 2
   isJumping: 0
   isDashing: 0
@@ -556,7 +561,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
