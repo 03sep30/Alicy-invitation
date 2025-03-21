@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     public StatusEffect currentEffect;
 
     public AudioSource audioSource;
+    public float luckyBoxTime = 5f;
 
     void Start()
     {
@@ -84,8 +85,15 @@ public class PlayerController : MonoBehaviour
             luckyBox.OpenLuckyBox();
             currentEffect = luckyBox.currentStatus;
             StartCoroutine(currentEffect.EffectTime());
-            Destroy(coll.gameObject);
+            StartCoroutine(LuckyBoxTime(coll.gameObject));
         }
+    }
+
+    private IEnumerator LuckyBoxTime(GameObject luckyBox)
+    {
+        luckyBox.SetActive(false);
+        yield return new WaitForSeconds(luckyBoxTime);
+        luckyBox.SetActive(true);
     }
 
     private void OnCollisionEnter(Collision coll)
