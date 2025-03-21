@@ -22,9 +22,11 @@ public class PlayerController : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private CharacterController characterController;
 
+    public GameObject playerBody;
     public bool isGrounded = false;
     public float lastGroundedY;
     public bool enterPortal = false;
+    public bool crushing = false;
     [SerializeField] private float deathFallHeight = 75f;
     public StatusEffect currentEffect;
 
@@ -44,6 +46,10 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         DropCalculation();
+        if (!crushing)
+        {
+            playerBody.transform.localScale = Vector3.one;
+        }
     }
 
     void DropCalculation()
@@ -87,6 +93,8 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(currentEffect.EffectTime());
             StartCoroutine(LuckyBoxTime(coll.gameObject));
         }
+
+        
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
@@ -102,6 +110,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log($"{coll.gameObject.name}");
         }
+        
     }
 
     private void OnCollisionExit(Collision collision)
@@ -118,6 +127,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("CrushBlock"))
+        {
+            crushing = true;
+            characterController.enabled = false;
+            playerBody.transform.localScale = new Vector3(1f, 0.2f, 1f);
+
+            playerHealth.Die();
+        }
+
         if (other.gameObject.CompareTag("Portal"))
         {
             var portal = other.GetComponent<Portal>();

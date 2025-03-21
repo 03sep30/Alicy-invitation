@@ -35,16 +35,6 @@ public class PlayerTriggerController : MonoBehaviour
 
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject.layer == LayerMask.NameToLayer("Ground"))
-        {
-            characterController.Move(Vector3.down * 0.1f);
-            Debug.Log("GroundTrigger");
-        }
-    }
-
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Cheshire"))

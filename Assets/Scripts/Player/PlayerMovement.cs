@@ -59,7 +59,7 @@ public class PlayerMovement : MonoBehaviour
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
-        if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
+        if (!playerController.crushing && playerController.currentSize == CharacterSize.Normal)
         {
             //thirdPersonController.MoveSpeed = originalMoveSpeed;
             //thirdPersonController.JumpHeight = originalJumpHeight;

@@ -76,6 +76,7 @@ public class PlayerHealth : MonoBehaviour
             {
                 meshRenderer.gameObject.SetActive(true);
             }
+            playerController.crushing = false;
             isDie = false;  
         }
     }
