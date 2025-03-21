@@ -81,10 +81,6 @@ public class PlayerMovement : MonoBehaviour
 
             Dash();
         }
-        else
-        {
-            thirdPersonController.JumpAndGravity();
-        }
     }
 
     public void Dash()
