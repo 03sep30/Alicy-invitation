@@ -1,5 +1,6 @@
 using StarterAssets;
 using UnityEngine;
+using UnityEngine.UI;
 
 enum CharacterState
 {
@@ -11,6 +12,10 @@ enum CharacterState
 
 public class PlayerMovement : MonoBehaviour
 {
+    public GameObject blindnessPanel;
+    private RawImage blindnessRawImage;
+    private RectTransform blindnessRectTransform;
+
     public float dashSpeed = 2f;
 
     public bool isJumping;
@@ -37,6 +42,9 @@ public class PlayerMovement : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         thirdPersonController = GetComponent<ThirdPersonController>();
 
+        blindnessRawImage = blindnessPanel.GetComponent<RawImage>();
+        blindnessRectTransform = blindnessPanel.GetComponent<RectTransform>();
+
         originalMoveSpeed = thirdPersonController.MoveSpeed;
         originalJumpHeight = thirdPersonController.JumpHeight;
     }
@@ -48,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             thirdPersonController.Move();
             Boost();
+
+            blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Normal)
         {
@@ -57,6 +67,8 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             thirdPersonController.Move();
             thirdPersonController.JumpAndGravity();
+
+            blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
         if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
         {
@@ -65,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
 
             gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
             thirdPersonController.Move();
+            blindnessRectTransform.sizeDelta = new Vector2(2800f, 1600f);
+
             Dash();
         }
         else
@@ -82,6 +96,7 @@ public class PlayerMovement : MonoBehaviour
             if (playerController.currentSize == CharacterSize.Big && !isBreaking)
             {
                 isBreaking = true;
+                Debug.Log("Break");
             }
         }
     }

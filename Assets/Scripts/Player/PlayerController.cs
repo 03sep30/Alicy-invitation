@@ -83,6 +83,7 @@ public class PlayerController : MonoBehaviour
             var luckyBox = coll.gameObject.GetComponent<LuckyBox>();
             luckyBox.OpenLuckyBox();
             currentEffect = luckyBox.currentStatus;
+            StartCoroutine(currentEffect.EffectTime());
             Destroy(coll.gameObject);
         }
     }

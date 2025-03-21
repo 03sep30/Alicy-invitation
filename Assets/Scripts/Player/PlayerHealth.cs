@@ -50,7 +50,7 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Die");
         isDie = true;
-
+        playerController.currentSize = CharacterSize.Normal;
         if (playerController.currentEffect != null)
         {
             playerController.currentEffect.RemoveEffect();

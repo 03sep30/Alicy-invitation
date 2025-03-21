@@ -7,6 +7,8 @@ public class Restriction : StatusEffect
 {
     private ThirdPersonController player;
 
+    public float effectTime = 30f;
+
     private float originalMoveSpeed;
     private float originalSprintSpeed;
     private float originalJumpHeight;
@@ -33,5 +35,11 @@ public class Restriction : StatusEffect
         player.MoveSpeed = originalMoveSpeed;
         player.SprintSpeed = originalSprintSpeed;
         player.JumpHeight = originalJumpHeight;
+    }
+
+    public override IEnumerator EffectTime()
+    {
+        yield return new WaitForSeconds(effectTime);
+        RemoveEffect();
     }
 }

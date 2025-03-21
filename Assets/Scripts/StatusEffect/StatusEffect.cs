@@ -8,4 +8,6 @@ public abstract class StatusEffect : MonoBehaviour
 
     public abstract StatusEffect ApplyEffect();
     public abstract void RemoveEffect();
+
+    public abstract IEnumerator EffectTime();
 }

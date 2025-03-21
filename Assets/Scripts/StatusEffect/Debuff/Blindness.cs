@@ -5,6 +5,7 @@ using UnityEngine;
 public class Blindness : StatusEffect
 {
     public GameObject BlindnessImage;
+    public float effectTime = 30f;
 
     public override StatusEffect ApplyEffect()
     {
@@ -16,5 +17,11 @@ public class Blindness : StatusEffect
     public override void RemoveEffect()
     {
         BlindnessImage.SetActive(false);
+    }
+
+    public override IEnumerator EffectTime()
+    {
+        yield return new WaitForSeconds(effectTime);
+        RemoveEffect();
     }
 }

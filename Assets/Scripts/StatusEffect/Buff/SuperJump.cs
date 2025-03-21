@@ -6,6 +6,7 @@ using UnityEngine;
 public class SuperJump : StatusEffect
 {
     private ThirdPersonController player;
+    public float effectTime = 30f;
 
     private float originalJumpHeight;
 
@@ -28,5 +29,11 @@ public class SuperJump : StatusEffect
     public override void RemoveEffect()
     {
         player.JumpHeight = originalJumpHeight;
+    }
+
+    public override IEnumerator EffectTime()
+    {
+        yield return new WaitForSeconds(effectTime);
+        RemoveEffect();
     }
 }

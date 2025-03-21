@@ -75,9 +75,12 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        public float cameraRotation;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
+        
 
         // player
         private float _speed;
@@ -203,7 +206,7 @@ namespace StarterAssets
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {
                 //Don't multiply mouse input by Time.deltaTime; 
-                float deltaTimeMultiplier = IsCurrentDeviceMouse ? 0.25f : Time.deltaTime;
+                float deltaTimeMultiplier = IsCurrentDeviceMouse ? cameraRotation : Time.deltaTime;
 
                 _cinemachineTargetYaw += _input.look.x * deltaTimeMultiplier;
                 _cinemachineTargetPitch += _input.look.y * deltaTimeMultiplier;
