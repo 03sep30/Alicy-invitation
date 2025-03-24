@@ -29,7 +29,7 @@ Material:
   m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 3000
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -50,14 +50,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _CloudsAlpha: 6.03
-    - _CloudsPower: 1.17
+    - _AlphaClip: 0
+    - _CloudsAlpha: 5.48
+    - _CloudsPower: 1.38
     - _CloudsScale: 120
-    - _DistortScale: 60
+    - _DistortScale: 63.11
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _VertexOffset: 0.5
     m_Colors:
-    - _CloudsColor: {r: 0.8113208, g: 0.83273315, b: 1, a: 1}
+    - _CloudsColor: {r: 1, g: 1, b: 1, a: 1}
     - _CloudsSpeed: {r: 0.02, g: 0.05, b: 0, a: 0}
     - _DistortSpeed: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
