@@ -3,6 +3,7 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum CharacterSize
 {
@@ -64,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        
+        //  Debug.Log(coll.transform.name);
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
@@ -93,8 +94,18 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(currentEffect.EffectTime());
             StartCoroutine(LuckyBoxTime(coll.gameObject));
         }
-
-        
+        if (coll.gameObject.CompareTag("TerrainGround"))
+        {
+            if (!playerHealth.isDie)
+            {
+                playerHealth.Die();
+            }
+        }
+        if (coll.gameObject.CompareTag("OvenDoor"))
+        {
+            var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
+            SceneManager.LoadScene(loadScene.sceneName);
+        }
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)

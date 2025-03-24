@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class PlayerTriggerController : MonoBehaviour
 {
     public GameObject cheshire;
+    public GameObject stage2BossImage;
 
     private PlayerHealth playerHealth;
     private CharacterController characterController;
@@ -32,7 +33,6 @@ public class PlayerTriggerController : MonoBehaviour
             Debug.Log("Ani");
             gameObject.transform.parent = null;
         }
-
     }
 
     private void OnTriggerEnter(Collider other)
@@ -43,9 +43,9 @@ public class PlayerTriggerController : MonoBehaviour
             cheshire.SetActive(true);
             Debug.Log("Cheshire");
         }
-        if (other.CompareTag("OvenDoor"))
+        if (other.name == "Stage2Trigger")
         {
-            //스테이지 2 프로토타입 씬 이동
+            stage2BossImage.SetActive(true);
         }
         if (other.gameObject.CompareTag("SavePoint"))
         {
