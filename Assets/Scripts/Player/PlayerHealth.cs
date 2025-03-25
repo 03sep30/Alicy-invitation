@@ -7,6 +7,12 @@ public class PlayerHealth : MonoBehaviour
 {
     private PlayerController playerController;
     private CharacterController characterController;
+    private PlayerUI playerUI;
+
+    [Header("Boss")]
+    public int maxPlayerHP = 3;
+    public int currentPlayerHP;
+    public bool shield = false;
 
     [Header("????")]
     public bool isDrinkingTeacup = false;
@@ -33,11 +39,52 @@ public class PlayerHealth : MonoBehaviour
         fadeController = FindAnyObjectByType<FadeController>();
         playerController = FindObjectOfType<PlayerController>();
         characterController = FindObjectOfType<CharacterController>();
+        playerUI = FindObjectOfType<PlayerUI>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
 
         SpawnPoint = startPoint;
         gameObject.transform.parent.position = SpawnPoint.transform.position;
+        currentPlayerHP = maxPlayerHP;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            TakeDamage(1);
+        }
+        if (Input.GetKeyDown(KeyCode.G))
+        {
+            PlayerHeal(1);
+        }
+    }
+
+    public void PlayerHeal(int heal)
+    {
+        if (currentPlayerHP < maxPlayerHP)
+        {
+            currentPlayerHP += heal;
+            playerUI.HealHPUI(currentPlayerHP);
+        }
+    }
+
+    public void TakeDamage(int damage)
+    {
+        if (currentPlayerHP > 0 && !shield)
+        {
+            currentPlayerHP -= damage;
+            playerUI.TakeDamageUI(currentPlayerHP);
+        }
+        if (shield)
+        {
+            shield = false;
+        }
+        if (currentPlayerHP <= 0)
+        {
+            playerUI.TakeDamageUI(currentPlayerHP);
+            Die();
+        }
     }
 
     void OnDestroy()
@@ -65,6 +112,7 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDie)
         {
+            PlayerHeal(maxPlayerHP);
             GameOverVFX.SetActive(false);
             characterController.enabled = false;
             player.transform.position = SpawnPoint.position;
