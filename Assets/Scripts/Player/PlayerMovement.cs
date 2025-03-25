@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     public float originalMoveSpeed;
     public float originalJumpHeight;
+    public float originalSprintSpeed;
 
     private PlayerHealth playerHealth;
     private PlayerStamina playerStamina;
@@ -47,11 +48,12 @@ public class PlayerMovement : MonoBehaviour
 
         originalMoveSpeed = thirdPersonController.MoveSpeed;
         originalJumpHeight = thirdPersonController.JumpHeight;
+        originalSprintSpeed = thirdPersonController.SprintSpeed;
     }
 
     void Update()
     {
-        if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Small)
+        if (!playerHealth.isDie && playerController.currentSize == CharacterSize.Small)
         {
             gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
             thirdPersonController.Move();
@@ -59,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
-        if (!playerController.crushing && playerController.currentSize == CharacterSize.Normal)
+        if (!playerHealth.isDie && !playerController.crushing && playerController.currentSize == CharacterSize.Normal)
         {
             //thirdPersonController.MoveSpeed = originalMoveSpeed;
             //thirdPersonController.JumpHeight = originalJumpHeight;
@@ -70,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
-        if (!playerHealth.isDrinkingTeacup && playerController.currentSize == CharacterSize.Big)
+        if (!playerHealth.isDie && playerController.currentSize == CharacterSize.Big)
         {
             //thirdPersonController.MoveSpeed = originalMoveSpeed;
             //thirdPersonController.JumpHeight = originalJumpHeight;
