@@ -15,6 +15,7 @@ public class PlayerTriggerController : MonoBehaviour
     private CharacterController characterController;
     private PlayerMovement playerMovement;
     private ThirdPersonController thirdPersonController;
+    private PlayerController playerController;
 
     void Start()
     {
@@ -22,6 +23,7 @@ public class PlayerTriggerController : MonoBehaviour
         characterController = FindObjectOfType<CharacterController>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         thirdPersonController = FindObjectOfType<ThirdPersonController>();
+        playerController = FindObjectOfType<PlayerController>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -48,6 +50,8 @@ public class PlayerTriggerController : MonoBehaviour
         if (other.gameObject.CompareTag("Ani"))
         {
             Debug.Log("Ani");
+            playerController.onElevator = true;
+            playerController.AniObject(other.gameObject);
             thirdPersonController.gameObject.transform.parent = other.gameObject.transform;
         }
         if (other.CompareTag("Trampoline"))

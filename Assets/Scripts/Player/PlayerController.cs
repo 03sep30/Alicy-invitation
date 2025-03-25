@@ -36,6 +36,10 @@ public class PlayerController : MonoBehaviour
 
     public float playerDamage = 10f;
 
+    private GameObject Key;
+    public bool onElevator;
+
+    private Vector3 lastElevatorPosition;
     void Start()
     {
         currentSize = CharacterSize.Normal;
@@ -69,6 +73,13 @@ public class PlayerController : MonoBehaviour
     {
         //  Debug.Log(coll.transform.name);
 
+        if (coll.gameObject.name == "Key")
+        {
+            if (Key == null)
+            {
+                Key = coll.gameObject;
+            }
+        }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
             var boss = coll.gameObject.GetComponent<BossHP>();
@@ -110,8 +121,11 @@ public class PlayerController : MonoBehaviour
         }
         if (coll.gameObject.CompareTag("OvenDoor"))
         {
-            var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
-            SceneManager.LoadScene(loadScene.sceneName);
+            if (Key != null)
+            {
+                var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
+                SceneManager.LoadScene(loadScene.sceneName);
+            }
         } 
     }
 
@@ -195,5 +209,14 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    
+    public void AniObject(GameObject aniObj)
+    {
+        if (onElevator)
+        {
+            Vector3 elevatorMovement = aniObj.transform.position - lastElevatorPosition;
+            characterController.Move(elevatorMovement);
+        }
+
+        lastElevatorPosition = aniObj.transform.position;
+    }
 }
