@@ -4,19 +4,19 @@ using UnityEngine;
 
 public class Reduce : StatusEffect
 {
-    private Boss boss;
+    private BossHP bossHP;
     public float reduceValue;
 
     void Start()
     {
-        boss = FindObjectOfType<Boss>();
+        bossHP = FindObjectOfType<BossHP>();
     }
 
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
 
-        boss.DecreaseBossHP(reduceValue);
+        bossHP.DecreaseBossHP(reduceValue);
 
         return this;
     }

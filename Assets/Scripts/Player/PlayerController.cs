@@ -71,7 +71,7 @@ public class PlayerController : MonoBehaviour
 
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
-            var boss = coll.gameObject.GetComponent<Boss>();
+            var boss = coll.gameObject.GetComponent<BossHP>();
             boss.DecreaseBossHP(playerDamage);
         }
         if (coll.gameObject.CompareTag("Obstacle"))

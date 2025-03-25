@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class Boss : MonoBehaviour
+public class BossHP : MonoBehaviour
 {
     public float maxTimeHP;
     private float currentTimeHP;
