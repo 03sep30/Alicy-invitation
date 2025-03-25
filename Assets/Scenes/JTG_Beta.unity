@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.83533454, g: 0.4692378, b: 0.000034197834, a: 1}
+  m_IndirectSpecularColor: {r: 0.8353335, g: 0.46923658, b: 0.000034197834, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -518,6 +518,10 @@ PrefabInstance:
     - target: {fileID: 6231196415708893665, guid: 48c319f3afb3d4c2c878d90a9f5515f9, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6231196415708893665, guid: 48c319f3afb3d4c2c878d90a9f5515f9, type: 3}
+      propertyPath: m_TagString
+      value: SpeedGround
       objectReference: {fileID: 0}
     - target: {fileID: 6304294582722797204, guid: 48c319f3afb3d4c2c878d90a9f5515f9, type: 3}
       propertyPath: m_LocalPosition.x
@@ -3256,7 +3260,7 @@ GameObject:
   - component: {fileID: 425955501}
   m_Layer: 7
   m_Name: Cube (7)
-  m_TagString: Untagged
+  m_TagString: SpeedGround
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8872,6 +8876,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8114563996602663587, guid: b9e2a035cf5d842beb8dd29da285827b, type: 3}
+      propertyPath: m_TagString
+      value: SpeedGround
+      objectReference: {fileID: 0}
     - target: {fileID: 8520213375935635299, guid: b9e2a035cf5d842beb8dd29da285827b, type: 3}
       propertyPath: m_Layer
       value: 7
@@ -9957,6 +9965,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 6482447233006683982, guid: c608445e3eb614245b0ba7d076be2e62, type: 3}
+      propertyPath: m_TagString
+      value: OvenDoor
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9964,6 +9976,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6482447233006683982, guid: c608445e3eb614245b0ba7d076be2e62, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1767732273}
+    - targetCorrespondingSourceObject: {fileID: 6482447233006683982, guid: c608445e3eb614245b0ba7d076be2e62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1767732274}
   m_SourcePrefab: {fileID: 100100000, guid: c608445e3eb614245b0ba7d076be2e62, type: 3}
 --- !u!1 &1767732272 stripped
 GameObject:
@@ -9991,6 +10006,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1767732274
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1767732272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02f35893f112644169ae7fff067391ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneName: Stage2_Prototye_Map
 --- !u!1001 &1775473439
 PrefabInstance:
   m_ObjectHideFlags: 0
