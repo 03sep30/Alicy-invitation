@@ -7,7 +7,7 @@ using TMPro;
 public class BossHP : MonoBehaviour
 {
     public float maxTimeHP;
-    private float currentTimeHP;
+    public float currentTimeHP;
     public bool isHit = false;
     public float hitTime;
     private float currentHitTime;
@@ -27,8 +27,17 @@ public class BossHP : MonoBehaviour
         {
             currentTimeHP -= Time.deltaTime;
             timeHPSlider.value = currentTimeHP / maxTimeHP;
-            timeHPText.text = currentTimeHP.ToString("F0");
+            if (currentTimeHP <= 3.1)
+            {
+                timeHPText.gameObject.SetActive(true);
+                timeHPText.text = currentTimeHP.ToString("F0");
+            }
+            else
+            {
+                timeHPText.gameObject.SetActive(false);
+            }
         }
+        
         if (currentTimeHP <= 0)
         {
             Debug.Log("Boss Die");

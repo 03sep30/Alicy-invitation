@@ -2,6 +2,7 @@ using Cinemachine;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -36,10 +37,17 @@ public class PlayerController : MonoBehaviour
 
     public float playerDamage = 10f;
 
-    private GameObject Key;
-    public bool onElevator;
+    private bool hasKey;
+    public GameObject KeyImage;
+    public Transform teleport1;
 
     private Vector3 lastElevatorPosition;
+    public GameObject statusPlane;
+
+    public GameObject bossPanel;
+
+    [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
+    public Material[] statusImages;
     void Start()
     {
         currentSize = CharacterSize.Normal;
@@ -56,6 +64,28 @@ public class PlayerController : MonoBehaviour
         if (!crushing)
         {
             playerBody.transform.localScale = Vector3.one;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            characterController.enabled = false;
+            transform.position = teleport1.position;
+            lastGroundedY = teleport1.position.y;
+            characterController.enabled = true;
+        }
+    }
+
+    public void UpdateStatus(int num)
+    {
+        statusPlane.SetActive(true);
+
+        MeshRenderer plane = statusPlane.GetComponent<MeshRenderer>();
+        if (num <= statusImages.Length)
+        {
+            plane.material = statusImages[num];
+        }
+        else
+        {
+            statusPlane.SetActive(false);
         }
     }
 
@@ -75,9 +105,11 @@ public class PlayerController : MonoBehaviour
 
         if (coll.gameObject.name == "Key")
         {
-            if (Key == null)
+            if (!hasKey)
             {
-                Key = coll.gameObject;
+                hasKey = true;
+                KeyImage.SetActive(true);
+                Destroy(coll.gameObject);
             }
         }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
@@ -121,7 +153,7 @@ public class PlayerController : MonoBehaviour
         }
         if (coll.gameObject.CompareTag("OvenDoor"))
         {
-            if (Key != null)
+            if (hasKey)
             {
                 var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
                 SceneManager.LoadScene(loadScene.sceneName);
@@ -208,15 +240,5 @@ public class PlayerController : MonoBehaviour
             playerHealth.SpawnPoint = other.gameObject.transform;
         }
         
-    }
-    public void AniObject(GameObject aniObj)
-    {
-        if (onElevator)
-        {
-            Vector3 elevatorMovement = aniObj.transform.position - lastElevatorPosition;
-            characterController.Move(elevatorMovement);
-        }
-
-        lastElevatorPosition = aniObj.transform.position;
     }
 }

@@ -33,16 +33,19 @@ public class MirrorController : MonoBehaviour
         if (MirrorState == 0)
         {
             player.currentSize = CharacterSize.Small;
+            player.UpdateStatus(0);
             StartWaiting();
         }
         if (MirrorState == 1)
         {
             player.currentSize = CharacterSize.Big;
+            player.UpdateStatus(1);
             StartWaiting();
         }
         if (MirrorState == 2)
         {
             player.currentSize = CharacterSize.Normal;
+            player.UpdateStatus(10);
             StartWaiting();
         }
     }

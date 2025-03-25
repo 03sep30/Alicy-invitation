@@ -13,6 +13,7 @@ public class PlayerHealth : MonoBehaviour
     public int maxPlayerHP = 3;
     public int currentPlayerHP;
     public bool shield = false;
+    private BossHP boss;
 
     [Header("????")]
     public bool isDrinkingTeacup = false;
@@ -40,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
         playerController = FindObjectOfType<PlayerController>();
         characterController = FindObjectOfType<CharacterController>();
         playerUI = FindObjectOfType<PlayerUI>();
+        boss = FindObjectOfType<BossHP>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
 
@@ -97,12 +99,16 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Die");
         isDie = true;
+        
         playerController.currentSize = CharacterSize.Normal;
+        playerController.UpdateStatus(10);
         if (playerController.currentEffect != null)
         {
             playerController.currentEffect.RemoveEffect();
             playerController.currentEffect = null;
         }
+        if (playerController.bossPanel != null)
+            playerController.bossPanel.SetActive(false);
 
         GameOverVFX.SetActive(true);
         StartCoroutine(GameOverTime());
@@ -125,7 +131,12 @@ public class PlayerHealth : MonoBehaviour
                 meshRenderer.gameObject.SetActive(true);
             }
             playerController.crushing = false;
-            isDie = false;  
+            isDie = false;
+            if (playerController.bossPanel != null)
+            {
+                playerController.bossPanel.SetActive(true);
+                boss.currentTimeHP = boss.maxTimeHP;
+            }
         }
     }
 

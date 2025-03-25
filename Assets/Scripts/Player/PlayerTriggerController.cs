@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTriggerController : MonoBehaviour
 {
-    public float TrampolineForce;
-
     public GameObject cheshire;
     public GameObject stage2BossImage;
 
@@ -36,28 +34,8 @@ public class PlayerTriggerController : MonoBehaviour
 
     }
 
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            gameObject.transform.parent = null;
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            playerController.onElevator = true;
-            playerController.AniObject(other.gameObject);
-            thirdPersonController.gameObject.transform.parent = other.gameObject.transform;
-        }
-        if (other.CompareTag("Trampoline"))
-        {
-           thirdPersonController._verticalVelocity = Mathf.Sqrt(TrampolineForce * -2f * thirdPersonController.Gravity);
-        }    
         if (other.CompareTag("Cheshire"))
         {
             Destroy(other.gameObject);
@@ -74,6 +52,7 @@ public class PlayerTriggerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("SpeedGround"))
         {
+            playerController.UpdateStatus(2);
             float newMoveSpeed = playerMovement.originalMoveSpeed * 2;
             float newSprintSpeed = playerMovement.originalSprintSpeed * 2;
             thirdPersonController.MoveSpeed = newMoveSpeed;
@@ -82,8 +61,11 @@ public class PlayerTriggerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("SlowdownGround"))
         {
+            playerController.UpdateStatus(3);
             float newMoveSpeed = playerMovement.originalMoveSpeed / 2;
+            float newSprintSpeed = playerMovement.originalSprintSpeed / 2;
             thirdPersonController.MoveSpeed = newMoveSpeed;
+            thirdPersonController.SprintSpeed = newSprintSpeed;
             Debug.Log("SlowdownGround");
         }
     }
@@ -91,13 +73,9 @@ public class PlayerTriggerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("SpeedGround") || other.gameObject.CompareTag("SlowdownGround"))
         {
+            playerController.UpdateStatus(10);
             thirdPersonController.MoveSpeed = playerMovement.originalMoveSpeed;
             thirdPersonController.SprintSpeed = playerMovement.originalSprintSpeed;
-        }
-        if (other.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            thirdPersonController.gameObject.transform.parent = null;
         }
     }
 }
