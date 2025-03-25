@@ -34,6 +34,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource audioSource;
     public float luckyBoxTime = 5f;
 
+    public float playerDamage = 10f;
+
     void Start()
     {
         currentSize = CharacterSize.Normal;
@@ -66,6 +68,12 @@ public class PlayerController : MonoBehaviour
     void OnControllerColliderHit(ControllerColliderHit coll)
     {
         //  Debug.Log(coll.transform.name);
+
+        if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
+        {
+            var boss = coll.gameObject.GetComponent<Boss>();
+            boss.DecreaseBossHP(playerDamage);
+        }
         if (coll.gameObject.CompareTag("Obstacle"))
         {
             playerMovement.isJumping = false;
@@ -78,7 +86,6 @@ public class PlayerController : MonoBehaviour
 
             coll.gameObject.GetComponent<ObstacleController>().Explosion();
             playerMovement.isBreaking = false;
-
         }
         
         if (coll.gameObject.CompareTag("LuckyBox"))
@@ -105,7 +112,7 @@ public class PlayerController : MonoBehaviour
         {
             var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
             SceneManager.LoadScene(loadScene.sceneName);
-        }
+        } 
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
@@ -122,18 +129,6 @@ public class PlayerController : MonoBehaviour
             Debug.Log($"{coll.gameObject.name}");
         }
         
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            
-        }
-        if (collision.gameObject.name == "Card.Spade")
-        {
-            gameObject.transform.parent = null;
-        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -198,5 +193,7 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth.SpawnPoint = other.gameObject.transform;
         }
+        
     }
+    
 }
