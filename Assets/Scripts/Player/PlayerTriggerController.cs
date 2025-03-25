@@ -26,11 +26,12 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ani"))
-        {
-            Debug.Log("Ani");
-            gameObject.transform.parent = collision.gameObject.transform;
-        }
+        
+        //if (collision.gameObject.name == "Position1")
+        //{
+        //    thirdPersonController.gameObject.transform.parent = collision.gameObject.transform;
+        //}
+
     }
 
     private void OnCollisionExit(Collision collision)
@@ -44,6 +45,11 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Ani"))
+        {
+            Debug.Log("Ani");
+            thirdPersonController.gameObject.transform.parent = other.gameObject.transform;
+        }
         if (other.CompareTag("Trampoline"))
         {
            thirdPersonController._verticalVelocity = Mathf.Sqrt(TrampolineForce * -2f * thirdPersonController.Gravity);
@@ -83,6 +89,11 @@ public class PlayerTriggerController : MonoBehaviour
         {
             thirdPersonController.MoveSpeed = playerMovement.originalMoveSpeed;
             thirdPersonController.SprintSpeed = playerMovement.originalSprintSpeed;
+        }
+        if (other.gameObject.CompareTag("Ani"))
+        {
+            Debug.Log("Ani");
+            thirdPersonController.gameObject.transform.parent = null;
         }
     }
 }
