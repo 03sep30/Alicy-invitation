@@ -24,6 +24,8 @@ public class PlayerController : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private CharacterController characterController;
 
+    private BossHP boss;
+
     public GameObject playerBody;
     public bool isGrounded = false;
     public float lastGroundedY;
@@ -56,6 +58,7 @@ public class PlayerController : MonoBehaviour
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
+        boss = FindObjectOfType<BossHP>();
     }
 
     void Update()
@@ -114,8 +117,11 @@ public class PlayerController : MonoBehaviour
         }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
-            var boss = coll.gameObject.GetComponent<BossHP>();
-            boss.DecreaseBossHP(playerDamage);
+            if (boss != null)
+            {
+                boss.DecreaseBossHP(playerDamage);
+                Debug.Log("Player Attack");
+            }
         }
         if (coll.gameObject.CompareTag("Obstacle"))
         {
@@ -159,6 +165,11 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene(loadScene.sceneName);
             }
         } 
+        if (coll.gameObject.CompareTag("BossMap"))
+        {
+            var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
+            SceneManager.LoadScene(loadScene.sceneName);
+        }
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)

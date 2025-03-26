@@ -34,6 +34,12 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip GameOver1;
     public AudioClip GameOver2;
 
+    void Awake()
+    {
+        SpawnPoint = startPoint;
+        gameObject.transform.parent.position = SpawnPoint.transform.position;
+    }
+
     void Start()
     {
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
@@ -44,9 +50,6 @@ public class PlayerHealth : MonoBehaviour
         boss = FindObjectOfType<BossHP>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
-
-        SpawnPoint = startPoint;
-        gameObject.transform.parent.position = SpawnPoint.transform.position;
         currentPlayerHP = maxPlayerHP;
     }
 

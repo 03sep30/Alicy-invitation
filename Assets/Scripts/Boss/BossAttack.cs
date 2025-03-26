@@ -9,7 +9,7 @@ public class BossAttack : MonoBehaviour
 
     public void Attack(PlayerHealth player)
     {
-        if (!hit)
+        if (!hit && player != null)
         {
             player.TakeDamage(damage);
         }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
 
@@ -42,6 +43,7 @@ public class BossHP : MonoBehaviour
         {
             Debug.Log("Boss Die");
             Destroy(gameObject);
+            SceneManager.LoadScene("Stage3_Prototye_Map");
         }
 
         if (isHit)

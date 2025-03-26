@@ -56,7 +56,7 @@ public class PlayerTriggerController : MonoBehaviour
             float newMoveSpeed = playerMovement.originalMoveSpeed * 2;
             float newSprintSpeed = playerMovement.originalSprintSpeed * 2;
             thirdPersonController.MoveSpeed = newMoveSpeed;
-            thirdPersonController.MoveSpeed = newSprintSpeed;
+            thirdPersonController.SprintSpeed = newSprintSpeed;
             Debug.Log("SpeedGround");
         }
         if (other.gameObject.CompareTag("SlowdownGround"))
