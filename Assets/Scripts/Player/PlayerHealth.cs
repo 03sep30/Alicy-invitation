@@ -103,6 +103,10 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Die");
         isDie = true;
         
+        if (currentPlayerHP > 0)
+        {
+            TakeDamage(currentPlayerHP);
+        }
         playerController.currentSize = CharacterSize.Normal;
         playerController.UpdateStatus(10);
         if (playerController.currentEffect != null)
