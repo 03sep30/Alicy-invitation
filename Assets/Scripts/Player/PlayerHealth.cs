@@ -34,6 +34,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip GameOver1;
     public AudioClip GameOver2;
 
+    public bool bossStage = false;
+
     void Awake()
     {
         SpawnPoint = startPoint;
@@ -51,6 +53,8 @@ public class PlayerHealth : MonoBehaviour
 
         fadeController.OnFadeFinished += HandleFadeFinished;
         currentPlayerHP = maxPlayerHP;
+
+        bossStage = playerController.bossPanel.activeInHierarchy;
     }
 
     private void Update()
@@ -142,7 +146,7 @@ public class PlayerHealth : MonoBehaviour
             }
             playerController.crushing = false;
             isDie = false;
-            if (playerController.bossPanel != null)
+            if (bossStage)
             {
                 playerController.bossPanel.SetActive(true);
                 boss.currentTimeHP = boss.maxTimeHP;
