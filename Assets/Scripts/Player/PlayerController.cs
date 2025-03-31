@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public enum CharacterSize
@@ -16,9 +17,13 @@ public enum CharacterSize
 
 public class PlayerController : MonoBehaviour
 {
+    //public UniversalRendererData rendererData;
+    //private ScriptableRendererFeature blitFeature;
+
     public float maxPosition = 0;
     public CharacterSize currentSize;
-    
+
+    private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
     private ThirdPersonController thirdPersonController;
@@ -59,6 +64,16 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
         boss = FindObjectOfType<BossHP>();
+        //_input = GetComponent<StarterAssetsInputs>();
+
+        //foreach (var feature in rendererData.rendererFeatures)
+        //{
+        //    if (feature.name == "Blit")
+        //    {
+        //        blitFeature = feature;
+        //        break;
+        //    }
+        //}
     }
 
     void Update()
@@ -75,6 +90,14 @@ public class PlayerController : MonoBehaviour
             lastGroundedY = teleport1.position.y;
             characterController.enabled = true;
         }
+        //if (_input.sprint && thirdPersonController._speed >= thirdPersonController.SprintSpeed)
+        //{
+        //    blitFeature.SetActive(true);
+        //}
+        //else
+        //{
+        //    blitFeature.SetActive(false);
+        //}
     }
 
     public void UpdateStatus(int num)
