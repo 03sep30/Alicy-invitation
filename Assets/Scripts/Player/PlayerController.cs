@@ -2,7 +2,9 @@ using Cinemachine;
 using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public enum CharacterSize
@@ -15,13 +17,19 @@ public enum CharacterSize
 
 public class PlayerController : MonoBehaviour
 {
+    //public UniversalRendererData rendererData;
+    //private ScriptableRendererFeature blitFeature;
+
     public float maxPosition = 0;
     public CharacterSize currentSize;
-    
+
+    private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
     private ThirdPersonController thirdPersonController;
     private CharacterController characterController;
+
+    private BossHP boss;
 
     public GameObject playerBody;
     public bool isGrounded = false;
@@ -36,6 +44,17 @@ public class PlayerController : MonoBehaviour
 
     public float playerDamage = 10f;
 
+    private bool hasKey;
+    public GameObject KeyImage;
+    public Transform teleport1;
+
+    private Vector3 lastElevatorPosition;
+    public GameObject statusPlane;
+
+    public GameObject bossPanel;
+
+    [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
+    public Material[] statusImages;
     void Start()
     {
         currentSize = CharacterSize.Normal;
@@ -44,6 +63,17 @@ public class PlayerController : MonoBehaviour
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
+        boss = FindObjectOfType<BossHP>();
+        //_input = GetComponent<StarterAssetsInputs>();
+
+        //foreach (var feature in rendererData.rendererFeatures)
+        //{
+        //    if (feature.name == "Blit")
+        //    {
+        //        blitFeature = feature;
+        //        break;
+        //    }
+        //}
     }
 
     void Update()
@@ -52,6 +82,36 @@ public class PlayerController : MonoBehaviour
         if (!crushing)
         {
             playerBody.transform.localScale = Vector3.one;
+        }
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            characterController.enabled = false;
+            transform.position = teleport1.position;
+            lastGroundedY = teleport1.position.y;
+            characterController.enabled = true;
+        }
+        //if (_input.sprint && thirdPersonController._speed >= thirdPersonController.SprintSpeed)
+        //{
+        //    blitFeature.SetActive(true);
+        //}
+        //else
+        //{
+        //    blitFeature.SetActive(false);
+        //}
+    }
+
+    public void UpdateStatus(int num)
+    {
+        statusPlane.SetActive(true);
+
+        MeshRenderer plane = statusPlane.GetComponent<MeshRenderer>();
+        if (num <= statusImages.Length)
+        {
+            plane.material = statusImages[num];
+        }
+        else
+        {
+            statusPlane.SetActive(false);
         }
     }
 
@@ -69,10 +129,22 @@ public class PlayerController : MonoBehaviour
     {
         //  Debug.Log(coll.transform.name);
 
+        if (coll.gameObject.name == "Key")
+        {
+            if (!hasKey)
+            {
+                hasKey = true;
+                KeyImage.SetActive(true);
+                Destroy(coll.gameObject);
+            }
+        }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
-            var boss = coll.gameObject.GetComponent<Boss>();
-            boss.DecreaseBossHP(playerDamage);
+            if (boss != null)
+            {
+                boss.DecreaseBossHP(playerDamage);
+                Debug.Log("Player Attack");
+            }
         }
         if (coll.gameObject.CompareTag("Obstacle"))
         {
@@ -110,9 +182,17 @@ public class PlayerController : MonoBehaviour
         }
         if (coll.gameObject.CompareTag("OvenDoor"))
         {
+            if (hasKey)
+            {
+                var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
+                SceneManager.LoadScene(loadScene.sceneName);
+            }
+        } 
+        if (coll.gameObject.CompareTag("BossMap"))
+        {
             var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
             SceneManager.LoadScene(loadScene.sceneName);
-        } 
+        }
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
@@ -195,5 +275,4 @@ public class PlayerController : MonoBehaviour
         }
         
     }
-    
 }
