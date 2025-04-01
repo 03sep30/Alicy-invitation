@@ -2706,6 +2706,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7670495039299491108, guid: 75c9a6a1d09e6a84c861b2d004054b5b, type: 3}
+      propertyPath: m_TagString
+      value: BossAttack
+      objectReference: {fileID: 0}
     - target: {fileID: 8554158027906763318, guid: 75c9a6a1d09e6a84c861b2d004054b5b, type: 3}
       propertyPath: m_TagString
       value: Boss
@@ -2719,10 +2723,10 @@ PrefabInstance:
       addedObject: {fileID: 546377419}
     - targetCorrespondingSourceObject: {fileID: 7670495039299491108, guid: 75c9a6a1d09e6a84c861b2d004054b5b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2121554225}
+      addedObject: {fileID: 2121554226}
     - targetCorrespondingSourceObject: {fileID: 7670495039299491108, guid: 75c9a6a1d09e6a84c861b2d004054b5b, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2121554226}
+      addedObject: {fileID: 2121554228}
   m_SourcePrefab: {fileID: 100100000, guid: 75c9a6a1d09e6a84c861b2d004054b5b, type: 3}
 --- !u!1 &1288096850
 GameObject:
@@ -4157,20 +4161,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7670495039299491108, guid: 75c9a6a1d09e6a84c861b2d004054b5b, type: 3}
   m_PrefabInstance: {fileID: 1276175903}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2121554225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2121554220}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b05b1e07f4744a09adcd90d06142278, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  hit: 0
 --- !u!54 &2121554226
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -4198,6 +4188,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &2121554228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2121554220}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7882382c98c6b4223bda2e10d787bbce, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  hit: 0
+  lollipops: []
+  throwPoint: {fileID: 0}
+  throwInterval: 3
 --- !u!1 &2124471712
 GameObject:
   m_ObjectHideFlags: 0

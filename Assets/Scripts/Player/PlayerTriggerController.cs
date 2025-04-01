@@ -15,6 +15,8 @@ public class PlayerTriggerController : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private PlayerController playerController;
 
+    private BossAttack boss;
+
     void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
@@ -68,6 +70,17 @@ public class PlayerTriggerController : MonoBehaviour
             thirdPersonController.SprintSpeed = newSprintSpeed;
             Debug.Log("SlowdownGround");
         }
+
+        if (other.gameObject.CompareTag("BossAttack"))
+        {
+            Debug.Log("bossAttack");
+            boss = other.gameObject.GetComponent<BossAttack>();
+            if (boss != null)
+            {
+                boss.Attack(playerHealth);
+                boss.hit = true;
+            }
+        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -76,6 +89,15 @@ public class PlayerTriggerController : MonoBehaviour
             playerController.UpdateStatus(10);
             thirdPersonController.MoveSpeed = playerMovement.originalMoveSpeed;
             thirdPersonController.SprintSpeed = playerMovement.originalSprintSpeed;
+        }
+        if (other.gameObject.CompareTag("BossAttack"))
+        {
+            boss = other.gameObject.GetComponent<BossAttack>();
+            if (boss != null)
+            {
+                boss.hit = false;
+            }
+            boss = null;
         }
     }
 }

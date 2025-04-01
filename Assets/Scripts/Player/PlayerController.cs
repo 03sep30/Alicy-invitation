@@ -129,6 +129,11 @@ public class PlayerController : MonoBehaviour
     {
         //  Debug.Log(coll.transform.name);
 
+        if (coll.gameObject.CompareTag("Ginger"))
+        {
+            playerHealth.TakeDamage(playerHealth.currentPlayerHP);
+        }
+
         if (coll.gameObject.name == "Key")
         {
             if (!hasKey)
