@@ -26,11 +26,11 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        
-        //if (collision.gameObject.name == "Position1")
-        //{
-        //    thirdPersonController.gameObject.transform.parent = collision.gameObject.transform;
-        //}
+
+        if (collision.gameObject.name == "Position1")
+        {
+            thirdPersonController.gameObject.transform.parent = collision.gameObject.transform;
+        }
 
     }
 

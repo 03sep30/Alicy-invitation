@@ -11,36 +11,20 @@ public class CameraController : MonoBehaviour
     public float zoomSpeed = 2f;
     public float minDistance = 2f;
     public float maxDistance = 20f;
+    public float minAngle = -20f;
+    public float maxAngle = 20f;
 
-    private PlayerController playerController;
 
     private float yaw = 0f;
     private float pitch = 10f;
 
     void Start()
     {
-        playerController = FindObjectOfType<PlayerController>();
-
         UpdateCameraPosition();
     }
 
     void Update()
     {
-        if (playerController.currentSize == CharacterSize.Normal)
-        {
-            minDistance = 2f;
-            maxDistance = 30f;
-        }
-        if (playerController.currentSize == CharacterSize.Small)
-        {
-            minDistance = 6.5f;
-            maxDistance = 15f;
-        }
-        if (playerController.currentSize == CharacterSize.Big)
-        {
-            minDistance = 30f;
-            maxDistance = 45f;
-        }
 
         if (distance > maxDistance)
         {
@@ -49,7 +33,7 @@ public class CameraController : MonoBehaviour
 
         yaw += Input.GetAxis("Mouse X") * rotateSpeed;
         pitch -= Input.GetAxis("Mouse Y") * rotateSpeed;
-        pitch = Mathf.Clamp(pitch, -30f, 60f);
+        pitch = Mathf.Clamp(pitch, minAngle, maxAngle);
 
         float scroll = Input.GetAxis("Mouse ScrollWheel");
         if (scroll != 0f)
