@@ -29,7 +29,6 @@ public class GingerCookieController : MonoBehaviour
     {
         MoveToTarget();
     }
-
     void MoveToTarget()
     {
         if (target == null) return;

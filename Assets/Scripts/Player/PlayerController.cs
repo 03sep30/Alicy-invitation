@@ -20,6 +20,8 @@ public class PlayerController : MonoBehaviour
     //public UniversalRendererData rendererData;
     //private ScriptableRendererFeature blitFeature;
 
+   
+
     public float maxPosition = 0;
     public CharacterSize currentSize;
 
@@ -100,6 +102,8 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
+    
+
     public void UpdateStatus(int num)
     {
         statusPlane.SetActive(true);
@@ -127,13 +131,19 @@ public class PlayerController : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit coll)
     {
-        //  Debug.Log(coll.transform.name);
+        //Debug.Log(coll.transform.name);
 
-        if (coll.gameObject.CompareTag("Ginger"))
+        if (coll.gameObject.CompareTag("GingerBoss"))
         {
             playerHealth.TakeDamage(playerHealth.currentPlayerHP);
         }
+        if (coll.gameObject.CompareTag("BossPanel"))
+        {
+            bossPanel.SetActive(true);
+            Destroy(coll.gameObject);
+        }
 
+        
         if (coll.gameObject.name == "Key")
         {
             if (!hasKey)

@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 public class PlayerTriggerController : MonoBehaviour
 {
     public GameObject cheshire;
+    public GameObject GingerCookie;
     public GameObject stage2BossImage;
 
     private PlayerHealth playerHealth;
@@ -14,6 +15,11 @@ public class PlayerTriggerController : MonoBehaviour
     private PlayerMovement playerMovement;
     private ThirdPersonController thirdPersonController;
     private PlayerController playerController;
+
+    public GameObject dustImage;
+    public GameObject BlindnessImage;
+    public float dustTime = 10f;
+    public float dustImageTime = 3f;
 
     private BossAttack boss;
 
@@ -36,8 +42,41 @@ public class PlayerTriggerController : MonoBehaviour
 
     }
 
+    private void TriggerDust()
+    {
+        StartCoroutine(IDustTime(dustTime));
+    }
+
+    public IEnumerator IDustTime(float dustTime)
+    {
+        dustImage.SetActive(true);
+        yield return new WaitForSeconds(dustImageTime);
+        dustImage.SetActive(false);
+        BlindnessImage.SetActive(true);
+        yield return new WaitForSeconds(dustTime);
+        BlindnessImage.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Dust"))
+        {
+            TriggerDust();
+        }
+        if (other.gameObject.CompareTag("Portal"))
+        {
+            var portal = other.GetComponent<Portal>();
+            Transform targetPortal = portal.EnterPortal();
+
+            if (targetPortal != null)
+            {
+                characterController.enabled = false;
+                playerController.lastGroundedY = targetPortal.position.y;
+                transform.position = targetPortal.position;
+                characterController.enabled = true;
+            }
+        }
+
         if (other.gameObject.CompareTag("TTS_Object"))
         {
             TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
@@ -50,6 +89,12 @@ public class PlayerTriggerController : MonoBehaviour
             Destroy(other.gameObject);
             cheshire.SetActive(true);
             Debug.Log("Cheshire");
+        }
+
+        if (other.CompareTag("Ginger"))
+        {
+            Destroy(other.gameObject);
+            GingerCookie.SetActive(true);
         }
         if (other.name == "Stage2Trigger")
         {

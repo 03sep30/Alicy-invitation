@@ -14,6 +14,7 @@ public class BossHP : MonoBehaviour
     private float currentHitTime;
     public Slider timeHPSlider;
     public TextMeshProUGUI timeHPText;
+    public GameObject bossPanel;
 
     void Start()
     {
@@ -42,6 +43,7 @@ public class BossHP : MonoBehaviour
         if (currentTimeHP <= 0)
         {
             Debug.Log("Boss Die");
+            bossPanel.SetActive(false);
             Destroy(gameObject);
             SceneManager.LoadScene("Stage3_Prototye_Map");
         }
