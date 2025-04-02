@@ -59,6 +59,10 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "WTF")
+        {
+            playerController.enterPortal = true;
+        }
         if (other.gameObject.CompareTag("Dust"))
         {
             TriggerDust();
@@ -150,6 +154,10 @@ public class PlayerTriggerController : MonoBehaviour
                 boss.hit = false;
             }
             boss = null;
+        }
+        if (other.gameObject.name == "WTF")
+        {
+            playerController.enterPortal = false;
         }
     }
 }
