@@ -226,7 +226,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cheshire: {fileID: 8284242823291832127}
+  GingerCookie: {fileID: 0}
   stage2BossImage: {fileID: 0}
+  dustImage: {fileID: 0}
+  BlindnessImage: {fileID: 0}
+  dustTime: 10
+  dustImageTime: 3
+  currentPlatform: {fileID: 0}
 --- !u!54 &7833372847977650065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -285,6 +291,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2270242722655694599}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &9050497617539427994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5732429205888338094}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5732429205888338094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9050497617539427994}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6456629156087846826}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &9172912059997176449
 GameObject:
   m_ObjectHideFlags: 0
@@ -295,7 +332,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2270242722655694599}
   - component: {fileID: 5174527909967879301}
-  - component: {fileID: 8234050534589941453}
   - component: {fileID: 7151815457784839261}
   - component: {fileID: 1098218690647717904}
   - component: {fileID: 8949641568636191513}
@@ -305,6 +341,7 @@ GameObject:
   - component: {fileID: 8651164434458959558}
   - component: {fileID: 7264498840761429922}
   - component: {fileID: 7691084298301654676}
+  - component: {fileID: 375374100141798547}
   m_Layer: 8
   m_Name: Elysee_Basic2
   m_TagString: Player
@@ -353,32 +390,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!143 &8234050534589941453
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9172912059997176449}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 1.48
-  m_Radius: 0.28
-  m_SlopeLimit: 60
-  m_StepOffset: 0.2
-  m_SkinWidth: 0.02
-  m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.77, z: 0}
 --- !u!114 &7151815457784839261
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -396,6 +407,7 @@ MonoBehaviour:
   SprintSpeed: 15
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
+  JumpForce: 5
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
   FootstepAudioClips:
   - {fileID: 8300000, guid: 72f526a6a9890f643a88e85a61c86c8a, type: 3}
@@ -409,23 +421,26 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
   FootstepAudioVolume: 0.5
-  JumpHeight: 2.5
+  JumpHeight: 4
   Gravity: -30
   JumpTimeout: 0.3
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.28
+  GroundedRadius: 0.4
   GroundLayers:
     serializedVersion: 2
     m_Bits: 128
+  GroundDrag: 5
+  AirDrag: 1
   CinemachineCameraTarget: {fileID: 8962424208789931804}
   TopClamp: 70
   BottomClamp: -30
   CameraAngleOverride: 0
   LockCameraPosition: 0
   cameraRotation: 0.6
-  _verticalVelocity: 0
+  _speed: 0
+  isParrying: 0
 --- !u!114 &1098218690647717904
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -489,7 +504,7 @@ MonoBehaviour:
   m_ActionEvents:
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7151815457784839261}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputMove
         m_Mode: 0
@@ -505,7 +520,7 @@ MonoBehaviour:
     m_ActionName: Player/Move[/Keyboard/w,/Keyboard/s,/Keyboard/a,/Keyboard/d,/Keyboard/upArrow,/Keyboard/downArrow,/Keyboard/leftArrow,/Keyboard/rightArrow,/XInputControllerWindows/leftStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7151815457784839261}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputLook
         m_Mode: 0
@@ -521,7 +536,7 @@ MonoBehaviour:
     m_ActionName: Player/Look[/Mouse/delta,/XInputControllerWindows/rightStick]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7151815457784839261}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputJump
         m_Mode: 0
@@ -537,7 +552,7 @@ MonoBehaviour:
     m_ActionName: Player/Jump[/Keyboard/space,/XInputControllerWindows/buttonSouth]
   - m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 7151815457784839261}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: 
         m_MethodName: InputSprint
         m_Mode: 0
@@ -579,13 +594,15 @@ MonoBehaviour:
   lastGroundedY: -28
   enterPortal: 0
   crushing: 0
-  deathFallHeight: 30
+  deathFallHeight: 75
   currentEffect: {fileID: 0}
   audioSource: {fileID: 0}
   luckyBoxTime: 5
   playerDamage: 10
+  KeyImage: {fileID: 0}
   teleport1: {fileID: 0}
   statusPlane: {fileID: 4504064747835884678}
+  bossPanel: {fileID: 0}
   statusImages:
   - {fileID: 2100000, guid: 907f9ff5a875502448dcaed5355ffd14, type: 2}
   - {fileID: 2100000, guid: c6370539831fc39469985bb154d25e8b, type: 2}
@@ -603,9 +620,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e64069cd0da19294a99f9b43516930b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isGrounded: 0
+  isJumping: 0
   blindnessPanel: {fileID: 0}
   dashSpeed: 2
-  isJumping: 0
   isDashing: 0
   isBreaking: 0
   isWalking: 0
@@ -739,7 +757,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -747,6 +765,33 @@ CapsuleCollider:
   m_Height: 1.48
   m_Direction: 1
   m_Center: {x: 0, y: 0.77, z: 0}
+--- !u!54 &375374100141798547
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172912059997176449}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 2
 --- !u!1001 &4893159018230938294
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -755,6 +800,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2270242722655694599}
     m_Modifications:
+    - target: {fileID: 347995940088300250, guid: fd4b18871ae3447248bb53840508ca69, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 347995940088300250, guid: fd4b18871ae3447248bb53840508ca69, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 347995940088300250, guid: fd4b18871ae3447248bb53840508ca69, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.12
+      objectReference: {fileID: 0}
+    - target: {fileID: 347995940088300250, guid: fd4b18871ae3447248bb53840508ca69, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1813069202890515298, guid: fd4b18871ae3447248bb53840508ca69, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -896,6 +957,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d71b11c928fc04284843c995e1f40f29, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2818858275411750695}
+    - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: d71b11c928fc04284843c995e1f40f29, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5732429205888338094}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: d71b11c928fc04284843c995e1f40f29, type: 3}
       insertIndex: -1
@@ -931,6 +995,7 @@ MonoBehaviour:
   GameOver0: {fileID: 8300000, guid: 878c70a4cc5eb134fa1d20aa203fb3d8, type: 3}
   GameOver1: {fileID: 8300000, guid: fcb5d24b4daf7a7408f3f41325e7bed9, type: 3}
   GameOver2: {fileID: 8300000, guid: f88c179995a5fb6459869c2f34e850d4, type: 3}
+  bossStage: 0
 --- !u!4 &6456629156087846826 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: d71b11c928fc04284843c995e1f40f29, type: 3}

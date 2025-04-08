@@ -20,7 +20,9 @@ public class PlayerController : MonoBehaviour
     //public UniversalRendererData rendererData;
     //private ScriptableRendererFeature blitFeature;
 
-   
+    public int orangeMushroomCount = 0;
+    public int blueMushroomCount = 0;
+    public MushroomType currentMushroom;
 
     public float maxPosition = 0;
     public CharacterSize currentSize;
@@ -31,6 +33,7 @@ public class PlayerController : MonoBehaviour
     private ThirdPersonController thirdPersonController;
     private CharacterController characterController;
     private PlayerTriggerController PlayerTriggerController;
+    private PlayerMushroomHandler mushroomHandler;
 
 
     private BossHP boss;
@@ -69,6 +72,7 @@ public class PlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         boss = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
+        mushroomHandler = GetComponent<PlayerMushroomHandler>();
         //_input = GetComponent<StarterAssetsInputs>();
 
         //foreach (var feature in rendererData.rendererFeatures)
@@ -105,9 +109,16 @@ public class PlayerController : MonoBehaviour
         //{
         //    blitFeature.SetActive(false);
         //}
-    }
 
-    
+        if (Input.GetKeyDown(KeyCode.F))
+        {
+            mushroomHandler.SwapMushroom();
+        }
+        if (Input.GetMouseButtonDown(0))
+        {
+            mushroomHandler.UseMushroom();
+        }
+    }
 
     public void UpdateStatus(int num)
     {
@@ -134,20 +145,26 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void OnControllerColliderHit(ControllerColliderHit coll)
+    void OnCollisionEnter(Collision coll)
     {
         //Debug.Log(coll.transform.name);
+
+        if (coll.gameObject.CompareTag("Mushroom"))
+        {
+            Mushroom mushroom = coll.gameObject.GetComponent<Mushroom>();
+            mushroom.ChangeState(this);
+        }
 
         if (coll.gameObject.CompareTag("GingerBoss"))
         {
             playerHealth.TakeDamage(playerHealth.currentPlayerHP);
         }
+
         if (coll.gameObject.CompareTag("BossPanel"))
         {
             bossPanel.SetActive(true);
             Destroy(coll.gameObject);
         }
-
         
         if (coll.gameObject.name == "Key")
         {

@@ -55,18 +55,6 @@ public class PlayerHealth : MonoBehaviour
         bossStage = playerController.bossPanel.activeInHierarchy;
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.F))
-        {
-            TakeDamage(1);
-        }
-        if (Input.GetKeyDown(KeyCode.G))
-        {
-            PlayerHeal(1);
-        }
-    }
-
     public void PlayerHeal(int heal)
     {
         if (currentPlayerHP < maxPlayerHP)
