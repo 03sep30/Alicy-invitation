@@ -60,6 +60,10 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("ParryingObj"))
+        {
+            thirdPersonController.isParrying = true;
+        }
         if (other.gameObject.CompareTag("MovingPlatform"))
         {
             currentPlatform = other.gameObject.GetComponent<MovingPlatform>();

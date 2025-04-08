@@ -58,6 +58,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
     public Material[] statusImages;
+
     void Start()
     {
         currentSize = CharacterSize.Normal;
@@ -95,14 +96,6 @@ public class PlayerController : MonoBehaviour
         {
             playerBody.transform.localScale = Vector3.one;
         }
-        if (Input.GetKeyDown(KeyCode.Alpha1))
-        {
-            characterController.enabled = false;
-            transform.position = teleport1.position;
-            lastGroundedY = teleport1.position.y;
-            characterController.enabled = true;
-        }
-
         
         //if (_input.sprint && thirdPersonController._speed >= thirdPersonController.SprintSpeed)
         //{
@@ -229,14 +222,6 @@ public class PlayerController : MonoBehaviour
         luckyBox.SetActive(true);
     }
 
-    private void OnCollisionEnter(Collision coll)
-    {
-        if (coll.gameObject.CompareTag("ParryingObj"))
-        {
-            Debug.Log($"{coll.gameObject.name}");
-        }
-        
-    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -266,35 +251,35 @@ public class PlayerController : MonoBehaviour
         {
             other.gameObject.GetComponent<TTSController>().PlayTTS();
         }
-        if (other.gameObject.CompareTag("ParryingObj"))
-        {
-            var parryingObj = other.gameObject.GetComponent<ParryingObj>();
+        //if (other.gameObject.CompareTag("ParryingObj"))
+        //{
+        //    var parryingObj = other.gameObject.GetComponent<ParryingObj>();
 
-            switch (parryingObj.Name)
-            {
-                case "Juice":
-                    parryingObj.UpdateSize(gameObject);
-                    Destroy(other.transform.parent.gameObject);
-                    break;
-                case "TeaCup":
-                    //parryingObj.Invincibility(gameObject);
-                    //StartCoroutine(TeaCupTime());
-                    Debug.Log("TEACUP");
-                    parryingObj.Jump(gameObject);
-                    //Destroy(other.transform.gameObject);
-                    break;
-                case "Raisin":
-                    parryingObj.UpdateSize(gameObject);
-                    Destroy(other.transform.parent.gameObject);
-                    break;
-                case "Fan":
-                    //playerMovement.fanAvailable = true;
-                    Destroy(other.transform.parent.gameObject);
-                    break;
-                default:
-                    break;
-            }
-        }
+        //    switch (parryingObj.Name)
+        //    {
+        //        case "Juice":
+        //            parryingObj.UpdateSize(gameObject);
+        //            Destroy(other.transform.parent.gameObject);
+        //            break;
+        //        case "TeaCup":
+        //            //parryingObj.Invincibility(gameObject);
+        //            //StartCoroutine(TeaCupTime());
+        //            Debug.Log("TEACUP");
+        //            parryingObj.Jump(gameObject);
+        //            //Destroy(other.transform.gameObject);
+        //            break;
+        //        case "Raisin":
+        //            parryingObj.UpdateSize(gameObject);
+        //            Destroy(other.transform.parent.gameObject);
+        //            break;
+        //        case "Fan":
+        //            //playerMovement.fanAvailable = true;
+        //            Destroy(other.transform.parent.gameObject);
+        //            break;
+        //        default:
+        //            break;
+        //    }
+        //}
 
         if (other.gameObject.CompareTag("SavePoint"))
         {

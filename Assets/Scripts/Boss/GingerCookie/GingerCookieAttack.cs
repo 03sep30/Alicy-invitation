@@ -14,16 +14,17 @@ public class GingerCookieAttack : BossAttack
     private int[] throwPattern = { 0, 0, 1 };
 
     public Transform target;
+    
 
     void Start()
     {
         currentThrowTime = throwInterval;
     }
 
-    void Update()
+    public void GingerAttack()
     {
         Vector3 targetPos = target.position;
-        targetPos.y += 0.75f;
+        targetPos.y = throwPoint.position.y;
 
         Vector3 direction = (targetPos - throwPoint.position).normalized;
         Quaternion targetRotation = Quaternion.LookRotation(direction);
@@ -37,7 +38,6 @@ public class GingerCookieAttack : BossAttack
             currentThrowTime = throwInterval;
         }
     }
-
 
     private void ThrowLollipop()
     {

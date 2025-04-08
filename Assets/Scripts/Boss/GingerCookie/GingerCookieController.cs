@@ -17,17 +17,27 @@ public class GingerCookieController : MonoBehaviour
     private NavMeshAgent agent;
     public GingerCookieState currentState;
     public Transform target;
+    private PlayerHealth player;
+    private GingerCookieAttack gingerAttack;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
+        player = FindObjectOfType<PlayerHealth>();
+        gingerAttack = GetComponent<GingerCookieAttack>();
 
         currentState = GingerCookieState.Idle;
+
     }
 
     void Update()
     {
-        MoveToTarget();
+        if (!player.isDie)
+        {
+            MoveToTarget();
+            gingerAttack.GingerAttack();
+        }
+        
     }
     void MoveToTarget()
     {

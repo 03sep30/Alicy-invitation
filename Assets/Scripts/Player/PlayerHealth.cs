@@ -6,7 +6,6 @@ using TMPro;
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerController playerController;
-    private CharacterController characterController;
     private PlayerUI playerUI;
 
     [Header("Boss")]
@@ -47,7 +46,6 @@ public class PlayerHealth : MonoBehaviour
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         fadeController = FindAnyObjectByType<FadeController>();
         playerController = FindObjectOfType<PlayerController>();
-        characterController = FindObjectOfType<CharacterController>();
         playerUI = FindObjectOfType<PlayerUI>();
         boss = FindObjectOfType<BossHP>();
 
@@ -134,9 +132,7 @@ public class PlayerHealth : MonoBehaviour
         {
             PlayerHeal(maxPlayerHP);
             GameOverVFX.SetActive(false);
-            //characterController.enabled = false;
             player.transform.position = SpawnPoint.position;
-            //characterController.enabled = true;
             
             playerController.lastGroundedY = SpawnPoint.position.y;
 

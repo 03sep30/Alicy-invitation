@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028356, g: 0.2257137, b: 0.3069222, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -22089,6 +22089,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 375374100141798547, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 557930343959675566, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
       propertyPath: m_ActionEvents.Array.data[0].m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -34789,8 +34793,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1.3361865, y: 4.192627, z: 1}
+  m_Center: {x: -0.16809249, y: -1.5963135, z: 0}
 --- !u!23 &1763774981
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -34904,7 +34908,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1549252586}
   - {fileID: 1472119286}
-  moveSpeed: 18
+  moveSpeed: 11
   waitTimeAtPoint: 2
   currentWaypointIndex: 0
 --- !u!1001 &1764247628
