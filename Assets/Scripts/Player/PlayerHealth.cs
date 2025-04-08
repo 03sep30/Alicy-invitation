@@ -134,9 +134,9 @@ public class PlayerHealth : MonoBehaviour
         {
             PlayerHeal(maxPlayerHP);
             GameOverVFX.SetActive(false);
-            characterController.enabled = false;
+            //characterController.enabled = false;
             player.transform.position = SpawnPoint.position;
-            characterController.enabled = true;
+            //characterController.enabled = true;
             
             playerController.lastGroundedY = SpawnPoint.position.y;
 
