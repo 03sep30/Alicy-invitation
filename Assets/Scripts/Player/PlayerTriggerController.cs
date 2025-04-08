@@ -20,6 +20,7 @@ public class PlayerTriggerController : MonoBehaviour
     public GameObject BlindnessImage;
     public float dustTime = 10f;
     public float dustImageTime = 3f;
+    public MovingPlatform currentPlatform;
 
     private BossAttack boss;
 
@@ -59,6 +60,10 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            currentPlatform = other.gameObject.GetComponent<MovingPlatform>();
+        }
         if (other.gameObject.name == "WTF")
         {
             playerController.enterPortal = true;
@@ -140,6 +145,10 @@ public class PlayerTriggerController : MonoBehaviour
     }
     private void OnTriggerExit(Collider other)
     {
+        if (other.gameObject.CompareTag("MovingPlatform"))
+        {
+            currentPlatform = null;
+        }
         if (other.gameObject.CompareTag("SpeedGround") || other.gameObject.CompareTag("SlowdownGround"))
         {
             playerController.UpdateStatus(10);

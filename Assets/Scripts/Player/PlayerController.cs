@@ -30,6 +30,8 @@ public class PlayerController : MonoBehaviour
     private PlayerHealth playerHealth;
     private ThirdPersonController thirdPersonController;
     private CharacterController characterController;
+    private PlayerTriggerController PlayerTriggerController;
+
 
     private BossHP boss;
 
@@ -50,7 +52,6 @@ public class PlayerController : MonoBehaviour
     public GameObject KeyImage;
     public Transform teleport1;
 
-    private Vector3 lastElevatorPosition;
     public GameObject statusPlane;
 
     public GameObject bossPanel;
@@ -66,6 +67,7 @@ public class PlayerController : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         characterController = GetComponent<CharacterController>();
         boss = FindObjectOfType<BossHP>();
+        PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         //_input = GetComponent<StarterAssetsInputs>();
 
         //foreach (var feature in rendererData.rendererFeatures)
@@ -76,6 +78,14 @@ public class PlayerController : MonoBehaviour
         //        break;
         //    }
         //}
+    }
+
+    private void LateUpdate()
+    {
+        if (PlayerTriggerController.currentPlatform != null)
+        {
+            characterController.Move(PlayerTriggerController.currentPlatform.DeltaPosition);
+        }
     }
 
     void Update()
@@ -92,6 +102,8 @@ public class PlayerController : MonoBehaviour
             lastGroundedY = teleport1.position.y;
             characterController.enabled = true;
         }
+
+        
         //if (_input.sprint && thirdPersonController._speed >= thirdPersonController.SprintSpeed)
         //{
         //    blitFeature.SetActive(true);
