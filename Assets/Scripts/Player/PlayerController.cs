@@ -34,7 +34,7 @@ public class PlayerController : MonoBehaviour
     private CharacterController characterController;
     private PlayerTriggerController PlayerTriggerController;
     private PlayerMushroomHandler mushroomHandler;
-
+    private CubePuzzle cubePuzzle;
 
     private BossHP boss;
 
@@ -73,6 +73,8 @@ public class PlayerController : MonoBehaviour
         boss = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
+        cubePuzzle = FindObjectOfType<CubePuzzle>();
+
         currentMushroom = MushroomType.Blue;
         //_input = GetComponent<StarterAssetsInputs>();
 
@@ -244,6 +246,15 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("CubePuzzle"))
+        {
+            cubePuzzle.ToggleCube(other.gameObject);
+        }
+        if (other.transform.name == "PuzzleButton")
+        {
+            cubePuzzle.CheckPuzzle();
+
+        }
         if (other.gameObject.CompareTag("CrushBlock"))
         {
             crushing = true;
