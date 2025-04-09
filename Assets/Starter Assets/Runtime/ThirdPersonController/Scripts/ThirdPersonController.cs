@@ -408,7 +408,7 @@ namespace StarterAssets
             {
                 _fallTimeoutDelta = FallTimeout;
 
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f || isParrying)
                 {
                     _isJumping = true;
 
@@ -427,26 +427,7 @@ namespace StarterAssets
                     // Jump 실행은 FixedUpdate에서 처리
                     _jumpTimeoutDelta = JumpTimeout;
                     Jump();
-                }
-                if (_input.jump && isParrying)
-                {
-                    _isJumping = true;
-
-                    // 플랫폼 운동량 저장
-                    if (_currentPlatform != null)
-                    {
-                        // 플랫폼 속도 추정 (이전 프레임과 현재 프레임의 위치 차이)
-                        Vector3 platformVelocity = (_currentPlatform.position - _lastPlatformPosition) / Time.deltaTime;
-                        _platformMomentum = platformVelocity;
-                        _platformMomentum.y = 0; // 수직 운동량 제외
-                    }
-
-                    // 플랫폼 참조 제거
-                    _currentPlatform = null;
-
-                    // Jump 실행은 FixedUpdate에서 처리
-                    _jumpTimeoutDelta = JumpTimeout;
-                    Jump();
+                    isParrying = false;
                 }
 
                 if (_jumpTimeoutDelta >= 0.0f)

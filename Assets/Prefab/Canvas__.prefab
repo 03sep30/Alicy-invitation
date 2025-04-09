@@ -899,7 +899,7 @@ GameObject:
   - component: {fileID: 3903710291691097689}
   - component: {fileID: 2179641516161995503}
   m_Layer: 5
-  m_Name: Mushroom
+  m_Name: MushroomPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -924,7 +924,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 10, y: 10}
-  m_SizeDelta: {x: 415, y: 100}
+  m_SizeDelta: {x: 510, y: 100}
   m_Pivot: {x: 0, y: 0}
 --- !u!222 &5828390447889323878
 CanvasRenderer:
@@ -1988,8 +1988,9 @@ GameObject:
   - component: {fileID: 3756163718609865804}
   - component: {fileID: 8891443260588447844}
   - component: {fileID: 8062138268208732246}
+  - component: {fileID: 666736350363741232}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: BlueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2009,10 +2010,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 845586809310469067}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 200, y: 50}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 181.63, y: -44.69}
+  m_SizeDelta: {x: 143.26, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8891443260588447844
 CanvasRenderer:
@@ -2042,7 +2043,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X0
+  m_text: X99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2076,8 +2077,8 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -2111,6 +2112,20 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &666736350363741232
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3513332274009722156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 2
+  m_VerticalFit: 2
 --- !u!1 &3533192886296779632
 GameObject:
   m_ObjectHideFlags: 0
@@ -3286,7 +3301,7 @@ GameObject:
   - component: {fileID: 2630198376719751970}
   - component: {fileID: 8019152848463813980}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: OrangeText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3339,7 +3354,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: X0
+  m_text: X99
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4378,7 +4393,7 @@ GameObject:
   - component: {fileID: 8766538985752624162}
   - component: {fileID: 7906154235496761408}
   m_Layer: 5
-  m_Name: Image
+  m_Name: OrangeImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4530,7 +4545,7 @@ GameObject:
   - component: {fileID: 2626009672389777504}
   - component: {fileID: 5350086621856043113}
   m_Layer: 5
-  m_Name: BlueMushroom
+  m_Name: OrangeMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4996,7 +5011,7 @@ GameObject:
   - component: {fileID: 9212924322312482476}
   - component: {fileID: 8597130071385125859}
   m_Layer: 5
-  m_Name: Image
+  m_Name: BlueImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5072,7 +5087,7 @@ GameObject:
   - component: {fileID: 6123360913776275353}
   - component: {fileID: 112813038832172990}
   m_Layer: 5
-  m_Name: OrangeMushroom
+  m_Name: BlueMushroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

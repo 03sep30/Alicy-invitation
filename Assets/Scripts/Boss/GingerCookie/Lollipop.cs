@@ -19,12 +19,8 @@ public class Lollipop : MonoBehaviour
             if (playerHealth != null)
             {
                 playerHealth.TakeDamage(gingerCookie.damage);
-                Destroy(gameObject);
             }
         }
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }
