@@ -60,7 +60,7 @@ public class PlayerMovement : MonoBehaviour
         if (!playerHealth.isDie && playerController.currentSize == CharacterSize.Small)
         {
             gameObject.transform.localScale = new Vector3(0.5f, 0.5f, 0.5f);
-            Boost();
+            //Boost();
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
@@ -70,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
             thirdPersonController.JumpHeight = originalJumpHeight;
 
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
-            thirdPersonController.JumpAndGravity();
+            //thirdPersonController.JumpAndGravity();
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
@@ -82,7 +82,7 @@ public class PlayerMovement : MonoBehaviour
             gameObject.transform.localScale = new Vector3(2f, 2f, 2f);
             blindnessRectTransform.sizeDelta = new Vector2(2800f, 1600f);
 
-            Dash();
+            //Dash();
         }
     }
 

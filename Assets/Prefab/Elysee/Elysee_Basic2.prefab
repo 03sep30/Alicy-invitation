@@ -342,6 +342,8 @@ GameObject:
   - component: {fileID: 7264498840761429922}
   - component: {fileID: 7691084298301654676}
   - component: {fileID: 375374100141798547}
+  - component: {fileID: 655034617293081955}
+  - component: {fileID: 2581439434752284248}
   m_Layer: 8
   m_Name: Elysee_Basic2
   m_TagString: Player
@@ -405,7 +407,7 @@ MonoBehaviour:
   fallSpeed: 1
   MoveSpeed: 8
   SprintSpeed: 15
-  RotationSmoothTime: 0.12
+  RotationSmoothTime: 0.15
   SpeedChangeRate: 10
   JumpForce: 5
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -587,6 +589,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71f7bac7d913fe43bc16e0fc24a8692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  orangeMushroomCount: 0
+  blueMushroomCount: 0
+  currentMushroom: 0
   maxPosition: 0
   currentSize: 0
   playerBody: {fileID: 5967655085440470288}
@@ -792,6 +797,45 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &655034617293081955
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172912059997176449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d12a9562eb2f44f18918074229558c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mushroomState: 0
+--- !u!114 &2581439434752284248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9172912059997176449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 51a821daa7a854a1b80cf3ee2422bc1b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerHPImages:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  orangeMushroomText: {fileID: 0}
+  blueMushroomText: {fileID: 0}
+  orangeMushroomImage: {fileID: 0}
+  blueMushroomImage: {fileID: 0}
+  orangeMushroomSprite:
+  - {fileID: 21300000, guid: fde834d2bd73a4fbba1c57d44b7dfadc, type: 3}
+  - {fileID: 21300000, guid: 6e038540662ab49f9a366e0fd2951021, type: 3}
+  blueMushroomSpirte:
+  - {fileID: 21300000, guid: e870b5f5ef8df4dddbf503275047f212, type: 3}
+  - {fileID: 21300000, guid: 6e038540662ab49f9a366e0fd2951021, type: 3}
 --- !u!1001 &4893159018230938294
 PrefabInstance:
   m_ObjectHideFlags: 0

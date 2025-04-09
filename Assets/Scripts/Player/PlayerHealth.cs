@@ -33,6 +33,8 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip GameOver1;
     public AudioClip GameOver2;
 
+    public GameObject mushroomPanel;
+
     public bool bossStage = false;
 
     void Awake()
@@ -100,6 +102,7 @@ public class PlayerHealth : MonoBehaviour
                 TakeDamage(currentPlayerHP);
             }
         }
+        mushroomPanel.SetActive(false);
         playerController.currentSize = CharacterSize.Normal;
         playerController.UpdateStatus(10);
         if (playerController.currentEffect != null)
@@ -130,6 +133,7 @@ public class PlayerHealth : MonoBehaviour
             }
             playerController.crushing = false;
             isDie = false;
+            mushroomPanel.SetActive(true);
             if (bossStage)
             {
                 playerController.bossPanel.SetActive(true);

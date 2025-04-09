@@ -73,6 +73,7 @@ public class PlayerController : MonoBehaviour
         boss = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
+        currentMushroom = MushroomType.Blue;
         //_input = GetComponent<StarterAssetsInputs>();
 
         //foreach (var feature in rendererData.rendererFeatures)
@@ -152,7 +153,8 @@ public class PlayerController : MonoBehaviour
         if (coll.gameObject.CompareTag("Mushroom"))
         {
             Mushroom mushroom = coll.gameObject.GetComponent<Mushroom>();
-            mushroom.ChangeState(this);
+            mushroomHandler.GetMushroom(mushroom);
+            Debug.Log("버ㅓ");
         }
 
         if (coll.gameObject.CompareTag("GingerBoss"))

@@ -196,6 +196,8 @@ namespace StarterAssets
             GroundedCheck();
             UpdateAnimation();
             CameraRotation();
+
+            JumpAndGravity();
         }
 
         private void FixedUpdate()

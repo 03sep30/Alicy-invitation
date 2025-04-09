@@ -11,8 +11,8 @@ public class PlayerUI : MonoBehaviour
     public TextMeshProUGUI blueMushroomText;
     public Image orangeMushroomImage;
     public Image blueMushroomImage;
-    public Sprite[] orangeMushroomSprite;
-    public Sprite[] blueMushroomSpirte;
+    public Sprite[] orangeMushroomSprite; // [0]: 선택됨, [1]: 비선택
+    public Sprite[] blueMushroomSpirte;   // [0]: 선택됨, [1]: 비선택
 
     public void HealHPUI(int hp)
     {
@@ -27,30 +27,15 @@ public class PlayerUI : MonoBehaviour
         playerHPImages[hp].gameObject.SetActive(false);
     }
 
-    public void UpdateOrangeMushroomUI(int count, bool isEnable)
+    public void UpdateOrangeMushroomUI(int count, bool isSelected)
     {
         orangeMushroomText.text = $"X{count}";
-
-        if (isEnable)
-        {
-            orangeMushroomImage.sprite = orangeMushroomSprite[0];
-        }
-        else
-        {
-            orangeMushroomImage.sprite = orangeMushroomSprite[1];
-        }
+        orangeMushroomImage.sprite = isSelected ? orangeMushroomSprite[0] : orangeMushroomSprite[1];
     }
-    public void UpdateBlueMushroomUI(int count, bool isEnable)
+
+    public void UpdateBlueMushroomUI(int count, bool isSelected)
     {
         blueMushroomText.text = $"X{count}";
-
-        if (isEnable)
-        {
-            blueMushroomImage.sprite = blueMushroomSpirte[0];
-        }
-        else
-        {
-            blueMushroomImage.sprite = blueMushroomSpirte[1];
-        }
+        blueMushroomImage.sprite = isSelected ? blueMushroomSpirte[0] : blueMushroomSpirte[1];
     }
 }
