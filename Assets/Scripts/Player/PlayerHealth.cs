@@ -37,12 +37,6 @@ public class PlayerHealth : MonoBehaviour
 
     public bool bossStage = false;
 
-    void Awake()
-    {
-        SpawnPoint = startPoint;
-        gameObject.transform.parent.position = SpawnPoint.transform.position;
-    }
-
     void Start()
     {
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();

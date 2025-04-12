@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18373963, g: 0.2291353, b: 0.30464372, a: 1}
+  m_IndirectSpecularColor: {r: 0.18373995, g: 0.22913548, b: 0.30464417, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23241,6 +23241,10 @@ PrefabInstance:
       propertyPath: blindnessPanel
       value: 
       objectReference: {fileID: 1855746092}
+    - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8587354892912678256, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
       propertyPath: dustImage
       value: 
@@ -24788,7 +24792,6 @@ Transform:
   - {fileID: 1659618137}
   - {fileID: 324040355}
   - {fileID: 2069013480}
-  - {fileID: 1695710580}
   m_Father: {fileID: 103462553}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1241740410
@@ -34933,11 +34936,11 @@ Transform:
   m_GameObject: {fileID: 1695710579}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 308, y: 213, z: -301}
+  m_LocalPosition: {x: 256.16, y: 185.36343, z: 115.64679}
   m_LocalScale: {x: 5, y: 5, z: 5}
   m_ConstrainProportionsScale: 1
   m_Children: []
-  m_Father: {fileID: 1231665774}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1695710581
 BoxCollider:
@@ -46481,6 +46484,7 @@ SceneRoots:
   - {fileID: 1926727457}
   - {fileID: 2101828139}
   - {fileID: 1708952131}
+  - {fileID: 1695710580}
   - {fileID: 103462553}
   - {fileID: 1320057064}
   - {fileID: 155602559}
