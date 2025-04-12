@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18373995, g: 0.22913548, b: 0.30464417, a: 1}
+  m_IndirectSpecularColor: {r: 0.18373945, g: 0.2291349, b: 0.30464306, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -23161,6 +23161,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 90813406722287984, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: m_UpdateWhenOffscreen
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2270242722655694599, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
       propertyPath: m_LocalPosition.x
       value: 239.00003
@@ -23237,6 +23241,10 @@ PrefabInstance:
       propertyPath: mushroomPanel
       value: 
       objectReference: {fileID: 1975497054}
+    - target: {fileID: 5583940913037896974, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: m_StaticShadowCaster
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6963896828841304140, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
       propertyPath: blindnessPanel
       value: 
@@ -28945,16 +28953,28 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -795.6171
+      value: 240.34
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 30.6
+      value: 183.56036
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 280.6311
+      value: 115.91
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1ee77760e1eb8d8429722682411bd169, type: 3}
       propertyPath: m_LocalRotation.w
