@@ -90,13 +90,6 @@ public class PlayerTriggerController : MonoBehaviour
             }
         }
 
-        if (other.gameObject.CompareTag("TTS_Object"))
-        {
-            TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
-            //ttsObj.PlayTTS();
-            ttsObj.StartTextDisplay();
-        }
-
         if (other.CompareTag("Cheshire"))
         {
             Destroy(other.gameObject);

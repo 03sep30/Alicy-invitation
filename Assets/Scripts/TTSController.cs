@@ -55,9 +55,10 @@ public class TTSController : MonoBehaviour
             text.text = textLines[textIndex];
             image.sprite = characterImages[textIndex];
             textIndex++;
+            Debug.Log($"currentIndex : {textIndex}");
         }
 
-        if (textIndex >= textLines.Length)
+        else
         {
             isTextEnable = false;
 
@@ -79,5 +80,14 @@ public class TTSController : MonoBehaviour
         textIndex = 0;
         isTextEnable = true;
         textPanel.SetActive(true);
+
+        // 첫 텍스트 및 이미지 즉시 표시
+        if (textLines.Length > 0)
+        {
+            text.text = textLines[0];
+            image.sprite = characterImages[0];
+            textIndex = 1; // 다음 텍스트부터는 1번 인덱스부터
+            currentTextTime = textInterval;
+        }
     }
 }

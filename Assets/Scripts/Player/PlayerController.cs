@@ -283,7 +283,10 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("TTS_Object"))
         {
-            other.gameObject.GetComponent<TTSController>().PlayTTS();
+            Debug.Log("Trigger : TTS_Object");
+            TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
+            //ttsObj.PlayTTS();
+            ttsObj.StartTextDisplay();
         }
         //if (other.gameObject.CompareTag("ParryingObj"))
         //{
