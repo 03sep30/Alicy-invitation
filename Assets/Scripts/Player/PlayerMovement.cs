@@ -67,7 +67,7 @@ public class PlayerMovement : MonoBehaviour
         if (!playerHealth.isDie && !playerController.crushing && playerController.currentSize == CharacterSize.Normal)
         {
             thirdPersonController.MoveSpeed = originalMoveSpeed;
-            thirdPersonController.JumpHeight = originalJumpHeight;
+            //thirdPersonController.JumpHeight = originalJumpHeight;
 
             gameObject.transform.localScale = new Vector3(1f, 1f, 1f);
             //thirdPersonController.JumpAndGravity();

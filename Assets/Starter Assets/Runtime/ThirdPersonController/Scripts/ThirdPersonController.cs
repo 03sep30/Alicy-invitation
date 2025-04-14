@@ -122,7 +122,7 @@ namespace StarterAssets
         private PlayerInput _playerInput;
 #endif
         private Animator _animator;
-        private Rigidbody _rigidbody; // CharacterController 대신 Rigidbody
+        public Rigidbody _rigidbody; // CharacterController 대신 Rigidbody
         private CapsuleCollider _collider; // 캡슐 콜라이더 추가
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
@@ -278,7 +278,7 @@ namespace StarterAssets
             else
             {
                 // 디버그용 - 지면이 아닐 때 체크 포인트 시각화
-                // Debug.DrawRay(spherePosition, Vector3.down * 0.1f, Color.red);
+                Debug.DrawRay(spherePosition, Vector3.down * 0.1f, Color.red);
             }
         }
 
@@ -363,7 +363,6 @@ namespace StarterAssets
                 _lastPlatformPosition = _currentPlatform.position;
             }
 
-            // 공중에 있을 때 플랫폼 운동량 적용
             if (!Grounded && _platformMomentum.magnitude > 0.01f)
             {
                 // 운동량 적용 및 감쇠
@@ -386,7 +385,7 @@ namespace StarterAssets
             else
             {
                 // 공중에서는 힘을 가해 이동 (더 자연스러운 움직임)
-                _rigidbody.AddForce(_moveDirection * _speed * 0.5f, ForceMode.Force);
+                _rigidbody.AddForce(_moveDirection * _speed * 1f, ForceMode.Force);
 
                 // 속도 제한 (너무 빠르게 움직이지 않도록)
                 Vector3 horizontalVelocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
@@ -507,18 +506,12 @@ namespace StarterAssets
         public void SetCurrentPlatform(Transform platform)
         {
             _currentPlatform = platform;
-            if (platform != null)
+            if (_currentPlatform != null)
             {
-                _lastPlatformPosition = platform.position;
-            }
-            else
-            {
-                if (!_isJumping)
-                {
-                    _platformMomentum = Vector3.zero;
-                }
+                _lastPlatformPosition = _currentPlatform.position;
             }
         }
+
 
         // 점프 상태 확인 메서드
         public bool IsJumping()

@@ -165,7 +165,7 @@ public class PlayerController : MonoBehaviour
 
         if (coll.gameObject.CompareTag("GingerBoss"))
         {
-            playerHealth.TakeDamage(playerHealth.currentPlayerHP);
+            playerHealth.TakeDamage(playerHealth.currentHeartHP);
         }
 
         if (coll.gameObject.CompareTag("BossPanel"))

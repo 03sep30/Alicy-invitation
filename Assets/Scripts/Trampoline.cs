@@ -15,9 +15,10 @@ public class Trampoline : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player"))
-        {
-            thirdPersonController._verticalVelocity = Mathf.Sqrt(TrampolineForce * -2f * thirdPersonController.Gravity);
-        }
+        //if (other.CompareTag("Player"))
+        //{
+        //    Debug.Log("trampoline");
+        //    thirdPersonController._rigidbody.AddForce(Vector3.up * TrampolineForce, ForceMode.Impulse);
+        //}
     }
 }

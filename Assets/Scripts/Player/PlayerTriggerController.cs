@@ -9,25 +9,22 @@ public class PlayerTriggerController : MonoBehaviour
     public GameObject cheshire;
     public GameObject GingerCookie;
     public GameObject stage2BossImage;
-
-    private PlayerHealth playerHealth;
-    private CharacterController characterController;
-    private PlayerMovement playerMovement;
-    private ThirdPersonController thirdPersonController;
-    private PlayerController playerController;
-
     public GameObject dustImage;
     public GameObject BlindnessImage;
     public float dustTime = 10f;
     public float dustImageTime = 3f;
-    public MovingPlatform currentPlatform;
 
+    public MovingPlatform currentPlatform;
+    private PlayerHealth playerHealth;
+    private PlayerMovement playerMovement;
+    private ThirdPersonController thirdPersonController;
+    private PlayerController playerController;
     private BossAttack boss;
+    public Rigidbody rb;
 
     void Start()
     {
         playerHealth = FindObjectOfType<PlayerHealth>();
-        characterController = FindObjectOfType<CharacterController>();
         playerMovement = FindObjectOfType<PlayerMovement>();
         thirdPersonController = FindObjectOfType<ThirdPersonController>();
         playerController = FindObjectOfType<PlayerController>();
@@ -40,7 +37,7 @@ public class PlayerTriggerController : MonoBehaviour
         {
             thirdPersonController.gameObject.transform.parent = collision.gameObject.transform;
         }
-
+        
     }
 
     private void TriggerDust()
@@ -60,6 +57,11 @@ public class PlayerTriggerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Trampoline"))
+        {
+            Trampoline trampoline = other.gameObject.GetComponent<Trampoline>();
+            rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
+        }
         if (other.gameObject.CompareTag("ParryingObj"))
         {
             thirdPersonController.isParrying = true;
@@ -83,10 +85,8 @@ public class PlayerTriggerController : MonoBehaviour
 
             if (targetPortal != null)
             {
-                characterController.enabled = false;
                 playerController.lastGroundedY = targetPortal.position.y;
                 transform.position = targetPortal.position;
-                characterController.enabled = true;
             }
         }
 
@@ -160,10 +160,6 @@ public class PlayerTriggerController : MonoBehaviour
                 boss.hit = false;
             }
             boss = null;
-        }
-        if (other.gameObject.name == "WTF")
-        {
-            playerController.enterPortal = false;
         }
     }
 }

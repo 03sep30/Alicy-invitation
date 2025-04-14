@@ -3,16 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+public enum HealthType
+{
+    Time,
+    Heart
+}
+
 public class PlayerHealth : MonoBehaviour
 {
     private PlayerController playerController;
     private PlayerUI playerUI;
 
     [Header("Boss")]
-    public int maxPlayerHP = 3;
-    public int currentPlayerHP;
+    public int maxHeartHP = 3;
+    public int currentHeartHP;
+
+    public float maxTimeHP = 150f;
+    public float currentTimeHP;
     public bool shield = false;
     private BossHP boss;
+
+    public bool heartHP;
+    public bool timeHP;
 
     [Header("????")]
     public bool isDrinkingTeacup = false;
@@ -46,34 +58,62 @@ public class PlayerHealth : MonoBehaviour
         boss = FindObjectOfType<BossHP>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
-        currentPlayerHP = maxPlayerHP;
+        currentHeartHP = maxHeartHP;
+        currentTimeHP = maxTimeHP;
 
         bossStage = playerController.bossPanel.activeInHierarchy;
     }
 
+    public void S()
+    {
+
+    }
+
     public void PlayerHeal(int heal)
     {
-        if (currentPlayerHP < maxPlayerHP)
+        if (heartHP)
         {
-            currentPlayerHP += heal;
-            playerUI.HealHPUI(currentPlayerHP);
+            if (currentHeartHP < maxHeartHP)
+            {
+                currentHeartHP += heal;
+                playerUI.HealHPUI(currentHeartHP);
+            }
+        }
+        if (timeHP)
+        {
+            if (currentTimeHP < maxTimeHP)
+            {
+                currentTimeHP += heal;
+
+            }
         }
     }
 
     public void TakeDamage(int damage)
     {
-        if (currentPlayerHP > 0 && !shield)
+        if (heartHP)
         {
-            currentPlayerHP -= damage;
-            playerUI.TakeDamageUI(currentPlayerHP);
+            if (currentHeartHP > 0 && !shield)
+            {
+                currentHeartHP -= damage;
+                playerUI.TakeDamageUI(currentHeartHP);
+            }
+            if (shield)
+            {
+                shield = false;
+            }
         }
-        if (shield)
+        if (timeHP)
         {
-            shield = false;
+            if (currentTimeHP > 0)
+            {
+                currentTimeHP -= damage;
+
+            }
         }
-        if (currentPlayerHP <= 0)
+        if (currentHeartHP <= 0 || currentTimeHP <= 0)
         {
-            playerUI.TakeDamageUI(currentPlayerHP);
+            playerUI.TakeDamageUI(currentHeartHP);
             Die();
         }
     }
@@ -91,9 +131,9 @@ public class PlayerHealth : MonoBehaviour
         
         if (playerController.bossPanel.activeInHierarchy)
         {
-            if (currentPlayerHP > 0)
+            if (currentHeartHP > 0)
             {
-                TakeDamage(currentPlayerHP);
+                TakeDamage(currentHeartHP);
             }
         }
         mushroomPanel.SetActive(false);
@@ -115,7 +155,8 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDie)
         {
-            PlayerHeal(maxPlayerHP);
+            PlayerHeal(maxHeartHP);
+            //PlayerHeal(maxTimeHP);
             GameOverVFX.SetActive(false);
             player.transform.position = SpawnPoint.position;
             
