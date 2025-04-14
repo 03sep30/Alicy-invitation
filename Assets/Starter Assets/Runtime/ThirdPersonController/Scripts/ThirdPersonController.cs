@@ -173,7 +173,7 @@ namespace StarterAssets
             // 리지드바디 설정
             _rigidbody.constraints = RigidbodyConstraints.FreezeRotation; // 회전 제한
             _rigidbody.collisionDetectionMode = CollisionDetectionMode.Continuous; // 연속 충돌 감지
-            _rigidbody.interpolation = RigidbodyInterpolation.Interpolate; // 보간 설정
+            //_rigidbody.interpolation = RigidbodyInterpolation.Interpolate; // 보간 설정
 
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM

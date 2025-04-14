@@ -77,14 +77,9 @@ public class PlayerController : MonoBehaviour
 
         currentMushroom = MushroomType.Blue;
 
-        thirdPersonController.enabled = false;
-        if (!thirdPersonController.enabled)
-        {
-            playerHealth.SpawnPoint = playerHealth.startPoint;
-            gameObject.transform.position = playerHealth.SpawnPoint.position;
-            thirdPersonController.enabled = true;
-        }
-        
+        playerHealth.SpawnPoint = playerHealth.startPoint;
+        gameObject.transform.position = playerHealth.SpawnPoint.position;
+
         //_input = GetComponent<StarterAssetsInputs>();
 
         //foreach (var feature in rendererData.rendererFeatures)
