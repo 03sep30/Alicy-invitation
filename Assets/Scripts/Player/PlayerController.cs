@@ -3,6 +3,7 @@ using StarterAssets;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
@@ -47,7 +48,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bossPanel;
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
-    public Material[] statusImages;
+    public Sprite[] statusImages;
     public StatusEffect currentEffect;
 
     public AudioSource audioSource;
@@ -122,10 +123,10 @@ public class PlayerController : MonoBehaviour
     {
         statusPlane.SetActive(true);
 
-        MeshRenderer plane = statusPlane.GetComponent<MeshRenderer>();
+        Image plane = statusPlane.GetComponent<Image>();
         if (num <= statusImages.Length)
         {
-            plane.material = statusImages[num];
+            plane.sprite = statusImages[num];
         }
         else
         {

@@ -34,10 +34,6 @@ public class PlayerUI : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            playerHealth.TakeDamage(1f);
-        }
         if (playerHealth.currentHealthType == HealthType.Time)
         {
             if (!playerHealth.isDie)
