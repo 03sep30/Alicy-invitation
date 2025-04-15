@@ -233,6 +233,7 @@ MonoBehaviour:
   dustTime: 10
   dustImageTime: 3
   currentPlatform: {fileID: 0}
+  rb: {fileID: 0}
 --- !u!54 &7833372847977650065
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -442,6 +443,7 @@ MonoBehaviour:
   LockCameraPosition: 0
   cameraRotation: 0.6
   _speed: 0
+  _rigidbody: {fileID: 0}
   isParrying: 0
 --- !u!114 &1098218690647717904
 MonoBehaviour:
@@ -600,12 +602,9 @@ MonoBehaviour:
   enterPortal: 0
   crushing: 0
   deathFallHeight: 75
-  currentEffect: {fileID: 0}
-  audioSource: {fileID: 0}
   luckyBoxTime: 5
   playerDamage: 10
   KeyImage: {fileID: 0}
-  teleport1: {fileID: 0}
   statusPlane: {fileID: 4504064747835884678}
   bossPanel: {fileID: 0}
   statusImages:
@@ -613,6 +612,8 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c6370539831fc39469985bb154d25e8b, type: 2}
   - {fileID: 2100000, guid: af6f4600b1075a841b8dce23329e2da4, type: 2}
   - {fileID: 2100000, guid: 23461c23438cdc4458515b120806c97d, type: 2}
+  currentEffect: {fileID: 0}
+  audioSource: {fileID: 0}
 --- !u!114 &6963896828841304140
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -822,6 +823,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 51a821daa7a854a1b80cf3ee2422bc1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bossPanel: {fileID: 0}
+  timePanel: {fileID: 0}
+  timeHPSlider: {fileID: 0}
+  timeHPText: {fileID: 0}
+  heartPanel: {fileID: 0}
   playerHPImages:
   - {fileID: 0}
   - {fileID: 0}
@@ -1026,9 +1032,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a31efdaab28389d4ea4a5788422a858f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxPlayerHP: 3
-  currentPlayerHP: 0
+  maxHeartHP: 3
+  currentHeartHP: 0
+  maxTimeHP: 5
+  currentTimeHP: 0
   shield: 0
+  currentHealthType: 0
   isDrinkingTeacup: 0
   isDie: 0
   SpawnPoint: {fileID: 0}
@@ -1039,6 +1048,8 @@ MonoBehaviour:
   GameOver0: {fileID: 8300000, guid: 878c70a4cc5eb134fa1d20aa203fb3d8, type: 3}
   GameOver1: {fileID: 8300000, guid: fcb5d24b4daf7a7408f3f41325e7bed9, type: 3}
   GameOver2: {fileID: 8300000, guid: f88c179995a5fb6459869c2f34e850d4, type: 3}
+  mushroomPanel: {fileID: 0}
+  bossPanel: {fileID: 0}
   bossStage: 0
 --- !u!4 &6456629156087846826 stripped
 Transform:
@@ -1053,6 +1064,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2270242722655694599}
     m_Modifications:
+    - target: {fileID: 217859532819084290, guid: 78ad4adc722bfe14d8145a142cd5f113, type: 3}
+      propertyPath: m_PropertySheet.m_NamedObject.m_Array.Array.data[0].m_Value
+      value: 
+      objectReference: {fileID: 5006569119915696325, guid: fb7f30622e385eb4d84f1cfb8607e1d4, type: 3}
     - target: {fileID: 3155220919804893019, guid: 78ad4adc722bfe14d8145a142cd5f113, type: 3}
       propertyPath: m_Enabled
       value: 0

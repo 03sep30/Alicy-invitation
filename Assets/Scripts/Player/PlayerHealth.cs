@@ -6,7 +6,8 @@ using TMPro;
 public enum HealthType
 {
     Time,
-    Heart
+    Heart,
+    None
 }
 
 public class PlayerHealth : MonoBehaviour
@@ -23,9 +24,7 @@ public class PlayerHealth : MonoBehaviour
     public bool shield = false;
     private BossHP boss;
 
-    public bool heartHP;
-    public bool timeHP;
-
+    public HealthType currentHealthType;
     [Header("????")]
     public bool isDrinkingTeacup = false;
     public bool isDie;
@@ -46,6 +45,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip GameOver2;
 
     public GameObject mushroomPanel;
+    public GameObject bossPanel;
 
     public bool bossStage = false;
 
@@ -64,17 +64,17 @@ public class PlayerHealth : MonoBehaviour
         bossStage = playerController.bossPanel.activeInHierarchy;
     }
 
-    public void PlayerHeal(int heal)
+    public void PlayerHeal(float heal)
     {
-        if (heartHP)
+        if (currentHealthType == HealthType.Heart)
         {
             if (currentHeartHP < maxHeartHP)
             {
-                currentHeartHP += heal;
+                currentHeartHP += (int)heal;
                 playerUI.HealHPUI(currentHeartHP);
             }
         }
-        if (timeHP)
+        if (currentHealthType == HealthType.Time)
         {
             if (currentTimeHP < maxTimeHP)
             {
@@ -84,13 +84,13 @@ public class PlayerHealth : MonoBehaviour
         }
     }
 
-    public void TakeDamage(int damage)
+    public void TakeDamage(float damage)
     {
-        if (heartHP)
+        if (currentHealthType == HealthType.Heart)
         {
             if (currentHeartHP > 0 && !shield)
             {
-                currentHeartHP -= damage;
+                currentHeartHP -= (int)damage;
                 playerUI.TakeDamageUI(currentHeartHP);
             }
             if (shield)
@@ -98,12 +98,11 @@ public class PlayerHealth : MonoBehaviour
                 shield = false;
             }
         }
-        if (timeHP)
+        if (currentHealthType == HealthType.Time)
         {
             if (currentTimeHP > 0)
             {
                 currentTimeHP -= damage;
-
             }
         }
         if (currentHeartHP <= 0 || currentTimeHP <= 0)
@@ -124,11 +123,18 @@ public class PlayerHealth : MonoBehaviour
         Debug.Log("Die");
         isDie = true;
         
-        if (playerController.bossPanel.activeInHierarchy)
+        if (currentHealthType == HealthType.Heart)
         {
             if (currentHeartHP > 0)
             {
                 TakeDamage(currentHeartHP);
+            }
+        }
+        if (currentHealthType == HealthType.Time)
+        {
+            if (currentTimeHP > 0)
+            {
+                TakeDamage((int)currentTimeHP);
             }
         }
         mushroomPanel.SetActive(false);
@@ -151,7 +157,7 @@ public class PlayerHealth : MonoBehaviour
         if (isDie)
         {
             PlayerHeal(maxHeartHP);
-            //PlayerHeal(maxTimeHP);
+            PlayerHeal(maxTimeHP);
             GameOverVFX.SetActive(false);
             player.transform.position = SpawnPoint.position;
             

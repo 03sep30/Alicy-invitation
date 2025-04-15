@@ -511,7 +511,6 @@ namespace StarterAssets
             }
         }
 
-
         // 점프 상태 확인 메서드
         public bool IsJumping()
         {

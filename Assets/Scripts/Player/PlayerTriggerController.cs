@@ -65,6 +65,7 @@ public class PlayerTriggerController : MonoBehaviour
         if (other.gameObject.CompareTag("ParryingObj"))
         {
             thirdPersonController.isParrying = true;
+            playerHealth.PlayerHeal(10f);
         }
         if (other.gameObject.CompareTag("MovingPlatform"))
         {

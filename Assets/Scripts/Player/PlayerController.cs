@@ -238,7 +238,6 @@ public class PlayerController : MonoBehaviour
         luckyBox.SetActive(true);
     }
 
-
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DeadBlock"))
