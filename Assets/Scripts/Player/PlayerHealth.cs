@@ -64,11 +64,6 @@ public class PlayerHealth : MonoBehaviour
         bossStage = playerController.bossPanel.activeInHierarchy;
     }
 
-    public void S()
-    {
-
-    }
-
     public void PlayerHeal(int heal)
     {
         if (heartHP)

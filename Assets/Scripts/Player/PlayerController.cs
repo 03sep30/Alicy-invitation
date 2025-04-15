@@ -26,17 +26,7 @@ public class PlayerController : MonoBehaviour
 
     public float maxPosition = 0;
     public CharacterSize currentSize;
-
-    private StarterAssetsInputs _input;
-    private PlayerMovement playerMovement;
-    private PlayerHealth playerHealth;
-    private ThirdPersonController thirdPersonController;
-    private CharacterController characterController;
-    private PlayerTriggerController PlayerTriggerController;
-    private PlayerMushroomHandler mushroomHandler;
-    private CubePuzzle cubePuzzle;
-
-    private BossHP boss;
+    
 
     public GameObject playerBody;
     public bool isGrounded = false;
@@ -44,16 +34,13 @@ public class PlayerController : MonoBehaviour
     public bool enterPortal = false;
     public bool crushing = false;
     [SerializeField] private float deathFallHeight = 75f;
-    public StatusEffect currentEffect;
-
-    public AudioSource audioSource;
+    
     public float luckyBoxTime = 5f;
 
     public float playerDamage = 10f;
 
     private bool hasKey;
     public GameObject KeyImage;
-    public Transform teleport1;
 
     public GameObject statusPlane;
 
@@ -61,6 +48,18 @@ public class PlayerController : MonoBehaviour
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
     public Material[] statusImages;
+    public StatusEffect currentEffect;
+
+    public AudioSource audioSource;
+
+    private BossHP boss;
+    private StarterAssetsInputs _input;
+    private PlayerMovement playerMovement;
+    private PlayerHealth playerHealth;
+    private ThirdPersonController thirdPersonController;
+    private PlayerTriggerController PlayerTriggerController;
+    private PlayerMushroomHandler mushroomHandler;
+    private CubePuzzle cubePuzzle;
 
     void Start()
     {
@@ -69,7 +68,6 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
-        characterController = GetComponent<CharacterController>();
         boss = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
@@ -92,13 +90,6 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-    private void LateUpdate()
-    {
-        if (PlayerTriggerController.currentPlatform != null)
-        {
-            characterController.Move(PlayerTriggerController.currentPlatform.DeltaPosition);
-        }
-    }
 
     void Update()
     {
@@ -250,6 +241,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.CompareTag("DeadBlock"))
+        {
+            playerHealth.Die();
+        }
+
         if (other.CompareTag("CubePuzzle"))
         {
             cubePuzzle.ToggleCube(other.gameObject);
@@ -262,7 +258,6 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("CrushBlock"))
         {
             crushing = true;
-            characterController.enabled = false;
             playerBody.transform.localScale = new Vector3(1f, 0.2f, 1f);
 
             playerHealth.Die();
@@ -275,10 +270,8 @@ public class PlayerController : MonoBehaviour
 
             if (targetPortal != null)
             {
-                characterController.enabled = false;
                 transform.position = targetPortal.position;
                 lastGroundedY = targetPortal.position.y;
-                characterController.enabled = true;
             }
         }
         if (other.gameObject.CompareTag("TTS_Object"))

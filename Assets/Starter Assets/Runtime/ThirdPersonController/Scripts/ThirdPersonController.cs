@@ -376,6 +376,7 @@ namespace StarterAssets
                 // 현재 Y축 속도 유지
                 float yVelocity = _rigidbody.velocity.y;
 
+                
                 // 새로운 속도 설정 (이동 + 현재 Y축 속도)
                 Vector3 targetVelocity = _moveDirection * _speed + Vector3.up * yVelocity;
 
@@ -384,17 +385,15 @@ namespace StarterAssets
             }
             else
             {
-                // 공중에서는 힘을 가해 이동 (더 자연스러운 움직임)
-                _rigidbody.AddForce(_moveDirection * _speed * 1f, ForceMode.Force);
+                // 현재 Y축 속도 유지
+                float yVelocity = _rigidbody.velocity.y;
 
-                // 속도 제한 (너무 빠르게 움직이지 않도록)
-                Vector3 horizontalVelocity = new Vector3(_rigidbody.velocity.x, 0, _rigidbody.velocity.z);
-                if (horizontalVelocity.magnitude > _speed)
-                {
-                    Vector3 limitedVelocity = horizontalVelocity.normalized * _speed;
-                    _rigidbody.velocity = new Vector3(limitedVelocity.x, _rigidbody.velocity.y, limitedVelocity.z);
-                }
+                // 새로운 속도 설정 (공중 이동도 컨트롤 가능하게)
+                Vector3 targetVelocity = _moveDirection * _speed + Vector3.up * yVelocity;
+
+                _rigidbody.velocity = targetVelocity;
             }
+
 
             // 애니메이션 블렌드 업데이트
             _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.fixedDeltaTime * SpeedChangeRate);

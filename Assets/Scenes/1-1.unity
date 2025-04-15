@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18373945, g: 0.2291349, b: 0.30464306, a: 1}
+  m_IndirectSpecularColor: {r: 0.18373963, g: 0.2291353, b: 0.30464372, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -228,7 +228,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &15422203
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1430,7 +1430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &68487303
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5243,7 +5243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &250445993
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -7120,6 +7120,139 @@ MonoBehaviour:
   m_LightCookieSize: {x: 1, y: 1}
   m_LightCookieOffset: {x: 0, y: 0}
   m_SoftShadowQuality: 0
+--- !u!1 &351529781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 351529785}
+  - component: {fileID: 351529784}
+  - component: {fileID: 351529783}
+  - component: {fileID: 351529782}
+  - component: {fileID: 351529786}
+  m_Layer: 0
+  m_Name: DeadBlock
+  m_TagString: DeadBlock
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &351529782
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351529781}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!23 &351529783
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351529781}
+  m_Enabled: 0
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &351529784
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351529781}
+  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &351529785
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351529781}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -519.3, y: 76.7, z: -124.6}
+  m_LocalScale: {x: 45, y: 1, z: 50}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!54 &351529786
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 351529781}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &358660593
 GameObject:
   m_ObjectHideFlags: 0
@@ -8159,7 +8292,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &410892867
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9099,7 +9232,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 449962660}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -10250,7 +10383,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &485948614
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -13193,7 +13326,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &612834650
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -14742,7 +14875,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &769499638
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -18787,7 +18920,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 958407334}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -19596,7 +19729,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &992520271
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -22457,7 +22590,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1127215352
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -23444,9 +23577,37 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1855746092}
     - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: MoveSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: JumpHeight
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: SprintSpeed
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: GroundedRadius
+      value: 0.55
+      objectReference: {fileID: 0}
+    - target: {fileID: 7151815457784839261, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: RotationSmoothTime
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7833372847977650065, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: m_IsKinematic
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8587354892912678256, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+      propertyPath: rb
+      value: 
+      objectReference: {fileID: 1224415021}
     - target: {fileID: 8587354892912678256, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
       propertyPath: dustImage
       value: 
@@ -24907,6 +25068,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 9172912059997176449, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
   m_PrefabInstance: {fileID: 1169999866}
   m_PrefabAsset: {fileID: 0}
+--- !u!54 &1224415021 stripped
+Rigidbody:
+  m_CorrespondingSourceObject: {fileID: 375374100141798547, guid: 00ad182bc61a6415f8feef7b160b49cb, type: 3}
+  m_PrefabInstance: {fileID: 1169999866}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1225287407 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5906266025857591722, guid: 6d051c01ff762464b87361c24e20a879, type: 3}
@@ -25601,7 +25767,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1277270248
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -26195,7 +26361,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1297171868
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -27835,7 +28001,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1391342349
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -29896,7 +30062,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1473179307
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30021,7 +30187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1477432332
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30696,7 +30862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1515252410
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -30949,7 +31115,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1527534320
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -32114,7 +32280,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1567001408
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -33292,7 +33458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1600009199
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34089,7 +34255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1659618139
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -34691,7 +34857,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1677392148
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -35345,7 +35511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1706556106
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -36781,7 +36947,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 1549252586}
   - {fileID: 1472119286}
-  moveSpeed: 7
+  moveSpeed: 10
   waitTimeAtPoint: 2
   currentWaypointIndex: 0
 --- !u!1001 &1764247628
@@ -37479,7 +37645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &1801321033
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -38348,7 +38514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 14
+  TrampolineForce: 35
 --- !u!64 &1847412835
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -42029,7 +42195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &2035752790
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -43611,7 +43777,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrampolineForce: 8
+  TrampolineForce: 35
 --- !u!64 &2130487118
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -46759,3 +46925,4 @@ SceneRoots:
   - {fileID: 311434745}
   - {fileID: 1584265915}
   - {fileID: 576132703}
+  - {fileID: 351529785}
