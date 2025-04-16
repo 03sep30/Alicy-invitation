@@ -10,7 +10,7 @@ public class PlayerTriggerController : MonoBehaviour
     public GameObject GingerCookie;
     public GameObject stage2BossImage;
     public GameObject dustImage;
-    public GameObject BlindnessImage;
+    public GameObject smokeImage;
     public float dustTime = 10f;
     public float dustImageTime = 3f;
 
@@ -40,7 +40,7 @@ public class PlayerTriggerController : MonoBehaviour
         
     }
 
-    private void TriggerDust()
+    public void TriggerDust()
     {
         StartCoroutine(IDustTime(dustTime));
     }
@@ -50,9 +50,9 @@ public class PlayerTriggerController : MonoBehaviour
         dustImage.SetActive(true);
         yield return new WaitForSeconds(dustImageTime);
         dustImage.SetActive(false);
-        BlindnessImage.SetActive(true);
+        smokeImage.SetActive(true);
         yield return new WaitForSeconds(dustTime);
-        BlindnessImage.SetActive(false);
+        smokeImage.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -75,10 +75,7 @@ public class PlayerTriggerController : MonoBehaviour
         {
             playerController.enterPortal = true;
         }
-        if (other.gameObject.CompareTag("Dust"))
-        {
-            TriggerDust();
-        }
+        
         if (other.gameObject.CompareTag("Portal"))
         {
             var portal = other.GetComponent<Portal>();
