@@ -241,6 +241,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Dust"))
+        {
+            PlayerTriggerController.TriggerDust();
+            Debug.Log("dust");
+        }
         if (other.CompareTag("DeadBlock"))
         {
             playerHealth.Die();
