@@ -1,13 +1,8 @@
-using Cinemachine;
 using StarterAssets;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
-using JetBrains.Annotations;
 
 public enum CharacterSize
 {
