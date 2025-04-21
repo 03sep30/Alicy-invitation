@@ -14,12 +14,14 @@ public enum GingerCookieState
 
 public class GingerCookieController : MonoBehaviour
 {
-    private NavMeshAgent agent;
+    
     public GingerCookieState currentState;
     public Transform target;
+    public float magn = 1.5f;
+
+    private NavMeshAgent agent;
     private PlayerHealth player;
     private GingerCookieAttack gingerAttack;
-
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
@@ -35,7 +37,8 @@ public class GingerCookieController : MonoBehaviour
         if (!player.isDie)
         {
             MoveToTarget();
-            gingerAttack.GingerAttack();
+            if (gingerAttack != null && gingerAttack.enabled)
+                gingerAttack.GingerAttack();
         }
         
     }
@@ -43,14 +46,14 @@ public class GingerCookieController : MonoBehaviour
     {
         if (target == null) return;
 
-        agent.SetDestination(target.position);
-
         Vector3 direction = target.position - transform.position;
         direction.y = 0;
-        if (direction.magnitude > 0.1f)
+        if (direction.magnitude > magn)
         {
+            Vector3 targetPos = new Vector3(target.position.x + magn, target.position.y, target.position.z + magn);
             Quaternion targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
+            agent.SetDestination(targetPos);
         }
     }
 }

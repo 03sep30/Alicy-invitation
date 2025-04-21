@@ -14,7 +14,8 @@ public class PlayerUI : MonoBehaviour
 
     [Header("HeartHP")]
     public GameObject heartPanel;
-    public Image[] playerHPImages;
+    public Image heartImage;
+    public List<Image> playerHPImageList;
 
     [Header("Mushroom")]
     public TextMeshProUGUI orangeMushroomText;
@@ -30,6 +31,7 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         playerHealth = GetComponentInChildren<PlayerHealth>();
+        UpdateHeartUI();
     }
 
     private void Update()
@@ -58,6 +60,21 @@ public class PlayerUI : MonoBehaviour
         if (playerHealth.currentHealthType == HealthType.None)
         {
             bossPanel.SetActive(false);
+        }
+    }
+
+    public void UpdateHeartUI()
+    {
+        foreach (var heartImage in playerHPImageList)
+        {
+            Destroy(heartImage.gameObject);
+        }
+        playerHPImageList.Clear();
+
+        for (int i = 0; i < playerHealth.maxHeartHP; i++)
+        {
+            Image playerHeart = Instantiate(heartImage, heartPanel.transform);
+            playerHPImageList.Add(playerHeart);
         }
     }
 
@@ -93,7 +110,7 @@ public class PlayerUI : MonoBehaviour
         {
             for (int i = 0; i < (int)hp; i++)
             {
-                playerHPImages[i].gameObject.SetActive(true);
+                playerHPImageList[i].gameObject.SetActive(true);
             }
         }
         if (playerHealth.currentHealthType == HealthType.Time)
@@ -106,7 +123,7 @@ public class PlayerUI : MonoBehaviour
     {
         if (playerHealth.currentHealthType == HealthType.Heart)
         {
-            playerHPImages[(int)hp].gameObject.SetActive(false);
+            playerHPImageList[(int)hp].gameObject.SetActive(false);
         }
         if (playerHealth.currentHealthType == HealthType.Time)
         {

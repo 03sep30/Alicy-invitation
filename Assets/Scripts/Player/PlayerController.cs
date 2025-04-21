@@ -7,6 +7,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
+using JetBrains.Annotations;
 
 public enum CharacterSize
 {
@@ -34,7 +35,7 @@ public class PlayerController : MonoBehaviour
     public float lastGroundedY;
     public bool enterPortal = false;
     public bool crushing = false;
-    [SerializeField] private float deathFallHeight = 75f;
+    public float deathFallHeight = 75f;
     
     public float luckyBoxTime = 5f;
 
