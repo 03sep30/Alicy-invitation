@@ -111,6 +111,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        if (!playerHealth.isDie)
+        {
+            thirdPersonController.Move();
+        }
+    }
     public void Dash()
     {
         if (Input.GetMouseButtonDown(0))
