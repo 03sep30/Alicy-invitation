@@ -6,13 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTriggerController : MonoBehaviour
 {
-    
     public GameObject GingerCookie;
     public GameObject stage2BossImage;
     public GameObject dustImage;
     public GameObject smokeImage;
     public float dustTime = 10f;
     public float dustImageTime = 3f;
+    public float trampolineLimitTime = 2f;
 
     public MovingPlatform currentPlatform;
     private PlayerHealth playerHealth;
@@ -36,7 +36,6 @@ public class PlayerTriggerController : MonoBehaviour
         {
             thirdPersonController.gameObject.transform.parent = collision.gameObject.transform;
         }
-        
     }
 
     public void TriggerDust()
@@ -54,12 +53,31 @@ public class PlayerTriggerController : MonoBehaviour
         smokeImage.SetActive(false);
     }
 
+    public IEnumerator ITrampolineLimit(float limitTime, Trampoline trampoline)
+    {
+        Debug.Log("트램폴린 제한");
+        yield return new WaitForSeconds(limitTime);
+        trampoline.isLimited = false;
+        Debug.Log("트램폴린 제한 해제");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Trampoline"))
         {
             Trampoline trampoline = other.gameObject.GetComponent<Trampoline>();
-            rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
+            if (trampoline.isLimitedUse)
+            {
+                if (!trampoline.isLimited)
+                {
+                    rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
+                    trampoline.isLimited = true;
+                }
+                else
+                    StartCoroutine(ITrampolineLimit(trampolineLimitTime, trampoline));
+            }
+            else
+                rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
         }
         if (other.gameObject.CompareTag("ParryingObj"))
         {

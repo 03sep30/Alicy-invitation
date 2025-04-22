@@ -7,6 +7,7 @@ using TMPro;
 
 public class BossHP : MonoBehaviour
 {
+    public string bossName;
     public float maxTimeHP;
     public float currentTimeHP;
     public bool isHit = false;
@@ -16,8 +17,14 @@ public class BossHP : MonoBehaviour
     public TextMeshProUGUI timeHPText;
     public GameObject bossPanel;
 
+    private PlayerController playerController;
+
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
+
+        playerController.BackgroundBGM(bossName);
+
         currentTimeHP = maxTimeHP;
         timeHPSlider.value = maxTimeHP;
         currentHitTime = 0;
@@ -66,5 +73,10 @@ public class BossHP : MonoBehaviour
             isHit = true;
             currentHitTime = hitTime;
         }
+    }
+
+    private void OnDestroy()
+    {
+        playerController.BackgroundBGM("Stage");
     }
 }

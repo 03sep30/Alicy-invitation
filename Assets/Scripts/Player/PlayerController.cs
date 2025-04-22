@@ -38,18 +38,21 @@ public class PlayerController : MonoBehaviour
 
     private bool hasKey;
     public GameObject KeyImage;
+    public GameObject keyPortal;
+
     public GameObject cheshire;
     public GameObject statusPlane;
 
     public GameObject bossPanel;
+    public AudioClip[] backgroundBGM;
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
     public Sprite[] statusImages;
+
+    public AudioSource backgroundAudioSource;
     public StatusEffect currentEffect;
-
     public AudioSource audioSource;
-
-    private BossHP bossHP;
+    public BossHP bossHP;
     private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
@@ -65,7 +68,6 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
-        bossHP = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();
@@ -113,6 +115,29 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             mushroomHandler.UseMushroom();
+        }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gameObject.transform.position = playerHealth.SpawnPoint.position;
+        }
+    }
+
+    public void BackgroundBGM(string bossName)
+    {
+        switch(bossName)
+        {
+            case "Stage":
+                backgroundAudioSource.clip = backgroundBGM[0];
+                backgroundAudioSource.Play();
+                break;
+            case "GingerCookie":
+                backgroundAudioSource.clip = backgroundBGM[1];
+                backgroundAudioSource.Play();
+                break;
+            case "Chef":
+                backgroundAudioSource.clip = backgroundBGM[2];
+                backgroundAudioSource.Play();
+                break;
         }
     }
 
@@ -168,6 +193,7 @@ public class PlayerController : MonoBehaviour
             {
                 hasKey = true;
                 KeyImage.SetActive(true);
+                keyPortal.SetActive(true);
                 Destroy(coll.gameObject);
             }
         }
@@ -257,6 +283,14 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.name == "BossDestroyBlock")
+        {
+            bossHP = FindObjectOfType<BossHP>();
+            if (bossHP != null)
+            {
+                Destroy(bossHP.gameObject);
+            }
+        }
         if (other.gameObject.CompareTag("BossAttack"))
         {
             Debug.Log("bossAttack");
