@@ -49,7 +49,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource audioSource;
 
-    private BossHP boss;
+    private BossHP bossHP;
     private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
-        boss = FindObjectOfType<BossHP>();
+        bossHP = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();
@@ -173,9 +173,9 @@ public class PlayerController : MonoBehaviour
         }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
-            if (boss != null)
+            if (bossHP != null)
             {
-                boss.DecreaseBossHP(playerDamage);
+                bossHP.DecreaseBossHP(playerDamage);
                 Debug.Log("Player Attack");
             }
         }
@@ -257,6 +257,16 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("BossAttack"))
+        {
+            Debug.Log("bossAttack");
+            BossAttack bossAttack = other.gameObject.GetComponent<BossAttack>();
+            if (bossAttack != null)
+            {
+                bossAttack.Attack(playerHealth);
+                bossAttack.hit = true;
+            }
+        }
         if (other.gameObject.CompareTag("Dust"))
         {
             PlayerTriggerController.TriggerDust();
