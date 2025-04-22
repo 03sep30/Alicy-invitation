@@ -173,7 +173,9 @@ public class PlayerHealth : MonoBehaviour
             if (bossStage)
             {
                 playerController.bossPanel.SetActive(true);
-                boss.currentTimeHP = boss.maxTimeHP;
+                
+                if (boss != null)
+                    boss.currentTimeHP = boss.maxTimeHP;
             }
         }
     }

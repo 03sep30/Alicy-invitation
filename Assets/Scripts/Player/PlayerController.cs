@@ -1,11 +1,7 @@
-using Cinemachine;
 using StarterAssets;
 using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine.UI;
 using UnityEngine;
-using UnityEngine.Rendering.Universal;
 using UnityEngine.SceneManagement;
 
 public enum CharacterSize
@@ -34,7 +30,7 @@ public class PlayerController : MonoBehaviour
     public float lastGroundedY;
     public bool enterPortal = false;
     public bool crushing = false;
-    [SerializeField] private float deathFallHeight = 75f;
+    public float deathFallHeight = 75f;
     
     public float luckyBoxTime = 5f;
 
@@ -241,6 +237,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Dust"))
+        {
+            PlayerTriggerController.TriggerDust();
+            Debug.Log("dust");
+        }
         if (other.CompareTag("DeadBlock"))
         {
             playerHealth.Die();

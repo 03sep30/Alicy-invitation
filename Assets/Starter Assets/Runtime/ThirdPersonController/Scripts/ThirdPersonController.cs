@@ -202,7 +202,6 @@ namespace StarterAssets
 
         private void FixedUpdate()
         {
-            Move();
             ApplyGravity();
         }
 
