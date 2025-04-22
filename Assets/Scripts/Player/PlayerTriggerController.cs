@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTriggerController : MonoBehaviour
 {
-    public GameObject cheshire;
+    
     public GameObject GingerCookie;
     public GameObject stage2BossImage;
     public GameObject dustImage;
@@ -85,15 +85,7 @@ public class PlayerTriggerController : MonoBehaviour
                 playerController.lastGroundedY = targetPortal.position.y;
                 transform.position = targetPortal.position;
             }
-        }
-
-        if (other.CompareTag("Cheshire"))
-        {
-            Destroy(other.gameObject);
-            cheshire.SetActive(true);
-            Debug.Log("Cheshire");
-        }
-
+        } 
         if (other.CompareTag("Ginger"))
         {
             Destroy(other.gameObject);

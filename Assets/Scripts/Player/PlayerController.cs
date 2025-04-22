@@ -38,7 +38,7 @@ public class PlayerController : MonoBehaviour
 
     private bool hasKey;
     public GameObject KeyImage;
-
+    public GameObject cheshire;
     public GameObject statusPlane;
 
     public GameObject bossPanel;
@@ -74,6 +74,7 @@ public class PlayerController : MonoBehaviour
 
         playerHealth.SpawnPoint = playerHealth.startPoint;
         gameObject.transform.position = playerHealth.SpawnPoint.position;
+
 
         //_input = GetComponent<StarterAssetsInputs>();
 
@@ -148,7 +149,6 @@ public class PlayerController : MonoBehaviour
         {
             Mushroom mushroom = coll.gameObject.GetComponent<Mushroom>();
             mushroomHandler.GetMushroom(mushroom);
-            Debug.Log("버ㅓ");
         }
 
         if (coll.gameObject.CompareTag("GingerBoss"))
@@ -270,7 +270,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Dust"))
         {
             PlayerTriggerController.TriggerDust();
-            Debug.Log("dust");
+            Debug.Log("Dust");
         }
         if (other.CompareTag("DeadBlock"))
         {
@@ -294,6 +294,13 @@ public class PlayerController : MonoBehaviour
             playerHealth.Die();
         }
 
+        if (other.CompareTag("Cheshire"))
+        {
+            Destroy(other.gameObject);
+            cheshire.SetActive(true);
+            Debug.Log("Cheshire");
+        }
+
         if (other.gameObject.CompareTag("Portal"))
         {
             var portal = other.GetComponent<Portal>();
@@ -307,7 +314,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("TTS_Object"))
         {
-            Debug.Log("Trigger : TTS_Object");
+            Debug.Log("TTSObj");
             TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
             //ttsObj.PlayTTS();
             ttsObj.StartTextDisplay();
