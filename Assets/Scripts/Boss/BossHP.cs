@@ -45,7 +45,7 @@ public class BossHP : MonoBehaviour
             Debug.Log("Boss Die");
             bossPanel.SetActive(false);
             Destroy(gameObject);
-            SceneManager.LoadScene("Stage3_Prototye_Map");
+            //SceneManager.LoadScene("Stage3_Prototye_Map");
         }
 
         if (isHit)

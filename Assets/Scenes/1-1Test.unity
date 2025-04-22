@@ -6692,7 +6692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3012516928042636626, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4047662647990927017, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_AnchorMax.y
@@ -6835,6 +6835,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
+      propertyPath: Gravity
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: JumpForce
       value: 7
       objectReference: {fileID: 0}
@@ -6848,11 +6852,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: SprintSpeed
-      value: 21
+      value: 22
       objectReference: {fileID: 0}
     - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: GroundedRadius
       value: 0.58
+      objectReference: {fileID: 0}
+    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
+      propertyPath: fallMultiplier
+      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -34485,6 +34493,7 @@ Light:
   m_Intensity: 0.79773766
   m_Range: 4.13
   m_SpotAngle: 30
+  m_InnerSpotAngle: 21.802082
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
@@ -50411,6 +50420,46 @@ Transform:
   - {fileID: 1194451570}
   m_Father: {fileID: 829834001}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1004181465 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6697591173856229224, guid: 7350f3d7214d3e542b25040fd5c0b095, type: 3}
+  m_PrefabInstance: {fileID: 1220511366}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1004181469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004181465}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrampolineForce: 50
+--- !u!64 &1004181470
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1004181465}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3221049296201454937, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
 --- !u!1001 &1006863932
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -61396,7 +61445,13 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6697591173856229224, guid: 7350f3d7214d3e542b25040fd5c0b095, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1004181470}
+    - targetCorrespondingSourceObject: {fileID: 6697591173856229224, guid: 7350f3d7214d3e542b25040fd5c0b095, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1004181469}
   m_SourcePrefab: {fileID: 100100000, guid: 7350f3d7214d3e542b25040fd5c0b095, type: 3}
 --- !u!4 &1220511367 stripped
 Transform:

@@ -245,13 +245,11 @@ namespace StarterAssets
             if (_rigidbody.velocity.y > 0 && !isJumping)
             {
                 _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
-                Debug.Log("짧");
             }
             // 낙하 중일 때 -> 빠르게 떨어지도록
             else if (_rigidbody.velocity.y < 0)
             {
                 _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
-                Debug.Log("길");
             }
         }
 
