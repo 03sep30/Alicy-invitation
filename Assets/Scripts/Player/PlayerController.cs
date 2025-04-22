@@ -226,6 +226,26 @@ public class PlayerController : MonoBehaviour
             var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
             SceneManager.LoadScene(loadScene.sceneName);
         }
+        if (coll.gameObject.layer == 7)
+        {
+            thirdPersonController.realGrounded = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            thirdPersonController.realGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            thirdPersonController.realGrounded = false;
+        }
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)

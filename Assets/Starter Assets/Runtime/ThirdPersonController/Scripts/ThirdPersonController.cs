@@ -118,6 +118,16 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+        [Header("지면 감지 설정")]
+        public float coyoteTime = 0.15f;    //지면 관성 시간
+        public float coyoteTimeCounter;     //관성 타이머
+        public bool realGrounded = true;    //실제 지면 상
+
+        [Header("점프 개선 설정")]
+        public float fallMultiplier = 2.5f; //하강 중력 배율
+        public float lowJumpMultiplier = 2.0f;  //짧은 점프 배율
+        private bool isJumping = false;
+
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
@@ -187,6 +197,8 @@ namespace StarterAssets
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
             _fallTimeoutDelta = FallTimeout;
+
+            coyoteTimeCounter = 0;
         }
 
         private void Update()
@@ -198,11 +210,24 @@ namespace StarterAssets
             CameraRotation();
 
             JumpAndGravity();
+
+            //지면 감지 안정화
+            UpdateGroundedState();
+
+            if (Input.GetKey(KeyCode.Space))
+            {
+                isJumping = true;
+            }
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                isJumping = false;
+            }
         }
 
         private void FixedUpdate()
         {
             ApplyGravity();
+            ApplyLowJumpOrFallModifier();
         }
 
         private void AssignAnimationIDs()
@@ -212,6 +237,22 @@ namespace StarterAssets
             _animIDJump = Animator.StringToHash("Jump");
             _animIDFreeFall = Animator.StringToHash("FreeFall");
             _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
+        }
+
+        private void ApplyLowJumpOrFallModifier()
+        {
+            // 상승 중이고 점프 버튼을 떼었을 때 -> 낮은 점프
+            if (_rigidbody.velocity.y > 0 && !isJumping)
+            {
+                _rigidbody.velocity += Vector3.up * Physics.gravity.y * (lowJumpMultiplier - 1) * Time.fixedDeltaTime;
+                Debug.Log("짧");
+            }
+            // 낙하 중일 때 -> 빠르게 떨어지도록
+            else if (_rigidbody.velocity.y < 0)
+            {
+                _rigidbody.velocity += Vector3.up * Physics.gravity.y * (fallMultiplier - 1) * Time.fixedDeltaTime;
+                Debug.Log("길");
+            }
         }
 
         // 호환성을 위한 메서드 추가
@@ -401,7 +442,7 @@ namespace StarterAssets
 
         private void HandleJumpInput()
         {
-            if (Grounded)
+            if (coyoteTimeCounter > 0f)
             {
                 _fallTimeoutDelta = FallTimeout;
 
@@ -409,22 +450,20 @@ namespace StarterAssets
                 {
                     _isJumping = true;
 
-                    // 플랫폼 운동량 저장
                     if (_currentPlatform != null)
                     {
-                        // 플랫폼 속도 추정 (이전 프레임과 현재 프레임의 위치 차이)
                         Vector3 platformVelocity = (_currentPlatform.position - _lastPlatformPosition) / Time.deltaTime;
                         _platformMomentum = platformVelocity;
-                        _platformMomentum.y = 0; // 수직 운동량 제외
+                        _platformMomentum.y = 0;
                     }
 
-                    // 플랫폼 참조 제거
                     _currentPlatform = null;
 
-                    // Jump 실행은 FixedUpdate에서 처리
                     _jumpTimeoutDelta = JumpTimeout;
                     Jump();
                     isParrying = false;
+
+                    coyoteTimeCounter = 0f;
                 }
 
                 if (_jumpTimeoutDelta >= 0.0f)
@@ -434,27 +473,24 @@ namespace StarterAssets
             }
             else
             {
-                // reset jump timeout timer
                 _jumpTimeoutDelta = JumpTimeout;
 
-                // fall timeout
                 if (_fallTimeoutDelta >= 0.0f)
                 {
                     _fallTimeoutDelta -= Time.deltaTime;
                 }
                 else
                 {
-                    // 낙하 중 애니메이션 설정
                     if (_hasAnimator)
                     {
                         _animator.SetBool(_animIDFreeFall, true);
                     }
                 }
 
-                // 공중에서는 점프 불가
                 _input.jump = false;
             }
         }
+
 
         private void Jump()
         {
@@ -540,6 +576,30 @@ namespace StarterAssets
             if (animationEvent.animatorClipInfo.weight > 0.5f)
             {
                 AudioSource.PlayClipAtPoint(LandingAudioClip, transform.TransformPoint(_collider.center), FootstepAudioVolume);
+            }
+        }
+
+        //지면 상태 업데이트 함수
+        void UpdateGroundedState()
+        {
+            if (realGrounded)
+            {
+                coyoteTimeCounter = coyoteTime;
+                Grounded = true;
+            }
+            else
+            {
+                //실제로는 지면에 없지만 코요테 타임 내에 있으면 여전히 지면으로 판단
+                if (coyoteTimeCounter > 0)
+                {
+                    coyoteTimeCounter -= Time.deltaTime;        //시간을 지속적으로 감소 시킨다.
+                    Grounded = true;
+                    //_jumpTimeoutDelta = 0.0f;
+                }
+                else
+                {
+                    Grounded = false;                         //타임이 끝나면 false
+                }
             }
         }
     }

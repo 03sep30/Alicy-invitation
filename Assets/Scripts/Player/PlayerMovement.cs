@@ -16,7 +16,6 @@ enum CharacterState
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public bool isGrounded;
     public bool isJumping;
 
     public GameObject blindnessPanel;
@@ -42,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("BGM")]
     public AudioClip breakingSound;
-
 
     void Start()
     {
@@ -142,4 +140,6 @@ public class PlayerMovement : MonoBehaviour
 
         isBoosting = true;
     }
+
+    
 }
