@@ -31,7 +31,7 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         playerHealth = GetComponentInChildren<PlayerHealth>();
-        UpdateHeartUI();
+        //UpdateHeartUI();
     }
 
     private void Update()
@@ -63,20 +63,21 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void UpdateHeartUI()
-    {
-        foreach (var heartImage in playerHPImageList)
-        {
-            Destroy(heartImage.gameObject);
-        }
-        playerHPImageList.Clear();
+    //public void UpdateHeartUI()
+    //{
+    //    foreach (var heartImage in playerHPImageList)
+    //    {
+    //        Destroy(heartImage.gameObject);
+    //    }
+    //    playerHPImageList.Clear();
 
-        for (int i = 0; i < playerHealth.maxHeartHP; i++)
-        {
-            Image playerHeart = Instantiate(heartImage, heartPanel.transform);
-            playerHPImageList.Add(playerHeart);
-        }
-    }
+    //    for (int i = 0; i < playerHealth.maxHeartHP; i++)
+    //    {
+    //        Image playerHeart = Instantiate(heartImage, heartPanel.transform);
+    //        playerHPImageList.Add(playerHeart);
+    //        Debug.Log($"{i}번째 하트이미지 생성");
+    //    }
+    //}
 
     public void PlayerTimeHPUI()
     {

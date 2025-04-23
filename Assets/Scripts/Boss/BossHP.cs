@@ -51,6 +51,8 @@ public class BossHP : MonoBehaviour
         {
             Debug.Log("Boss Die");
             bossPanel.SetActive(false);
+            playerController.BackgroundBGM("Stage");
+            bossPanel.SetActive(false);
             Destroy(gameObject);
             //SceneManager.LoadScene("Stage3_Prototye_Map");
         }
@@ -73,10 +75,5 @@ public class BossHP : MonoBehaviour
             isHit = true;
             currentHitTime = hitTime;
         }
-    }
-
-    private void OnDestroy()
-    {
-        playerController.BackgroundBGM("Stage");
     }
 }

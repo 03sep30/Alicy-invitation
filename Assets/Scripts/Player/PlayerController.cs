@@ -124,20 +124,25 @@ public class PlayerController : MonoBehaviour
 
     public void BackgroundBGM(string bossName)
     {
-        switch(bossName)
+        
+        if (backgroundAudioSource != null)
         {
-            case "Stage":
-                backgroundAudioSource.clip = backgroundBGM[0];
-                backgroundAudioSource.Play();
-                break;
-            case "GingerCookie":
-                backgroundAudioSource.clip = backgroundBGM[1];
-                backgroundAudioSource.Play();
-                break;
-            case "Chef":
-                backgroundAudioSource.clip = backgroundBGM[2];
-                backgroundAudioSource.Play();
-                break;
+            backgroundAudioSource.Stop();
+            switch (bossName)
+            {
+                case "Stage":
+                    backgroundAudioSource.clip = backgroundBGM[0];
+                    backgroundAudioSource.Play();
+                    break;
+                case "GingerCookie":
+                    backgroundAudioSource.clip = backgroundBGM[1];
+                    backgroundAudioSource.Play();
+                    break;
+                case "Chef":
+                    backgroundAudioSource.clip = backgroundBGM[2];
+                    backgroundAudioSource.Play();
+                    break;
+            }
         }
     }
 

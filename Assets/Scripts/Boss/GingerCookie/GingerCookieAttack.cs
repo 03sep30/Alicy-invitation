@@ -43,8 +43,7 @@ public class GingerCookieAttack : BossAttack
     {
         int lollipopIndex = throwPattern[throwIndex];
         GameObject lollipopPrefab = lollipops[lollipopIndex];
-
-        GameObject lollipop = Instantiate(lollipopPrefab, throwPoint.position, Quaternion.identity);
+        GameObject lollipop = Instantiate(lollipopPrefab, throwPoint.position, Quaternion.Euler(0f, 0f, -90f));
         Rigidbody rb = lollipop.GetComponent<Rigidbody>();
 
         rb.AddForce(throwPoint.forward * throwForce);
