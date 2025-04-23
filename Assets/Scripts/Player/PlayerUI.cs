@@ -40,7 +40,6 @@ public class PlayerUI : MonoBehaviour
         {
             if (!playerHealth.isDie)
             {
-                bossPanel.SetActive(true);
                 timePanel.SetActive(true);
                 heartPanel.SetActive(false);
             }
@@ -53,7 +52,6 @@ public class PlayerUI : MonoBehaviour
         }
         if (playerHealth.currentHealthType == HealthType.Heart)
         {
-            bossPanel.SetActive(true);
             heartPanel.SetActive(true);
             timePanel.SetActive(false);
         }

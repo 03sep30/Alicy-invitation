@@ -138,6 +138,10 @@ public class PlayerHealth : MonoBehaviour
             }
         }
         mushroomPanel.SetActive(false);
+        if (bossStage)
+        {
+            playerController.bossPanel.SetActive(false);
+        }
         playerController.currentSize = CharacterSize.Normal;
         playerController.UpdateStatus(10);
         if (playerController.currentEffect != null)
