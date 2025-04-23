@@ -14,10 +14,13 @@ public enum GingerCookieState
 
 public class GingerCookieController : MonoBehaviour
 {
-    
     public GingerCookieState currentState;
     public Transform target;
     public float magn = 1.5f;
+
+    public GameObject portal;
+    public float portalActiveTime;
+    private float currentPortalActiveTime;
 
     private NavMeshAgent agent;
     private PlayerHealth player;
@@ -29,17 +32,27 @@ public class GingerCookieController : MonoBehaviour
         gingerAttack = GetComponent<GingerCookieAttack>();
 
         currentState = GingerCookieState.Idle;
-
+        currentPortalActiveTime = portalActiveTime;
     }
 
     void Update()
     {
+        
+        if (currentPortalActiveTime < 0 )
+        {
+            portal.SetActive(true);
+        }
+        else
+        {
+            currentPortalActiveTime -= Time.deltaTime;
+        }
         if (!player.isDie)
         {
             MoveToTarget();
             if (gingerAttack != null && gingerAttack.enabled)
                 gingerAttack.GingerAttack();
         }
+        
         
     }
     void MoveToTarget()

@@ -170,12 +170,6 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(coll.transform.name);
 
-        if (coll.gameObject.CompareTag("Mushroom"))
-        {
-            Mushroom mushroom = coll.gameObject.GetComponent<Mushroom>();
-            mushroomHandler.GetMushroom(mushroom);
-        }
-
         if (coll.gameObject.CompareTag("GingerBoss"))
         {
             playerHealth.TakeDamage(playerHealth.currentHeartHP);
@@ -283,6 +277,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Mushroom"))
+        {
+            Mushroom mushroom = other.gameObject.GetComponent<Mushroom>();
+            mushroomHandler.GetMushroom(mushroom);
+        }
         if (other.gameObject.name == "BossDestroyBlock")
         {
             bossHP = FindObjectOfType<BossHP>();
