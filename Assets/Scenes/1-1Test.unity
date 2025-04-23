@@ -3768,6 +3768,7 @@ GameObject:
   - component: {fileID: 82987075}
   - component: {fileID: 82987074}
   - component: {fileID: 82987077}
+  - component: {fileID: 82987078}
   m_Layer: 0
   m_Name: BlueMushroom
   m_TagString: Mushroom
@@ -3805,7 +3806,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -3874,6 +3875,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &82987078
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 82987072}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &83214296
 GameObject:
   m_ObjectHideFlags: 0
@@ -5505,6 +5533,7 @@ GameObject:
   - component: {fileID: 102486412}
   - component: {fileID: 102486411}
   - component: {fileID: 102486414}
+  - component: {fileID: 102486415}
   m_Layer: 0
   m_Name: BlueMushroom (7)
   m_TagString: Mushroom
@@ -5542,7 +5571,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -5611,6 +5640,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &102486415
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 102486409}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &103462552
 GameObject:
   m_ObjectHideFlags: 0
@@ -6814,277 +6870,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 16681131663285808, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: heartImage
-      value: 
-      objectReference: {fileID: 7602831252664281831, guid: c2597a548ffd5480fa58335e39af8ea2, type: 3}
     - target: {fileID: 50054803223390930, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 173288456427704220, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 173288456427704220, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 173288456427704220, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 960
-      objectReference: {fileID: 0}
-    - target: {fileID: 173288456427704220, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -262.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.20922852
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.63739
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.014288307
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.99989796
-      objectReference: {fileID: 0}
-    - target: {fileID: 175512210375804782, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 420857855126418460, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 420857855126418460, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 420857855126418460, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 960
-      objectReference: {fileID: 0}
-    - target: {fileID: 420857855126418460, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -175
-      objectReference: {fileID: 0}
-    - target: {fileID: 672802343477274034, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 250805233}
-    - target: {fileID: 1332058933078398675, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989725063186090713, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989725063186090713, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989725063186090713, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2989725063186090713, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3012516928042636626, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772143834320310133, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772143834320310133, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3772143834320310133, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4047662647990927017, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4047662647990927017, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4047662647990927017, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4047662647990927017, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081338404852460033, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081338404852460033, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081338404852460033, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: 600
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081338404852460033, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: 300
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081338404852460033, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 312.58655
-      objectReference: {fileID: 0}
-    - target: {fileID: 4081338404852460033, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -472.6208
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118740304415581277, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118740304415581277, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118740304415581277, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 1075.1731
-      objectReference: {fileID: 0}
-    - target: {fileID: 4118740304415581277, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -472.6208
-      objectReference: {fileID: 0}
-    - target: {fileID: 4737713578689949452, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4914892302944680428, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_SizeDelta.x
-      value: -844.8269
-      objectReference: {fileID: 0}
-    - target: {fileID: 4914892302944680428, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_SizeDelta.y
-      value: -607.3792
-      objectReference: {fileID: 0}
-    - target: {fileID: 4914892302944680428, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 422.41345
-      objectReference: {fileID: 0}
-    - target: {fileID: 4914892302944680428, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -303.68958
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952803698133370723, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952803698133370723, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952803698133370723, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5952803698133370723, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.009216309
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 7.640259
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.014288307
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.99989796
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: -178.363
-      objectReference: {fileID: 0}
-    - target: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_ConstrainProportionsScale
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6322709156234682977, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_TranslationAtRest.x
-      value: 0.75
-      objectReference: {fileID: 0}
-    - target: {fileID: 6322709156234682977, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_TranslationAtRest.y
-      value: -0.375
-      objectReference: {fileID: 0}
-    - target: {fileID: 6322709156234682977, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_TranslationAtRest.z
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 6509715594856345720, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6509715594856345720, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6509715594856345720, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6509715594856345720, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6619162440424311204, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 13400000, guid: 104c1092fed9f4c8b874dfceb6d6c3e4, type: 2}
-    - target: {fileID: 6833786223772591482, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7120289560356816538, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7126,195 +6914,13 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7162824082036744896, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162824082036744896, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7162824082036744896, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 960
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.20922852
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 5.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 14.63739
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.014288307
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.99989796
-      objectReference: {fileID: 0}
-    - target: {fileID: 7168111366069044600, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7472017883763812029, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_Color.a
-      value: 0.2901961
-      objectReference: {fileID: 0}
-    - target: {fileID: 7603933759563526631, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: Gravity
-      value: -30
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: JumpForce
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: MoveSpeed
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: JumpHeight
-      value: 14
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: SprintSpeed
-      value: 22
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: GroundedRadius
-      value: 0.58
-      objectReference: {fileID: 0}
-    - target: {fileID: 7651620915379056897, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: fallMultiplier
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: cheshire
-      value: 
-      objectReference: {fileID: 1697886885}
     - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: keyPortal
       value: 
       objectReference: {fileID: 2144835101}
-    - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: backgroundAudioSource
-      value: 
-      objectReference: {fileID: 344425123}
-    - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: backgroundBGM.Array.size
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: backgroundBGM.Array.data[0]
-      value: 
-      objectReference: {fileID: 8300000, guid: 2703066cd7a4ee04aa33b6095df1428c, type: 3}
-    - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: backgroundBGM.Array.data[1]
-      value: 
-      objectReference: {fileID: 8300000, guid: dfc8a0dfb1c6efa43b48af0a5a15a2a9, type: 3}
-    - target: {fileID: 7928832911614249044, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: backgroundBGM.Array.data[2]
-      value: 
-      objectReference: {fileID: 8300000, guid: e014150657f581d4d8e1c87e5a9391c1, type: 3}
-    - target: {fileID: 8013365325504611629, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8013365325504611629, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8013365325504611629, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8013365325504611629, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.41
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.17
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 21.74
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.014288307
-      objectReference: {fileID: 0}
-    - target: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0.99989796
-      objectReference: {fileID: 0}
-    - target: {fileID: 8380561178615039679, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_text
-      value: "\uC218\uBE48\uD551 \uD559\uAD50 \uBE68\uB9AC \uC624\uC138\uC694~ \uC218\uBE48\uD551
-        \uD559\uAD50 \uBE68\uB9AC \uC624\uC138\uC694~ \uC218\uBE48\uD551 \uD559\uAD50
-        \uBE68\uB9AC \uC624\uC138\uC694~ \uC218\uBE48\uD551 \uD559\uAD50 \uBE68\uB9AC
-        \uC624\uC138\uC694~ "
-      objectReference: {fileID: 0}
-    - target: {fileID: 8839943224536208260, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_Spacing
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8840313583097814204, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8840313583097814204, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8840313583097814204, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 960
-      objectReference: {fileID: 0}
-    - target: {fileID: 8840313583097814204, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: -540
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 6833786223772591482, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 7120289560356816538, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 344425122}
-    - targetCorrespondingSourceObject: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 687978649}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
 --- !u!114 &129880314 stripped
@@ -9220,6 +8826,7 @@ GameObject:
   - component: {fileID: 160299914}
   - component: {fileID: 160299913}
   - component: {fileID: 160299912}
+  - component: {fileID: 160299916}
   m_Layer: 0
   m_Name: OrangeMushroom (17)
   m_TagString: Mushroom
@@ -9270,7 +8877,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -9326,6 +8933,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 160299910}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &160299916
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 160299910}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &161415870
 GameObject:
   m_ObjectHideFlags: 0
@@ -12724,6 +12358,7 @@ GameObject:
   - component: {fileID: 242474536}
   - component: {fileID: 242474535}
   - component: {fileID: 242474538}
+  - component: {fileID: 242474539}
   m_Layer: 0
   m_Name: BlueMushroom (4)
   m_TagString: Mushroom
@@ -12761,7 +12396,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -12830,6 +12465,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &242474539
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 242474533}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &242482114
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15417,6 +15079,7 @@ GameObject:
   - component: {fileID: 282101084}
   - component: {fileID: 282101083}
   - component: {fileID: 282101082}
+  - component: {fileID: 282101086}
   m_Layer: 0
   m_Name: OrangeMushroom (15)
   m_TagString: Mushroom
@@ -15467,7 +15130,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -15523,6 +15186,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 282101080}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &282101086
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 282101080}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &283301485
 GameObject:
   m_ObjectHideFlags: 0
@@ -18414,6 +18104,7 @@ GameObject:
   - component: {fileID: 341851682}
   - component: {fileID: 341851681}
   - component: {fileID: 341851684}
+  - component: {fileID: 341851685}
   m_Layer: 0
   m_Name: BlueMushroom (1)
   m_TagString: Mushroom
@@ -18451,7 +18142,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -18520,134 +18211,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
---- !u!1 &344425121
-GameObject:
+--- !u!54 &341851685
+Rigidbody:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 344425122}
-  - component: {fileID: 344425123}
-  m_Layer: 0
-  m_Name: Background_AudioSource
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &344425122
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344425121}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 660538788}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &344425123
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 344425121}
-  m_Enabled: 1
+  m_GameObject: {fileID: 341851679}
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 2703066cd7a4ee04aa33b6095df1428c, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 1
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
+    m_Bits: 0
+  m_ExcludeLayers:
     serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &347693118
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -19090,6 +18680,7 @@ GameObject:
   - component: {fileID: 357383517}
   - component: {fileID: 357383516}
   - component: {fileID: 357383519}
+  - component: {fileID: 357383520}
   m_Layer: 0
   m_Name: OrangeMushroom
   m_TagString: Mushroom
@@ -19127,7 +18718,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -19196,6 +18787,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &357383520
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 357383514}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &358660593
 GameObject:
   m_ObjectHideFlags: 0
@@ -21393,6 +21011,7 @@ GameObject:
   - component: {fileID: 393228926}
   - component: {fileID: 393228925}
   - component: {fileID: 393228928}
+  - component: {fileID: 393228929}
   m_Layer: 0
   m_Name: BlueMushroom (13)
   m_TagString: Mushroom
@@ -21430,7 +21049,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -21499,6 +21118,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &393228929
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 393228923}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &394072244
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22876,6 +22522,7 @@ GameObject:
   - component: {fileID: 427140876}
   - component: {fileID: 427140875}
   - component: {fileID: 427140874}
+  - component: {fileID: 427140878}
   m_Layer: 0
   m_Name: OrangeMushroom (27)
   m_TagString: Mushroom
@@ -22926,7 +22573,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22982,6 +22629,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 427140872}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &427140878
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427140872}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &428640993
 GameObject:
   m_ObjectHideFlags: 0
@@ -23523,6 +23197,7 @@ GameObject:
   - component: {fileID: 438048917}
   - component: {fileID: 438048916}
   - component: {fileID: 438048915}
+  - component: {fileID: 438048919}
   m_Layer: 0
   m_Name: OrangeMushroom (21)
   m_TagString: Mushroom
@@ -23573,7 +23248,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -23629,6 +23304,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 438048913}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &438048919
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 438048913}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &438358581
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -24495,6 +24197,7 @@ GameObject:
   - component: {fileID: 448763949}
   - component: {fileID: 448763948}
   - component: {fileID: 448763951}
+  - component: {fileID: 448763952}
   m_Layer: 0
   m_Name: BlueMushroom (20)
   m_TagString: Mushroom
@@ -24532,7 +24235,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -24601,6 +24304,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &448763952
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 448763946}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &449962660
 GameObject:
   m_ObjectHideFlags: 0
@@ -25144,6 +24874,7 @@ GameObject:
   - component: {fileID: 463474309}
   - component: {fileID: 463474308}
   - component: {fileID: 463474311}
+  - component: {fileID: 463474312}
   m_Layer: 0
   m_Name: OrangeMushroom (2)
   m_TagString: Mushroom
@@ -25181,7 +24912,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -25250,6 +24981,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &463474312
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 463474306}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &463587376
 GameObject:
   m_ObjectHideFlags: 0
@@ -27169,6 +26927,7 @@ GameObject:
   - component: {fileID: 513698632}
   - component: {fileID: 513698631}
   - component: {fileID: 513698630}
+  - component: {fileID: 513698634}
   m_Layer: 0
   m_Name: OrangeMushroom (13)
   m_TagString: Mushroom
@@ -27219,7 +26978,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -27275,6 +27034,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 513698628}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &513698634
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 513698628}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &522901195
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -30519,6 +30305,7 @@ GameObject:
   - component: {fileID: 581494466}
   - component: {fileID: 581494465}
   - component: {fileID: 581494468}
+  - component: {fileID: 581494469}
   m_Layer: 0
   m_Name: BlueMushroom (2)
   m_TagString: Mushroom
@@ -30556,7 +30343,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -30625,6 +30412,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &581494469
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 581494463}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &582551258
 GameObject:
   m_ObjectHideFlags: 0
@@ -31090,6 +30904,7 @@ GameObject:
   - component: {fileID: 586756871}
   - component: {fileID: 586756870}
   - component: {fileID: 586756873}
+  - component: {fileID: 586756874}
   m_Layer: 0
   m_Name: OrangeMushroom (9)
   m_TagString: Mushroom
@@ -31127,7 +30942,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -31196,6 +31011,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &586756874
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 586756868}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &593431739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32967,6 +32809,7 @@ GameObject:
   - component: {fileID: 621549963}
   - component: {fileID: 621549962}
   - component: {fileID: 621549961}
+  - component: {fileID: 621549965}
   m_Layer: 0
   m_Name: OrangeMushroom (25)
   m_TagString: Mushroom
@@ -33017,7 +32860,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -33073,6 +32916,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 621549959}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &621549965
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 621549959}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &628027538 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5269612077099746448, guid: 7350f3d7214d3e542b25040fd5c0b095, type: 3}
@@ -33537,6 +33407,7 @@ GameObject:
   - component: {fileID: 638539502}
   - component: {fileID: 638539501}
   - component: {fileID: 638539504}
+  - component: {fileID: 638539505}
   m_Layer: 0
   m_Name: OrangeMushroom (8)
   m_TagString: Mushroom
@@ -33574,7 +33445,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -33643,6 +33514,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &638539505
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638539499}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &641473337
 GameObject:
   m_ObjectHideFlags: 0
@@ -33656,6 +33554,7 @@ GameObject:
   - component: {fileID: 641473340}
   - component: {fileID: 641473339}
   - component: {fileID: 641473342}
+  - component: {fileID: 641473343}
   m_Layer: 0
   m_Name: BlueMushroom (17)
   m_TagString: Mushroom
@@ -33693,7 +33592,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -33762,6 +33661,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &641473343
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 641473337}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &645456801
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -34242,11 +34168,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659842098}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &660538788 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7120289560356816538, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-  m_PrefabInstance: {fileID: 129880313}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &660706382
 GameObject:
   m_ObjectHideFlags: 0
@@ -34294,6 +34215,7 @@ GameObject:
   - component: {fileID: 660731695}
   - component: {fileID: 660731694}
   - component: {fileID: 660731693}
+  - component: {fileID: 660731697}
   m_Layer: 0
   m_Name: OrangeMushroom (10)
   m_TagString: Mushroom
@@ -34344,7 +34266,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -34400,6 +34322,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660731691}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &660731697
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 660731691}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &661200062
 GameObject:
   m_ObjectHideFlags: 0
@@ -35162,124 +35111,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9211782934650081209, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
   m_PrefabInstance: {fileID: 399800482}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &687978648
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 687978649}
-  - component: {fileID: 687978651}
-  - component: {fileID: 687978650}
-  m_Layer: 0
-  m_Name: 
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!4 &687978649
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687978648}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.271, z: -0.168}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 250805233}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &687978650
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687978648}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 474bcb49853aa07438625e644c072ee6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Version: 3
-  m_UsePipelineSettings: 1
-  m_AdditionalLightsShadowResolutionTier: 2
-  m_LightLayerMask: 1
-  m_RenderingLayers: 1
-  m_CustomShadowLayers: 0
-  m_ShadowLayerMask: 1
-  m_ShadowRenderingLayers: 1
-  m_LightCookieSize: {x: 1, y: 1}
-  m_LightCookieOffset: {x: 0, y: 0}
-  m_SoftShadowQuality: 0
---- !u!108 &687978651
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 687978648}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 0.9811321, g: 0.97007596, b: 0.8469206, a: 1}
-  m_Intensity: 0.79773766
-  m_Range: 4.13
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.802082
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 4
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
 --- !u!1001 &688244153
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -35656,6 +35487,7 @@ GameObject:
   - component: {fileID: 704519748}
   - component: {fileID: 704519747}
   - component: {fileID: 704519750}
+  - component: {fileID: 704519751}
   m_Layer: 0
   m_Name: BlueMushroom (11)
   m_TagString: Mushroom
@@ -35693,7 +35525,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -35762,6 +35594,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &704519751
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704519745}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &705437520 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6697591173856229224, guid: 7350f3d7214d3e542b25040fd5c0b095, type: 3}
@@ -36263,6 +36122,7 @@ GameObject:
   - component: {fileID: 708499412}
   - component: {fileID: 708499411}
   - component: {fileID: 708499414}
+  - component: {fileID: 708499415}
   m_Layer: 0
   m_Name: OrangeMushroom (7)
   m_TagString: Mushroom
@@ -36300,7 +36160,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -36369,6 +36229,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &708499415
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 708499409}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &711973152 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211782934650081209, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
@@ -41625,6 +41512,7 @@ GameObject:
   - component: {fileID: 814820927}
   - component: {fileID: 814820926}
   - component: {fileID: 814820929}
+  - component: {fileID: 814820930}
   m_Layer: 0
   m_Name: OrangeMushroom (5)
   m_TagString: Mushroom
@@ -41662,7 +41550,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -41731,6 +41619,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &814820930
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 814820924}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &816420738
 GameObject:
   m_ObjectHideFlags: 0
@@ -42550,6 +42465,7 @@ GameObject:
   - component: {fileID: 829753357}
   - component: {fileID: 829753356}
   - component: {fileID: 829753359}
+  - component: {fileID: 829753360}
   m_Layer: 0
   m_Name: OrangeMushroom (6)
   m_TagString: Mushroom
@@ -42587,7 +42503,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -42656,6 +42572,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &829753360
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 829753354}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &829834000
 GameObject:
   m_ObjectHideFlags: 0
@@ -44202,6 +44145,7 @@ GameObject:
   - component: {fileID: 856645211}
   - component: {fileID: 856645210}
   - component: {fileID: 856645209}
+  - component: {fileID: 856645213}
   m_Layer: 0
   m_Name: OrangeMushroom (11)
   m_TagString: Mushroom
@@ -44252,7 +44196,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -44308,6 +44252,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 856645207}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &856645213
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 856645207}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &857682830
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -53652,6 +53623,7 @@ GameObject:
   - component: {fileID: 1061550305}
   - component: {fileID: 1061550304}
   - component: {fileID: 1061550303}
+  - component: {fileID: 1061550307}
   m_Layer: 0
   m_Name: OrangeMushroom (26)
   m_TagString: Mushroom
@@ -53702,7 +53674,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -53758,6 +53730,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1061550301}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1061550307
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1061550301}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1062069305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211782934650081209, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
@@ -55179,6 +55178,7 @@ GameObject:
   - component: {fileID: 1084533023}
   - component: {fileID: 1084533022}
   - component: {fileID: 1084533025}
+  - component: {fileID: 1084533026}
   m_Layer: 0
   m_Name: BlueMushroom (16)
   m_TagString: Mushroom
@@ -55216,7 +55216,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -55285,6 +55285,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1084533026
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1084533020}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1084982683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -57260,6 +57287,7 @@ GameObject:
   - component: {fileID: 1114676855}
   - component: {fileID: 1114676854}
   - component: {fileID: 1114676857}
+  - component: {fileID: 1114676858}
   m_Layer: 0
   m_Name: BlueMushroom (21)
   m_TagString: Mushroom
@@ -57297,7 +57325,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -57366,6 +57394,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1114676858
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1114676852}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1117916326 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211782934650081209, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
@@ -61194,6 +61249,7 @@ GameObject:
   - component: {fileID: 1208820252}
   - component: {fileID: 1208820251}
   - component: {fileID: 1208820254}
+  - component: {fileID: 1208820255}
   m_Layer: 0
   m_Name: BlueMushroom (8)
   m_TagString: Mushroom
@@ -61231,7 +61287,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -61300,6 +61356,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1208820255
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1208820249}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1208952235
 GameObject:
   m_ObjectHideFlags: 0
@@ -66047,6 +66130,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate (38)
       objectReference: {fileID: 0}
+    - target: {fileID: 8685981840918267066, guid: abbc3e821c9703c4f8d9c1275dc2b24f, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -66070,6 +66157,7 @@ GameObject:
   - component: {fileID: 1326086396}
   - component: {fileID: 1326086395}
   - component: {fileID: 1326086394}
+  - component: {fileID: 1326086398}
   m_Layer: 0
   m_Name: OrangeMushroom (23)
   m_TagString: Mushroom
@@ -66120,7 +66208,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -66176,6 +66264,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1326086392}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1326086398
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326086392}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1328901895
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -67710,6 +67825,7 @@ GameObject:
   - component: {fileID: 1364397758}
   - component: {fileID: 1364397757}
   - component: {fileID: 1364397760}
+  - component: {fileID: 1364397761}
   m_Layer: 0
   m_Name: BlueMushroom (14)
   m_TagString: Mushroom
@@ -67747,7 +67863,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -67816,6 +67932,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1364397761
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1364397755}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &1366480132 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211782934650081209, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
@@ -73256,6 +73399,7 @@ GameObject:
   - component: {fileID: 1487637286}
   - component: {fileID: 1487637285}
   - component: {fileID: 1487637288}
+  - component: {fileID: 1487637289}
   m_Layer: 0
   m_Name: OrangeMushroom (4)
   m_TagString: Mushroom
@@ -73293,7 +73437,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -73362,6 +73506,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &1487637289
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487637283}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1491049637
 GameObject:
   m_ObjectHideFlags: 0
@@ -75991,6 +76162,7 @@ GameObject:
   - component: {fileID: 1526692918}
   - component: {fileID: 1526692917}
   - component: {fileID: 1526692920}
+  - component: {fileID: 1526692921}
   m_Layer: 0
   m_Name: OrangeMushroom (1)
   m_TagString: Mushroom
@@ -76028,7 +76200,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -76097,6 +76269,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &1526692921
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1526692915}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1529738366
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79281,6 +79480,7 @@ GameObject:
   - component: {fileID: 1587989136}
   - component: {fileID: 1587989135}
   - component: {fileID: 1587989134}
+  - component: {fileID: 1587989138}
   m_Layer: 0
   m_Name: OrangeMushroom (14)
   m_TagString: Mushroom
@@ -79331,7 +79531,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -79387,6 +79587,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1587989132}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1587989138
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1587989132}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1592346547
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -79589,6 +79816,7 @@ GameObject:
   - component: {fileID: 1595531992}
   - component: {fileID: 1595531991}
   - component: {fileID: 1595531990}
+  - component: {fileID: 1595531994}
   m_Layer: 0
   m_Name: OrangeMushroom (22)
   m_TagString: Mushroom
@@ -79639,7 +79867,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -79695,6 +79923,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1595531988}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1595531994
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1595531988}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1597298187
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -80517,6 +80772,7 @@ GameObject:
   - component: {fileID: 1611791126}
   - component: {fileID: 1611791125}
   - component: {fileID: 1611791128}
+  - component: {fileID: 1611791129}
   m_Layer: 0
   m_Name: BlueMushroom (10)
   m_TagString: Mushroom
@@ -80554,7 +80810,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -80623,6 +80879,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1611791129
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1611791123}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1613511949 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1459692678318033863, guid: 11edcbee570cac84eaad3538eba5d3c3, type: 3}
@@ -80741,6 +81024,7 @@ GameObject:
   - component: {fileID: 1618590335}
   - component: {fileID: 1618590334}
   - component: {fileID: 1618590337}
+  - component: {fileID: 1618590338}
   m_Layer: 0
   m_Name: BlueMushroom (18)
   m_TagString: Mushroom
@@ -80778,7 +81062,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -80847,6 +81131,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1618590338
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1618590332}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1623273368
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83176,6 +83487,7 @@ GameObject:
   - component: {fileID: 1666148557}
   - component: {fileID: 1666148556}
   - component: {fileID: 1666148559}
+  - component: {fileID: 1666148560}
   m_Layer: 0
   m_Name: BlueMushroom (22)
   m_TagString: Mushroom
@@ -83213,7 +83525,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -83282,6 +83594,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1666148560
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1666148554}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1669174404
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83609,6 +83948,7 @@ GameObject:
   - component: {fileID: 1672543254}
   - component: {fileID: 1672543253}
   - component: {fileID: 1672543252}
+  - component: {fileID: 1672543256}
   m_Layer: 0
   m_Name: OrangeMushroom (19)
   m_TagString: Mushroom
@@ -83659,7 +83999,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -83715,6 +84055,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1672543250}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1672543256
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672543250}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1673912199
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -84859,11 +85226,6 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 9211782934650081209, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
   m_PrefabInstance: {fileID: 1696147811}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1697886885 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4737713578689949452, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-  m_PrefabInstance: {fileID: 129880313}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1699934381
 GameObject:
@@ -93371,6 +93733,7 @@ GameObject:
   - component: {fileID: 1915263706}
   - component: {fileID: 1915263705}
   - component: {fileID: 1915263708}
+  - component: {fileID: 1915263709}
   m_Layer: 0
   m_Name: BlueMushroom (5)
   m_TagString: Mushroom
@@ -93408,7 +93771,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -93477,6 +93840,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1915263709
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1915263703}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1916233864
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -93858,6 +94248,7 @@ GameObject:
   - component: {fileID: 1920566723}
   - component: {fileID: 1920566722}
   - component: {fileID: 1920566725}
+  - component: {fileID: 1920566726}
   m_Layer: 0
   m_Name: BlueMushroom (12)
   m_TagString: Mushroom
@@ -93895,7 +94286,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -93964,6 +94355,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1920566726
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1920566720}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1921209106
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94116,6 +94534,7 @@ GameObject:
   - component: {fileID: 1923389359}
   - component: {fileID: 1923389358}
   - component: {fileID: 1923389361}
+  - component: {fileID: 1923389362}
   m_Layer: 0
   m_Name: BlueMushroom (6)
   m_TagString: Mushroom
@@ -94153,7 +94572,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -94222,6 +94641,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1923389362
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923389356}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1924532739
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94953,6 +95399,7 @@ GameObject:
   - component: {fileID: 1940893174}
   - component: {fileID: 1940893173}
   - component: {fileID: 1940893172}
+  - component: {fileID: 1940893176}
   m_Layer: 0
   m_Name: OrangeMushroom (18)
   m_TagString: Mushroom
@@ -95003,7 +95450,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -95059,6 +95506,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1940893170}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1940893176
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1940893170}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1942485748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -96162,6 +96636,7 @@ GameObject:
   - component: {fileID: 1956578506}
   - component: {fileID: 1956578505}
   - component: {fileID: 1956578508}
+  - component: {fileID: 1956578509}
   m_Layer: 0
   m_Name: OrangeMushroom (3)
   m_TagString: Mushroom
@@ -96199,7 +96674,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -96268,6 +96743,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 1
+--- !u!54 &1956578509
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956578503}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1961297528
 GameObject:
   m_ObjectHideFlags: 0
@@ -96281,6 +96783,7 @@ GameObject:
   - component: {fileID: 1961297531}
   - component: {fileID: 1961297530}
   - component: {fileID: 1961297533}
+  - component: {fileID: 1961297534}
   m_Layer: 0
   m_Name: BlueMushroom (3)
   m_TagString: Mushroom
@@ -96318,7 +96821,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -96387,6 +96890,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1961297534
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1961297528}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1962195604
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -98082,6 +98612,7 @@ GameObject:
   - component: {fileID: 1994718851}
   - component: {fileID: 1994718850}
   - component: {fileID: 1994718853}
+  - component: {fileID: 1994718854}
   m_Layer: 0
   m_Name: BlueMushroom (9)
   m_TagString: Mushroom
@@ -98119,7 +98650,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -98188,6 +98719,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &1994718854
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994718848}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &1994857743
 GameObject:
   m_ObjectHideFlags: 0
@@ -98201,6 +98759,7 @@ GameObject:
   - component: {fileID: 1994857747}
   - component: {fileID: 1994857746}
   - component: {fileID: 1994857745}
+  - component: {fileID: 1994857749}
   m_Layer: 0
   m_Name: OrangeMushroom (12)
   m_TagString: Mushroom
@@ -98251,7 +98810,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -98307,6 +98866,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1994857743}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &1994857749
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1994857743}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1995871766
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -99899,6 +100485,7 @@ GameObject:
   - component: {fileID: 2020119686}
   - component: {fileID: 2020119685}
   - component: {fileID: 2020119688}
+  - component: {fileID: 2020119689}
   m_Layer: 0
   m_Name: BlueMushroom (19)
   m_TagString: Mushroom
@@ -99936,7 +100523,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -100005,6 +100592,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &2020119689
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2020119683}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2020747599
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -101926,6 +102540,7 @@ GameObject:
   - component: {fileID: 2057980019}
   - component: {fileID: 2057980018}
   - component: {fileID: 2057980017}
+  - component: {fileID: 2057980021}
   m_Layer: 0
   m_Name: OrangeMushroom (16)
   m_TagString: Mushroom
@@ -101976,7 +102591,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -102032,6 +102647,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2057980015}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &2057980021
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2057980015}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2058847570
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102203,6 +102845,7 @@ GameObject:
   - component: {fileID: 2061703879}
   - component: {fileID: 2061703878}
   - component: {fileID: 2061703881}
+  - component: {fileID: 2061703882}
   m_Layer: 0
   m_Name: BlueMushroom (23)
   m_TagString: Mushroom
@@ -102240,7 +102883,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -102309,6 +102952,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &2061703882
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2061703876}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2062607850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -102423,6 +103093,7 @@ GameObject:
   - component: {fileID: 2071190909}
   - component: {fileID: 2071190908}
   - component: {fileID: 2071190907}
+  - component: {fileID: 2071190911}
   m_Layer: 0
   m_Name: OrangeMushroom (24)
   m_TagString: Mushroom
@@ -102473,7 +103144,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -102529,6 +103200,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2071190905}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &2071190911
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2071190905}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2072411469 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1459692678318033863, guid: 11edcbee570cac84eaad3538eba5d3c3, type: 3}
@@ -103500,6 +104198,7 @@ GameObject:
   - component: {fileID: 2094330122}
   - component: {fileID: 2094330121}
   - component: {fileID: 2094330124}
+  - component: {fileID: 2094330125}
   m_Layer: 0
   m_Name: BlueMushroom (15)
   m_TagString: Mushroom
@@ -103537,7 +104236,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -103606,6 +104305,33 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mushroomType: 0
+--- !u!54 &2094330125
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094330119}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2095700733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -105353,6 +106079,7 @@ GameObject:
   - component: {fileID: 2137102018}
   - component: {fileID: 2137102017}
   - component: {fileID: 2137102016}
+  - component: {fileID: 2137102020}
   m_Layer: 0
   m_Name: OrangeMushroom (20)
   m_TagString: Mushroom
@@ -105403,7 +106130,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -105459,6 +106186,33 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2137102014}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!54 &2137102020
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137102014}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2139235381
 PrefabInstance:
   m_ObjectHideFlags: 0
