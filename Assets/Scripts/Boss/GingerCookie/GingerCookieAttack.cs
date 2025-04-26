@@ -43,10 +43,17 @@ public class GingerCookieAttack : BossAttack
     {
         int lollipopIndex = throwPattern[throwIndex];
         GameObject lollipopPrefab = lollipops[lollipopIndex];
-        GameObject lollipop = Instantiate(lollipopPrefab, throwPoint.position, Quaternion.Euler(0f, 0f, -90f));
+        GameObject lollipop = Instantiate(lollipopPrefab, throwPoint.position, Quaternion.identity);
         Rigidbody rb = lollipop.GetComponent<Rigidbody>();
 
-        rb.AddForce(throwPoint.forward * throwForce);
+        Vector3 targetPos = target.position;
+        targetPos.y = throwPoint.position.y;
+        Vector3 direction = (targetPos - throwPoint.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        lollipop.transform.rotation = lookRotation * Quaternion.Euler(90f, 0f, 0f);
+
+        rb.AddForce(direction * throwForce);
 
         throwIndex = (throwIndex + 1) % throwPattern.Length;
     }

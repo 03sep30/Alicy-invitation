@@ -86,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 newOffset = new Vector3(0.75f, 1f, 0f);
                 cheshireParentConstraint.SetTranslationOffset(0, newOffset);
             }
-            thirdPersonController.MoveSpeed = originalMoveSpeed;
+            //thirdPersonController.MoveSpeed = originalMoveSpeed;
             thirdPersonController.JumpHeight = originalJumpHeight;
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
