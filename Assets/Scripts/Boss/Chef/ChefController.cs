@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public enum GingerCookieState
+public enum ChefState
 {
     Idle,
     Walking,
@@ -12,47 +12,35 @@ public enum GingerCookieState
     Die
 }
 
-public class GingerCookieController : MonoBehaviour
+public class ChefController : MonoBehaviour
 {
-    public GingerCookieState currentState;
+    public ChefState currentState;
     public Transform target;
     public float magn = 1.5f;
 
-    public GameObject portal;
-    public float portalActiveTime;
-    private float currentPortalActiveTime;
-
     private NavMeshAgent agent;
     private PlayerHealth player;
-    private GingerCookieAttack gingerAttack;
+    private ChefAttack chefAttack;
 
     void Start()
     {
         agent = GetComponent<NavMeshAgent>();
         player = FindObjectOfType<PlayerHealth>();
-        gingerAttack = GetComponent<GingerCookieAttack>();
+        chefAttack = GetComponent<ChefAttack>();
 
-        currentState = GingerCookieState.Idle;
-        currentPortalActiveTime = portalActiveTime;
+        currentState = ChefState.Idle;
+
+        if (chefAttack != null && chefAttack.enabled)
+            chefAttack.DropPotTrap();
     }
 
     void Update()
     {
-        if (currentPortalActiveTime < 0 )
-        {
-            portal.SetActive(true);
-        }
-        else
-        {
-            currentPortalActiveTime -= Time.deltaTime;
-        }
         if (!player.isDie)
         {
-            MoveToTarget();
-            if (gingerAttack != null && gingerAttack.enabled)
-                gingerAttack.GingerAttack();
-        }
+            MoveToTarget();        }
     }
+
     void MoveToTarget()
     {
         if (target == null) return;
