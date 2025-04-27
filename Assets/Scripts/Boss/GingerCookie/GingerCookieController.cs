@@ -20,7 +20,6 @@ public class GingerCookieController : MonoBehaviour
 
     public GameObject portal;
     public float portalActiveTime;
-    private float currentPortalActiveTime;
 
     private NavMeshAgent agent;
     private PlayerHealth player;
@@ -33,19 +32,12 @@ public class GingerCookieController : MonoBehaviour
         gingerAttack = GetComponent<GingerCookieAttack>();
 
         currentState = GingerCookieState.Idle;
-        currentPortalActiveTime = portalActiveTime;
+
+        StartCoroutine(PortalActive());
     }
 
     void Update()
     {
-        if (currentPortalActiveTime < 0 )
-        {
-            portal.SetActive(true);
-        }
-        else
-        {
-            currentPortalActiveTime -= Time.deltaTime;
-        }
         if (!player.isDie)
         {
             MoveToTarget();
@@ -66,5 +58,11 @@ public class GingerCookieController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
             agent.SetDestination(targetPos);
         }
+    }
+
+    private IEnumerator PortalActive()
+    {
+        yield return new WaitForSeconds(portalActiveTime);
+        portal.SetActive(true);
     }
 }
