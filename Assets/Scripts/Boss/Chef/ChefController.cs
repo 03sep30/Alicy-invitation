@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -18,6 +19,9 @@ public class ChefController : MonoBehaviour
     public Transform target;
     public float magn = 1.5f;
 
+    public GameObject Key;
+    public float keyActiveTime;
+
     private NavMeshAgent agent;
     private PlayerHealth player;
     private ChefAttack chefAttack;
@@ -30,15 +34,17 @@ public class ChefController : MonoBehaviour
 
         currentState = ChefState.Idle;
 
-        if (chefAttack != null && chefAttack.enabled)
-            chefAttack.DropPotTrap();
+        StartCoroutine(KeyActive());
     }
 
     void Update()
     {
         if (!player.isDie)
         {
-            MoveToTarget();        }
+            MoveToTarget();
+            if (chefAttack != null && chefAttack.enabled)
+                chefAttack.ChefAttackPatt();
+        }
     }
 
     void MoveToTarget()
@@ -54,5 +60,11 @@ public class ChefController : MonoBehaviour
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 5f);
             agent.SetDestination(targetPos);
         }
+    }
+
+    private IEnumerator KeyActive()
+    {
+        yield return new WaitForSeconds(keyActiveTime);
+        Key.SetActive(true);
     }
 }

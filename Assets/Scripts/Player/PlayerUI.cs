@@ -36,10 +36,11 @@ public class PlayerUI : MonoBehaviour
 
     private void Update()
     {
-        if (playerHealth.currentHealthType == HealthType.Time)
+        if (playerHealth.currentHealthType == HealthType.Time && playerHealth.bossStage)
         {
             if (!playerHealth.isDie)
             {
+                bossPanel.SetActive(true);
                 timePanel.SetActive(true);
                 heartPanel.SetActive(false);
             }
@@ -50,8 +51,9 @@ public class PlayerUI : MonoBehaviour
 
             PlayerTimeHPUI();
         }
-        if (playerHealth.currentHealthType == HealthType.Heart)
+        if (playerHealth.currentHealthType == HealthType.Heart && playerHealth.bossStage)
         {
+            bossPanel.SetActive(true);
             heartPanel.SetActive(true);
             timePanel.SetActive(false);
         }
@@ -122,7 +124,10 @@ public class PlayerUI : MonoBehaviour
     {
         if (playerHealth.currentHealthType == HealthType.Heart)
         {
-            playerHPImageList[(int)hp].gameObject.SetActive(false);
+            for (int i = 0; i < playerHPImageList.Count; i++)
+            {
+                playerHPImageList[i].gameObject.SetActive(i < (int)hp);
+            }
         }
         if (playerHealth.currentHealthType == HealthType.Time)
         {

@@ -44,6 +44,8 @@ public class PlayerController : MonoBehaviour
     public GameObject statusPlane;
 
     public GameObject bossPanel;
+    private string currentBossName;
+    private bool isDropDamage;
     public AudioClip[] backgroundBGM;
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
@@ -124,23 +126,32 @@ public class PlayerController : MonoBehaviour
 
     public void BackgroundBGM(string bossName)
     {
-        
+        currentBossName = bossName;
         if (backgroundAudioSource != null)
         {
             backgroundAudioSource.Stop();
-            switch (bossName)
+            switch (currentBossName)
             {
                 case "Stage":
-                    backgroundAudioSource.clip = backgroundBGM[0];
-                    backgroundAudioSource.Play();
+                    if (backgroundAudioSource.clip == backgroundBGM[0])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[0];
+                        backgroundAudioSource.Play();
+                    }
                     break;
                 case "GingerCookie":
-                    backgroundAudioSource.clip = backgroundBGM[1];
-                    backgroundAudioSource.Play();
+                    if (backgroundAudioSource.clip == backgroundBGM[1])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[1];
+                        backgroundAudioSource.Play();
+                    }
                     break;
                 case "Chef":
-                    backgroundAudioSource.clip = backgroundBGM[2];
-                    backgroundAudioSource.Play();
+                    if (backgroundAudioSource.clip == backgroundBGM[2])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[2];
+                        backgroundAudioSource.Play();
+                    }
                     break;
             }
         }
@@ -164,10 +175,21 @@ public class PlayerController : MonoBehaviour
     void DropCalculation()
     {
         float fallDistance = lastGroundedY - transform.position.y;
-        if (fallDistance >= deathFallHeight && !playerHealth.isDie && !enterPortal)
+        if (fallDistance >= deathFallHeight && currentBossName == "Chef")
+        {
+            isDropDamage = true;
+            
+        }
+        if (fallDistance >= deathFallHeight && !playerHealth.isDie && !enterPortal && !isDropDamage)
         {
             playerHealth.Die();
             //lastGroundedY = playerHealth.SpawnPoint.transform.position.y;
+        }
+        
+        if (isDropDamage && thirdPersonController.Grounded)
+        {
+            playerHealth.TakeDamage(1);
+            isDropDamage = false;
         }
     }
 
@@ -178,6 +200,10 @@ public class PlayerController : MonoBehaviour
         if (coll.gameObject.CompareTag("GingerBoss"))
         {
             playerHealth.TakeDamage(playerHealth.currentHeartHP);
+        }
+        if (coll.gameObject.CompareTag("ChefBoss"))
+        {
+            playerHealth.TakeDamage(2);
         }
 
         if (coll.gameObject.CompareTag("BossPanel"))
@@ -204,9 +230,8 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Player Attack");
             }
         }
-        if (coll.gameObject.CompareTag("Obstacle"))
+        if (coll.gameObject.layer == 7)
         {
-            playerMovement.isJumping = false;
             lastGroundedY = transform.position.y;
         }
         if (currentSize == CharacterSize.Big && playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
