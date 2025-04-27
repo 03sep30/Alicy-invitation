@@ -131,16 +131,25 @@ public class PlayerController : MonoBehaviour
             switch (bossName)
             {
                 case "Stage":
-                    backgroundAudioSource.clip = backgroundBGM[0];
-                    backgroundAudioSource.Play();
+                    if (backgroundAudioSource.clip == backgroundBGM[0])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[0];
+                        backgroundAudioSource.Play();
+                    }
                     break;
                 case "GingerCookie":
-                    backgroundAudioSource.clip = backgroundBGM[1];
-                    backgroundAudioSource.Play();
+                    if (backgroundAudioSource.clip == backgroundBGM[1])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[1];
+                        backgroundAudioSource.Play();
+                    }
                     break;
                 case "Chef":
-                    backgroundAudioSource.clip = backgroundBGM[2];
-                    backgroundAudioSource.Play();
+                    if (backgroundAudioSource.clip == backgroundBGM[2])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[2];
+                        backgroundAudioSource.Play();
+                    }
                     break;
             }
         }
@@ -178,6 +187,10 @@ public class PlayerController : MonoBehaviour
         if (coll.gameObject.CompareTag("GingerBoss"))
         {
             playerHealth.TakeDamage(playerHealth.currentHeartHP);
+        }
+        if (coll.gameObject.CompareTag("ChefBoss"))
+        {
+            playerHealth.TakeDamage(2);
         }
 
         if (coll.gameObject.CompareTag("BossPanel"))

@@ -11,7 +11,7 @@ public class GingerCookieAttack : BossAttack
 
     private float currentThrowTime;
     private int throwIndex = 0;
-    private int[] throwPattern = { 0, 0, 1 };
+    [SerializeField] private int[] throwPattern = { 0, 0, 1 };
 
     public Transform target;
     

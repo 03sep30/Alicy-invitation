@@ -60,8 +60,6 @@ public class PlayerHealth : MonoBehaviour
         fadeController.OnFadeFinished += HandleFadeFinished;
         currentHeartHP = maxHeartHP;
         currentTimeHP = maxTimeHP;
-
-        bossStage = playerController.bossPanel.activeInHierarchy;
     }
 
     public void PlayerHeal(float heal)

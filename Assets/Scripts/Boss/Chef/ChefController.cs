@@ -29,16 +29,16 @@ public class ChefController : MonoBehaviour
         chefAttack = GetComponent<ChefAttack>();
 
         currentState = ChefState.Idle;
-
-        if (chefAttack != null && chefAttack.enabled)
-            chefAttack.DropPotTrap();
     }
 
     void Update()
     {
         if (!player.isDie)
         {
-            MoveToTarget();        }
+            MoveToTarget();
+            if (chefAttack != null && chefAttack.enabled)
+                chefAttack.ChefAttackPatt();
+        }
     }
 
     void MoveToTarget()
