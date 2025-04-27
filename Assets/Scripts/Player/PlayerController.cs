@@ -133,21 +133,21 @@ public class PlayerController : MonoBehaviour
             switch (currentBossName)
             {
                 case "Stage":
-                    if (backgroundAudioSource.clip == backgroundBGM[0])
+                    if (backgroundAudioSource.clip != backgroundBGM[0])
                     {
                         backgroundAudioSource.clip = backgroundBGM[0];
                         backgroundAudioSource.Play();
                     }
                     break;
                 case "GingerCookie":
-                    if (backgroundAudioSource.clip == backgroundBGM[1])
+                    if (backgroundAudioSource.clip != backgroundBGM[1])
                     {
                         backgroundAudioSource.clip = backgroundBGM[1];
                         backgroundAudioSource.Play();
                     }
                     break;
                 case "Chef":
-                    if (backgroundAudioSource.clip == backgroundBGM[2])
+                    if (backgroundAudioSource.clip != backgroundBGM[2])
                     {
                         backgroundAudioSource.clip = backgroundBGM[2];
                         backgroundAudioSource.Play();

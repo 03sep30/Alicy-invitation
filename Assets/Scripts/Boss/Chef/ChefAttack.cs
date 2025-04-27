@@ -67,8 +67,10 @@ public class ChefAttack : BossAttack
     public void CreateFirePillar()
     {
         Vector3 targetPos = target.position;
-        GameObject firePillar = Instantiate(firePillarPrefab, new Vector3(targetPos.x, 
-            targetPos.y + firePillarOffset, targetPos.z), Quaternion.identity);
+        Vector3 moveDir = target.forward;
+        Vector3 spawnPos = targetPos + moveDir.normalized * firePillarOffset;
+
+        GameObject firePillar = Instantiate(firePillarPrefab, new Vector3(spawnPos.x, spawnPos.y, spawnPos.z), Quaternion.identity);
 
         attackIndex = (attackIndex + 1) % attackPattern.Length;
     }
