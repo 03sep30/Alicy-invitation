@@ -6,6 +6,7 @@ public class FirePillar : MonoBehaviour
 {
     [SerializeField] private float firePillarTime;
     [SerializeField] private int damage;
+    [SerializeField] private GameObject firePillarObj;
 
     void Start()
     {
@@ -27,6 +28,6 @@ public class FirePillar : MonoBehaviour
     private IEnumerator FirePillarTime()
     {
         yield return new WaitForSeconds(firePillarTime);
-        Destroy(gameObject);
+        Destroy(firePillarObj);
     }
 }

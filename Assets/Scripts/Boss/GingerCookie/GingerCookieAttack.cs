@@ -47,7 +47,7 @@ public class GingerCookieAttack : BossAttack
         Rigidbody rb = lollipop.GetComponent<Rigidbody>();
 
         Vector3 targetPos = target.position;
-        targetPos.y = throwPoint.position.y;
+        //targetPos.y = throwPoint.position.y;
         Vector3 direction = (targetPos - throwPoint.position).normalized;
 
         Quaternion lookRotation = Quaternion.LookRotation(direction);

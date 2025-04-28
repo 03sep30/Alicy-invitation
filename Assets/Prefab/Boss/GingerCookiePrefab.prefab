@@ -103,6 +103,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: fafdc8bf88037477586e3e6f626dc245, type: 3}
+      propertyPath: m_TagString
+      value: BossBody
+      objectReference: {fileID: 0}
     - target: {fileID: 3604711630359645564, guid: fafdc8bf88037477586e3e6f626dc245, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.721
@@ -260,7 +264,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3188cc36c66574c0089234d2f87c86a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 5
   hit: 0
   lollipops:
   - {fileID: 2663509981367269789, guid: 65882989d517a6945ae0a468b04b02e9, type: 3}
@@ -268,6 +272,7 @@ MonoBehaviour:
   throwPoint: {fileID: 4014989775339587537}
   throwInterval: 3
   throwForce: 2500
+  throwPattern: 000000000000000001000000
   target: {fileID: 0}
 --- !u!54 &109693304066177078
 Rigidbody:
