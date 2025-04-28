@@ -21,6 +21,7 @@ public class ChefController : MonoBehaviour
 
     public GameObject Key;
     public float keyActiveTime;
+    public GameObject[] GingerCookieTotems;
 
     private NavMeshAgent agent;
     private PlayerHealth player;
@@ -35,6 +36,11 @@ public class ChefController : MonoBehaviour
         currentState = ChefState.Idle;
 
         StartCoroutine(KeyActive());
+
+        foreach (GameObject gingerCookie in GingerCookieTotems)
+        {
+            gingerCookie.SetActive(true);
+        }
     }
 
     void Update()
@@ -66,5 +72,13 @@ public class ChefController : MonoBehaviour
     {
         yield return new WaitForSeconds(keyActiveTime);
         Key.SetActive(true);
+    }
+
+    private void OnDestroy()
+    {
+        foreach (GameObject gingerCookie in GingerCookieTotems)
+        {
+            Destroy(gingerCookie);
+        }
     }
 }

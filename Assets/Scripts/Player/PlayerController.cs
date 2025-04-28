@@ -197,15 +197,11 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(coll.transform.name);
 
-        if (coll.gameObject.CompareTag("GingerBoss"))
+        if (coll.gameObject.CompareTag("BossBody"))
         {
-            playerHealth.TakeDamage(playerHealth.currentHeartHP);
+            BossAttack boss = coll.gameObject.GetComponent<BossAttack>();
+            playerHealth.TakeDamage(boss.damage);
         }
-        if (coll.gameObject.CompareTag("ChefBoss"))
-        {
-            playerHealth.TakeDamage(2);
-        }
-
         if (coll.gameObject.CompareTag("BossPanel"))
         {
             bossPanel.SetActive(true);

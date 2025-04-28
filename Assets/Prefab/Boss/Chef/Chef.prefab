@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7415401313221975921}
   m_Layer: 0
   m_Name: Chef
-  m_TagString: Untagged
+  m_TagString: BossBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -50,6 +50,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   hit: 0
+  target: {fileID: 0}
+  dropForce: 0
+  potDistance: 0
+  potPrefab: {fileID: 0}
+  firePillarOffset: 0
+  firePillarPrefab: {fileID: 0}
+  attackInterval: 3
+  currentAttackTime: 0
+  attackIndex: 0
+  attackPattern: 000000000100000001000000
 --- !u!114 &6688495709125829603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -85,6 +95,8 @@ MonoBehaviour:
   currentState: 0
   target: {fileID: 0}
   magn: 1.5
+  Key: {fileID: 0}
+  keyActiveTime: 0
 --- !u!195 &7415401313221975921
 NavMeshAgent:
   m_ObjectHideFlags: 0
