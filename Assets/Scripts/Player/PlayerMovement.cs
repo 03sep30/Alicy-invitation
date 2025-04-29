@@ -111,7 +111,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (!playerHealth.isDie)
+        if (!playerHealth.isDie && !playerController.isSetting)
         {
             thirdPersonController.Move();
         }

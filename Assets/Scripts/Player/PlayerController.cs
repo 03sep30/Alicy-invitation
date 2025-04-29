@@ -23,7 +23,8 @@ public class PlayerController : MonoBehaviour
 
     public float maxPosition = 0;
     public CharacterSize currentSize;
-    
+
+    public GameObject settingPanel;
 
     public GameObject playerBody;
     public bool isGrounded = false;
@@ -37,6 +38,7 @@ public class PlayerController : MonoBehaviour
     public float playerDamage = 10f;
 
     private bool hasKey;
+    public bool isSetting = false;
     public GameObject KeyImage;
     public GameObject keyPortal;
 
@@ -73,6 +75,7 @@ public class PlayerController : MonoBehaviour
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();
+        _input = GetComponent<StarterAssetsInputs>();
 
         currentMushroom = MushroomType.Blue;
 
@@ -100,7 +103,7 @@ public class PlayerController : MonoBehaviour
         {
             playerBody.transform.localScale = Vector3.one;
         }
-        
+
         //if (_input.sprint && thirdPersonController._speed >= thirdPersonController.SprintSpeed)
         //{
         //    blitFeature.SetActive(true);
@@ -109,18 +112,30 @@ public class PlayerController : MonoBehaviour
         //{
         //    blitFeature.SetActive(false);
         //}
+        if (!isSetting)
+        {
+            thirdPersonController.CameraRotation();
+        }
+        
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             mushroomHandler.SwapMushroom();
         }
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !isSetting)
         {
             mushroomHandler.UseMushroom();
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
             gameObject.transform.position = playerHealth.SpawnPoint.position;
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            settingPanel.gameObject.SetActive(!isSetting);
+            isSetting = settingPanel.activeSelf;
+
+            _input.SetCursorState(!isSetting);
         }
     }
 

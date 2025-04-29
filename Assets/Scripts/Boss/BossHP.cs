@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BossHP : MonoBehaviour
 {

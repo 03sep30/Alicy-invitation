@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public GameObject bossPanel;
+
     [Header("TimeHP")]
     public GameObject timePanel;
     public Slider timeHPSlider;
@@ -145,5 +146,10 @@ public class PlayerUI : MonoBehaviour
     {
         blueMushroomText.text = $"X{count}";
         blueMushroomImage.sprite = isSelected ? blueMushroomSpirte[0] : blueMushroomSpirte[1];
+    }
+
+    public void QuitButton()
+    {
+        Application.Quit();
     }
 }
