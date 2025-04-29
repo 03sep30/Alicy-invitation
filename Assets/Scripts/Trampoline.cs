@@ -7,18 +7,11 @@ public class Trampoline : MonoBehaviour
 {
     private ThirdPersonController thirdPersonController;
     public float TrampolineForce;
+    public bool isLimitedUse = false;
+    public bool isLimited = false;
 
     void Start()
     {
         thirdPersonController = FindObjectOfType<ThirdPersonController>();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        //if (other.CompareTag("Player"))
-        //{
-        //    Debug.Log("trampoline");
-        //    thirdPersonController._rigidbody.AddForce(Vector3.up * TrampolineForce, ForceMode.Impulse);
-        //}
     }
 }

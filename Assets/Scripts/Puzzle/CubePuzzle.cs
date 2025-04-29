@@ -9,6 +9,8 @@ public class CubePuzzle : MonoBehaviour
     private HashSet<int> activatedCubes = new HashSet<int>();
     private List<GameObject> allCubes = new List<GameObject>();
 
+    public GameObject keyObj;
+
     void Start()
     {
         correctCubes = new HashSet<int>(correctCubeList);
@@ -49,6 +51,7 @@ public class CubePuzzle : MonoBehaviour
                 cube.GetComponent<Renderer>().material.color = Color.green;
             }
             Debug.Log("퍼즐 완성!");
+            keyObj.SetActive(true);
         }
     }
 

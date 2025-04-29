@@ -11,7 +11,7 @@ public class GingerCookieAttack : BossAttack
 
     private float currentThrowTime;
     private int throwIndex = 0;
-    private int[] throwPattern = { 0, 0, 1 };
+    [SerializeField] private int[] throwPattern = { 0, 0, 1 };
 
     public Transform target;
     
@@ -43,11 +43,17 @@ public class GingerCookieAttack : BossAttack
     {
         int lollipopIndex = throwPattern[throwIndex];
         GameObject lollipopPrefab = lollipops[lollipopIndex];
-
         GameObject lollipop = Instantiate(lollipopPrefab, throwPoint.position, Quaternion.identity);
         Rigidbody rb = lollipop.GetComponent<Rigidbody>();
 
-        rb.AddForce(throwPoint.forward * throwForce);
+        Vector3 targetPos = target.position;
+        //targetPos.y = throwPoint.position.y;
+        Vector3 direction = (targetPos - throwPoint.position).normalized;
+
+        Quaternion lookRotation = Quaternion.LookRotation(direction);
+        lollipop.transform.rotation = lookRotation * Quaternion.Euler(90f, 0f, 0f);
+
+        rb.AddForce(direction * throwForce);
 
         throwIndex = (throwIndex + 1) % throwPattern.Length;
     }

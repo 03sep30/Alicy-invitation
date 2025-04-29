@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using TMPro;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class BossHP : MonoBehaviour
 {
+    public string bossName;
     public float maxTimeHP;
     public float currentTimeHP;
     public bool isHit = false;
@@ -16,8 +18,17 @@ public class BossHP : MonoBehaviour
     public TextMeshProUGUI timeHPText;
     public GameObject bossPanel;
 
+    private PlayerController playerController;
+    private PlayerHealth playerHealth;
+
     void Start()
     {
+        playerController = FindObjectOfType<PlayerController>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+
+        playerController.BackgroundBGM(bossName);
+
+        playerHealth.bossStage = true;
         currentTimeHP = maxTimeHP;
         timeHPSlider.value = maxTimeHP;
         currentHitTime = 0;
@@ -43,9 +54,10 @@ public class BossHP : MonoBehaviour
         if (currentTimeHP <= 0)
         {
             Debug.Log("Boss Die");
+            playerController.BackgroundBGM("Stage");
             bossPanel.SetActive(false);
             Destroy(gameObject);
-            SceneManager.LoadScene("Stage3_Prototye_Map");
+            //SceneManager.LoadScene("Stage3_Prototye_Map");
         }
 
         if (isHit)
@@ -66,5 +78,10 @@ public class BossHP : MonoBehaviour
             isHit = true;
             currentHitTime = hitTime;
         }
+    }
+
+    private void OnDestroy()
+    {
+        playerHealth.bossStage = false;
     }
 }

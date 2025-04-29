@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAreaTrigger : MonoBehaviour
 {
-    [Header("0:GingerCookie")]
+    [Header("0:GingerCookie, 1:Chef")]
     public string bossName;
     public GameObject bossObj;
     public Transform bossPosition;
@@ -16,20 +16,25 @@ public class BossAreaTrigger : MonoBehaviour
             PlayerHealth playerHealth = other.gameObject.GetComponentInChildren<PlayerHealth>();
             PlayerUI playerUI = other.gameObject.GetComponent<PlayerUI>();
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>(); 
-            Debug.Log("Trigger");
             switch(bossName)
             {
                 case "GingerCookie":
                     playerController.deathFallHeight = 1000f;
                     playerHealth.currentHealthType = HealthType.Heart;
                     playerHealth.maxHeartHP = 5;
-                    playerUI.UpdateHeartUI();
+                    //playerUI.UpdateHeartUI();
                     bossObj.transform.position = bossPosition.position;
                     bossObj.SetActive(true);
                     gameObject.SetActive(false);
                     break;
 
-                case "gds":
+                case "Chef":
+                    playerHealth.currentHealthType = HealthType.Heart;
+                    playerHealth.maxHeartHP = 5;
+                    //playerUI.UpdateHeartUI();
+                    bossObj.transform.position = bossPosition.position;
+                    bossObj.SetActive(true);
+                    gameObject.SetActive(false);
                     break;  
 
                 case "gdsj":

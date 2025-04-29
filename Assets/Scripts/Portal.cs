@@ -5,7 +5,6 @@ using UnityEngine;
 public class Portal : MonoBehaviour
 {
     public List<Transform> PortalList;
-    public GameObject player;
 
     public Transform EnterPortal()
     {

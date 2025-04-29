@@ -38,18 +38,23 @@ public class PlayerController : MonoBehaviour
 
     private bool hasKey;
     public GameObject KeyImage;
+    public GameObject keyPortal;
 
+    public GameObject cheshire;
     public GameObject statusPlane;
 
     public GameObject bossPanel;
+    private string currentBossName;
+    private bool isDropDamage;
+    public AudioClip[] backgroundBGM;
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
     public Sprite[] statusImages;
+
+    public AudioSource backgroundAudioSource;
     public StatusEffect currentEffect;
-
     public AudioSource audioSource;
-
-    private BossHP boss;
+    public BossHP bossHP;
     private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
@@ -65,7 +70,6 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         audioSource = GetComponent<AudioSource>();
-        boss = FindObjectOfType<BossHP>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();
@@ -74,6 +78,7 @@ public class PlayerController : MonoBehaviour
 
         playerHealth.SpawnPoint = playerHealth.startPoint;
         gameObject.transform.position = playerHealth.SpawnPoint.position;
+
 
         //_input = GetComponent<StarterAssetsInputs>();
 
@@ -113,6 +118,43 @@ public class PlayerController : MonoBehaviour
         {
             mushroomHandler.UseMushroom();
         }
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            gameObject.transform.position = playerHealth.SpawnPoint.position;
+        }
+    }
+
+    public void BackgroundBGM(string bossName)
+    {
+        currentBossName = bossName;
+        if (backgroundAudioSource != null)
+        {
+            backgroundAudioSource.Stop();
+            switch (currentBossName)
+            {
+                case "Stage":
+                    if (backgroundAudioSource.clip != backgroundBGM[0])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[0];
+                        backgroundAudioSource.Play();
+                    }
+                    break;
+                case "GingerCookie":
+                    if (backgroundAudioSource.clip != backgroundBGM[1])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[1];
+                        backgroundAudioSource.Play();
+                    }
+                    break;
+                case "Chef":
+                    if (backgroundAudioSource.clip != backgroundBGM[2])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[2];
+                        backgroundAudioSource.Play();
+                    }
+                    break;
+            }
+        }
     }
 
     public void UpdateStatus(int num)
@@ -133,10 +175,21 @@ public class PlayerController : MonoBehaviour
     void DropCalculation()
     {
         float fallDistance = lastGroundedY - transform.position.y;
-        if (fallDistance >= deathFallHeight && !playerHealth.isDie && !enterPortal)
+        if (fallDistance >= deathFallHeight && currentBossName == "Chef")
+        {
+            isDropDamage = true;
+            
+        }
+        if (fallDistance >= deathFallHeight && !playerHealth.isDie && !enterPortal && !isDropDamage)
         {
             playerHealth.Die();
             //lastGroundedY = playerHealth.SpawnPoint.transform.position.y;
+        }
+        
+        if (isDropDamage && thirdPersonController.Grounded)
+        {
+            playerHealth.TakeDamage(1);
+            isDropDamage = false;
         }
     }
 
@@ -144,18 +197,11 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(coll.transform.name);
 
-        if (coll.gameObject.CompareTag("Mushroom"))
+        if (coll.gameObject.CompareTag("BossBody"))
         {
-            Mushroom mushroom = coll.gameObject.GetComponent<Mushroom>();
-            mushroomHandler.GetMushroom(mushroom);
-            Debug.Log("버ㅓ");
+            BossAttack boss = coll.gameObject.GetComponent<BossAttack>();
+            playerHealth.TakeDamage(boss.damage);
         }
-
-        if (coll.gameObject.CompareTag("GingerBoss"))
-        {
-            playerHealth.TakeDamage(playerHealth.currentHeartHP);
-        }
-
         if (coll.gameObject.CompareTag("BossPanel"))
         {
             bossPanel.SetActive(true);
@@ -168,20 +214,20 @@ public class PlayerController : MonoBehaviour
             {
                 hasKey = true;
                 KeyImage.SetActive(true);
+                keyPortal.SetActive(true);
                 Destroy(coll.gameObject);
             }
         }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
-            if (boss != null)
+            if (bossHP != null)
             {
-                boss.DecreaseBossHP(playerDamage);
+                bossHP.DecreaseBossHP(playerDamage);
                 Debug.Log("Player Attack");
             }
         }
-        if (coll.gameObject.CompareTag("Obstacle"))
+        if (coll.gameObject.layer == 7)
         {
-            playerMovement.isJumping = false;
             lastGroundedY = transform.position.y;
         }
         if (currentSize == CharacterSize.Big && playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
@@ -226,6 +272,26 @@ public class PlayerController : MonoBehaviour
             var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
             SceneManager.LoadScene(loadScene.sceneName);
         }
+        if (coll.gameObject.layer == 7)
+        {
+            thirdPersonController.realGrounded = true;
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            thirdPersonController.realGrounded = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.layer == 7)
+        {
+            thirdPersonController.realGrounded = false;
+        }
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
@@ -237,10 +303,33 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Mushroom"))
+        {
+            Mushroom mushroom = other.gameObject.GetComponent<Mushroom>();
+            mushroomHandler.GetMushroom(mushroom);
+        }
+        if (other.gameObject.name == "BossDestroyBlock")
+        {
+            bossHP = FindObjectOfType<BossHP>();
+            if (bossHP != null)
+            {
+                Destroy(bossHP.gameObject);
+            }
+        }
+        if (other.gameObject.CompareTag("BossAttack"))
+        {
+            Debug.Log("bossAttack");
+            BossAttack bossAttack = other.gameObject.GetComponent<BossAttack>();
+            if (bossAttack != null)
+            {
+                bossAttack.Attack(playerHealth);
+                bossAttack.hit = true;
+            }
+        }
         if (other.gameObject.CompareTag("Dust"))
         {
             PlayerTriggerController.TriggerDust();
-            Debug.Log("dust");
+            Debug.Log("Dust");
         }
         if (other.CompareTag("DeadBlock"))
         {
@@ -264,6 +353,13 @@ public class PlayerController : MonoBehaviour
             playerHealth.Die();
         }
 
+        if (other.CompareTag("Cheshire"))
+        {
+            Destroy(other.gameObject);
+            cheshire.SetActive(true);
+            Debug.Log("Cheshire");
+        }
+
         if (other.gameObject.CompareTag("Portal"))
         {
             var portal = other.GetComponent<Portal>();
@@ -277,7 +373,7 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("TTS_Object"))
         {
-            Debug.Log("Trigger : TTS_Object");
+            Debug.Log("TTSObj");
             TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
             //ttsObj.PlayTTS();
             ttsObj.StartTextDisplay();

@@ -16,7 +16,6 @@ enum CharacterState
 public class PlayerMovement : MonoBehaviour
 {
     private Rigidbody rb;
-    public bool isGrounded;
     public bool isJumping;
 
     public GameObject blindnessPanel;
@@ -42,7 +41,6 @@ public class PlayerMovement : MonoBehaviour
 
     [Header("BGM")]
     public AudioClip breakingSound;
-
 
     void Start()
     {
@@ -88,7 +86,7 @@ public class PlayerMovement : MonoBehaviour
                 Vector3 newOffset = new Vector3(0.75f, 1f, 0f);
                 cheshireParentConstraint.SetTranslationOffset(0, newOffset);
             }
-            thirdPersonController.MoveSpeed = originalMoveSpeed;
+            //thirdPersonController.MoveSpeed = originalMoveSpeed;
             thirdPersonController.JumpHeight = originalJumpHeight;
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
@@ -142,4 +140,6 @@ public class PlayerMovement : MonoBehaviour
 
         isBoosting = true;
     }
+
+    
 }

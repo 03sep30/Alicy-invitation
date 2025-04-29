@@ -1,0 +1,195 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6342385552342109439
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1896323390641887898}
+  - component: {fileID: 7165477170986436384}
+  - component: {fileID: 6688495709125829603}
+  - component: {fileID: 7792289106306754379}
+  - component: {fileID: 7415401313221975921}
+  m_Layer: 0
+  m_Name: Chef
+  m_TagString: BossBody
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1896323390641887898
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342385552342109439}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 3, y: 816, z: 148}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5294430291537601862}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7165477170986436384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342385552342109439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f68902ee79394721bc65041ace1efa8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 0
+  hit: 0
+  target: {fileID: 0}
+  dropForce: 0
+  potDistance: 0
+  potPrefab: {fileID: 0}
+  firePillarOffset: 0
+  firePillarPrefab: {fileID: 0}
+  attackInterval: 3
+  currentAttackTime: 0
+  attackIndex: 0
+  attackPattern: 000000000100000001000000
+--- !u!114 &6688495709125829603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342385552342109439}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9055f452c664c450ca570332324f88d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bossName: 
+  maxTimeHP: 0
+  currentTimeHP: 0
+  isHit: 0
+  hitTime: 0
+  timeHPSlider: {fileID: 0}
+  timeHPText: {fileID: 0}
+  bossPanel: {fileID: 0}
+--- !u!114 &7792289106306754379
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342385552342109439}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e2848ba46c94fc459d7d257dfb9ae33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentState: 0
+  target: {fileID: 0}
+  magn: 1.5
+  Key: {fileID: 0}
+  keyActiveTime: 0
+--- !u!195 &7415401313221975921
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6342385552342109439}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 37.8
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 120
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 300
+  m_BaseOffset: 150
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!1001 &5688927252689437357
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1896323390641887898}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 13706.696
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 12268.239
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 12268.239
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -42.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071066
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.70710695
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.0000000015607888
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.000000008089171
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+      propertyPath: m_Name
+      value: Chef
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+--- !u!4 &5294430291537601862 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: c6371ad978375ed4189d4b42bb5b24be, type: 3}
+  m_PrefabInstance: {fileID: 5688927252689437357}
+  m_PrefabAsset: {fileID: 0}

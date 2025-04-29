@@ -31,12 +31,12 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         playerHealth = GetComponentInChildren<PlayerHealth>();
-        UpdateHeartUI();
+        //UpdateHeartUI();
     }
 
     private void Update()
     {
-        if (playerHealth.currentHealthType == HealthType.Time)
+        if (playerHealth.currentHealthType == HealthType.Time && playerHealth.bossStage)
         {
             if (!playerHealth.isDie)
             {
@@ -51,7 +51,7 @@ public class PlayerUI : MonoBehaviour
 
             PlayerTimeHPUI();
         }
-        if (playerHealth.currentHealthType == HealthType.Heart)
+        if (playerHealth.currentHealthType == HealthType.Heart && playerHealth.bossStage)
         {
             bossPanel.SetActive(true);
             heartPanel.SetActive(true);
@@ -63,20 +63,21 @@ public class PlayerUI : MonoBehaviour
         }
     }
 
-    public void UpdateHeartUI()
-    {
-        foreach (var heartImage in playerHPImageList)
-        {
-            Destroy(heartImage.gameObject);
-        }
-        playerHPImageList.Clear();
+    //public void UpdateHeartUI()
+    //{
+    //    foreach (var heartImage in playerHPImageList)
+    //    {
+    //        Destroy(heartImage.gameObject);
+    //    }
+    //    playerHPImageList.Clear();
 
-        for (int i = 0; i < playerHealth.maxHeartHP; i++)
-        {
-            Image playerHeart = Instantiate(heartImage, heartPanel.transform);
-            playerHPImageList.Add(playerHeart);
-        }
-    }
+    //    for (int i = 0; i < playerHealth.maxHeartHP; i++)
+    //    {
+    //        Image playerHeart = Instantiate(heartImage, heartPanel.transform);
+    //        playerHPImageList.Add(playerHeart);
+    //        Debug.Log($"{i}번째 하트이미지 생성");
+    //    }
+    //}
 
     public void PlayerTimeHPUI()
     {
@@ -123,7 +124,10 @@ public class PlayerUI : MonoBehaviour
     {
         if (playerHealth.currentHealthType == HealthType.Heart)
         {
-            playerHPImageList[(int)hp].gameObject.SetActive(false);
+            for (int i = 0; i < playerHPImageList.Count; i++)
+            {
+                playerHPImageList[i].gameObject.SetActive(i < (int)hp);
+            }
         }
         if (playerHealth.currentHealthType == HealthType.Time)
         {

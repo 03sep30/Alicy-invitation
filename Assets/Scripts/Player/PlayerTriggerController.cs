@@ -6,20 +6,19 @@ using UnityEngine.SceneManagement;
 
 public class PlayerTriggerController : MonoBehaviour
 {
-    public GameObject cheshire;
     public GameObject GingerCookie;
     public GameObject stage2BossImage;
     public GameObject dustImage;
     public GameObject smokeImage;
     public float dustTime = 10f;
     public float dustImageTime = 3f;
+    public float trampolineLimitTime = 2f;
 
     public MovingPlatform currentPlatform;
     private PlayerHealth playerHealth;
     private PlayerMovement playerMovement;
     private ThirdPersonController thirdPersonController;
     private PlayerController playerController;
-    private BossAttack boss;
     public Rigidbody rb;
 
     void Start()
@@ -37,7 +36,6 @@ public class PlayerTriggerController : MonoBehaviour
         {
             thirdPersonController.gameObject.transform.parent = collision.gameObject.transform;
         }
-        
     }
 
     public void TriggerDust()
@@ -55,12 +53,31 @@ public class PlayerTriggerController : MonoBehaviour
         smokeImage.SetActive(false);
     }
 
+    public IEnumerator ITrampolineLimit(float limitTime, Trampoline trampoline)
+    {
+        Debug.Log("트램폴린 제한");
+        yield return new WaitForSeconds(limitTime);
+        trampoline.isLimited = false;
+        Debug.Log("트램폴린 제한 해제");
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Trampoline"))
         {
             Trampoline trampoline = other.gameObject.GetComponent<Trampoline>();
-            rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
+            if (trampoline.isLimitedUse)
+            {
+                if (!trampoline.isLimited)
+                {
+                    rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
+                    trampoline.isLimited = true;
+                }
+                else
+                    StartCoroutine(ITrampolineLimit(trampolineLimitTime, trampoline));
+            }
+            else
+                rb.AddForce(Vector3.up * trampoline.TrampolineForce, ForceMode.Impulse);
         }
         if (other.gameObject.CompareTag("ParryingObj"))
         {
@@ -86,15 +103,7 @@ public class PlayerTriggerController : MonoBehaviour
                 playerController.lastGroundedY = targetPortal.position.y;
                 transform.position = targetPortal.position;
             }
-        }
-
-        if (other.CompareTag("Cheshire"))
-        {
-            Destroy(other.gameObject);
-            cheshire.SetActive(true);
-            Debug.Log("Cheshire");
-        }
-
+        } 
         if (other.CompareTag("Ginger"))
         {
             Destroy(other.gameObject);
@@ -126,17 +135,6 @@ public class PlayerTriggerController : MonoBehaviour
             thirdPersonController.SprintSpeed = newSprintSpeed;
             Debug.Log("SlowdownGround");
         }
-
-        if (other.gameObject.CompareTag("BossAttack"))
-        {
-            Debug.Log("bossAttack");
-            boss = other.gameObject.GetComponent<BossAttack>();
-            if (boss != null)
-            {
-                boss.Attack(playerHealth);
-                boss.hit = true;
-            }
-        }
     }
     private void OnTriggerExit(Collider other)
     {
@@ -149,15 +147,6 @@ public class PlayerTriggerController : MonoBehaviour
             playerController.UpdateStatus(10);
             thirdPersonController.MoveSpeed = playerMovement.originalMoveSpeed;
             thirdPersonController.SprintSpeed = playerMovement.originalSprintSpeed;
-        }
-        if (other.gameObject.CompareTag("BossAttack"))
-        {
-            boss = other.gameObject.GetComponent<BossAttack>();
-            if (boss != null)
-            {
-                boss.hit = false;
-            }
-            boss = null;
         }
     }
 }
