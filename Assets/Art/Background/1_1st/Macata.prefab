@@ -101,11 +101,45 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plate
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 32d60113976f32548ad8ba799974fdd3, type: 3}
+      propertyPath: m_Layer
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 32d60113976f32548ad8ba799974fdd3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1950044980620117497}
   m_SourcePrefab: {fileID: 100100000, guid: 32d60113976f32548ad8ba799974fdd3, type: 3}
+--- !u!1 &2743384686127739929 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 32d60113976f32548ad8ba799974fdd3, type: 3}
+  m_PrefabInstance: {fileID: 3085840988869937480}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &1950044980620117497
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2743384686127739929}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 808474172911093344, guid: 32d60113976f32548ad8ba799974fdd3, type: 3}
 --- !u!4 &3267824951667961507 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 32d60113976f32548ad8ba799974fdd3, type: 3}
@@ -191,6 +225,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -0.0045
       objectReference: {fileID: 0}
+    - target: {fileID: 7209992325741735022, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
+      propertyPath: m_TagString
+      value: Trampoline
+      objectReference: {fileID: 0}
     - target: {fileID: 8348623370604172372, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.0009
@@ -202,8 +240,56 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7209992325741735022, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5299626755183125059}
+    - targetCorrespondingSourceObject: {fileID: 7209992325741735022, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8826577645595494051}
   m_SourcePrefab: {fileID: 100100000, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
+--- !u!1 &3190910897706423612 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7209992325741735022, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
+  m_PrefabInstance: {fileID: 5208251752466757970}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &5299626755183125059
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190910897706423612}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3221049296201454937, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
+--- !u!114 &8826577645595494051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3190910897706423612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bde0e2ff76bcdf947b4b6219af3a9b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TrampolineForce: 20
+  isLimitedUse: 0
+  isLimited: 0
 --- !u!4 &5750485544537382585 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 18a99a52d92f66c44b18f95dd7cfeddc, type: 3}
