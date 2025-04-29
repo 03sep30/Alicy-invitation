@@ -11,6 +11,7 @@ public class AudioMixController : MonoBehaviour
 
     public void SetBgmVolme()
     {
-        audioMixer.SetFloat("BGM", Mathf.Log10(BGMSlider.value) * 20);
+        float value = Mathf.Clamp(BGMSlider.value, 0.0001f, 1f);
+        audioMixer.SetFloat("BGM", Mathf.Log10(value) * 20);
     }
 }
