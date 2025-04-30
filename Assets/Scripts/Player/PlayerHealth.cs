@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     public float maxTimeHP = 150f;
     public float currentTimeHP;
     public bool shield = false;
-    private BossHP boss;
+    public BossHP boss;
 
     public HealthType currentHealthType;
     [Header("????")]
@@ -55,7 +55,6 @@ public class PlayerHealth : MonoBehaviour
         fadeController = FindAnyObjectByType<FadeController>();
         playerController = FindObjectOfType<PlayerController>();
         playerUI = FindObjectOfType<PlayerUI>();
-        boss = FindObjectOfType<BossHP>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
         currentHeartHP = maxHeartHP;
@@ -120,7 +119,12 @@ public class PlayerHealth : MonoBehaviour
     {
         Debug.Log("Die");
         isDie = true;
-        
+
+        if (bossStage && boss != null)
+        {
+            boss.isPaused = true;
+        }
+
         if (currentHealthType == HealthType.Heart)
         {
             if (currentHeartHP > 0)
@@ -170,15 +174,16 @@ public class PlayerHealth : MonoBehaviour
                 meshRenderer.gameObject.SetActive(true);
             }
             playerController.crushing = false;
-            isDie = false;
-            mushroomPanel.SetActive(true);
-            if (bossStage)
+            if (bossStage && boss != null)
             {
                 playerController.bossPanel.SetActive(true);
-                
-                if (boss != null)
-                    boss.currentTimeHP = boss.maxTimeHP;
+                boss.currentTimeHP = boss.maxTimeHP;
+                boss.isPaused = false;
             }
+            
+            mushroomPanel.SetActive(true);
+            isDie = false;
+            
         }
     }
 

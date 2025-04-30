@@ -18,8 +18,9 @@ public class Lollipop : MonoBehaviour
             PlayerHealth playerHealth = collision.gameObject.GetComponentInChildren<PlayerHealth>();
             if (playerHealth != null)
             {
-                playerHealth.TakeDamage(gingerCookie.damage);
+                playerHealth.TakeDamage(gingerCookie.lollipopDamage);
             }
+            Debug.Log("¥Í¿Ω");
         }
         Destroy(gameObject);
     }

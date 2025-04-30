@@ -36,7 +36,7 @@ public class GingerCookieController : MonoBehaviour
 
         currentState = GingerCookieState.Idle;
 
-        if (!isTotem)
+        if (!isTotem && portal != null)
         StartCoroutine(PortalActive());
     }
 

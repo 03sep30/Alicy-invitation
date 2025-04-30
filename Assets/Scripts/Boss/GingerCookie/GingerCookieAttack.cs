@@ -5,6 +5,7 @@ using UnityEngine;
 public class GingerCookieAttack : BossAttack
 {
     public GameObject[] lollipops;
+    public int lollipopDamage;
     public Transform throwPoint;
     public float throwInterval = 3f;
     public float throwForce = 500f;

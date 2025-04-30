@@ -11,6 +11,7 @@ public class BossHP : MonoBehaviour
     public float maxTimeHP;
     public float currentTimeHP;
     public bool isHit = false;
+    public bool isPaused = false;
     public float hitTime;
     private float currentHitTime;
     public Slider timeHPSlider;
@@ -24,6 +25,7 @@ public class BossHP : MonoBehaviour
     {
         playerController = FindObjectOfType<PlayerController>();
         playerHealth = FindObjectOfType<PlayerHealth>();
+        playerHealth.boss = this;
 
         playerController.BackgroundBGM(bossName);
 
@@ -35,11 +37,12 @@ public class BossHP : MonoBehaviour
 
     void Update()
     {
-        if (currentTimeHP > 0)
+        if (!isPaused && currentTimeHP > 0)
         {
             currentTimeHP -= Time.deltaTime;
             timeHPSlider.value = currentTimeHP / maxTimeHP;
-            if (currentTimeHP <= 3.1)
+
+            if (currentTimeHP <= 3.1f)
             {
                 timeHPText.gameObject.SetActive(true);
                 timeHPText.text = currentTimeHP.ToString("F0");
@@ -49,14 +52,13 @@ public class BossHP : MonoBehaviour
                 timeHPText.gameObject.SetActive(false);
             }
         }
-        
+
         if (currentTimeHP <= 0)
         {
             Debug.Log("Boss Die");
             playerController.BackgroundBGM("Stage");
             bossPanel.SetActive(false);
             Destroy(gameObject);
-            //SceneManager.LoadScene("Stage3_Prototye_Map");
         }
 
         if (isHit)
@@ -82,5 +84,6 @@ public class BossHP : MonoBehaviour
     private void OnDestroy()
     {
         playerHealth.bossStage = false;
+        playerController.BackgroundBGM("Stage");
     }
 }
