@@ -7,14 +7,14 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: PaperDollShader
-  m_Shader: {fileID: -6465566751694194690, guid: 93765afa07a08674d8beacc0a21bb51a, type: 3}
+  m_Name: PaperDollAnimation
+  m_Shader: {fileID: -6465566751694194690, guid: 5f0f68c1d3283094ba262934424a0e46, type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
   m_InvalidKeywords: []
-  m_LightmapFlags: 4
-  m_EnableInstancingVariants: 0
+  m_LightmapFlags: 2
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
   stringTagMap: {}
@@ -37,16 +37,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 1
-    - _InteriorSpread: 1.77
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _WobbleAmount: 0.001
+    - _WobbleDistance: 0.5
+    - _WobbleFrequency: 2
+    - _WobbleSpeed: 9
     m_Colors:
-    - _FresnelColor: {r: 0.5943396, g: 0.8695524, b: 1, a: 0}
-    - _InteriorColor: {r: 0, g: 0.86641693, b: 2, a: 0}
-    - _InteriorPos: {r: 0, g: 0, b: 1.24, a: 0}
+    - _Vector3: {r: 0, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
---- !u!114 &6925620721229832327
+--- !u!114 &6826262812331367706
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
