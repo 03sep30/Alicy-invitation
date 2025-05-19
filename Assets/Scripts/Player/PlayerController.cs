@@ -166,6 +166,13 @@ public class PlayerController : MonoBehaviour
                         backgroundAudioSource.Play();
                     }
                     break;
+                case "Cheshire":
+                    if (backgroundAudioSource.clip != backgroundBGM[2])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[2];
+                        backgroundAudioSource.Play();
+                    }
+                    break;
             }
         }
     }

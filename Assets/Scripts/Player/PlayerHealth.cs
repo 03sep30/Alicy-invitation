@@ -51,6 +51,9 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
+        currentHealthType = HealthType.Heart;
+        maxHeartHP = 5;
+
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         fadeController = FindAnyObjectByType<FadeController>();
         playerController = FindObjectOfType<PlayerController>();
