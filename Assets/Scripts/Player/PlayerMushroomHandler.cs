@@ -5,7 +5,8 @@ using UnityEngine;
 public enum MushroomType
 {
     Blue,
-    Orange
+    Orange,
+    Green
 }
 
 public class PlayerMushroomHandler : MonoBehaviour
@@ -13,12 +14,11 @@ public class PlayerMushroomHandler : MonoBehaviour
     private PlayerUI playerUI;
     private PlayerController playerController;
 
-    public bool mushroomState = true;  // true = Orange, false = Blue
-
     private void Start()
     {
         playerUI = GetComponent<PlayerUI>();
         playerController = GetComponent<PlayerController>();
+        playerController.currentMushroom = MushroomType.Orange;
         UpdateMushroomUI();
     }
 
@@ -50,13 +50,18 @@ public class PlayerMushroomHandler : MonoBehaviour
 
     public void SwapMushroom()
     {
-        playerController.currentMushroom =
-            playerController.currentMushroom == MushroomType.Orange ? MushroomType.Blue : MushroomType.Orange;
-
-        mushroomState = playerController.currentMushroom == MushroomType.Orange;
+        playerController.currentMushroom = playerController.currentMushroom switch
+        {
+            MushroomType.Orange => MushroomType.Blue,
+            MushroomType.Blue => MushroomType.Green,
+            MushroomType.Green => MushroomType.Orange,
+            _ => MushroomType.Orange
+        };
 
         UpdateMushroomUI();
+        Debug.Log(playerController.currentMushroom);
     }
+
 
     public void GetMushroom(Mushroom mushroom)
     {
@@ -64,12 +69,14 @@ public class PlayerMushroomHandler : MonoBehaviour
         UpdateMushroomUI();
     }
 
-    private void UpdateMushroomUI()
+    public void UpdateMushroomUI()
     {
         bool isOrange = playerController.currentMushroom == MushroomType.Orange;
         bool isBlue = playerController.currentMushroom == MushroomType.Blue;
+        bool isGreen = playerController.currentMushroom == MushroomType.Green;
 
         playerUI.UpdateOrangeMushroomUI(playerController.orangeMushroomCount, isOrange);
         playerUI.UpdateBlueMushroomUI(playerController.blueMushroomCount, isBlue);
+        playerUI.UpdateGreenMushroomUI(playerController.greenMushroomCount, isGreen);
     }
 }

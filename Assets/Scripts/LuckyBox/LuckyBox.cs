@@ -13,6 +13,5 @@ public class LuckyBox : MonoBehaviour
 
         currentStatus = statusEffectList[RandomNum];
         currentStatus.ApplyEffect();
-        Debug.Log(currentStatus.name);
     }
 }

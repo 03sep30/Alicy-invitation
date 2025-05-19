@@ -21,10 +21,13 @@ public class PlayerUI : MonoBehaviour
     [Header("Mushroom")]
     public TextMeshProUGUI orangeMushroomText;
     public TextMeshProUGUI blueMushroomText;
+    public TextMeshProUGUI greenMushroomText;
     public Image orangeMushroomImage;
     public Image blueMushroomImage;
+    public Image greenMushroomImage;
     public Sprite[] orangeMushroomSprite; // [0]: 선택됨, [1]: 비선택
     public Sprite[] blueMushroomSpirte;   // [0]: 선택됨, [1]: 비선택
+    public Sprite[] greenMushroomSprite;
 
     
     private PlayerHealth playerHealth;
@@ -146,6 +149,12 @@ public class PlayerUI : MonoBehaviour
     {
         blueMushroomText.text = $"X{count}";
         blueMushroomImage.sprite = isSelected ? blueMushroomSpirte[0] : blueMushroomSpirte[1];
+    }
+
+    public void UpdateGreenMushroomUI(int count, bool isSelected)
+    {
+        greenMushroomText.text = $"X{count}";
+        greenMushroomImage.sprite = isSelected ? greenMushroomSprite[0] : greenMushroomSprite[1];
     }
 
     public void QuitButton()

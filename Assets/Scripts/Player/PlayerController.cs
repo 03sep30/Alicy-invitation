@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
 
     public int orangeMushroomCount = 0;
     public int blueMushroomCount = 0;
+    public int greenMushroomCount = 0;
     public MushroomType currentMushroom;
 
     public float maxPosition = 0;
@@ -38,7 +39,7 @@ public class PlayerController : MonoBehaviour
     public float playerDamage = 10f;
 
     private bool hasKey;
-    public bool isSetting = false;
+    public bool isPanelActive = false;
     public GameObject KeyImage;
     public GameObject keyPortal;
 
@@ -77,8 +78,6 @@ public class PlayerController : MonoBehaviour
         cubePuzzle = FindObjectOfType<CubePuzzle>();
         _input = GetComponent<StarterAssetsInputs>();
 
-        currentMushroom = MushroomType.Blue;
-
         playerHealth.SpawnPoint = playerHealth.startPoint;
         gameObject.transform.position = playerHealth.SpawnPoint.position;
 
@@ -112,17 +111,16 @@ public class PlayerController : MonoBehaviour
         //{
         //    blitFeature.SetActive(false);
         //}
-        if (!isSetting)
+        if (!isPanelActive)
         {
             thirdPersonController.CameraRotation();
         }
-        
 
         if (Input.GetKeyDown(KeyCode.F))
         {
             mushroomHandler.SwapMushroom();
         }
-        if (Input.GetMouseButtonDown(0) && !isSetting)
+        if (Input.GetMouseButtonDown(0) && !isPanelActive)
         {
             mushroomHandler.UseMushroom();
         }
@@ -132,10 +130,10 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            settingPanel.gameObject.SetActive(!isSetting);
-            isSetting = settingPanel.activeSelf;
+            settingPanel.gameObject.SetActive(!isPanelActive);
+            isPanelActive = settingPanel.activeSelf;
 
-            _input.SetCursorState(!isSetting);
+            _input.SetCursorState(!isPanelActive);
         }
     }
 
