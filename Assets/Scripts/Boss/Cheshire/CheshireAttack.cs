@@ -3,6 +3,13 @@ using System.Collections.Generic;
 using StarterAssets;
 using UnityEngine;
 
+public enum CheshireAttackType
+{
+    Punch,
+    Hiss,
+    BigHiss
+}
+
 public class CheshireAttack : BossAttack
 {
     [SerializeField] private float attackInterval;
@@ -10,6 +17,9 @@ public class CheshireAttack : BossAttack
     public Transform target;
     public bool isPreparingAttack = false;
     public bool isHissing = false;
+    private int attackNum;
+
+    public CheshireAttackType currentAttackType;
 
     [Header("Platform")]
     public GameObject highlightPlatform;
@@ -35,8 +45,26 @@ public class CheshireAttack : BossAttack
         currentAttackTime -= Time.deltaTime;
         if (currentAttackTime <= 0)
         {
-            Debug.Log("체셔 공격");
-            HighlightPlatform();
+            attackNum = Random.Range(0, System.Enum.GetValues(typeof(CheshireAttackType)).Length);
+            currentAttackType = (CheshireAttackType)attackNum;
+
+            switch (currentAttackType)
+            {
+                case CheshireAttackType.Punch:
+                    Debug.Log("펀치 공격");
+                    Attack(playerHealth);
+                    break;
+
+                case CheshireAttackType.Hiss:
+                    Debug.Log("하악질 공격");
+                    HighlightPlatform();
+                    break;
+
+                case CheshireAttackType.BigHiss:
+                    Debug.Log("더 큰 하악질 공격");
+                    HighlightPlatform();
+                    break;
+            }
             currentAttackTime = attackInterval;
         }
     }
@@ -66,24 +94,18 @@ public class CheshireAttack : BossAttack
                         playerHealth.TakeDamage(1);
                     }
                 }
-                else
-                {
-                    Debug.Log("피함");
-                }
             }
         }
     }
 
     private IEnumerator Hiss()
     {
-        if (highlightPlatform != null)
+        if (highlightPlatform != null && currentAttackType == CheshireAttackType.Hiss)
         {
             Collider platformCollider = highlightPlatform.GetComponent<Collider>();
 
             if (platformCollider.bounds.Contains(target.position) && thirdPersonController.Grounded)
             {
-                Debug.Log("플레이어가 하이라이트 플랫폼 위에 있어서 데미지를 받음");
-                //PlayerHealth playerHealth = target.GetComponentInChildren<PlayerHealth>();
                 if (playerHealth != null)
                 {
                     playerHealth.TakeDamage(1);
@@ -97,6 +119,23 @@ public class CheshireAttack : BossAttack
         }
 
         //BigHiss
+        if (platforms.Length > 0 && currentAttackType == CheshireAttackType.BigHiss)
+        {
+            foreach (var platform in platforms)
+            {
+                Collider platformCollider = platform.GetComponent<Collider>();
+                MeshRenderer platformMat = platform.GetComponent<MeshRenderer>();
+
+                if (platformCollider.bounds.Contains(target.position) && thirdPersonController.Grounded)
+                {
+                    if (playerHealth != null)
+                    {
+                        playerHealth.TakeDamage(1);
+                    }
+                }
+            }
+            yield return new WaitForSeconds(0.5f);
+        }
     }
 
     void HighlightPlatform()
@@ -108,7 +147,6 @@ public class CheshireAttack : BossAttack
         {
             float _distance = Vector3.Distance(target.position, platform.transform.position);
 
-            Debug.Log($"{platform.name} : {_distance}");
             if (distance == 0)
                 distance = _distance;
             if (distance > _distance)
@@ -119,12 +157,36 @@ public class CheshireAttack : BossAttack
         }
 
         StartCoroutine(HighlightPlatformTime());
-        Debug.Log("빛나는 플랫폼");
     }
 
     private IEnumerator HighlightPlatformTime()
     {
-        if (highlightPlatform != null)
+        if (currentAttackType == CheshireAttackType.BigHiss)
+        {
+            foreach (var platform in platforms)
+            {
+                MeshRenderer platformMat = platform.GetComponent<MeshRenderer>();
+                if (platformMat != null)
+                {
+                    platformMat.material.color = Color.red;
+                }
+            }
+
+            yield return new WaitForSeconds(highlightTime);
+
+            foreach (var platform in platforms)
+            {
+                MeshRenderer platformMat = platform.GetComponent<MeshRenderer>();
+                if (platformMat != null)
+                {
+                    platformMat.material.color = Color.white;
+                }
+            }
+
+            PerformHiss();
+        }
+
+        else if (highlightPlatform != null)
         {
             MeshRenderer platformMat = highlightPlatform.GetComponent<MeshRenderer>();
 
