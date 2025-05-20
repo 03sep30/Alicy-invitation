@@ -24,4 +24,10 @@ public class Blindness : StatusEffect
         yield return new WaitForSeconds(effectTime);
         RemoveEffect();
     }
+
+    public override IEnumerator TextTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        statusEffectText.text = "";
+    }
 }

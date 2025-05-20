@@ -78,6 +78,8 @@ public class PlayerController : MonoBehaviour
         cubePuzzle = FindObjectOfType<CubePuzzle>();
         _input = GetComponent<StarterAssetsInputs>();
 
+        _input.SetCursorState(true);
+
         playerHealth.SpawnPoint = playerHealth.startPoint;
         gameObject.transform.position = playerHealth.SpawnPoint.position;
 
@@ -111,10 +113,6 @@ public class PlayerController : MonoBehaviour
         //{
         //    blitFeature.SetActive(false);
         //}
-        if (!isPanelActive)
-        {
-            thirdPersonController.CameraRotation();
-        }
 
         if (Input.GetKeyDown(KeyCode.F))
         {
@@ -122,7 +120,17 @@ public class PlayerController : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0) && !isPanelActive)
         {
-            mushroomHandler.UseMushroom();
+            if (!playerHealth.bossStage)
+            {
+                mushroomHandler.UseMushroom();
+            }
+            else
+            {
+                if (currentEffect != null)
+                {
+                    StartCoroutine(currentEffect.EffectTime());
+                }
+            }
         }
         if (Input.GetKeyDown(KeyCode.R))
         {
@@ -134,6 +142,18 @@ public class PlayerController : MonoBehaviour
             isPanelActive = settingPanel.activeSelf;
 
             _input.SetCursorState(!isPanelActive);
+        }
+        if (Input.GetKeyDown(KeyCode.U))
+        {
+            SceneManager.LoadScene("Stage2_Boss_Map");
+        }
+    }
+
+    void FixedUpdate()
+    {
+        if (!isPanelActive)
+        {
+            thirdPersonController.CameraRotation();
         }
     }
 
@@ -269,7 +289,7 @@ public class PlayerController : MonoBehaviour
             var luckyBox = coll.gameObject.GetComponent<LuckyBox>();
             luckyBox.OpenLuckyBox();
             currentEffect = luckyBox.currentStatus;
-            StartCoroutine(currentEffect.EffectTime());
+            
             StartCoroutine(LuckyBoxTime(coll.gameObject));
         }
         if (coll.gameObject.CompareTag("TerrainGround"))

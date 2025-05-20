@@ -17,6 +17,7 @@ public class CheshireAttack : BossAttack
     public Transform target;
     public bool isPreparingAttack = false;
     public bool isHissing = false;
+    public bool attackActive;
     private int attackNum;
 
     public CheshireAttackType currentAttackType;
@@ -37,36 +38,41 @@ public class CheshireAttack : BossAttack
         thirdPersonController = FindObjectOfType<ThirdPersonController>();
         playerHealth = FindObjectOfType<PlayerHealth>();
 
+        attackActive = true;
         currentAttackTime = attackInterval;
     }
 
     void Update()
     {
-        currentAttackTime -= Time.deltaTime;
-        if (currentAttackTime <= 0)
+        if (attackActive)
         {
-            attackNum = Random.Range(0, System.Enum.GetValues(typeof(CheshireAttackType)).Length);
-            currentAttackType = (CheshireAttackType)attackNum;
-
-            switch (currentAttackType)
+            currentAttackTime -= Time.deltaTime;
+            if (currentAttackTime <= 0)
             {
-                case CheshireAttackType.Punch:
-                    Debug.Log("펀치 공격");
-                    Attack(playerHealth);
-                    break;
+                attackNum = Random.Range(0, System.Enum.GetValues(typeof(CheshireAttackType)).Length);
+                currentAttackType = (CheshireAttackType)attackNum;
 
-                case CheshireAttackType.Hiss:
-                    Debug.Log("하악질 공격");
-                    HighlightPlatform();
-                    break;
+                switch (currentAttackType)
+                {
+                    case CheshireAttackType.Punch:
+                        Debug.Log("펀치 공격");
+                        Attack(playerHealth);
+                        break;
 
-                case CheshireAttackType.BigHiss:
-                    Debug.Log("더 큰 하악질 공격");
-                    HighlightPlatform();
-                    break;
+                    case CheshireAttackType.Hiss:
+                        Debug.Log("하악질 공격");
+                        HighlightPlatform();
+                        break;
+
+                    case CheshireAttackType.BigHiss:
+                        Debug.Log("더 큰 하악질 공격");
+                        HighlightPlatform();
+                        break;
+                }
+                currentAttackTime = attackInterval;
             }
-            currentAttackTime = attackInterval;
         }
+        Debug.Log(currentAttackTime);
     }
 
     public override void Attack(PlayerHealth player)
@@ -179,7 +185,7 @@ public class CheshireAttack : BossAttack
                 MeshRenderer platformMat = platform.GetComponent<MeshRenderer>();
                 if (platformMat != null)
                 {
-                    platformMat.material.color = Color.white;
+                    platformMat.material.color = Color.gray;
                 }
             }
 
@@ -192,7 +198,7 @@ public class CheshireAttack : BossAttack
 
             platformMat.material.color = Color.red;
             yield return new WaitForSeconds(highlightTime);
-            platformMat.material.color = Color.white;
+            platformMat.material.color = Color.gray;
 
             PerformHiss();
         }

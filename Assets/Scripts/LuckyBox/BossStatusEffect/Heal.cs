@@ -15,20 +15,26 @@ public class Heal : StatusEffect
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-
-        playerHealth.PlayerHeal(heal);
+        statusEffectText.text = "생명 회복";
 
         return this;
     }
 
     public override void RemoveEffect()
     {
-        
+        StartCoroutine(TextTime());
     }
 
     public override IEnumerator EffectTime()
     {
-        yield return new WaitForSeconds(0);
+        playerHealth.PlayerHeal(heal);
+        yield return new WaitForSeconds(0f);
         RemoveEffect();
+    }
+
+    public override IEnumerator TextTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        statusEffectText.text = "";
     }
 }
