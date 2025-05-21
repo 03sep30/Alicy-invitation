@@ -78,8 +78,6 @@ public class PlayerController : MonoBehaviour
         cubePuzzle = FindObjectOfType<CubePuzzle>();
         _input = GetComponent<StarterAssetsInputs>();
 
-        _input.SetCursorState(true);
-
         playerHealth.SpawnPoint = playerHealth.startPoint;
         gameObject.transform.position = playerHealth.SpawnPoint.position;
 
@@ -99,7 +97,12 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (!isPanelActive)
+        {
+            thirdPersonController.CameraRotation();
+        }
         DropCalculation();
+        _input.SetCursorState(!isPanelActive);
         if (!crushing)
         {
             playerBody.transform.localScale = Vector3.one;
@@ -140,20 +143,10 @@ public class PlayerController : MonoBehaviour
         {
             settingPanel.gameObject.SetActive(!isPanelActive);
             isPanelActive = settingPanel.activeSelf;
-
-            _input.SetCursorState(!isPanelActive);
         }
         if (Input.GetKeyDown(KeyCode.U))
         {
             SceneManager.LoadScene("Stage2_Boss_Map");
-        }
-    }
-
-    void FixedUpdate()
-    {
-        if (!isPanelActive)
-        {
-            thirdPersonController.CameraRotation();
         }
     }
 

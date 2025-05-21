@@ -262,11 +262,11 @@ GameObject:
   m_Component:
   - component: {fileID: 5190648851083230388}
   - component: {fileID: 3657007905564798015}
+  - component: {fileID: 8421184484465656098}
   - component: {fileID: 8135424537080952951}
   - component: {fileID: 7903417520880467970}
   - component: {fileID: 3864450467898357946}
   - component: {fileID: 6249053958103985778}
-  - component: {fileID: 8421184484465656098}
   - component: {fileID: 5077678731289232805}
   - component: {fileID: 4765635898864970670}
   - component: {fileID: 4211071183300243496}
@@ -321,6 +321,49 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &8421184484465656098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6859795922319314609}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71f7bac7d913fe43bc16e0fc24a8692, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  orangeMushroomCount: 0
+  blueMushroomCount: 0
+  greenMushroomCount: 0
+  currentMushroom: 0
+  maxPosition: 0
+  currentSize: 0
+  settingPanel: {fileID: 0}
+  playerBody: {fileID: 2091526292469308770}
+  isGrounded: 0
+  lastGroundedY: -28
+  enterPortal: 0
+  crushing: 0
+  deathFallHeight: 75
+  luckyBoxTime: 5
+  playerDamage: 10
+  isPanelActive: 0
+  KeyImage: {fileID: 0}
+  keyPortal: {fileID: 0}
+  cheshire: {fileID: 0}
+  statusPlane: {fileID: 3136945999896489986}
+  bossPanel: {fileID: 0}
+  backgroundBGM: []
+  statusImages:
+  - {fileID: 21300000, guid: 4701a14f2aaa445cb9a16605138b5cb3, type: 3}
+  - {fileID: 21300000, guid: 9ee86c19563454a8bb6755b0ff724bf8, type: 3}
+  - {fileID: 21300000, guid: 2abf89b2fcadc4486abcfbe2be2dddd2, type: 3}
+  - {fileID: 21300000, guid: 76cfdbd802f7d48e589ea5059731bbbb, type: 3}
+  backgroundAudioSource: {fileID: 0}
+  currentEffect: {fileID: 0}
+  audioSource: {fileID: 0}
+  bossHP: {fileID: 0}
 --- !u!114 &8135424537080952951
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -512,48 +555,6 @@ MonoBehaviour:
   m_DefaultActionMap: Player
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
---- !u!114 &8421184484465656098
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859795922319314609}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e71f7bac7d913fe43bc16e0fc24a8692, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  orangeMushroomCount: 0
-  blueMushroomCount: 0
-  currentMushroom: 0
-  maxPosition: 0
-  currentSize: 0
-  settingPanel: {fileID: 0}
-  playerBody: {fileID: 2091526292469308770}
-  isGrounded: 0
-  lastGroundedY: -28
-  enterPortal: 0
-  crushing: 0
-  deathFallHeight: 75
-  luckyBoxTime: 5
-  playerDamage: 10
-  isSetting: 0
-  KeyImage: {fileID: 0}
-  keyPortal: {fileID: 0}
-  cheshire: {fileID: 0}
-  statusPlane: {fileID: 3136945999896489986}
-  bossPanel: {fileID: 0}
-  backgroundBGM: []
-  statusImages:
-  - {fileID: 21300000, guid: 4701a14f2aaa445cb9a16605138b5cb3, type: 3}
-  - {fileID: 21300000, guid: 9ee86c19563454a8bb6755b0ff724bf8, type: 3}
-  - {fileID: 21300000, guid: 2abf89b2fcadc4486abcfbe2be2dddd2, type: 3}
-  - {fileID: 21300000, guid: 76cfdbd802f7d48e589ea5059731bbbb, type: 3}
-  backgroundAudioSource: {fileID: 0}
-  currentEffect: {fileID: 0}
-  audioSource: {fileID: 0}
-  bossHP: {fileID: 0}
 --- !u!114 &5077678731289232805
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -750,7 +751,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d12a9562eb2f44f18918074229558c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mushroomState: 0
 --- !u!114 &1940367867360253766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -772,14 +772,17 @@ MonoBehaviour:
   playerHPImageList: []
   orangeMushroomText: {fileID: 0}
   blueMushroomText: {fileID: 0}
+  greenMushroomText: {fileID: 0}
   orangeMushroomImage: {fileID: 0}
   blueMushroomImage: {fileID: 0}
+  greenMushroomImage: {fileID: 0}
   orangeMushroomSprite:
   - {fileID: 21300000, guid: fde834d2bd73a4fbba1c57d44b7dfadc, type: 3}
   - {fileID: 21300000, guid: 6e038540662ab49f9a366e0fd2951021, type: 3}
   blueMushroomSpirte:
   - {fileID: 21300000, guid: e870b5f5ef8df4dddbf503275047f212, type: 3}
   - {fileID: 21300000, guid: 6e038540662ab49f9a366e0fd2951021, type: 3}
+  greenMushroomSprite: []
 --- !u!1 &7972098159960283619
 GameObject:
   m_ObjectHideFlags: 0
