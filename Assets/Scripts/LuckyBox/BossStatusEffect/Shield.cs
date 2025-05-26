@@ -21,7 +21,7 @@ public class Shield : StatusEffect
 
     public override void RemoveEffect()
     {
-        StartCoroutine(TextTime());   
+        
     }
 
     public override IEnumerator EffectTime()
@@ -29,11 +29,5 @@ public class Shield : StatusEffect
         playerHealth.shield = true;
         yield return new WaitForSeconds(0);
         RemoveEffect();
-    }
-
-    public override IEnumerator TextTime()
-    {
-        yield return new WaitForSeconds(1.5f);
-        statusEffectText.text = "";
     }
 }

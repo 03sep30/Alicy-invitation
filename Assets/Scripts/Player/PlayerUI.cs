@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public GameObject bossPanel;
+    public TextMeshProUGUI currentItemText;
 
     [Header("TimeHP")]
     public GameObject timePanel;
@@ -59,7 +60,7 @@ public class PlayerUI : MonoBehaviour
         {
             bossPanel.SetActive(true);
             heartPanel.SetActive(true);
-            timePanel.SetActive(false);
+            //timePanel.SetActive(false);
         }
         if (playerHealth.currentHealthType == HealthType.None)
         {
@@ -96,7 +97,7 @@ public class PlayerUI : MonoBehaviour
                     timeHPText.gameObject.SetActive(true);
                     timeHPText.text = playerHealth.currentTimeHP.ToString("F1");
                 }
-                else
+                else 
                 {
                     timeHPText.gameObject.SetActive(false);
                 }
@@ -155,6 +156,11 @@ public class PlayerUI : MonoBehaviour
     {
         greenMushroomText.text = $"X{count}";
         greenMushroomImage.sprite = isSelected ? greenMushroomSprite[0] : greenMushroomSprite[1];
+    }
+
+    public void BossStageItemTextClear()
+    {
+        currentItemText.text = "";
     }
 
     public void QuitButton()

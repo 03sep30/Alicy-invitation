@@ -70,8 +70,16 @@ public class PlayerHealth : MonoBehaviour
         {
             if (currentHeartHP < maxHeartHP)
             {
-                currentHeartHP += (int)heal;
-                playerUI.HealHPUI(currentHeartHP);
+                if (currentHeartHP + heal > maxHeartHP)
+                {
+                    currentHeartHP = maxHeartHP;
+                    playerUI.HealHPUI(currentHeartHP);
+                }
+                else
+                {
+                    currentHeartHP += (int)heal;
+                    playerUI.HealHPUI(currentHeartHP);
+                }
             }
         }
         if (currentHealthType == HealthType.Time)

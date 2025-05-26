@@ -22,7 +22,7 @@ public class Heal : StatusEffect
 
     public override void RemoveEffect()
     {
-        StartCoroutine(TextTime());
+        
     }
 
     public override IEnumerator EffectTime()
@@ -30,11 +30,5 @@ public class Heal : StatusEffect
         playerHealth.PlayerHeal(heal);
         yield return new WaitForSeconds(0f);
         RemoveEffect();
-    }
-
-    public override IEnumerator TextTime()
-    {
-        yield return new WaitForSeconds(1.5f);
-        statusEffectText.text = "";
     }
 }

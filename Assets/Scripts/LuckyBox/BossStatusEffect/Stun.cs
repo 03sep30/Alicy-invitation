@@ -46,7 +46,6 @@ public class Stun : StatusEffect
                     }
                 }
                 cheshire.attackActive = true;
-                StartCoroutine(TextTime());
                 break;
         }
     }
@@ -67,11 +66,5 @@ public class Stun : StatusEffect
         }
         yield return new WaitForSeconds(stunTime);
         RemoveEffect();
-    }
-
-    public override IEnumerator TextTime()
-    {
-        yield return new WaitForSeconds(1.5f);
-        statusEffectText.text = "";
     }
 }

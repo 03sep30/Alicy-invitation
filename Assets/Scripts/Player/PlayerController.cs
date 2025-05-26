@@ -61,6 +61,7 @@ public class PlayerController : MonoBehaviour
     private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
     private PlayerHealth playerHealth;
+    private PlayerUI playerUI;
     private ThirdPersonController thirdPersonController;
     private PlayerTriggerController PlayerTriggerController;
     private PlayerMushroomHandler mushroomHandler;
@@ -72,6 +73,7 @@ public class PlayerController : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
+        playerUI = GetComponent<PlayerUI>();
         audioSource = GetComponent<AudioSource>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
@@ -132,6 +134,7 @@ public class PlayerController : MonoBehaviour
                 if (currentEffect != null)
                 {
                     StartCoroutine(currentEffect.EffectTime());
+                    playerUI.BossStageItemTextClear();
                 }
             }
         }
