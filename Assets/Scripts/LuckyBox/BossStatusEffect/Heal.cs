@@ -15,7 +15,7 @@ public class Heal : StatusEffect
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-        statusEffectText.text = "생명 회복";
+        statusEffectText.text = "heal";
 
         return this;
     }

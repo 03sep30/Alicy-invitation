@@ -17,6 +17,8 @@ public class PlayerController : MonoBehaviour
     //public UniversalRendererData rendererData;
     //private ScriptableRendererFeature blitFeature;
 
+    public GameObject BreakObjectPrefab;
+
     public int orangeMushroomCount = 0;
     public int blueMushroomCount = 0;
     public int greenMushroomCount = 0;
@@ -135,6 +137,7 @@ public class PlayerController : MonoBehaviour
                 {
                     StartCoroutine(currentEffect.EffectTime());
                     playerUI.BossStageItemTextClear();
+                    currentEffect = null;
                 }
             }
         }
@@ -266,13 +269,19 @@ public class PlayerController : MonoBehaviour
         {
             lastGroundedY = transform.position.y;
         }
-        if (currentSize == CharacterSize.Big && playerMovement.isBreaking && coll.gameObject.CompareTag("Breakable"))
+        if (currentSize == CharacterSize.Big && /*playerMovement.isBreaking && */coll.gameObject.CompareTag("Breakable"))
         {
-            audioSource.clip = playerMovement.breakingSound;
-            audioSource.Play();
+            GameObject breakObject = Instantiate(BreakObjectPrefab, null);
+            breakObject.transform.position = coll.gameObject.transform.position;
+            Destroy(coll.gameObject);
 
-            coll.gameObject.GetComponent<ObstacleController>().Explosion();
-            playerMovement.isBreaking = false;
+            StartCoroutine(DestroyObject(breakObject, 1.5f));
+
+            //audioSource.clip = playerMovement.breakingSound;
+            //audioSource.Play();
+
+            //coll.gameObject.GetComponent<ObstacleController>().Explosion();
+            //playerMovement.isBreaking = false;
         }
         
         if (coll.gameObject.CompareTag("LuckyBox"))
@@ -335,6 +344,12 @@ public class PlayerController : MonoBehaviour
         luckyBox.SetActive(false);
         yield return new WaitForSeconds(luckyBoxTime);
         luckyBox.SetActive(true);
+    }
+
+    private IEnumerator DestroyObject(GameObject obj, float time)
+    {
+        yield return new WaitForSeconds(time);
+        Destroy(obj);
     }
 
     private void OnTriggerEnter(Collider other)

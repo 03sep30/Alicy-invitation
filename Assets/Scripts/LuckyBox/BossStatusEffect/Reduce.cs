@@ -15,7 +15,7 @@ public class Reduce : StatusEffect
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-        statusEffectText.text = "시간 단축";
+        statusEffectText.text = "reduce";
 
         return this;
     }
