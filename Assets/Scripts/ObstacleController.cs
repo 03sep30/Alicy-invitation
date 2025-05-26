@@ -4,13 +4,33 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
-    public GameObject ExplosionEffect;
-    public Transform ExplosionPosition;
+    public GameObject leftObj;
+    public GameObject rightObj;
 
-    public void Explosion()
+    public Vector3 leftRot;
+    public Vector3 rightRot;
+    public Vector3 leftPos;
+    public Vector3 rightPos;
+
+    public float moveSpeed = 1f;
+    public float rotateSpeed = 180f;
+
+    void Update()
     {
-        GameObject effect = Instantiate(ExplosionEffect, ExplosionPosition.transform.position, Quaternion.identity);
-        Destroy(effect, 2f);
-        Destroy(gameObject);
+        if (leftObj != null)
+        {
+            leftObj.transform.localPosition = Vector3.MoveTowards(leftObj.transform.localPosition, leftPos, moveSpeed * Time.deltaTime);
+
+            Quaternion targetLeftRot = Quaternion.Euler(leftRot);
+            leftObj.transform.localRotation = Quaternion.RotateTowards(leftObj.transform.localRotation, targetLeftRot, rotateSpeed * Time.deltaTime);
+        }
+
+        if (rightObj != null)
+        {
+            rightObj.transform.localPosition = Vector3.MoveTowards(rightObj.transform.localPosition, rightPos, moveSpeed * Time.deltaTime);
+
+            Quaternion targetRightRot = Quaternion.Euler(rightRot);
+            rightObj.transform.localRotation = Quaternion.RotateTowards(rightObj.transform.localRotation, targetRightRot, rotateSpeed * Time.deltaTime);
+        }
     }
 }
