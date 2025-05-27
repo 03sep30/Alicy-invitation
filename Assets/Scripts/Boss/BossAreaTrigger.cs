@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BossAreaTrigger : MonoBehaviour
 {
-    [Header("0:GingerCookie, 1:Chef")]
+    [Header("0:GingerCookie, 1:Chef, 2:HatMan")]
     public string bossName;
     public GameObject bossObj;
     public Transform bossPosition;
@@ -15,29 +15,56 @@ public class BossAreaTrigger : MonoBehaviour
         {
             PlayerHealth playerHealth = other.gameObject.GetComponentInChildren<PlayerHealth>();
             PlayerUI playerUI = other.gameObject.GetComponent<PlayerUI>();
-            PlayerController playerController = other.gameObject.GetComponent<PlayerController>(); 
+            PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
+
+            if (playerHealth.lastBossAreaTrigger == null)
+            {
+                playerHealth.lastBossAreaTrigger = gameObject;
+            }
             switch(bossName)
             {
                 case "GingerCookie":
-                    playerController.deathFallHeight = 1000f;
-                    playerHealth.currentHealthType = HealthType.Heart;
-                    playerHealth.maxHeartHP = 5;
-                    //playerUI.UpdateHeartUI();
-                    bossObj.transform.position = bossPosition.position;
-                    bossObj.SetActive(true);
-                    gameObject.SetActive(false);
+                    if (bossObj.activeInHierarchy == false)
+                    {
+                        playerController.deathFallHeight = 1000f;
+                        playerHealth.currentHealthType = HealthType.Heart;
+                        playerHealth.maxHeartHP = 5;
+                        //playerUI.UpdateHeartUI();
+                        bossObj.SetActive(true);
+                    }
+                    else
+                    {
+                        playerHealth.bossStage = true;
+                    }
                     break;
 
                 case "Chef":
-                    playerHealth.currentHealthType = HealthType.Heart;
-                    playerHealth.maxHeartHP = 5;
-                    //playerUI.UpdateHeartUI();
-                    bossObj.transform.position = bossPosition.position;
-                    bossObj.SetActive(true);
-                    gameObject.SetActive(false);
+                    if (bossObj.activeInHierarchy == false)
+                    {
+                        playerHealth.currentHealthType = HealthType.Heart;
+                        playerHealth.maxHeartHP = 5;
+                        //playerUI.UpdateHeartUI();
+                        bossObj.SetActive(true);
+                    }
+                    else
+                    {
+                        playerHealth.bossStage = true;
+                    }
                     break;  
 
-                case "gdsj":
+                case "HatMan":
+                    if (bossObj.activeInHierarchy == false)
+                    {
+                        playerHealth.currentHealthType = HealthType.Heart;
+                        playerHealth.maxHeartHP = 5;
+                        //playerUI.UpdateHeartUI();
+                        bossObj.SetActive(true);
+                    }
+                    else
+                    {
+                        playerHealth.bossStage = true;
+                    }
+                    
                     break;
 
                 case "ji":
@@ -52,6 +79,8 @@ public class BossAreaTrigger : MonoBehaviour
                 case "jfdgd":
                     break;
             }
+            bossObj.transform.position = bossPosition.position;
+            gameObject.SetActive(false);
         }
     }
 }

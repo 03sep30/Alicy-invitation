@@ -317,26 +317,6 @@ public class PlayerController : MonoBehaviour
             var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
             SceneManager.LoadScene(loadScene.sceneName);
         }
-        if (coll.gameObject.layer == 7)
-        {
-            thirdPersonController.realGrounded = true;
-        }
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.layer == 7)
-        {
-            thirdPersonController.realGrounded = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.layer == 7)
-        {
-            thirdPersonController.realGrounded = false;
-        }
     }
 
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
@@ -425,7 +405,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("TTS_Object"))
         {
             Debug.Log("TTSObj");
-            TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
+            TextController ttsObj = other.gameObject.GetComponent<TextController>();
             //ttsObj.PlayTTS();
             ttsObj.StartTextDisplay();
         }

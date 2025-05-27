@@ -44,6 +44,8 @@ public class CheshireAttack : BossAttack
 
     void Update()
     {
+        if (!playerHealth.bossStage)
+            return;
         if (attackActive)
         {
             currentAttackTime -= Time.deltaTime;

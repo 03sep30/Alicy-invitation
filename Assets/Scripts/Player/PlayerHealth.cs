@@ -22,6 +22,8 @@ public class PlayerHealth : MonoBehaviour
     public float maxTimeHP = 150f;
     public float currentTimeHP;
     public bool shield = false;
+    public GameObject lastBossAreaTrigger;
+
     public BossHP boss;
 
     public HealthType currentHealthType;
@@ -134,6 +136,11 @@ public class PlayerHealth : MonoBehaviour
         if (bossStage && boss != null)
         {
             boss.isPaused = true;
+            bossStage = false;
+            boss.ResetBoss();
+            playerController.BackgroundBGM("Stage");
+            if (lastBossAreaTrigger != null && lastBossAreaTrigger.activeInHierarchy == false)
+                lastBossAreaTrigger.SetActive(true);
         }
 
         if (currentHealthType == HealthType.Heart)
@@ -151,10 +158,7 @@ public class PlayerHealth : MonoBehaviour
             }
         }
         mushroomPanel.SetActive(false);
-        if (bossStage)
-        {
-            playerController.bossPanel.SetActive(false);
-        }
+
         playerController.currentSize = CharacterSize.Normal;
         playerController.UpdateStatus(10);
         if (playerController.currentEffect != null)
@@ -173,6 +177,9 @@ public class PlayerHealth : MonoBehaviour
     {
         if (isDie)
         {
+            if (boss != null)
+                boss.isPaused = false;
+
             PlayerHeal(maxHeartHP);
             PlayerHeal(maxTimeHP);
             GameOverVFX.SetActive(false);
@@ -185,16 +192,9 @@ public class PlayerHealth : MonoBehaviour
                 meshRenderer.gameObject.SetActive(true);
             }
             playerController.crushing = false;
-            if (bossStage && boss != null)
-            {
-                playerController.bossPanel.SetActive(true);
-                boss.currentTimeHP = boss.maxTimeHP;
-                boss.isPaused = false;
-            }
             
             mushroomPanel.SetActive(true);
             isDie = false;
-            
         }
     }
 

@@ -45,7 +45,7 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.97007596, b: 0.8469206, a: 1}
-  m_Intensity: 0.79773766
+  m_Intensity: 0.01
   m_Range: 4.13
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.802082
@@ -455,6 +455,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e71f7bac7d913fe43bc16e0fc24a8692, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  BreakObjectPrefab: {fileID: 8996362196748255308, guid: bdd88d711216245cc822717f9a81d7df, type: 3}
   orangeMushroomCount: 0
   blueMushroomCount: 0
   greenMushroomCount: 0
@@ -526,7 +527,7 @@ MonoBehaviour:
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.58
+  GroundedRadius: 0.8
   GroundLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -889,6 +890,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bossPanel: {fileID: 0}
+  currentItemText: {fileID: 0}
   timePanel: {fileID: 0}
   timeHPSlider: {fileID: 0}
   timeHPText: {fileID: 0}
@@ -1051,7 +1053,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7972098159960283619}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 104c1092fed9f4c8b874dfceb6d6c3e4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1240,6 +1242,7 @@ MonoBehaviour:
   maxTimeHP: 150
   currentTimeHP: 0
   shield: 0
+  lastBossAreaTrigger: {fileID: 0}
   boss: {fileID: 0}
   currentHealthType: 2
   isDrinkingTeacup: 0
@@ -1267,7 +1270,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7229906463233206432}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 104c1092fed9f4c8b874dfceb6d6c3e4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1334,7 +1337,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8274998279143744647}
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 13400000, guid: 104c1092fed9f4c8b874dfceb6d6c3e4, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0

@@ -44,6 +44,9 @@ public class ChefController : MonoBehaviour
 
     void Update()
     {
+        if (!player.bossStage)
+            return;
+
         if (!player.isDie)
         {
             MoveToTarget();

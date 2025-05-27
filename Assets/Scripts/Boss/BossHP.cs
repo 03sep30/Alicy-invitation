@@ -12,6 +12,7 @@ public class BossHP : MonoBehaviour
     public float currentTimeHP;
     public bool isHit = false;
     public bool isPaused = false;
+    
     public float hitTime;
     private float currentHitTime;
     public Slider timeHPSlider;
@@ -37,6 +38,8 @@ public class BossHP : MonoBehaviour
 
     void Update()
     {
+        if (!playerHealth.bossStage)
+            return;
         if (!isPaused && currentTimeHP > 0)
         {
             currentTimeHP -= Time.deltaTime;
@@ -79,6 +82,11 @@ public class BossHP : MonoBehaviour
             isHit = true;
             currentHitTime = hitTime;
         }
+    }
+
+    public void ResetBoss()
+    {
+        currentTimeHP = maxTimeHP;
     }
 
     private void OnDestroy()

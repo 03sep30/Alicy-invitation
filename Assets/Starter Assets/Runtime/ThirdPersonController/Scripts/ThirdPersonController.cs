@@ -272,37 +272,35 @@ namespace StarterAssets
             }
         }
 
-
-
         private void GroundedCheck()
         {
-            // 더 정확한 지면 체크 위치 계산
             Vector3 spherePosition = new Vector3(
                 transform.position.x,
-                transform.position.y - _collider.height / 2 + _collider.radius - 0.05f, // 약간 더 아래로
+                transform.position.y - _collider.height / 2 + GroundedRadius - GroundedOffset,
                 transform.position.z
             );
 
-            // 1. 구체 캐스트로 체크
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+            realGrounded = false;
 
-            // 2. 레이캐스트로 추가 체크 (더 안정적)
-            if (!Grounded)
+            RaycastHit hit;
+            Vector3 rayOrigin = spherePosition + Vector3.up * GroundedOffset;
+
+            float rayLength = _collider.height / 2 + GroundedOffset;
+
+            if (Physics.Raycast(rayOrigin, Vector3.down, out hit, rayLength, GroundLayers, QueryTriggerInteraction.Ignore))
             {
-                RaycastHit hit;
-                if (Physics.Raycast(transform.position, Vector3.down, out hit, _collider.height / 2 + 0.2f, GroundLayers, QueryTriggerInteraction.Ignore))
+                float slopeAngle = Vector3.Angle(hit.normal, Vector3.up);
+
+                if (slopeAngle <= 45f)
                 {
-                    Grounded = true;
+                    realGrounded = true;
                 }
             }
 
-            // 디버그 목적으로 로그 출력 (필요하면 주석 해제)
-            // Debug.Log("Grounded: " + Grounded);
-
-            // 지면에 닿아있으면 드래그 값 증가, 공중에 있으면 감소
+            // Drag 처리
             _rigidbody.drag = Grounded ? GroundDrag : AirDrag;
 
-            // 지면에 닿으면 애니메이션 상태 업데이트
+            // 애니메이션 및 상태 업데이트
             if (Grounded)
             {
                 _isJumping = false;
@@ -312,13 +310,9 @@ namespace StarterAssets
                     _animator.SetBool(_animIDFreeFall, false);
                 }
             }
-            else
-            {
-                // 디버그용 - 지면이 아닐 때 체크 포인트 시각화
-                Debug.DrawRay(spherePosition, Vector3.down * 0.1f, Color.red);
-            }
-        }
 
+            Debug.DrawRay(spherePosition, Vector3.down * rayLength, Color.red);
+        }
         public void CameraRotation()
         {
             // if there is an input and camera position is not fixed
@@ -405,6 +399,7 @@ namespace StarterAssets
                 // 운동량 적용 및 감쇠
                 _rigidbody.AddForce(_platformMomentum, ForceMode.VelocityChange);
                 _platformMomentum *= _platformMomentumDamping;
+                Debug.Log("A");
             }
 
             // 지면에 있을 때만 이동 입력 처리
@@ -488,7 +483,6 @@ namespace StarterAssets
             }
         }
 
-
         private void Jump()
         {
             // 현재 수직 속도 초기화
@@ -499,6 +493,7 @@ namespace StarterAssets
             // 점프 힘 적용
             float jumpForce = Mathf.Sqrt(JumpHeight * -2f * Gravity);
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            Debug.Log("B");
 
             // 애니메이션 설정
             if (_hasAnimator)
@@ -513,6 +508,7 @@ namespace StarterAssets
             if (!Grounded)
             {
                 _rigidbody.AddForce(Vector3.up * Gravity, ForceMode.Acceleration);
+                Debug.Log("C");
             }
         }
 
