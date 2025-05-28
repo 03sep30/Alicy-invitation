@@ -963,6 +963,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   luckyBoxPrefab: {fileID: 582234498844494354, guid: 72d6bf6a80ad94a98a934761471c7081, type: 3}
+  luckyBoxCount: 2
   randomMinOffsetX: -3.5
   randomMaxOffsetX: 3.5
   randomOffsetY: 0
@@ -991,6 +992,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 16681131663285808, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
+      propertyPath: greenMushroomSprite.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: f3f4ce91a5118e54c90cd14d0916ffa7, type: 3}
     - target: {fileID: 50054803223390930, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_Name
       value: Player
