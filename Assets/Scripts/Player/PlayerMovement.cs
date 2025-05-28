@@ -1,3 +1,4 @@
+using Cinemachine;
 using StarterAssets;
 using System;
 using System.Collections.Generic;
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
     private PlayerStamina playerStamina;
     private PlayerController playerController;
     private ThirdPersonController thirdPersonController;
+    private CinemachineVirtualCamera virtualCamera;
 
     [Header("BGM")]
     public AudioClip breakingSound;
@@ -48,6 +50,7 @@ public class PlayerMovement : MonoBehaviour
         playerStamina = GetComponent<PlayerStamina>();
         playerController = GetComponent<PlayerController>();
         thirdPersonController = GetComponent<ThirdPersonController>();
+        virtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
 
         blindnessRawImage = blindnessPanel.GetComponent<RawImage>();
         blindnessRectTransform = blindnessPanel.GetComponent<RectTransform>();
@@ -80,6 +83,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 scale = Vector3.one;
             gameObject.transform.localScale = scale;
+            virtualCamera.m_Lens.FieldOfView = 40f;
 
             if (cheshireParentConstraint != null)
             {
@@ -95,6 +99,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Vector3 scale = new Vector3(2f, 2f, 2f);
             gameObject.transform.localScale = scale;
+            virtualCamera.m_Lens.FieldOfView = 80f;
 
             if (cheshireParentConstraint != null)
             {
