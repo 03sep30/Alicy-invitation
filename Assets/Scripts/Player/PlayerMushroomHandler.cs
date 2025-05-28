@@ -11,13 +11,19 @@ public enum MushroomType
 
 public class PlayerMushroomHandler : MonoBehaviour
 {
+    public GameObject respawnLollipop;
+    public Transform lollipopPos;
+
     private PlayerUI playerUI;
     private PlayerController playerController;
+    private PlayerHealth playerHealth;
 
     private void Start()
     {
         playerUI = GetComponent<PlayerUI>();
         playerController = GetComponent<PlayerController>();
+        playerHealth = GetComponentInChildren<PlayerHealth>();
+
         playerController.currentMushroom = MushroomType.Orange;
         UpdateMushroomUI();
     }
@@ -42,6 +48,15 @@ public class PlayerMushroomHandler : MonoBehaviour
                 playerController.currentSize = CharacterSize.Normal;
 
             playerController.orangeMushroomCount--;
+        }
+        
+        if (playerController.currentMushroom == MushroomType.Green && playerController.greenMushroomCount > 0)
+        {
+            Vector3 lollipopPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2, gameObject.transform.position.z);
+            GameObject respawnLolli = Instantiate(respawnLollipop, lollipopPos, Quaternion.identity);
+            playerHealth.SpawnPoint = respawnLolli.transform;
+
+            playerController.greenMushroomCount--;
         }
 
         UpdateMushroomUI();

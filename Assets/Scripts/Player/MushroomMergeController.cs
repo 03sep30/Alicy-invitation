@@ -22,7 +22,7 @@ public class MushroomMergeController : MonoBehaviour
 
     void Update()
     {
-        if (!mergeOpen) return;
+        //if (!mergeOpen) return;
 
         if (Input.GetKeyDown(KeyCode.O))
         {
