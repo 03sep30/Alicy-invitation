@@ -5,6 +5,7 @@ using UnityEngine;
 public class TTSController : MonoBehaviour
 {
     private AudioSource audioSource;
+    public AudioClip[] ttsClips;
 
     void Start()
     {

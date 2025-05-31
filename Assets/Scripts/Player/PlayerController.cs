@@ -402,12 +402,12 @@ public class PlayerController : MonoBehaviour
                 lastGroundedY = targetPortal.position.y;
             }
         }
-        if (other.gameObject.CompareTag("TTS_Object"))
+        if (other.gameObject.CompareTag("Text_Object"))
         {
             Debug.Log("TTSObj");
-            TextController ttsObj = other.gameObject.GetComponent<TextController>();
+            TextController textObj = other.gameObject.GetComponent<TextController>();
             //ttsObj.PlayTTS();
-            ttsObj.StartTextDisplay();
+            textObj.StartTextDisplay();
         }
         //if (other.gameObject.CompareTag("ParryingObj"))
         //{

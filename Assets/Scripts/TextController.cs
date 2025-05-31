@@ -6,16 +6,15 @@ using TMPro;
 
 public class TextController : MonoBehaviour
 {
-    
     public GameObject textPanel;
     public TextMeshProUGUI text;
     public Image image;
     public string[] textLines;
     public Sprite[] characterImages;
+    public float[] textIntervals;
 
     public bool isTextEnable = false;
     private float currentTextTime;
-    public float textInterval = 7f;
     private int textIndex = 0;
 
     private static TextController activeText = null;
@@ -23,6 +22,22 @@ public class TextController : MonoBehaviour
     void Start()
     {
         currentTextTime = 0;
+
+        if (textIntervals.Length != textLines.Length)
+        {
+            float defaultInterval = 2f;
+            float[] newIntervals = new float[textLines.Length];
+
+            for (int i = 0; i < newIntervals.Length; i++)
+            {
+                if (i < textIntervals.Length)
+                    newIntervals[i] = textIntervals[i];
+                else
+                    newIntervals[i] = defaultInterval;
+            }
+
+            textIntervals = newIntervals;
+        }
     }
 
     void Update()
@@ -36,14 +51,15 @@ public class TextController : MonoBehaviour
                 if (currentTextTime <= 0)
                 {
                     PlayText();
-                    currentTextTime = textInterval;
+
+                    if (textIndex < textIntervals.Length)
+                        currentTextTime = textIntervals[textIndex];
+                    else
+                        currentTextTime = 1f;
                 }
             }
         }
-
     }
-
-    
 
     public void PlayText()
     {
@@ -54,7 +70,6 @@ public class TextController : MonoBehaviour
             textIndex++;
             Debug.Log($"currentIndex : {textIndex}");
         }
-
         else
         {
             isTextEnable = false;
@@ -78,13 +93,16 @@ public class TextController : MonoBehaviour
         isTextEnable = true;
         textPanel.SetActive(true);
 
-        // 첫 텍스트 및 이미지 즉시 표시
         if (textLines.Length > 0)
         {
             text.text = textLines[0];
             image.sprite = characterImages[0];
-            textIndex = 1; // 다음 텍스트부터는 1번 인덱스부터
-            currentTextTime = textInterval;
+            textIndex = 1;
+
+            if (textIntervals.Length > 0)
+                currentTextTime = textIntervals[0];
+            else
+                currentTextTime = 3f;
         }
     }
 }
