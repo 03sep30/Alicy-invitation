@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class TextController : MonoBehaviour
 {
     public GameObject textPanel;
+    public GameObject imagePanel;
     public TextMeshProUGUI text;
     public Image image;
     public string[] textLines;
@@ -16,6 +18,16 @@ public class TextController : MonoBehaviour
     public bool isTextEnable = false;
     private float currentTextTime;
     private int textIndex = 0;
+
+    public bool hasSceneEvent = false;
+    public string sceneName;
+
+    public bool hasDoorEvent = false;
+    public DoorController door;
+    public bool nextText = false;
+    public TextController textController;
+
+    public bool destroy = false;
 
     private static TextController activeText = null;
 
@@ -65,6 +77,20 @@ public class TextController : MonoBehaviour
     {
         if (textIndex < textLines.Length)
         {
+            if (textLines[textIndex] == "")
+            {
+                imagePanel.SetActive(false);
+                Color aColor = image.color;
+                aColor.a = 0f;
+                image.color = aColor;
+            }
+            else
+            {
+                imagePanel.SetActive(true);
+                Color aColor = image.color;
+                aColor.a = 1f;
+                image.color = aColor;
+            }
             text.text = textLines[textIndex];
             image.sprite = characterImages[textIndex];
             textIndex++;
@@ -72,12 +98,25 @@ public class TextController : MonoBehaviour
         }
         else
         {
+            if (hasSceneEvent)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
+            if (hasDoorEvent)
+            {
+                door.isOpen = true;
+            }
+            if (nextText)
+            {
+                textController.StartTextDisplay();
+            }
             isTextEnable = false;
 
             if (activeText == this)
             {
                 textPanel.SetActive(false);
                 activeText = null;
+                Destroy(gameObject);
             }
 
             textIndex = 0;

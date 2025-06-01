@@ -236,6 +236,11 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(coll.transform.name);
 
+        if (coll.gameObject.CompareTag("Ghost"))
+        {
+            PlayerTriggerController.TriggerDust();
+            Debug.Log("Dust");
+        }
         if (coll.gameObject.CompareTag("BossBody"))
         {
             BossAttack boss = coll.gameObject.GetComponent<BossAttack>();
@@ -249,13 +254,7 @@ public class PlayerController : MonoBehaviour
         
         if (coll.gameObject.name == "Key")
         {
-            if (!hasKey)
-            {
-                hasKey = true;
-                KeyImage.SetActive(true);
-                keyPortal.SetActive(true);
-                Destroy(coll.gameObject);
-            }
+            GetKey();
         }
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
@@ -362,6 +361,14 @@ public class PlayerController : MonoBehaviour
             PlayerTriggerController.TriggerDust();
             Debug.Log("Dust");
         }
+        if (other.gameObject.CompareTag("Mine"))
+        {
+            var mine = other.GetComponent<MineController>();
+            mine.GhostRun();
+            mine.GetPuzzle();
+            mine.MinePlayerHeal();
+            mine.MineGetKey();
+        }
         if (other.CompareTag("DeadBlock"))
         {
             playerHealth.Die();
@@ -409,6 +416,11 @@ public class PlayerController : MonoBehaviour
             //ttsObj.PlayTTS();
             textObj.StartTextDisplay();
         }
+        if (other.gameObject.CompareTag("TTS_Object"))
+        {
+            TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
+            ttsObj.PlayTTS();
+        }
         //if (other.gameObject.CompareTag("ParryingObj"))
         //{
         //    var parryingObj = other.gameObject.GetComponent<ParryingObj>();
@@ -443,6 +455,16 @@ public class PlayerController : MonoBehaviour
         {
             playerHealth.SpawnPoint = other.gameObject.transform;
         }
-        
+    }
+
+    public void GetKey()
+    {
+        if (!hasKey)
+        {
+            hasKey = true;
+            KeyImage.SetActive(true);
+            if (keyPortal != null)
+                keyPortal.SetActive(true);
+        }
     }
 }

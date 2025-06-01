@@ -9,7 +9,10 @@ public class CubePuzzle : MonoBehaviour
     private HashSet<int> activatedCubes = new HashSet<int>();
     private List<GameObject> allCubes = new List<GameObject>();
 
-    public GameObject keyObj;
+    public GameObject[] activeObjs;
+    public bool textActive = false;
+
+    public TextController textController; 
 
     void Start()
     {
@@ -51,7 +54,16 @@ public class CubePuzzle : MonoBehaviour
                 cube.GetComponent<Renderer>().material.color = Color.green;
             }
             Debug.Log("퍼즐 완성!");
-            keyObj.SetActive(true);
+            if (activeObjs != null)
+            {
+                foreach (var activeObj in activeObjs)
+                {
+                    activeObj.SetActive(true);
+                }
+            }
+                
+            if (textActive)
+                textController.StartTextDisplay();
         }
     }
 
