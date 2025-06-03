@@ -456,7 +456,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BreakObjectPrefab: {fileID: 8996362196748255308, guid: bdd88d711216245cc822717f9a81d7df, type: 3}
-  orangeMushroomCount: 0
+  orangeMushroomCount: 20
   blueMushroomCount: 0
   greenMushroomCount: 0
   currentMushroom: 0
@@ -527,7 +527,7 @@ MonoBehaviour:
   FallTimeout: 0.15
   Grounded: 1
   GroundedOffset: -0.14
-  GroundedRadius: 0.8
+  GroundedRadius: 0.85
   GroundLayers:
     serializedVersion: 2
     m_Bits: 128
@@ -877,6 +877,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d12a9562eb2f44f18918074229558c5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  respawnLollipop: {fileID: 860030455401753976, guid: 0cdd6b987111f774586ea4d6fb3e0d5d, type: 3}
+  lollipopPos: {fileID: 1607020599294920664}
 --- !u!114 &1940367867360253766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -915,7 +917,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: e870b5f5ef8df4dddbf503275047f212, type: 3}
   - {fileID: 21300000, guid: 6e038540662ab49f9a366e0fd2951021, type: 3}
   greenMushroomSprite:
-  - {fileID: 21300000, guid: 5db3003f16c56ef47ae566265a41117c, type: 3}
+  - {fileID: 21300000, guid: f3f4ce91a5118e54c90cd14d0916ffa7, type: 3}
   - {fileID: 21300000, guid: 6e038540662ab49f9a366e0fd2951021, type: 3}
 --- !u!114 &9218634121326714550
 MonoBehaviour:
@@ -943,9 +945,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ea32197caa85f449b453cb53e5d721b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  footprintPrefab: {fileID: 1508137065854379069, guid: a9210b0545852034f89b31184c47080b, type: 3}
+  leftFootprintPrefab: {fileID: 4603181782586651479, guid: 91aa11794b4110d4e8528893d112e01a, type: 3}
+  rightFootprintPrefab: {fileID: 7415833482550626656, guid: 7af58ff52aebf6e46a02c156cf89ec21, type: 3}
   footprintLifetime: 3
-  footprintOffset: {x: 0, y: 0.01, z: 0}
+  footprintOffset: {x: -0.15, y: -0.1, z: 0}
 --- !u!114 &637477043345110717
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1282,7 +1285,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.089101546
+  m_Radius: 0.15
   m_Center: {x: 0.000000011769224, y: 0.05320082, z: 0.00000015037011}
 --- !u!54 &5087165581502756136
 Rigidbody:
@@ -1349,7 +1352,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.089101546
+  m_Radius: 0.15
   m_Center: {x: 0.000000011769224, y: 0.05320082, z: 0.00000015037011}
 --- !u!54 &3488745103683150686
 Rigidbody:
