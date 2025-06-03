@@ -236,11 +236,7 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(coll.transform.name);
 
-        if (coll.gameObject.CompareTag("Ghost"))
-        {
-            PlayerTriggerController.TriggerDust();
-            Debug.Log("Dust");
-        }
+        
         if (coll.gameObject.CompareTag("BossBody"))
         {
             BossAttack boss = coll.gameObject.GetComponent<BossAttack>();
@@ -329,6 +325,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("Ghost"))
+        {
+            PlayerTriggerController.TriggerDust();
+            Debug.Log("Dust");
+        }
         if (other.gameObject.CompareTag("Mushroom"))
         {
             Mushroom mushroom = other.gameObject.GetComponent<Mushroom>();

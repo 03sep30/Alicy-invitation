@@ -22,6 +22,7 @@ public class Lollipop : MonoBehaviour
             }
             Debug.Log("¥Í¿Ω");
         }
-        Destroy(gameObject);
+        if (collision.gameObject.layer == 7)
+            Destroy(gameObject);
     }
 }
