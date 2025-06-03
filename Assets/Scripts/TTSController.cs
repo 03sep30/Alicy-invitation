@@ -1,18 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TTSController : MonoBehaviour
 {
-    private AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip[] ttsClips;
 
-    private int currentIndex = 0;
-    private bool isPlayingSequence = false;
+    public bool nextScene = false;
+    public string sceneName;
+    public int currentIndex = 0;
+    public bool isPlayingSequence = false;
 
-    void Start()
+    void Update()
     {
-        audioSource = GetComponent<AudioSource>();
+        if (isPlayingSequence && !audioSource.isPlaying)
+        {
+            PlayNextClip();
+        }
     }
 
     public void PlayTTS()
@@ -34,6 +40,10 @@ public class TTSController : MonoBehaviour
         }
         else
         {
+            if (nextScene)
+            {
+                SceneManager.LoadScene(sceneName);
+            }
             isPlayingSequence = false;
         }
     }

@@ -274,7 +274,9 @@ public class PlayerController : MonoBehaviour
             breakObject.transform.position = coll.gameObject.transform.position;
             Destroy(coll.gameObject);
 
-            StartCoroutine(DestroyObject(breakObject, 1.5f));
+            DestroyObject destroyObject = breakObject.GetComponent<DestroyObject>();
+            if (destroyObject != null)
+                destroyObject.StartDestroy(breakObject, 1.5f);
 
             //audioSource.clip = playerMovement.breakingSound;
             //audioSource.Play();
@@ -323,12 +325,6 @@ public class PlayerController : MonoBehaviour
         luckyBox.SetActive(false);
         yield return new WaitForSeconds(luckyBoxTime);
         luckyBox.SetActive(true);
-    }
-
-    private IEnumerator DestroyObject(GameObject obj, float time)
-    {
-        yield return new WaitForSeconds(time);
-        Destroy(obj);
     }
 
     private void OnTriggerEnter(Collider other)

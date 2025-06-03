@@ -5,8 +5,13 @@ using UnityEngine.SceneManagement;
 
 public class HatManHP : BossHP
 {
+    public TTSController ttsController;
+    public GameObject deathVFX;
+
     private void OnDestroy()
     {
-        SceneManager.LoadScene("Main_2BossCat_Map");
+        ttsController.PlayTTS();
+        GameObject VFX = Instantiate(deathVFX, transform.position, Quaternion.identity);
+        VFX.GetComponent<DestroyObject>().StartDestroy(VFX, 1.5f);
     }
 }

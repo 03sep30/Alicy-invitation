@@ -12,8 +12,7 @@ public class HatManAttack : BossAttack
     public GameObject hatPrefab;
 
     [Header("LightPillar")]
-    [SerializeField]
-    private float lightPillarOffset;
+    [SerializeField] private float lightPillarOffset;
     public GameObject lightPillarPrefab;
 
     [Header("Attack")]

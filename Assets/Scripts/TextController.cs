@@ -62,12 +62,12 @@ public class TextController : MonoBehaviour
 
                 if (currentTextTime <= 0)
                 {
-                    PlayText();
-
                     if (textIndex < textIntervals.Length)
                         currentTextTime = textIntervals[textIndex];
                     else
                         currentTextTime = 1f;
+
+                    PlayText();
                 }
             }
         }

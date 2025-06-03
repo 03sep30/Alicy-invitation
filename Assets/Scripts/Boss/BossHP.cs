@@ -19,7 +19,7 @@ public class BossHP : MonoBehaviour
     public TextMeshProUGUI timeHPText;
     public GameObject bossPanel;
 
-    private PlayerController playerController;
+    protected PlayerController playerController;
     private PlayerHealth playerHealth;
 
     void Start()
