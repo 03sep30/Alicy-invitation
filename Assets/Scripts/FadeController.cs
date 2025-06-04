@@ -5,6 +5,7 @@ using UnityEngine;
 public delegate void FadeEventHandler();
 public class FadeController : MonoBehaviour
 {
+    public GameObject hidePanel;
     private CanvasGroup canvasGroup;
     public float fadeTime = 1f;
     public float fadeInTime = 0.2f;
@@ -35,6 +36,7 @@ public class FadeController : MonoBehaviour
     private IEnumerator FadeIn()
     {
         yield return new WaitForSeconds(fadeInTime);
+        hidePanel.SetActive(false);
         if (playerHealth.isDie)
             playerHealth.RandomGameOverTTS();
 
@@ -62,6 +64,7 @@ public class FadeController : MonoBehaviour
             accumTime += Time.deltaTime;
         }
         canvasGroup.alpha = 0f;
+        hidePanel.SetActive(true);
         fadeFinished = true;
     }
 }

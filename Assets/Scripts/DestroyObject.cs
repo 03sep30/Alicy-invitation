@@ -6,6 +6,7 @@ using UnityEngine;
 public class DestroyObject : MonoBehaviour
 {
     public GameObject activeObj;
+    public GameObject hidePanel;
 
     public bool isDestroy = false;
     public bool isIntroObj = false;
@@ -38,6 +39,7 @@ public class DestroyObject : MonoBehaviour
 
     IEnumerator DestroyObjectCoroutine(GameObject obj, float time)
     {
+        hidePanel.SetActive(false);
         yield return new WaitForSeconds(time);
         fadeController.StartFadeIn();
     }
