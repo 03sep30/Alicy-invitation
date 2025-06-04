@@ -74,7 +74,6 @@ public class CheshireAttack : BossAttack
                 currentAttackTime = attackInterval;
             }
         }
-        Debug.Log(currentAttackTime);
     }
 
     public override void Attack(PlayerHealth player)

@@ -35,7 +35,9 @@ public class FadeController : MonoBehaviour
     private IEnumerator FadeIn()
     {
         yield return new WaitForSeconds(fadeInTime);
-        playerHealth.RandomGameOverTTS();
+        if (playerHealth.isDie)
+            playerHealth.RandomGameOverTTS();
+
         accumTime = 0f;
         while (accumTime < fadeTime)
         {
