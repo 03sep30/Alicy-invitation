@@ -5708,7 +5708,7 @@ Transform:
   m_GameObject: {fileID: 299351475}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 9.9, y: 10.01, z: 132.874}
+  m_LocalPosition: {x: 30.681, y: 3.562, z: 135.428}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -21602,6 +21602,7 @@ GameObject:
   - component: {fileID: 1161629219}
   - component: {fileID: 1161629218}
   - component: {fileID: 1161629221}
+  - component: {fileID: 1161629222}
   m_Layer: 0
   m_Name: Ghost03_DontGo
   m_TagString: Untagged
@@ -21707,12 +21708,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1776119234}
   ttsClips: []
   nextScene: 0
   sceneName: 
   currentIndex: 0
   isPlayingSequence: 0
+--- !u!54 &1161629222
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161629216}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1163335269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21997,6 +22024,7 @@ GameObject:
   - component: {fileID: 1179069886}
   - component: {fileID: 1179069885}
   - component: {fileID: 1179069888}
+  - component: {fileID: 1179069889}
   m_Layer: 0
   m_Name: HatMan_Laughing
   m_TagString: Untagged
@@ -22034,7 +22062,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -22102,7 +22130,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1776119234}
   ttsClips:
   - {fileID: 8300000, guid: 599c187daf403b042ab14711e716f390, type: 3}
   - {fileID: 8300000, guid: 20de621594497f047a41e2d7c415d318, type: 3}
@@ -22110,6 +22137,33 @@ MonoBehaviour:
   sceneName: 
   currentIndex: 0
   isPlayingSequence: 0
+--- !u!54 &1179069889
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179069883}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1181142376
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -22387,6 +22441,7 @@ GameObject:
   - component: {fileID: 1192020013}
   - component: {fileID: 1192020012}
   - component: {fileID: 1192020015}
+  - component: {fileID: 1192020016}
   m_Layer: 0
   m_Name: Ghost02_Treasure
   m_TagString: Untagged
@@ -22492,12 +22547,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1776119234}
   ttsClips: []
   nextScene: 0
   sceneName: 
   currentIndex: 0
   isPlayingSequence: 0
+--- !u!54 &1192020016
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1192020010}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &1201945005
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23985,6 +24066,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2352686344650914142, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2439486909319976510, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -25145,7 +25230,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -27727,7 +27811,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -32088,7 +32171,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   ttsClips:
   - {fileID: 8300000, guid: 599c187daf403b042ab14711e716f390, type: 3}
   - {fileID: 8300000, guid: 20de621594497f047a41e2d7c415d318, type: 3}
@@ -32349,7 +32431,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -43790,6 +43871,7 @@ GameObject:
   - component: {fileID: 2084098193}
   - component: {fileID: 2084098192}
   - component: {fileID: 2084098195}
+  - component: {fileID: 2084098196}
   m_Layer: 0
   m_Name: HatMan_Invite
   m_TagString: Untagged
@@ -43827,7 +43909,7 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
@@ -43895,13 +43977,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1776119234}
   ttsClips:
   - {fileID: 8300000, guid: 20de621594497f047a41e2d7c415d318, type: 3}
   nextScene: 0
   sceneName: 
   currentIndex: 0
   isPlayingSequence: 0
+--- !u!54 &2084098196
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2084098190}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1001 &2084750035
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -44365,6 +44473,7 @@ GameObject:
   - component: {fileID: 2106252520}
   - component: {fileID: 2106252519}
   - component: {fileID: 2106252522}
+  - component: {fileID: 2106252523}
   m_Layer: 0
   m_Name: Ghost01_Hello
   m_TagString: Untagged
@@ -44470,12 +44579,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioSource: {fileID: 1776119234}
   ttsClips: []
   nextScene: 0
   sceneName: 
   currentIndex: 0
   isPlayingSequence: 0
+--- !u!54 &2106252523
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2106252517}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &2108548316 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2690647892814725248, guid: a586b96852e87db428b0f74170834966, type: 3}

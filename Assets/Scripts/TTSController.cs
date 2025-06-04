@@ -5,13 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class TTSController : MonoBehaviour
 {
-    public AudioSource audioSource;
+    private AudioSource audioSource;
     public AudioClip[] ttsClips;
 
     public bool nextScene = false;
     public string sceneName;
     public int currentIndex = 0;
     public bool isPlayingSequence = false;
+
+    private PlayerController playerController;
+
+    private void Start()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+        audioSource = playerController.audioSource;
+    }
 
     void Update()
     {

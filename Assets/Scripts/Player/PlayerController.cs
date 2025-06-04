@@ -365,6 +365,7 @@ public class PlayerController : MonoBehaviour
             mine.GetPuzzle();
             mine.MinePlayerHeal();
             mine.MineGetKey();
+            Destroy(mine.gameObject);
         }
         if (other.CompareTag("DeadBlock"))
         {
