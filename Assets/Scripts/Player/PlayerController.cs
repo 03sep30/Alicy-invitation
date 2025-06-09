@@ -323,22 +323,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Step"))
-        {
-            isOnStep = true;
-        }
-    }
-
-    private void OnCollisionExit(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Step"))
-        {
-            isOnStep = false;
-        }
-    }
-
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
     {
         luckyBox.SetActive(false);
@@ -354,6 +338,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("StageName"))
+        {
+            var stageNameObj = other.GetComponent<TriggerObject>();
+            stageNameObj.UpdateStageNameUI();
+        }
         if (other.gameObject.CompareTag("CameraLockPoint"))
         {
             foreach (var mainCam in mainCamera)
