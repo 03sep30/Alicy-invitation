@@ -216,16 +216,16 @@ public class PlayerHealth : MonoBehaviour
         switch (random)
         {
             case 0:
-                playerController.audioSource.clip = GameOver0;
-                playerController.audioSource.Play();
+                playerController.ttsAudioSource.clip = GameOver0;
+                playerController.ttsAudioSource.Play();
                 break;
             case 1:
-                playerController.audioSource.clip = GameOver1;
-                playerController.audioSource.Play();
+                playerController.ttsAudioSource.clip = GameOver1;
+                playerController.ttsAudioSource.Play();
                 break;
             case 2:
-                playerController.audioSource.clip = GameOver2;
-                playerController.audioSource.Play();
+                playerController.ttsAudioSource.clip = GameOver2;
+                playerController.ttsAudioSource.Play();
                 break;
         }
     }

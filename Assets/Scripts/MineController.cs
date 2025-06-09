@@ -21,6 +21,7 @@ public class MineController : MonoBehaviour
 
     [Header("Key")]
     public bool key = false;
+    public GameObject puzzlePiece;
 
     void Start()
     {
@@ -77,6 +78,7 @@ public class MineController : MonoBehaviour
         if (!key) return;
         PlayerController playerController = target.GetComponent<PlayerController>();
         playerController.GetKey();
+        puzzlePiece.SetActive(true);
         Debug.Log("¿­¼è È¹µæ");
     }
 }

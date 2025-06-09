@@ -1749,6 +1749,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7922592579014258194, guid: 4e6885e0d11bd224fa27617a4657c329, type: 3}
   m_PrefabInstance: {fileID: 92632000}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &94805088 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: c17911e25593497499c8880ff6339757, type: 3}
+  m_PrefabInstance: {fileID: 1636596912}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &95046417
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2690,7 +2695,7 @@ GameObject:
   - component: {fileID: 161486886}
   - component: {fileID: 161486887}
   m_Layer: 0
-  m_Name: Cube (3)
+  m_Name: PuzzleMine
   m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2803,6 +2808,7 @@ MonoBehaviour:
   activePuzzle: 1
   heal: 0
   key: 0
+  puzzlePiece: {fileID: 0}
 --- !u!54 &161486887
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5889,6 +5895,11 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 628268627}
   m_SourcePrefab: {fileID: 100100000, guid: f8a508273372f434d816c2d1211442dd, type: 3}
+--- !u!82 &314654482 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3776217251086080552, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
+  m_PrefabInstance: {fileID: 1267429456}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &325554557 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 42640b79c6008824fac4a7705b2dcb8b, type: 3}
@@ -12575,6 +12586,7 @@ MonoBehaviour:
   activePuzzle: 0
   heal: 0
   key: 0
+  puzzlePiece: {fileID: 0}
 --- !u!65 &704064301
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -16641,6 +16653,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7233287303801130028, guid: c4edae5c8dcf09d4f84ea430ad494992, type: 3}
   m_PrefabInstance: {fileID: 943914434}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &947537032 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 452787df0c6220f48aa53442208aae8d, type: 3}
+  m_PrefabInstance: {fileID: 1512831301}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &954182313 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8402876230413751555, guid: c6d88db090de2cb4ebd1a50b2716d492, type: 3}
@@ -19069,7 +19086,7 @@ GameObject:
   - component: {fileID: 1090014934}
   - component: {fileID: 1090014935}
   m_Layer: 0
-  m_Name: Cube (2)
+  m_Name: HealMine
   m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19182,6 +19199,7 @@ MonoBehaviour:
   activePuzzle: 0
   heal: 1
   key: 0
+  puzzlePiece: {fileID: 0}
 --- !u!54 &1090014935
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -20430,6 +20448,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 314654482}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -21116,6 +21135,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 314654482}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -22672,22 +22692,6 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3991126331010013821, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3991126331010013821, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3991126331010013821, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3991126331010013821, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4360772859390417364, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -22806,22 +22810,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7120289560356816538, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7340482109391684377, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7340482109391684377, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchorMin.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7340482109391684377, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7340482109391684377, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -23439,6 +23427,7 @@ MonoBehaviour:
   - {fileID: 473055979}
   - {fileID: 473827205}
   - {fileID: 1655662156}
+  - {fileID: 94805088}
   textActive: 1
   textController: {fileID: 1655662158}
 --- !u!4 &1307978125
@@ -23782,6 +23771,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -26343,6 +26333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -27527,6 +27518,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Puzzle0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 452787df0c6220f48aa53442208aae8d, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -27804,6 +27799,7 @@ MonoBehaviour:
   activePuzzle: 0
   heal: 0
   key: 0
+  puzzlePiece: {fileID: 0}
 --- !u!65 &1516402674
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -30507,6 +30503,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 314654482}
   ttsClips:
   - {fileID: 8300000, guid: 599c187daf403b042ab14711e716f390, type: 3}
   - {fileID: 8300000, guid: 20de621594497f047a41e2d7c415d318, type: 3}
@@ -30767,6 +30764,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
   ttsClips: []
   nextScene: 0
   sceneName: 
@@ -31052,6 +31050,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: c17911e25593497499c8880ff6339757, type: 3}
       propertyPath: m_Name
       value: Puzzle1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c17911e25593497499c8880ff6339757, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -31997,7 +31999,7 @@ GameObject:
   - component: {fileID: 1671779975}
   - component: {fileID: 1671779976}
   m_Layer: 0
-  m_Name: Cube (6)
+  m_Name: KeyMine
   m_TagString: Mine
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32106,10 +32108,11 @@ MonoBehaviour:
   throwPoint: {fileID: 0}
   ghostSpeed: 0
   ghostMine: 0
-  puzzle: {fileID: 0}
+  puzzle: {fileID: 947537032}
   activePuzzle: 0
   heal: 0
   key: 1
+  puzzlePiece: {fileID: 0}
 --- !u!54 &1671779976
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -34900,7 +34903,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1776119233}
-  - component: {fileID: 1776119234}
   m_Layer: 0
   m_Name: TTS
   m_TagString: Untagged
@@ -34927,102 +34929,6 @@ Transform:
   - {fileID: 2084098191}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1776119234
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1776119232}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1001 &1785983600
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -38593,6 +38499,7 @@ MonoBehaviour:
   activePuzzle: 0
   heal: 0
   key: 0
+  puzzlePiece: {fileID: 0}
 --- !u!65 &1969149457
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -39773,6 +39680,7 @@ MonoBehaviour:
   activePuzzle: 0
   heal: 0
   key: 0
+  puzzlePiece: {fileID: 0}
 --- !u!65 &2031572538
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -41272,6 +41180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 314654482}
   ttsClips:
   - {fileID: 8300000, guid: 20de621594497f047a41e2d7c415d318, type: 3}
   nextScene: 0
@@ -41804,6 +41713,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18ef2ce86bb2bb8408be4b43473c8fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 314654482}
   ttsClips: []
   nextScene: 0
   sceneName: 

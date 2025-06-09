@@ -65,7 +65,7 @@ public class PlayerController : MonoBehaviour
 
     public AudioSource backgroundAudioSource;
     public StatusEffect currentEffect;
-    public AudioSource audioSource;
+    public AudioSource ttsAudioSource;
     public BossHP bossHP;
     private StarterAssetsInputs _input;
     private PlayerMovement playerMovement;
@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         playerUI = GetComponent<PlayerUI>();
-        audioSource = GetComponent<AudioSource>();
+        ttsAudioSource = GetComponent<AudioSource>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();

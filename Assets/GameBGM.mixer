@@ -1,5 +1,24 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!243 &-5494581678158516019
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SFX
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: 60c64f2bc5bc81c4185c26423f336337
+  m_Children: []
+  m_Volume: 6622e4cc366999a4daa391341d888e60
+  m_Pitch: 10515f50983163c458706d065236b90c
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 4224314702195898207}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!244 &-1161012591520091398
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -30,12 +49,20 @@ AudioMixerController:
   m_EnableSuspend: 1
   m_UpdateMode: 0
   m_ExposedParameters:
-  - guid: e8452af680c2acc46bd97a5f60d021a1
+  - guid: 3e1567ecb5c288444a91da9e55a5ad47
     name: BGM
+  - guid: e8452af680c2acc46bd97a5f60d021a1
+    name: Master
+  - guid: 6622e4cc366999a4daa391341d888e60
+    name: SFX
+  - guid: cb72715475bafb34b88fdf72ae6292c1
+    name: TTS
   m_AudioMixerGroupViews:
   - guids:
     - 4dd5e965817eb234a88231119d8f83bb
     - 37337efde3468cc4d99c63f140db9562
+    - fa33dfa1ad33ad849937a66406188412
+    - 60c64f2bc5bc81c4185c26423f336337
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -50,6 +77,8 @@ AudioMixerGroupController:
   m_GroupID: 4dd5e965817eb234a88231119d8f83bb
   m_Children:
   - {fileID: 3263161112056001383}
+  - {fileID: 4779988471285820394}
+  - {fileID: -5494581678158516019}
   m_Volume: e8452af680c2acc46bd97a5f60d021a1
   m_Pitch: 4b5177034e44d7d4987a98f267ee31dc
   m_Send: 00000000000000000000000000000000
@@ -83,8 +112,23 @@ AudioMixerSnapshotController:
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: ca537522c107b9b48808f67883d30877
   m_FloatValues:
-    e8452af680c2acc46bd97a5f60d021a1: 0.13552584
+    e8452af680c2acc46bd97a5f60d021a1: 0
+    3e1567ecb5c288444a91da9e55a5ad47: -0.02577656
   m_TransitionOverrides: {}
+--- !u!244 &760181928354102903
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 485417094118c8a4f856432ddf62666f
+  m_EffectName: Attenuation
+  m_MixLevel: 21f8342afd9b54c41a50255e13100249
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!243 &3263161112056001383
 AudioMixerGroupController:
   m_ObjectHideFlags: 0
@@ -100,6 +144,39 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: -1161012591520091398}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
+--- !u!244 &4224314702195898207
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: efd60fcb489133f47b56d190d8f30a3b
+  m_EffectName: Attenuation
+  m_MixLevel: bfe2a200068076b4e9cbb5dd5b79c087
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
+--- !u!243 &4779988471285820394
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: TTS
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: fa33dfa1ad33ad849937a66406188412
+  m_Children: []
+  m_Volume: cb72715475bafb34b88fdf72ae6292c1
+  m_Pitch: 3bcb749caa21d95478e75a003864c2b3
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: 760181928354102903}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0

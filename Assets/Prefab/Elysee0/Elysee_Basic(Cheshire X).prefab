@@ -418,7 +418,6 @@ GameObject:
   - component: {fileID: 6249053958103985778}
   - component: {fileID: 5077678731289232805}
   - component: {fileID: 4765635898864970670}
-  - component: {fileID: 4211071183300243496}
   - component: {fileID: 4687451193871663314}
   - component: {fileID: 3435120481805923789}
   - component: {fileID: 7381572418672342029}
@@ -534,7 +533,7 @@ MonoBehaviour:
   - {fileID: 1155030106381558158}
   backgroundAudioSource: {fileID: 0}
   currentEffect: {fileID: 0}
-  audioSource: {fileID: 4211071183300243496}
+  ttsAudioSource: {fileID: 0}
   bossHP: {fileID: 0}
 --- !u!114 &8135424537080952951
 MonoBehaviour:
@@ -566,7 +565,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 67c8b33e424ccdc4486edf538ab91c5a, type: 3}
   - {fileID: 8300000, guid: 274649b0e221539409070ebf6c18918b, type: 3}
   - {fileID: 8300000, guid: a3194b8bbc96ef84fab1f98f4b7dae3e, type: 3}
-  FootstepAudioVolume: 0.5
+  sfxAudioSource: {fileID: 0}
   JumpHeight: 7
   Gravity: -30
   JumpTimeout: 0.3
@@ -765,102 +764,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MaxStamina: 10
   CurrentStamina: 0
---- !u!82 &4211071183300243496
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6859795922319314609}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  SpatializePostEffects: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!136 &4687451193871663314
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -980,7 +883,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioMixer: {fileID: 24100000, guid: 94e2d67e9b53fd84da3f54982839acd7, type: 2}
-  BGMSlider: {fileID: 0}
+  masterSlider: {fileID: 0}
+  bgmSlider: {fileID: 0}
+  ttsSlider: {fileID: 0}
+  sfxSlider: {fileID: 0}
 --- !u!114 &9011128415627409100
 MonoBehaviour:
   m_ObjectHideFlags: 0
