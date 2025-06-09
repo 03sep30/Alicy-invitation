@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
     public float luckyBoxTime = 5f;
 
     public float playerDamage = 10f;
+    public bool isOnStep = false;
 
     private bool hasKey;
     public bool isPanelActive = false;
@@ -53,11 +54,14 @@ public class PlayerController : MonoBehaviour
     private bool isDropDamage;
     public AudioClip[] backgroundBGM;
 
-    public GameObject mainCamera;
-    public GameObject lockCamera;
+    public GameObject[] mainCamera;
+    public GameObject[] lockCamera;
 
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
     public Sprite[] statusImages;
+
+    [Header("0 Blue, 1 Orange, 2 Green")]
+    public GameObject[] mushroomEffects;
 
     public AudioSource backgroundAudioSource;
     public StatusEffect currentEffect;
@@ -319,6 +323,22 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Step"))
+        {
+            isOnStep = true;
+        }
+    }
+
+    private void OnCollisionExit(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Step"))
+        {
+            isOnStep = false;
+        }
+    }
+
     private IEnumerator LuckyBoxTime(GameObject luckyBox)
     {
         luckyBox.SetActive(false);
@@ -330,8 +350,25 @@ public class PlayerController : MonoBehaviour
     {
         if (other.gameObject.CompareTag("CameraLockPoint"))
         {
-            mainCamera.SetActive(false);
-            lockCamera.SetActive(true);
+            foreach (var mainCam in mainCamera)
+            {
+                mainCam.SetActive(false);
+            }
+            foreach (var lockCam in lockCamera)
+            {
+                lockCam.SetActive(true);
+            }
+        }
+        if (other.gameObject.CompareTag("MainCameraPoint"))
+        {
+            foreach (var lockCam in lockCamera)
+            {
+                lockCam.SetActive(false);
+            }
+            foreach (var mainCam in mainCamera)
+            {
+                mainCam.SetActive(true);
+            }
         }
         if (other.gameObject.CompareTag("Ghost"))
         {

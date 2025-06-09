@@ -13,6 +13,7 @@ public class PlayerMushroomHandler : MonoBehaviour
 {
     public GameObject respawnLollipop;
     public Transform lollipopPos;
+    
 
     private PlayerUI playerUI;
     private PlayerController playerController;
