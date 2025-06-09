@@ -13,7 +13,7 @@ public class PlayerMushroomHandler : MonoBehaviour
 {
     public GameObject respawnLollipop;
     public Transform lollipopPos;
-    
+    public GameObject useMushroomEffect;
 
     private PlayerUI playerUI;
     private PlayerController playerController;
@@ -38,6 +38,10 @@ public class PlayerMushroomHandler : MonoBehaviour
             else if (playerController.currentSize == CharacterSize.Big)
                 playerController.currentSize = CharacterSize.Normal;
 
+            if (useMushroomEffect.activeInHierarchy == true)
+                useMushroomEffect.SetActive(false);
+            useMushroomEffect.SetActive(true);
+            StartCoroutine(effectTime());
             playerController.blueMushroomCount--;
         }
 
@@ -48,6 +52,10 @@ public class PlayerMushroomHandler : MonoBehaviour
             else if (playerController.currentSize == CharacterSize.Small)
                 playerController.currentSize = CharacterSize.Normal;
 
+            if (useMushroomEffect.activeInHierarchy == true)
+                useMushroomEffect.SetActive(false);
+            useMushroomEffect.SetActive(true);
+            StartCoroutine(effectTime());
             playerController.orangeMushroomCount--;
         }
         
@@ -57,6 +65,10 @@ public class PlayerMushroomHandler : MonoBehaviour
             GameObject respawnLolli = Instantiate(respawnLollipop, lollipopPos, Quaternion.identity);
             playerHealth.SpawnPoint = respawnLolli.transform;
 
+            if (useMushroomEffect.activeInHierarchy == true)
+                useMushroomEffect.SetActive(false);
+            useMushroomEffect.SetActive(true);
+            StartCoroutine(effectTime());
             playerController.greenMushroomCount--;
         }
 
@@ -79,9 +91,8 @@ public class PlayerMushroomHandler : MonoBehaviour
     }
 
 
-    public void GetMushroom(Mushroom mushroom)
+    public void GetMushroom()
     {
-        mushroom.GetMushroom(playerController);
         UpdateMushroomUI();
     }
 
@@ -94,5 +105,11 @@ public class PlayerMushroomHandler : MonoBehaviour
         playerUI.UpdateOrangeMushroomUI(playerController.orangeMushroomCount, isOrange);
         playerUI.UpdateBlueMushroomUI(playerController.blueMushroomCount, isBlue);
         playerUI.UpdateGreenMushroomUI(playerController.greenMushroomCount, isGreen);
+    }
+
+    private IEnumerator effectTime()
+    {
+        yield return new WaitForSeconds(0.6f);
+        useMushroomEffect.SetActive(false);
     }
 }

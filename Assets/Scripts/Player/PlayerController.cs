@@ -346,6 +346,12 @@ public class PlayerController : MonoBehaviour
         luckyBox.SetActive(true);
     }
 
+    private IEnumerator mushroomEffectTime(GameObject effect)
+    {
+        yield return new WaitForSeconds(0.5f);
+        effect.SetActive(false);
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("CameraLockPoint"))
@@ -378,7 +384,33 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("Mushroom"))
         {
             Mushroom mushroom = other.gameObject.GetComponent<Mushroom>();
-            mushroomHandler.GetMushroom(mushroom);
+
+            if (mushroom.mushroomType == MushroomType.Blue)
+            {
+                blueMushroomCount++;
+                if (mushroomEffects[0].activeInHierarchy == true)
+                    mushroomEffects[0].SetActive(false);
+                mushroomEffects[0].SetActive(true);
+                StartCoroutine(mushroomEffectTime(mushroomEffects[0]));
+            }
+            if (mushroom.mushroomType == MushroomType.Orange)
+            {
+                orangeMushroomCount++;
+                if (mushroomEffects[1].activeInHierarchy == true)
+                    mushroomEffects[1].SetActive(false);
+                mushroomEffects[1].SetActive(true);
+                StartCoroutine(mushroomEffectTime(mushroomEffects[1]));
+            }
+            if (mushroom.mushroomType == MushroomType.Green)
+            {
+                greenMushroomCount++;
+                if (mushroomEffects[2].activeInHierarchy == true)
+                    mushroomEffects[2].SetActive(false);
+                mushroomEffects[2].SetActive(true);
+                StartCoroutine(mushroomEffectTime(mushroomEffects[2]));
+            }
+            mushroomHandler.GetMushroom();
+            Destroy(other.gameObject);
         }
         if (other.gameObject.name == "BossDestroyBlock")
         {

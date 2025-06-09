@@ -11,6 +11,7 @@ public class DestroyObject : MonoBehaviour
     public float destroyTime = 7f;
 
     public bool isDestroy = false;
+    public bool isDisable = false;
     public bool isIntroObj = false;
 
     private FadeController fadeController;
@@ -24,6 +25,7 @@ public class DestroyObject : MonoBehaviour
         if (isDestroy)
             StartDestroy(gameObject, destroyTime);
     }
+
     private void HandleFadeFinished()
     {
         if (isIntroObj)
