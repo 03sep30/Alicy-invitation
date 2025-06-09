@@ -10,10 +10,12 @@ public class TextController : MonoBehaviour
     public GameObject textPanel;
     public GameObject imagePanel;
     public TextMeshProUGUI text;
+    public TextMeshProUGUI nameText;
     public Image image;
     public string[] textLines;
     public Sprite[] characterImages;
     public float[] textIntervals;
+    public string[] characterNames;
 
     public bool isTextEnable = false;
     private float currentTextTime;
@@ -93,6 +95,7 @@ public class TextController : MonoBehaviour
             }
             text.text = textLines[textIndex];
             image.sprite = characterImages[textIndex];
+            nameText.text = characterNames[textIndex];
             textIndex++;
             Debug.Log($"currentIndex : {textIndex}");
         }
@@ -136,6 +139,7 @@ public class TextController : MonoBehaviour
         {
             text.text = textLines[0];
             image.sprite = characterImages[0];
+            nameText.text = characterNames[0];
             textIndex = 1;
 
             if (textIntervals.Length > 0)
