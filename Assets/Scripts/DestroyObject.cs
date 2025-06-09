@@ -8,6 +8,8 @@ public class DestroyObject : MonoBehaviour
     public GameObject activeObj;
     public GameObject hidePanel;
 
+    public float destroyTime = 7f;
+
     public bool isDestroy = false;
     public bool isIntroObj = false;
 
@@ -20,7 +22,7 @@ public class DestroyObject : MonoBehaviour
         fadeController.OnFadeFinished += HandleFadeFinished;
 
         if (isDestroy)
-            StartDestroy(gameObject, 7f);
+            StartDestroy(gameObject, destroyTime);
     }
     private void HandleFadeFinished()
     {
