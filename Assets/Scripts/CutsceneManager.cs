@@ -9,6 +9,8 @@ public class CutsceneManager : MonoBehaviour
     public Image CutsceneImage;
     public Sprite[] cutsceneImages;
     public float imageTime = 2f;
+    public bool nextScene = false;
+    public string sceneName;
 
     private int currentIndex = 0;
 
@@ -30,6 +32,9 @@ public class CutsceneManager : MonoBehaviour
             yield return new WaitForSeconds(imageTime);
         }
 
-        SceneManager.LoadScene("Main_2");
+        if (nextScene)
+        {
+            SceneManager.LoadScene("Main_2");
+        }
     }
 }

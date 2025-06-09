@@ -53,6 +53,9 @@ public class PlayerController : MonoBehaviour
     private bool isDropDamage;
     public AudioClip[] backgroundBGM;
 
+    public GameObject mainCamera;
+    public GameObject lockCamera;
+
     [Header("0 Small, 1 Big, 2 SpeedUp, 3 SpeedDown")]
     public Sprite[] statusImages;
 
@@ -325,6 +328,11 @@ public class PlayerController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (other.gameObject.CompareTag("CameraLockPoint"))
+        {
+            mainCamera.SetActive(false);
+            lockCamera.SetActive(true);
+        }
         if (other.gameObject.CompareTag("Ghost"))
         {
             PlayerTriggerController.TriggerDust();

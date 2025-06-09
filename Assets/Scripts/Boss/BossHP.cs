@@ -12,6 +12,8 @@ public class BossHP : MonoBehaviour
     public float currentTimeHP;
     public bool isHit = false;
     public bool isPaused = false;
+    public bool nextScene = false;
+    public string sceneName;
     
     public float hitTime;
     private float currentHitTime;
@@ -93,5 +95,9 @@ public class BossHP : MonoBehaviour
     {
         playerHealth.bossStage = false;
         playerController.BackgroundBGM("Stage");
+        if (nextScene)
+        {
+            SceneManager.LoadScene(sceneName);
+        }
     }
 }

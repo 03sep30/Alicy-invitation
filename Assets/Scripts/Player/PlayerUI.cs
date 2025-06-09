@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerUI : MonoBehaviour
 {
     public GameObject bossPanel;
     public TextMeshProUGUI currentItemText;
+    public bool heartActive = false;
 
     [Header("TimeHP")]
     public GameObject timePanel;
@@ -36,6 +38,10 @@ public class PlayerUI : MonoBehaviour
     private void Start()
     {
         playerHealth = GetComponentInChildren<PlayerHealth>();
+        if (SceneManager.GetActiveScene().name == "Main_2")
+        {
+            heartActive = true;
+        }
         //UpdateHeartUI();
     }
 
@@ -45,7 +51,7 @@ public class PlayerUI : MonoBehaviour
         {
             if (playerHealth.currentHealthType == HealthType.Time)
             {
-                if (!playerHealth.isDie)
+                if (!playerHealth.isDie && !heartActive)
                 {
                     bossPanel.SetActive(true);
                     timePanel.SetActive(true);
@@ -59,6 +65,10 @@ public class PlayerUI : MonoBehaviour
                 bossPanel.SetActive(true);
                 heartPanel.SetActive(true);
             }
+        }
+        else if (playerHealth.currentHealthType == HealthType.Heart && heartActive)
+        {
+            heartPanel.SetActive(true);
         }
 
         if (playerHealth.currentHealthType == HealthType.None)
