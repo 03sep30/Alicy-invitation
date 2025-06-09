@@ -6,6 +6,8 @@ public class CameraController : MonoBehaviour
 {
     public Transform player;
     public Transform Point;
+    public Vector3 direction;
+
     public float distance = 5f;
     public float minDistance = 2f;
     public float maxDistance = 20f;
@@ -28,8 +30,8 @@ public class CameraController : MonoBehaviour
 
     void UpdateCameraPosition()
     {
-        Vector3 direction = new Vector3(0, 8, -distance);
         transform.position = player.position + direction;
+        //transform.position = new Vector3(direction.x, direction.y, player.position.z);
         transform.LookAt(Point.position);
     }
 }
