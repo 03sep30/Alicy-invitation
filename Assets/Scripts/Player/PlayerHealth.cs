@@ -46,7 +46,7 @@ public class PlayerHealth : MonoBehaviour
     public AudioClip GameOver1;
     public AudioClip GameOver2;
 
-    public GameObject mushroomPanel;
+    public GameObject hidePanel;
     public GameObject bossPanel;
 
     public bool bossStage = false;
@@ -64,6 +64,14 @@ public class PlayerHealth : MonoBehaviour
         fadeController.OnFadeFinished += HandleFadeFinished;
         currentHeartHP = maxHeartHP;
         currentTimeHP = maxTimeHP;
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            Die();
+        }
     }
 
     public void PlayerHeal(float heal)
@@ -157,7 +165,7 @@ public class PlayerHealth : MonoBehaviour
                 TakeDamage((int)currentTimeHP);
             }
         }
-        mushroomPanel.SetActive(false);
+        hidePanel.SetActive(false);
 
         playerController.currentSize = CharacterSize.Normal;
         playerController.UpdateStatus(10);
@@ -193,7 +201,7 @@ public class PlayerHealth : MonoBehaviour
             }
             playerController.crushing = false;
             
-            mushroomPanel.SetActive(true);
+            hidePanel.SetActive(true);
             isDie = false;
         }
     }

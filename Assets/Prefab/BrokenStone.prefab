@@ -120,61 +120,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: BrokenStone
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
+      propertyPath: m_TagString
+      value: Breakable
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 6642191236654369622}
-    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3646422347268694313}
+      addedObject: {fileID: 1771245363098107112}
   m_SourcePrefab: {fileID: 100100000, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
---- !u!1 &1007471857315110893 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -152185327814204688, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
-  m_PrefabInstance: {fileID: 8077230194695601437}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1923397499518634555 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -1537607891298732250, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
-  m_PrefabInstance: {fileID: 8077230194695601437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8996362196748255308 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 49f4b8f975097f04a922e6acb7f5e48d, type: 3}
   m_PrefabInstance: {fileID: 8077230194695601437}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &6642191236654369622
-MonoBehaviour:
+--- !u!65 &1771245363098107112
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8996362196748255308}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38773c3bcd0aac44e9636c21f9f8ea5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  leftObj: {fileID: 1923397499518634555}
-  rightObj: {fileID: 1007471857315110893}
-  leftRot: {x: 0, y: 0, z: 35}
-  rightRot: {x: 0, y: 0, z: -35}
-  leftPos: {x: -0.05, y: 0, z: 0}
-  rightPos: {x: 0.05, y: 0, z: 0}
-  moveSpeed: 0.5
-  rotateSpeed: 90
---- !u!114 &3646422347268694313
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8996362196748255308}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04e88d268fbb1814b83b133e8522242b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  serializedVersion: 3
+  m_Size: {x: 0.30408677, y: 0.1557355, z: 0.053616334}
+  m_Center: {x: 0.0005942712, y: 0.00083063566, z: 0.00011807955}

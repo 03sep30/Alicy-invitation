@@ -83,7 +83,6 @@ public class PlayerController : MonoBehaviour
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         playerUI = GetComponent<PlayerUI>();
-        ttsAudioSource = GetComponent<AudioSource>();
         PlayerTriggerController = GetComponentInChildren<PlayerTriggerController>();
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();
