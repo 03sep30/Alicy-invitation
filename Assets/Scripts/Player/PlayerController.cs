@@ -475,7 +475,6 @@ public class PlayerController : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Text_Object"))
         {
-            Debug.Log("TTSObj");
             TextController textObj = other.gameObject.GetComponent<TextController>();
             //ttsObj.PlayTTS();
             textObj.StartTextDisplay();
