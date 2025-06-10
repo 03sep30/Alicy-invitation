@@ -10,6 +10,7 @@ public class DestroyObject : MonoBehaviour
 
     public float destroyTime = 7f;
 
+    public bool isStartDestroy = false;
     public bool isDestroy = false;
     public bool isDisable = false;
     public bool isIntroObj = false;
@@ -22,7 +23,7 @@ public class DestroyObject : MonoBehaviour
 
         fadeController.OnFadeFinished += HandleFadeFinished;
 
-        if (isDestroy)
+        if (isStartDestroy)
             StartDestroy(gameObject, destroyTime);
     }
 
@@ -43,9 +44,17 @@ public class DestroyObject : MonoBehaviour
 
     IEnumerator DestroyObjectCoroutine(GameObject obj, float time)
     {
-        hidePanel.SetActive(false);
-        yield return new WaitForSeconds(time);
-        fadeController.StartFadeIn();
+        if (isIntroObj)
+        {
+            hidePanel.SetActive(false);
+            yield return new WaitForSeconds(time);
+            fadeController.StartFadeIn();
+        }
+        if (isDestroy)
+        {
+            yield return new WaitForSeconds(time);
+            Destroy(gameObject);
+        }
     }
 
     void OnDestroy()
