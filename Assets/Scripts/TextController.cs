@@ -28,6 +28,8 @@ public class TextController : MonoBehaviour
     public DoorController door;
     public bool nextText = false;
     public TextController textController;
+    public bool hasActiveEvent = false;
+    public GameObject activeObject;
 
     public bool destroy = false;
 
@@ -112,6 +114,10 @@ public class TextController : MonoBehaviour
             if (nextText)
             {
                 textController.StartTextDisplay();
+            }
+            if (hasActiveEvent)
+            {
+                activeObject.SetActive(true);
             }
             isTextEnable = false;
 

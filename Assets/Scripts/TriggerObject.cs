@@ -8,9 +8,11 @@ public class TriggerObject : MonoBehaviour
     [Header("Stage")]
     public bool isStageName = false;
     public string stageName;
+    public string RegionName;
     public float stageNameTime = 3f;
     public GameObject stageNamePanel;
     public TextMeshProUGUI stageNameText;
+    public TextMeshProUGUI regionNameText;
 
     public void UpdateStageNameUI()
     {

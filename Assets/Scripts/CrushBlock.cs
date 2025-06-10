@@ -29,6 +29,7 @@ public class CrushBlock : MonoBehaviour
         yield return new WaitForSeconds(CrushTime);
 
         Debug.Log("2초 동안 충돌 유지됨! 실행!");
-        player.Die();
+        if (!player.isDie)
+            player.Die();
     }
 }

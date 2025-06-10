@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using System.Drawing;
 
 public enum CharacterSize
 {
@@ -16,7 +17,6 @@ public class PlayerController : MonoBehaviour
 {
     //public UniversalRendererData rendererData;
     //private ScriptableRendererFeature blitFeature;
-
     public GameObject BreakObjectPrefab;
 
     public int orangeMushroomCount = 0;
@@ -75,6 +75,7 @@ public class PlayerController : MonoBehaviour
     private PlayerTriggerController PlayerTriggerController;
     private PlayerMushroomHandler mushroomHandler;
     private CubePuzzle cubePuzzle;
+    private Rigidbody rb;
 
     void Start()
     {
@@ -87,10 +88,10 @@ public class PlayerController : MonoBehaviour
         mushroomHandler = GetComponent<PlayerMushroomHandler>();
         cubePuzzle = FindObjectOfType<CubePuzzle>();
         _input = GetComponent<StarterAssetsInputs>();
+        rb = GetComponent<Rigidbody>();
 
         playerHealth.SpawnPoint = playerHealth.startPoint;
         gameObject.transform.position = playerHealth.SpawnPoint.position;
-
 
         //_input = GetComponent<StarterAssetsInputs>();
 
@@ -104,33 +105,31 @@ public class PlayerController : MonoBehaviour
         //}
     }
 
-
     void Update()
     {
+        if (playerUI != null)
+        {
+            playerUI.UpdateStatusUI(currentSize);
+        }
+
         if (!isPanelActive)
         {
             thirdPersonController.CameraRotation();
         }
+
         DropCalculation();
         _input.SetCursorState(!isPanelActive);
+
         if (!crushing)
         {
             playerBody.transform.localScale = Vector3.one;
         }
 
-        //if (_input.sprint && thirdPersonController._speed >= thirdPersonController.SprintSpeed)
-        //{
-        //    blitFeature.SetActive(true);
-        //}
-        //else
-        //{
-        //    blitFeature.SetActive(false);
-        //}
-
         if (Input.GetKeyDown(KeyCode.F))
         {
             mushroomHandler.SwapMushroom();
         }
+
         if (Input.GetMouseButtonDown(0) && !isPanelActive)
         {
             if (!playerHealth.bossStage)
@@ -147,15 +146,20 @@ public class PlayerController : MonoBehaviour
                 }
             }
         }
+
         if (Input.GetKeyDown(KeyCode.R))
         {
-            gameObject.transform.position = playerHealth.SpawnPoint.position;
+            rb.interpolation = RigidbodyInterpolation.None;
+            transform.position = playerHealth.SpawnPoint.position;
+            rb.interpolation = RigidbodyInterpolation.Interpolate;
         }
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             settingPanel.gameObject.SetActive(!isPanelActive);
             isPanelActive = settingPanel.activeSelf;
         }
+
         if (Input.GetKeyDown(KeyCode.U))
         {
             SceneManager.LoadScene("Stage2_Boss_Map");
@@ -242,12 +246,12 @@ public class PlayerController : MonoBehaviour
     {
         //Debug.Log(coll.transform.name);
 
-        
         if (coll.gameObject.CompareTag("BossBody"))
         {
             BossAttack boss = coll.gameObject.GetComponent<BossAttack>();
             playerHealth.TakeDamage(boss.damage);
         }
+
         if (coll.gameObject.CompareTag("BossPanel"))
         {
             bossPanel.SetActive(true);
@@ -258,6 +262,7 @@ public class PlayerController : MonoBehaviour
         {
             GetKey();
         }
+
         if (coll.gameObject.CompareTag("Boss") && !thirdPersonController.Grounded)
         {
             if (bossHP != null)
@@ -266,10 +271,12 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("Player Attack");
             }
         }
+
         if (coll.gameObject.layer == 7)
         {
             lastGroundedY = transform.position.y;
         }
+
         if (currentSize == CharacterSize.Big && /*playerMovement.isBreaking && */coll.gameObject.CompareTag("Breakable"))
         {
             GameObject breakObject = Instantiate(BreakObjectPrefab, null);
@@ -300,6 +307,7 @@ public class PlayerController : MonoBehaviour
             
             StartCoroutine(LuckyBoxTime(coll.gameObject));
         }
+
         if (coll.gameObject.CompareTag("TerrainGround"))
         {
             if (!playerHealth.isDie)
@@ -307,6 +315,7 @@ public class PlayerController : MonoBehaviour
                 playerHealth.Die();
             }
         }
+
         if (coll.gameObject.CompareTag("OvenDoor"))
         {
             if (hasKey)
@@ -315,6 +324,7 @@ public class PlayerController : MonoBehaviour
                 SceneManager.LoadScene(loadScene.sceneName);
             }
         } 
+
         if (coll.gameObject.CompareTag("BossMap"))
         {
             var loadScene = coll.gameObject.GetComponent<LoadSceneObj>();
@@ -342,33 +352,26 @@ public class PlayerController : MonoBehaviour
             var stageNameObj = other.GetComponent<TriggerObject>();
             stageNameObj.UpdateStageNameUI();
         }
+
         if (other.gameObject.CompareTag("CameraLockPoint"))
         {
-            foreach (var mainCam in mainCamera)
-            {
-                mainCam.SetActive(false);
-            }
-            foreach (var lockCam in lockCamera)
-            {
-                lockCam.SetActive(true);
-            }
+            thirdPersonController.LockCameraPosition = true;
+            thirdPersonController._cinemachineTargetYaw = 180f;
+            thirdPersonController._cinemachineTargetPitch = 0f;
+            thirdPersonController.CinemachineCameraTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
         }
+
         if (other.gameObject.CompareTag("MainCameraPoint"))
         {
-            foreach (var lockCam in lockCamera)
-            {
-                lockCam.SetActive(false);
-            }
-            foreach (var mainCam in mainCamera)
-            {
-                mainCam.SetActive(true);
-            }
+            thirdPersonController.LockCameraPosition = false;
         }
+
         if (other.gameObject.CompareTag("Ghost"))
         {
             PlayerTriggerController.TriggerDust();
             Debug.Log("Dust");
         }
+
         if (other.gameObject.CompareTag("Mushroom"))
         {
             Mushroom mushroom = other.gameObject.GetComponent<Mushroom>();
@@ -400,6 +403,7 @@ public class PlayerController : MonoBehaviour
             mushroomHandler.GetMushroom();
             Destroy(other.gameObject);
         }
+
         if (other.gameObject.name == "BossDestroyBlock")
         {
             bossHP = FindObjectOfType<BossHP>();
@@ -408,6 +412,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(bossHP.gameObject);
             }
         }
+
         if (other.gameObject.CompareTag("BossAttack"))
         {
             Debug.Log("bossAttack");
@@ -418,11 +423,13 @@ public class PlayerController : MonoBehaviour
                 bossAttack.hit = true;
             }
         }
+
         if (other.gameObject.CompareTag("Dust"))
         {
             PlayerTriggerController.TriggerDust();
             Debug.Log("Dust");
         }
+
         if (other.gameObject.CompareTag("Mine"))
         {
             var mine = other.GetComponent<MineController>();
@@ -432,6 +439,7 @@ public class PlayerController : MonoBehaviour
             mine.MineGetKey();
             Destroy(mine.gameObject);
         }
+
         if (other.CompareTag("DeadBlock"))
         {
             playerHealth.Die();
@@ -441,11 +449,13 @@ public class PlayerController : MonoBehaviour
         {
             cubePuzzle.ToggleCube(other.gameObject);
         }
+
         if (other.transform.name == "PuzzleButton")
         {
             cubePuzzle.CheckPuzzle();
 
         }
+
         if (other.gameObject.CompareTag("CrushBlock"))
         {
             crushing = true;
@@ -472,6 +482,7 @@ public class PlayerController : MonoBehaviour
                 lastGroundedY = targetPortal.position.y;
             }
         }
+
         if (other.gameObject.CompareTag("Text_Object"))
         {
             TextController textObj = other.gameObject.GetComponent<TextController>();
@@ -483,35 +494,6 @@ public class PlayerController : MonoBehaviour
             TTSController ttsObj = other.gameObject.GetComponent<TTSController>();
             ttsObj.PlayTTS();
         }
-        //if (other.gameObject.CompareTag("ParryingObj"))
-        //{
-        //    var parryingObj = other.gameObject.GetComponent<ParryingObj>();
-
-        //    switch (parryingObj.Name)
-        //    {
-        //        case "Juice":
-        //            parryingObj.UpdateSize(gameObject);
-        //            Destroy(other.transform.parent.gameObject);
-        //            break;
-        //        case "TeaCup":
-        //            //parryingObj.Invincibility(gameObject);
-        //            //StartCoroutine(TeaCupTime());
-        //            Debug.Log("TEACUP");
-        //            parryingObj.Jump(gameObject);
-        //            //Destroy(other.transform.gameObject);
-        //            break;
-        //        case "Raisin":
-        //            parryingObj.UpdateSize(gameObject);
-        //            Destroy(other.transform.parent.gameObject);
-        //            break;
-        //        case "Fan":
-        //            //playerMovement.fanAvailable = true;
-        //            Destroy(other.transform.parent.gameObject);
-        //            break;
-        //        default:
-        //            break;
-        //    }
-        //}
 
         if (other.gameObject.CompareTag("SavePoint"))
         {
