@@ -87,6 +87,21 @@ public class PlayerMushroomHandler : MonoBehaviour
         };
 
         UpdateMushroomUI();
+
+        switch (playerController.currentMushroom)
+        {
+            case MushroomType.Orange:
+                playerUI.ShowMushroomEffect(playerUI.orangeMushroomImage);
+                break;
+            case MushroomType.Blue:
+                playerUI.ShowMushroomEffect(playerUI.blueMushroomImage);
+                break;
+            case MushroomType.Green:
+                playerUI.ShowMushroomEffect(playerUI.greenMushroomImage);
+                break;
+        }
+
+
         Debug.Log(playerController.currentMushroom);
     }
 

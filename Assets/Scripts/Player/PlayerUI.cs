@@ -34,7 +34,11 @@ public class PlayerUI : MonoBehaviour
     public Sprite[] blueMushroomSpirte;   // [0]: 선택됨, [1]: 비선택
     public Sprite[] greenMushroomSprite;
 
-    
+    [Header("Mushroom Effect")]
+    public ParticleSystem mushroomEffectPrefab;  // 파티클 프리팹
+    public Camera uiCamera;
+
+
     private PlayerHealth playerHealth;
 
     private void Start()
@@ -195,6 +199,14 @@ public class PlayerUI : MonoBehaviour
     public void BossStageItemTextClear()
     {
         currentItemText.text = "";
+    }
+
+    public void ShowMushroomEffect(Image targetImage)
+    {
+        Vector3 screenPos = RectTransformUtility.WorldToScreenPoint(uiCamera, targetImage.rectTransform.position);
+        Vector3 worldPos = uiCamera.ScreenToWorldPoint(new Vector3(screenPos.x, screenPos.y, uiCamera.nearClipPlane + 2f));
+
+        Instantiate(mushroomEffectPrefab, worldPos, Quaternion.identity);
     }
 
     public void QuitButton()
