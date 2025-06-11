@@ -4,6 +4,7 @@ using UnityEngine.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Drawing;
+using Cinemachine;
 
 public enum CharacterSize
 {
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
     private PlayerMushroomHandler mushroomHandler;
     private CubePuzzle cubePuzzle;
     private Rigidbody rb;
+    private CinemachineVirtualCamera CinemachineVirtualCamera;
 
     void Start()
     {
@@ -89,9 +91,13 @@ public class PlayerController : MonoBehaviour
         cubePuzzle = FindObjectOfType<CubePuzzle>();
         _input = GetComponent<StarterAssetsInputs>();
         rb = GetComponent<Rigidbody>();
+        CinemachineVirtualCamera = FindObjectOfType<CinemachineVirtualCamera>();
 
         playerHealth.SpawnPoint = playerHealth.startPoint;
-        gameObject.transform.position = playerHealth.SpawnPoint.position;
+
+        rb.interpolation = RigidbodyInterpolation.None;
+        transform.position = playerHealth.SpawnPoint.position;
+        rb.interpolation = RigidbodyInterpolation.Interpolate;
 
         //_input = GetComponent<StarterAssetsInputs>();
 
@@ -147,13 +153,6 @@ public class PlayerController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            rb.interpolation = RigidbodyInterpolation.None;
-            transform.position = playerHealth.SpawnPoint.position;
-            rb.interpolation = RigidbodyInterpolation.Interpolate;
-        }
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             settingPanel.gameObject.SetActive(!isPanelActive);
@@ -163,6 +162,14 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.U))
         {
             SceneManager.LoadScene("Stage2_Boss_Map");
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            transform.position = playerHealth.SpawnPoint.position;
         }
     }
 
@@ -358,13 +365,25 @@ public class PlayerController : MonoBehaviour
         {
             thirdPersonController.LockCameraPosition = true;
             thirdPersonController._cinemachineTargetYaw = 180f;
-            thirdPersonController._cinemachineTargetPitch = 0f;
+            thirdPersonController._cinemachineTargetPitch = 24f;
             thirdPersonController.CinemachineCameraTarget.transform.rotation = Quaternion.Euler(0f, 180f, 0f);
+
+            var camFollow = CinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+            if (camFollow != null)
+            {
+                camFollow.CameraDistance = 14f;
+            }
         }
 
         if (other.gameObject.CompareTag("MainCameraPoint"))
         {
             thirdPersonController.LockCameraPosition = false;
+
+            var camFollow = CinemachineVirtualCamera.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
+            if (camFollow != null)
+            {
+                camFollow.CameraDistance = 7f;
+            }
         }
 
         if (other.gameObject.CompareTag("Ghost"))
@@ -479,7 +498,9 @@ public class PlayerController : MonoBehaviour
 
             if (targetPortal != null)
             {
+                rb.interpolation = RigidbodyInterpolation.None;
                 transform.position = targetPortal.position;
+                rb.interpolation = RigidbodyInterpolation.Interpolate;
                 lastGroundedY = targetPortal.position.y;
             }
         }

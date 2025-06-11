@@ -18,6 +18,10 @@ public class Stun : StatusEffect
     {
         Debug.Log(this.name);
 
+        if (boss == null)
+        {
+            boss = FindObjectOfType<BossAttack>();
+        }
         //boss.GetComponent<Animator>().enabled = false;
         switch (boss)
         {
@@ -38,7 +42,7 @@ public class Stun : StatusEffect
                 var cheshire = boss as CheshireAttack;
                 if (skinnedMeshRenderer != null)
                 {
-                    skinnedMeshRenderer = cheshire.GetComponent<SkinnedMeshRenderer>();
+                    skinnedMeshRenderer = cheshire.GetComponentInChildren<SkinnedMeshRenderer>();
                     foreach (var cheshireMR in skinnedMeshRenderer.materials)
                     {
                         cheshireMR.SetColor("_BaseColor", originalColor);
@@ -55,7 +59,7 @@ public class Stun : StatusEffect
         {
             case CheshireAttack:
                 var cheshire = boss as CheshireAttack;
-                skinnedMeshRenderer = boss.GetComponent<SkinnedMeshRenderer>();
+                skinnedMeshRenderer = boss.GetComponentInChildren<SkinnedMeshRenderer>();
                 foreach (var cheshireMR in skinnedMeshRenderer.materials)
                 {
                     originalColor = cheshireMR.GetColor("_BaseColor");

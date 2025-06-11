@@ -8,7 +8,6 @@ using UnityEngine.UI;
 public class PlayerUI : MonoBehaviour
 {
     public GameObject bossPanel;
-    public TextMeshProUGUI currentItemText;
     public bool heartActive = false;
     public Image statusImage;
     public Sprite[] statusSprite;

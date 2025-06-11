@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Reduce : StatusEffect
 {
-    private BossHP bossHP;
+    public BossHP bossHP;
     public float reduceValue;
 
     void Start()
@@ -16,7 +16,6 @@ public class Reduce : StatusEffect
     {
         Debug.Log(this.name);
         
-
         return this;
     }
 
@@ -27,6 +26,10 @@ public class Reduce : StatusEffect
 
     public override IEnumerator EffectTime()
     {
+        if (bossHP == null)
+        {
+            bossHP = FindObjectOfType<BossHP>();
+        }
         bossHP.DecreaseBossHP(reduceValue);
         yield return new WaitForSeconds(0);
         RemoveEffect();

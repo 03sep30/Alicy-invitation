@@ -28,5 +28,6 @@ public class TriggerObject : MonoBehaviour
     {
         yield return new WaitForSeconds(stageNameTime);
         stageNamePanel.SetActive(false);
+        Destroy(gameObject);
     }
 }
