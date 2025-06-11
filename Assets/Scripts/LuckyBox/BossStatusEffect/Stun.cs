@@ -17,7 +17,6 @@ public class Stun : StatusEffect
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-        statusEffectText.text = "Stun";
 
         //boss.GetComponent<Animator>().enabled = false;
         switch (boss)

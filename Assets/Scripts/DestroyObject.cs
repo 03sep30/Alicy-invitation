@@ -23,7 +23,7 @@ public class DestroyObject : MonoBehaviour
 
         fadeController.OnFadeFinished += HandleFadeFinished;
 
-        if (isStartDestroy)
+        if (isStartDestroy || isIntroObj)
             StartDestroy(gameObject, destroyTime);
     }
 
@@ -31,8 +31,7 @@ public class DestroyObject : MonoBehaviour
     {
         if (isIntroObj)
         {
-            if (isIntroObj && activeObj != null)
-                activeObj.SetActive(true);
+            
             Destroy(gameObject);
         }
     }
@@ -59,6 +58,8 @@ public class DestroyObject : MonoBehaviour
 
     void OnDestroy()
     {
+        if (activeObj != null)
+            activeObj.SetActive(true);
         if (fadeController != null)
             fadeController.OnFadeFinished -= HandleFadeFinished;
     }

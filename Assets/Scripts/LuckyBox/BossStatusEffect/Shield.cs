@@ -14,7 +14,6 @@ public class Shield : StatusEffect
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-        statusEffectText.text = "Shield";
 
         return this;
     }

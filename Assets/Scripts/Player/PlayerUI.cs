@@ -13,6 +13,10 @@ public class PlayerUI : MonoBehaviour
     public Image statusImage;
     public Sprite[] statusSprite;
 
+    [Header("0 Heal, 1 Reduce, 2 Shield, 3 Stun, 4 Super Jump, 5 Blindness, 6 Restriction")]
+    public Image bossItemImage;
+    public Sprite[] bossItemSprite;
+
     [Header("TimeHP")]
     public GameObject timePanel;
     public Slider timeHPSlider;
@@ -37,8 +41,6 @@ public class PlayerUI : MonoBehaviour
     [Header("Mushroom Effect")]
     public ParticleSystem mushroomEffectPrefab;  // 파티클 프리팹
     public Camera uiCamera;
-
-
     private PlayerHealth playerHealth;
 
     private void Start()
@@ -196,9 +198,20 @@ public class PlayerUI : MonoBehaviour
         greenMushroomImage.sprite = isSelected ? greenMushroomSprite[0] : greenMushroomSprite[1];
     }
 
-    public void BossStageItemTextClear()
+    public void BossStageItemImageClear()
     {
-        currentItemText.text = "";
+        Color imageColor = bossItemImage.color;
+        imageColor.a = 0f;
+        bossItemImage.color = imageColor;
+    }
+
+    public void BossStageItemImageUpdate(int n)
+    {
+        Color imageColor = bossItemImage.color;
+        imageColor.a = 1f;
+        bossItemImage.color = imageColor;
+
+        bossItemImage.sprite = bossItemSprite[n];
     }
 
     public void ShowMushroomEffect(Image targetImage)

@@ -15,7 +15,7 @@ public class Reduce : StatusEffect
     public override StatusEffect ApplyEffect()
     {
         Debug.Log(this.name);
-        statusEffectText.text = "reduce";
+        
 
         return this;
     }

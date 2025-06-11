@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
                 if (currentEffect != null)
                 {
                     StartCoroutine(currentEffect.EffectTime());
-                    playerUI.BossStageItemTextClear();
+                    playerUI.BossStageItemImageClear();
                     currentEffect = null;
                 }
             }
@@ -304,6 +304,7 @@ public class PlayerController : MonoBehaviour
             var luckyBox = coll.gameObject.GetComponent<LuckyBox>();
             luckyBox.OpenLuckyBox();
             currentEffect = luckyBox.currentStatus;
+            playerUI.BossStageItemImageUpdate(currentEffect.effectID);
             
             StartCoroutine(LuckyBoxTime(coll.gameObject));
         }
