@@ -10,6 +10,8 @@ public class PlayerUI : MonoBehaviour
     public GameObject bossPanel;
     public TextMeshProUGUI currentItemText;
     public bool heartActive = false;
+    public Image statusImage;
+    public Sprite[] statusSprite;
 
     [Header("TimeHP")]
     public GameObject timePanel;
@@ -92,6 +94,29 @@ public class PlayerUI : MonoBehaviour
     //        Debug.Log($"{i}번째 하트이미지 생성");
     //    }
     //}
+
+    public void UpdateStatusUI(CharacterSize size)
+    {
+        Color imageColor = statusImage.color;
+        switch (size)
+        {
+            case CharacterSize.None:
+            case CharacterSize.Normal:
+                imageColor.a = 0f;
+                break;
+
+            case CharacterSize.Small:
+                imageColor.a = 1f;
+                statusImage.sprite = statusSprite[0];
+                break;
+
+            case CharacterSize.Big:
+                imageColor.a = 1f;
+                statusImage.sprite = statusSprite[1];
+                break;
+        }
+        statusImage.color = imageColor;
+    }
 
     public void PlayerTimeHPUI()
     {

@@ -811,9 +811,9 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 2
+  m_CollisionDetection: 1
 --- !u!114 &7381572418672342029
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -844,6 +844,10 @@ MonoBehaviour:
   bossPanel: {fileID: 0}
   currentItemText: {fileID: 0}
   heartActive: 0
+  statusImage: {fileID: 0}
+  statusSprite:
+  - {fileID: 21300000, guid: 78ae32eaeb9033844ab42d87bea6a12a, type: 3}
+  - {fileID: 21300000, guid: fb010e98641530341b5ee43658a63544, type: 3}
   timePanel: {fileID: 0}
   timeHPSlider: {fileID: 0}
   timeHPText: {fileID: 0}

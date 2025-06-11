@@ -91,8 +91,8 @@ namespace StarterAssets
         public float cameraRotation;
 
         // cinemachine
-        private float _cinemachineTargetYaw;
-        private float _cinemachineTargetPitch;
+        public float _cinemachineTargetYaw;
+        public float _cinemachineTargetPitch;
 
         // player
         public float _speed;
