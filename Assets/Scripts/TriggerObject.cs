@@ -20,6 +20,8 @@ public class TriggerObject : MonoBehaviour
         {
             stageNamePanel.SetActive(true);
             stageNameText.text = stageName;
+            regionNameText.text = RegionName;
+
             StartCoroutine(UIActiveTime());
         }
     }
