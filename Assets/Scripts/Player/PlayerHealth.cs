@@ -16,8 +16,6 @@ public class PlayerHealth : MonoBehaviour
     private PlayerUI playerUI;
 
     [Header("Boss")]
-    public int maxHeartHP = 3;
-    public int currentHeartHP;
 
     public float maxTimeHP = 150f;
     public float currentTimeHP;
@@ -25,8 +23,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject lastBossAreaTrigger;
 
     public BossHP boss;
-
-    public HealthType currentHealthType;
+    
     [Header("????")]
     public bool isDrinkingTeacup = false;
     public bool isDie;
@@ -53,8 +50,8 @@ public class PlayerHealth : MonoBehaviour
 
     void Start()
     {
-        currentHealthType = HealthType.Heart;
-        maxHeartHP = 5;
+        GameManager.Instance.currentHealthType = HealthType.Heart;
+        GameManager.Instance.maxHeartHP = 5;
 
         meshRenderers = GetComponentsInChildren<SkinnedMeshRenderer>();
         fadeController = FindAnyObjectByType<FadeController>();
@@ -62,7 +59,7 @@ public class PlayerHealth : MonoBehaviour
         playerUI = FindObjectOfType<PlayerUI>();
 
         fadeController.OnFadeFinished += HandleFadeFinished;
-        currentHeartHP = maxHeartHP;
+        GameManager.Instance.currentHeartHP = GameManager.Instance.maxHeartHP;
         currentTimeHP = maxTimeHP;
     }
 
@@ -76,23 +73,23 @@ public class PlayerHealth : MonoBehaviour
 
     public void PlayerHeal(float heal)
     {
-        if (currentHealthType == HealthType.Heart)
+        if (GameManager.Instance.currentHealthType == HealthType.Heart)
         {
-            if (currentHeartHP < maxHeartHP)
+            if (GameManager.Instance.currentHeartHP < GameManager.Instance.maxHeartHP)
             {
-                if (currentHeartHP + heal > maxHeartHP)
+                if (GameManager.Instance.currentHeartHP + heal > GameManager.Instance.maxHeartHP)
                 {
-                    currentHeartHP = maxHeartHP;
-                    playerUI.HealHPUI(currentHeartHP);
+                    GameManager.Instance.currentHeartHP = GameManager.Instance.maxHeartHP;
+                    playerUI.HealHPUI(GameManager.Instance.currentHeartHP);
                 }
                 else
                 {
-                    currentHeartHP += (int)heal;
-                    playerUI.HealHPUI(currentHeartHP);
+                    GameManager.Instance.currentHeartHP += (int)heal;
+                    playerUI.HealHPUI(GameManager.Instance.currentHeartHP);
                 }
             }
         }
-        if (currentHealthType == HealthType.Time)
+        if (GameManager.Instance.currentHealthType == HealthType.Time)
         {
             if (currentTimeHP < maxTimeHP)
             {
@@ -104,28 +101,28 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
-        if (currentHealthType == HealthType.Heart)
+        if (GameManager.Instance.currentHealthType == HealthType.Heart)
         {
-            if (currentHeartHP > 0 && !shield)
+            if (GameManager.Instance.currentHeartHP > 0 && !shield)
             {
-                currentHeartHP -= (int)damage;
-                playerUI.TakeDamageUI(currentHeartHP);
+                GameManager.Instance.currentHeartHP -= (int)damage;
+                playerUI.TakeDamageUI(GameManager.Instance.currentHeartHP);
             }
             if (shield)
             {
                 shield = false;
             }
         }
-        if (currentHealthType == HealthType.Time)
+        if (GameManager.Instance.currentHealthType == HealthType.Time)
         {
             if (currentTimeHP > 0)
             {
                 currentTimeHP -= damage;
             }
         }
-        if (currentHeartHP <= 0 || currentTimeHP <= 0)
+        if (GameManager.Instance.currentHeartHP <= 0 || currentTimeHP <= 0)
         {
-            playerUI.TakeDamageUI(currentHeartHP);
+            playerUI.TakeDamageUI(GameManager.Instance.currentHeartHP);
             Die();
         }
     }
@@ -151,14 +148,14 @@ public class PlayerHealth : MonoBehaviour
                 lastBossAreaTrigger.SetActive(true);
         }
 
-        if (currentHealthType == HealthType.Heart)
+        if (GameManager.Instance.currentHealthType == HealthType.Heart)
         {
-            if (currentHeartHP > 0)
+            if (GameManager.Instance.currentHeartHP > 0)
             {
-                TakeDamage(currentHeartHP);
+                TakeDamage(GameManager.Instance.currentHeartHP);
             }
         }
-        if (currentHealthType == HealthType.Time)
+        if (GameManager.Instance.currentHealthType == HealthType.Time)
         {
             if (currentTimeHP > 0)
             {
@@ -167,7 +164,7 @@ public class PlayerHealth : MonoBehaviour
         }
         hidePanel.SetActive(false);
 
-        playerController.currentSize = CharacterSize.Normal;
+        GameManager.Instance.currentSize = CharacterSize.Normal;
         playerController.UpdateStatus(10);
         if (playerController.currentEffect != null)
         {
@@ -188,7 +185,7 @@ public class PlayerHealth : MonoBehaviour
             if (boss != null)
                 boss.isPaused = false;
 
-            PlayerHeal(maxHeartHP);
+            PlayerHeal(GameManager.Instance.maxHeartHP);
             PlayerHeal(maxTimeHP);
             GameOverVFX.SetActive(false);
             player.transform.position = SpawnPoint.position;

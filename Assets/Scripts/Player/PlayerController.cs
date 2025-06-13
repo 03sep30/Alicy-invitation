@@ -20,13 +20,7 @@ public class PlayerController : MonoBehaviour
     //private ScriptableRendererFeature blitFeature;
     public GameObject BreakObjectPrefab;
 
-    public int orangeMushroomCount = 0;
-    public int blueMushroomCount = 0;
-    public int greenMushroomCount = 0;
-    public MushroomType currentMushroom;
-
     public float maxPosition = 0;
-    public CharacterSize currentSize;
 
     public GameObject settingPanel;
 
@@ -81,7 +75,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        currentSize = CharacterSize.Normal;
+        GameManager.Instance.currentSize = CharacterSize.Normal;
         playerMovement = GetComponent<PlayerMovement>();
         playerHealth = GetComponentInChildren<PlayerHealth>();
         thirdPersonController = GetComponent<ThirdPersonController>();
@@ -115,7 +109,7 @@ public class PlayerController : MonoBehaviour
     {
         if (playerUI != null)
         {
-            playerUI.UpdateStatusUI(currentSize);
+            playerUI.UpdateStatusUI(GameManager.Instance.currentSize);
         }
 
         if (!isPanelActive)
@@ -284,7 +278,7 @@ public class PlayerController : MonoBehaviour
             lastGroundedY = transform.position.y;
         }
 
-        if (currentSize == CharacterSize.Big && /*playerMovement.isBreaking && */coll.gameObject.CompareTag("Breakable"))
+        if (GameManager.Instance.currentSize == CharacterSize.Big && /*playerMovement.isBreaking && */coll.gameObject.CompareTag("Breakable"))
         {
             GameObject breakObject = Instantiate(BreakObjectPrefab, null);
             breakObject.transform.position = coll.gameObject.transform.position;
@@ -398,7 +392,7 @@ public class PlayerController : MonoBehaviour
 
             if (mushroom.mushroomType == MushroomType.Blue)
             {
-                blueMushroomCount++;
+                GameManager.Instance.blueMushroomCount++;
                 if (mushroomEffects[0].activeInHierarchy == true)
                     mushroomEffects[0].SetActive(false);
                 mushroomEffects[0].SetActive(true);
@@ -406,7 +400,7 @@ public class PlayerController : MonoBehaviour
             }
             if (mushroom.mushroomType == MushroomType.Orange)
             {
-                orangeMushroomCount++;
+                GameManager.Instance.orangeMushroomCount++;
                 if (mushroomEffects[1].activeInHierarchy == true)
                     mushroomEffects[1].SetActive(false);
                 mushroomEffects[1].SetActive(true);
@@ -414,7 +408,7 @@ public class PlayerController : MonoBehaviour
             }
             if (mushroom.mushroomType == MushroomType.Green)
             {
-                greenMushroomCount++;
+                GameManager.Instance.greenMushroomCount++;
                 if (mushroomEffects[2].activeInHierarchy == true)
                     mushroomEffects[2].SetActive(false);
                 mushroomEffects[2].SetActive(true);
@@ -473,15 +467,6 @@ public class PlayerController : MonoBehaviour
         if (other.transform.name == "PuzzleButton")
         {
             cubePuzzle.CheckPuzzle();
-
-        }
-
-        if (other.gameObject.CompareTag("CrushBlock"))
-        {
-            crushing = true;
-            playerBody.transform.localScale = new Vector3(1f, 0.2f, 1f);
-
-            playerHealth.Die();
         }
 
         if (other.CompareTag("Cheshire"))

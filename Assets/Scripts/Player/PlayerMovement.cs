@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
     void Update()
     {
-        if (!playerHealth.isDie && playerController.currentSize == CharacterSize.Small)
+        if (!playerHealth.isDie && GameManager.Instance.currentSize == CharacterSize.Small)
         {
             Vector3 scale = new Vector3(0.5f, 0.5f, 0.5f);
             gameObject.transform.localScale = scale;
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
-        if (!playerHealth.isDie && !playerController.crushing && playerController.currentSize == CharacterSize.Normal)
+        if (!playerHealth.isDie && !playerController.crushing && GameManager.Instance.currentSize == CharacterSize.Normal)
         {
             Vector3 scale = Vector3.one;
             gameObject.transform.localScale = scale;
@@ -95,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
 
             blindnessRectTransform.sizeDelta = new Vector2(1920f, 1080f);
         }
-        if (!playerHealth.isDie && playerController.currentSize == CharacterSize.Big)
+        if (!playerHealth.isDie && GameManager.Instance.currentSize == CharacterSize.Big)
         {
             Vector3 scale = new Vector3(2f, 2f, 2f);
             gameObject.transform.localScale = scale;
@@ -127,7 +127,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //playerStamina.DecreaseStamina(1);
 
-            if (playerController.currentSize == CharacterSize.Big && !isBreaking)
+            if (GameManager.Instance.currentSize == CharacterSize.Big && !isBreaking)
             {
                 isBreaking = true;
                 Debug.Log("Break");

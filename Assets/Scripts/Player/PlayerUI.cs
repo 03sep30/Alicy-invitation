@@ -56,7 +56,7 @@ public class PlayerUI : MonoBehaviour
     {
         if (playerHealth.bossStage)
         {
-            if (playerHealth.currentHealthType == HealthType.Time)
+            if (GameManager.Instance.currentHealthType == HealthType.Time)
             {
                 if (!playerHealth.isDie && !heartActive)
                 {
@@ -67,18 +67,18 @@ public class PlayerUI : MonoBehaviour
                     PlayerTimeHPUI();
                 }
             }
-            if (playerHealth.currentHealthType == HealthType.Heart)
+            if (GameManager.Instance.currentHealthType == HealthType.Heart)
             {
                 bossPanel.SetActive(true);
                 heartPanel.SetActive(true);
             }
         }
-        else if (playerHealth.currentHealthType == HealthType.Heart && heartActive)
+        else if (GameManager.Instance.currentHealthType == HealthType.Heart && heartActive)
         {
             heartPanel.SetActive(true);
         }
 
-        if (playerHealth.currentHealthType == HealthType.None)
+        if (GameManager.Instance.currentHealthType == HealthType.None)
         {
             bossPanel.SetActive(false);
         }
@@ -151,14 +151,14 @@ public class PlayerUI : MonoBehaviour
 
     public void HealHPUI(float hp)
     {
-        if (playerHealth.currentHealthType == HealthType.Heart)
+        if (GameManager.Instance.currentHealthType == HealthType.Heart)
         {
             for (int i = 0; i < (int)hp; i++)
             {
                 playerHPImageList[i].gameObject.SetActive(true);
             }
         }
-        if (playerHealth.currentHealthType == HealthType.Time)
+        if (GameManager.Instance.currentHealthType == HealthType.Time)
         {
             playerHealth.currentTimeHP += hp;
         }
@@ -166,14 +166,14 @@ public class PlayerUI : MonoBehaviour
 
     public void TakeDamageUI(float hp)
     {
-        if (playerHealth.currentHealthType == HealthType.Heart)
+        if (GameManager.Instance.currentHealthType == HealthType.Heart)
         {
             for (int i = 0; i < playerHPImageList.Count; i++)
             {
                 playerHPImageList[i].gameObject.SetActive(i < (int)hp);
             }
         }
-        if (playerHealth.currentHealthType == HealthType.Time)
+        if (GameManager.Instance.currentHealthType == HealthType.Time)
         {
             playerHealth.currentTimeHP -= hp;
         }

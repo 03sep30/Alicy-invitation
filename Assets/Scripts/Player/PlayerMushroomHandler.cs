@@ -25,41 +25,41 @@ public class PlayerMushroomHandler : MonoBehaviour
         playerController = GetComponent<PlayerController>();
         playerHealth = GetComponentInChildren<PlayerHealth>();
 
-        playerController.currentMushroom = MushroomType.Orange;
+        GameManager.Instance.currentMushroom = MushroomType.Orange;
         UpdateMushroomUI();
     }
 
     public void UseMushroom()
     {
-        if (playerController.currentMushroom == MushroomType.Blue && playerController.blueMushroomCount > 0)
+        if (GameManager.Instance.currentMushroom == MushroomType.Blue && GameManager.Instance.blueMushroomCount > 0)
         {
-            if (playerController.currentSize == CharacterSize.Small || playerController.currentSize == CharacterSize.Normal)
-                playerController.currentSize = CharacterSize.Small;
-            else if (playerController.currentSize == CharacterSize.Big)
-                playerController.currentSize = CharacterSize.Normal;
+            if (GameManager.Instance.currentSize == CharacterSize.Small || GameManager.Instance.currentSize == CharacterSize.Normal)
+                GameManager.Instance.currentSize = CharacterSize.Small;
+            else if (GameManager.Instance.currentSize == CharacterSize.Big)
+                GameManager.Instance.currentSize = CharacterSize.Normal;
 
             if (useMushroomEffect.activeInHierarchy == true)
                 useMushroomEffect.SetActive(false);
             useMushroomEffect.SetActive(true);
             StartCoroutine(effectTime());
-            playerController.blueMushroomCount--;
+            GameManager.Instance.blueMushroomCount--;
         }
 
-        if (playerController.currentMushroom == MushroomType.Orange && playerController.orangeMushroomCount > 0)
+        if (GameManager.Instance.currentMushroom == MushroomType.Orange && GameManager.Instance.orangeMushroomCount > 0)
         {
-            if (playerController.currentSize == CharacterSize.Big || playerController.currentSize == CharacterSize.Normal)
-                playerController.currentSize = CharacterSize.Big;
-            else if (playerController.currentSize == CharacterSize.Small)
-                playerController.currentSize = CharacterSize.Normal;
+            if (GameManager.Instance.currentSize == CharacterSize.Big || GameManager.Instance.currentSize == CharacterSize.Normal)
+                GameManager.Instance.currentSize = CharacterSize.Big;
+            else if (GameManager.Instance.currentSize == CharacterSize.Small)
+                GameManager.Instance.currentSize = CharacterSize.Normal;
 
             if (useMushroomEffect.activeInHierarchy == true)
                 useMushroomEffect.SetActive(false);
             useMushroomEffect.SetActive(true);
             StartCoroutine(effectTime());
-            playerController.orangeMushroomCount--;
+            GameManager.Instance.orangeMushroomCount--;
         }
         
-        if (playerController.currentMushroom == MushroomType.Green && playerController.greenMushroomCount > 0)
+        if (GameManager.Instance.currentMushroom == MushroomType.Green && GameManager.Instance.greenMushroomCount > 0)
         {
             Vector3 lollipopPos = new Vector3(gameObject.transform.position.x, gameObject.transform.position.y + 2, gameObject.transform.position.z);
             GameObject respawnLolli = Instantiate(respawnLollipop, lollipopPos, Quaternion.identity);
@@ -69,7 +69,7 @@ public class PlayerMushroomHandler : MonoBehaviour
                 useMushroomEffect.SetActive(false);
             useMushroomEffect.SetActive(true);
             StartCoroutine(effectTime());
-            playerController.greenMushroomCount--;
+            GameManager.Instance.greenMushroomCount--;
         }
 
         UpdateMushroomUI();
@@ -78,7 +78,7 @@ public class PlayerMushroomHandler : MonoBehaviour
 
     public void SwapMushroom()
     {
-        playerController.currentMushroom = playerController.currentMushroom switch
+        GameManager.Instance.currentMushroom = GameManager.Instance.currentMushroom switch
         {
             MushroomType.Orange => MushroomType.Blue,
             MushroomType.Blue => MushroomType.Green,
@@ -88,7 +88,7 @@ public class PlayerMushroomHandler : MonoBehaviour
 
         UpdateMushroomUI();
 
-        switch (playerController.currentMushroom)
+        switch (GameManager.Instance.currentMushroom)
         {
             case MushroomType.Orange:
                 playerUI.ShowMushroomEffect(playerUI.orangeMushroomImage);
@@ -102,7 +102,7 @@ public class PlayerMushroomHandler : MonoBehaviour
         }
 
 
-        Debug.Log(playerController.currentMushroom);
+        Debug.Log(GameManager.Instance.currentMushroom);
     }
 
 
@@ -113,13 +113,13 @@ public class PlayerMushroomHandler : MonoBehaviour
 
     public void UpdateMushroomUI()
     {
-        bool isOrange = playerController.currentMushroom == MushroomType.Orange;
-        bool isBlue = playerController.currentMushroom == MushroomType.Blue;
-        bool isGreen = playerController.currentMushroom == MushroomType.Green;
+        bool isOrange = GameManager.Instance.currentMushroom == MushroomType.Orange;
+        bool isBlue = GameManager.Instance.currentMushroom == MushroomType.Blue;
+        bool isGreen = GameManager.Instance.currentMushroom == MushroomType.Green;
 
-        playerUI.UpdateOrangeMushroomUI(playerController.orangeMushroomCount, isOrange);
-        playerUI.UpdateBlueMushroomUI(playerController.blueMushroomCount, isBlue);
-        playerUI.UpdateGreenMushroomUI(playerController.greenMushroomCount, isGreen);
+        playerUI.UpdateOrangeMushroomUI(GameManager.Instance.orangeMushroomCount, isOrange);
+        playerUI.UpdateBlueMushroomUI(GameManager.Instance.blueMushroomCount, isBlue);
+        playerUI.UpdateGreenMushroomUI(GameManager.Instance.greenMushroomCount, isGreen);
     }
 
     private IEnumerator effectTime()

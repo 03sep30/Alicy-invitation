@@ -11,18 +11,17 @@ public class Lollipop : MonoBehaviour
         gingerCookie = FindObjectOfType<GingerCookieAttack>();
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider other)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (other.gameObject.CompareTag("Player"))
         {
-            PlayerHealth playerHealth = collision.gameObject.GetComponentInChildren<PlayerHealth>();
+            PlayerHealth playerHealth = other.gameObject.GetComponentInChildren<PlayerHealth>();
             if (playerHealth != null && gingerCookie != null)
             {
                 playerHealth.TakeDamage(gingerCookie.lollipopDamage);
             }
-            Debug.Log("¥Í¿Ω");
         }
-        if (collision.gameObject.layer == 7)
+        if (other.gameObject.layer == 7 || other.gameObject.layer == 0)
             Destroy(gameObject);
     }
 }

@@ -37,10 +37,10 @@ public class MushroomMergeController : MonoBehaviour
 
     public void MushroomMerge()
     {
-        if (playerController.orangeMushroomCount >= 10)
+        if (GameManager.Instance.orangeMushroomCount >= 10)
         {
-            playerController.greenMushroomCount++;
-            playerController.orangeMushroomCount -= 10;
+            GameManager.Instance.greenMushroomCount++;
+            GameManager.Instance.orangeMushroomCount -= 10;
             mushroomHandler.UpdateMushroomUI();
         }
     }

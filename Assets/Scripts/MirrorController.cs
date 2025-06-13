@@ -13,9 +13,8 @@ public class MirrorController : MonoBehaviour
     public void OnCollisionEnter(Collision collision)
     {
         var coll = gameObject.GetComponent<MeshCollider>();
-        var player = collision.gameObject.GetComponent<PlayerController>();
 
-        if ((int)player.currentSize == MirrorState || player.currentSize == CharacterSize.Normal)
+        if ((int)GameManager.Instance.currentSize == MirrorState || GameManager.Instance.currentSize == CharacterSize.Normal)
         {
             coll.isTrigger = true;
         }
@@ -32,19 +31,19 @@ public class MirrorController : MonoBehaviour
 
         if (MirrorState == 0)
         {
-            player.currentSize = CharacterSize.Small;
+            GameManager.Instance.currentSize = CharacterSize.Small;
             player.UpdateStatus(0);
             StartWaiting();
         }
         if (MirrorState == 1)
         {
-            player.currentSize = CharacterSize.Big;
+            GameManager.Instance.currentSize = CharacterSize.Big;
             player.UpdateStatus(1);
             StartWaiting();
         }
         if (MirrorState == 2)
         {
-            player.currentSize = CharacterSize.Normal;
+            GameManager.Instance.currentSize = CharacterSize.Normal;
             player.UpdateStatus(10);
             StartWaiting();
         }

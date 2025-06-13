@@ -27,8 +27,8 @@ public class BossAreaTrigger : MonoBehaviour
                     if (bossObj.activeInHierarchy == false)
                     {
                         playerController.deathFallHeight = 1000f;
-                        playerHealth.currentHealthType = HealthType.Heart;
-                        playerHealth.maxHeartHP = 5;
+                        GameManager.Instance.currentHealthType = HealthType.Heart;
+                        GameManager.Instance.maxHeartHP = 5;
                         //playerUI.UpdateHeartUI();
                         bossObj.SetActive(true);
                     }
@@ -41,8 +41,8 @@ public class BossAreaTrigger : MonoBehaviour
                 case "Chef":
                     if (bossObj.activeInHierarchy == false)
                     {
-                        playerHealth.currentHealthType = HealthType.Heart;
-                        playerHealth.maxHeartHP = 5;
+                        GameManager.Instance.currentHealthType = HealthType.Heart;
+                        GameManager.Instance.maxHeartHP = 5;
                         //playerUI.UpdateHeartUI();
                         bossObj.SetActive(true);
                     }
@@ -55,8 +55,8 @@ public class BossAreaTrigger : MonoBehaviour
                 case "HatMan":
                     if (bossObj.activeInHierarchy == false)
                     {
-                        playerHealth.currentHealthType = HealthType.Heart;
-                        playerHealth.maxHeartHP = 5;
+                        GameManager.Instance.currentHealthType = HealthType.Heart;
+                        GameManager.Instance.maxHeartHP = 5;
                         //playerUI.UpdateHeartUI();
                         bossObj.SetActive(true);
                     }
