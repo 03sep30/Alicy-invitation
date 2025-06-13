@@ -19,9 +19,12 @@ public class DestroyObject : MonoBehaviour
 
     void Start()
     {
-        fadeController = FindAnyObjectByType<FadeController>();
+        if (isIntroObj)
+        {
+            fadeController = FindAnyObjectByType<FadeController>();
 
-        fadeController.OnFadeFinished += HandleFadeFinished;
+            fadeController.OnFadeFinished += HandleFadeFinished;
+        }
 
         if (isStartDestroy || isIntroObj)
             StartDestroy(gameObject, destroyTime);

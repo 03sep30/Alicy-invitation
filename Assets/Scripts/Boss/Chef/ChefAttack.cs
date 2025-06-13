@@ -15,6 +15,10 @@ public class ChefAttack : BossAttack
     [SerializeField]
     private float firePillarOffset;
     public GameObject firePillarPrefab;
+    public float firePillarRandomMinOffsetX;
+    public float firePillarRandomMaxOffsetX;
+    public float firePillarRandomMinOffsetZ;
+    public float firePillarRandomMaxOffsetZ;
 
     [Header("Attack")]
     public float attackInterval = 3f;
@@ -67,8 +71,13 @@ public class ChefAttack : BossAttack
     public void CreateFirePillar()
     {
         Vector3 targetPos = target.position;
-        Vector3 moveDir = target.forward;
-        Vector3 spawnPos = targetPos + moveDir.normalized * firePillarOffset;
+
+        Vector3 randomOffset = new Vector3(
+           Random.Range(firePillarRandomMinOffsetX, firePillarRandomMaxOffsetX),
+           targetPos.y,
+           Random.Range(firePillarRandomMinOffsetZ, firePillarRandomMaxOffsetZ));
+        Vector3 spawnPos = new Vector3(
+            targetPos.x + randomOffset.x, targetPos.y, targetPos.z + randomOffset.z);
 
         GameObject firePillar = Instantiate(firePillarPrefab, new Vector3(spawnPos.x, spawnPos.y, spawnPos.z), Quaternion.identity);
 

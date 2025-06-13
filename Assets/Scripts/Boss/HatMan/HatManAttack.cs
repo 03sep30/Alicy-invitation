@@ -14,6 +14,10 @@ public class HatManAttack : BossAttack
     [Header("LightPillar")]
     [SerializeField] private float lightPillarOffset;
     public GameObject lightPillarPrefab;
+    public float lightPillarRandomMinOffsetX;
+    public float lightPillarRandomMaxOffsetX;
+    public float lightPillarRandomMinOffsetZ;
+    public float lightPillarRandomMaxOffsetZ;
 
     [Header("Attack")]
     public float attackInterval = 3f;
@@ -70,11 +74,18 @@ public class HatManAttack : BossAttack
     public void CreateLightPillar()
     {
         Vector3 targetPos = target.position;
-        Vector3 moveDir = target.forward;
-        Vector3 spawnPos = targetPos + moveDir.normalized * lightPillarOffset;
+        //Vector3 moveDir = target.forward * lightPillarRandomOffset;
+        //Vector3 spawnPos = targetPos + moveDir.normalized;
+
+        Vector3 randomOffset = new Vector3(
+            Random.Range(lightPillarRandomMinOffsetX, lightPillarRandomMaxOffsetX),
+            targetPos.y,
+            Random.Range(lightPillarRandomMinOffsetZ, lightPillarRandomMaxOffsetZ));
+        Vector3 spawnPos = new Vector3(
+            targetPos.x + randomOffset.x, targetPos.y, targetPos.z + randomOffset.z);
 
         GameObject firePillar = Instantiate(lightPillarPrefab, new Vector3(spawnPos.x, spawnPos.y, spawnPos.z), Quaternion.identity);
-
+        Debug.Log(spawnPos);
         attackIndex = (attackIndex + 1) % attackPattern.Length;
     }
 }

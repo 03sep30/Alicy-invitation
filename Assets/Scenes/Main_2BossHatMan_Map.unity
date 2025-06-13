@@ -282,11 +282,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3125466585068660452, guid: e340565bca6d70547a058b252cbe8fd3, type: 3}
   m_PrefabInstance: {fileID: 1490432272}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &41463980 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8260272593692506995, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-  m_PrefabInstance: {fileID: 1736537235}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &58549588
 GameObject:
   m_ObjectHideFlags: 0
@@ -11359,10 +11354,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: -2.2226324
       objectReference: {fileID: 0}
-    - target: {fileID: 7216745301357456007, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
-      propertyPath: SpawnPoint
-      value: 
-      objectReference: {fileID: 41463980}
     - target: {fileID: 7340482109391684377, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -15254,6 +15245,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5300541875974958668, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: SFDTime
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5300541875974958668, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: deathVFX
       value: 
       objectReference: {fileID: 6885963734612193409, guid: cd1c021d9ce11bf448c2de779abd4c70, type: 3}
@@ -15280,6 +15275,26 @@ PrefabInstance:
     - target: {fileID: 7090453269807952336, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: lightPillarRandomOffset
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: lightPillarRandomMaxOffsetX
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: lightPillarRandomMaxOffsetZ
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: lightPillarRandomMinOffsetX
+      value: -2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: lightPillarRandomMinOffsetZ
+      value: -2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
