@@ -12,6 +12,9 @@ public class CubePuzzle : MonoBehaviour
     public GameObject[] activeObjs;
     public bool textActive = false;
 
+    public string sceneName;
+   public bool nextSccene;
+
     public TextController textController; 
 
     void Start()
@@ -64,6 +67,9 @@ public class CubePuzzle : MonoBehaviour
                 
             if (textActive)
                 textController.StartTextDisplay();
+
+            if (nextSccene)
+                LoadingManager.LoadScene(sceneName);
         }
     }
 
