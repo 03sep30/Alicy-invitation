@@ -65,10 +65,8 @@ public class PlayerHealth : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
-        {
-            Die();
-        }
+        if (Input.GetKeyDown(KeyCode.H))
+            PlayerHeal(1);
     }
 
     public void PlayerHeal(float heal)

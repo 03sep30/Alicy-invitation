@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -17,6 +19,8 @@ public class GameManager : MonoBehaviour
     public int currentHeartHP;
     public HealthType currentHealthType;
 
+    private int nextSceneIndex;
+
     private void Awake()
     {
         if (Instance == null)
@@ -27,6 +31,52 @@ public class GameManager : MonoBehaviour
         else if (Instance != this)
         {
             Destroy(gameObject);
+        }
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N))
+        {
+            int currentScene = SceneManager.GetActiveScene().buildIndex;
+            nextSceneIndex = currentScene + 1;
+            string nextSceneName;
+            
+            switch (nextSceneIndex)
+            {
+                case 1:
+                    nextSceneName = "TitleScene";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 2:
+                    nextSceneName = "CutScene1";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 3:
+                    nextSceneName = "Main_1";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 4:
+                    nextSceneName = "CutScene2";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 5:
+                    nextSceneName = "Main_2";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 6:
+                    nextSceneName = "Main_2BossHatMan_Map";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 7:
+                    nextSceneName = "Main_2BossCat_Map";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+                case 8:
+                    nextSceneName = "CutScene3";
+                    LoadingManager.LoadScene(nextSceneName);
+                    break;
+            }
         }
     }
 }

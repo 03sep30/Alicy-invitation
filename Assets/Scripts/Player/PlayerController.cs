@@ -152,11 +152,6 @@ public class PlayerController : MonoBehaviour
             settingPanel.gameObject.SetActive(!isPanelActive);
             isPanelActive = settingPanel.activeSelf;
         }
-
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            SceneManager.LoadScene("Stage2_Boss_Map");
-        }
     }
 
     private void FixedUpdate()
