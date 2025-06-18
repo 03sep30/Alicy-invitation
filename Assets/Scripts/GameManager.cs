@@ -21,6 +21,8 @@ public class GameManager : MonoBehaviour
 
     private int nextSceneIndex;
 
+    public bool cheshireActive = false;
+
     private void Awake()
     {
         if (Instance == null)

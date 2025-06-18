@@ -107,6 +107,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.Instance.cheshireActive)
+            cheshire.SetActive(true);
         if (playerUI != null)
         {
             playerUI.UpdateStatusUI(GameManager.Instance.currentSize);
@@ -467,7 +469,7 @@ public class PlayerController : MonoBehaviour
         if (other.CompareTag("Cheshire"))
         {
             Destroy(other.gameObject);
-            cheshire.SetActive(true);
+            GameManager.Instance.cheshireActive = true;
             Debug.Log("Cheshire");
         }
 
