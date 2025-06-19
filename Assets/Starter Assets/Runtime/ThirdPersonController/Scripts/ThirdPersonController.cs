@@ -493,7 +493,6 @@ namespace StarterAssets
             // 점프 힘 적용
             float jumpForce = Mathf.Sqrt(JumpHeight * -2f * Gravity);
             _rigidbody.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            Debug.Log("B");
 
             // 애니메이션 설정
             if (_hasAnimator)
@@ -508,7 +507,6 @@ namespace StarterAssets
             if (!Grounded)
             {
                 _rigidbody.AddForce(Vector3.up * Gravity, ForceMode.Acceleration);
-                Debug.Log("C");
             }
         }
 
