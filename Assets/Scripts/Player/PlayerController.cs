@@ -96,16 +96,19 @@ public class PlayerController : MonoBehaviour
         if (!playerHealth.bossStage)
             BackgroundBGM("Stage");
 
+        if (SceneManager.GetActiveScene().name == "Main_2BossHatMan_Map")
+            BackgroundBGM("HatMan");
+
         //_input = GetComponent<StarterAssetsInputs>();
 
-            //foreach (var feature in rendererData.rendererFeatures)
-            //{
-            //    if (feature.name == "Blit")
-            //    {
-            //        blitFeature = feature;
-            //        break;
-            //    }
-            //}
+        //foreach (var feature in rendererData.rendererFeatures)
+        //{
+        //    if (feature.name == "Blit")
+        //    {
+        //        blitFeature = feature;
+        //        break;
+        //    }
+        //}
     }
 
     void Update()
@@ -197,6 +200,13 @@ public class PlayerController : MonoBehaviour
                     }
                     break;
                 case "Cheshire":
+                    if (backgroundAudioSource.clip != backgroundBGM[2])
+                    {
+                        backgroundAudioSource.clip = backgroundBGM[2];
+                        backgroundAudioSource.Play();
+                    }
+                    break;
+                case "HatMan":
                     if (backgroundAudioSource.clip != backgroundBGM[2])
                     {
                         backgroundAudioSource.clip = backgroundBGM[2];
