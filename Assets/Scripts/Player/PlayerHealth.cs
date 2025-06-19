@@ -141,7 +141,6 @@ public class PlayerHealth : MonoBehaviour
             boss.isPaused = true;
             bossStage = false;
             boss.ResetBoss();
-            playerController.BackgroundBGM("Stage");
             if (lastBossAreaTrigger != null && lastBossAreaTrigger.activeInHierarchy == false)
                 lastBossAreaTrigger.SetActive(true);
         }
@@ -185,6 +184,7 @@ public class PlayerHealth : MonoBehaviour
 
             PlayerHeal(GameManager.Instance.maxHeartHP);
             PlayerHeal(maxTimeHP);
+            playerController.BackgroundBGM("Stage");
             GameOverVFX.SetActive(false);
             player.transform.position = SpawnPoint.position;
             

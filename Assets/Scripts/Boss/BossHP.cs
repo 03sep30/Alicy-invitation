@@ -61,7 +61,7 @@ public class BossHP : MonoBehaviour
         if (currentTimeHP <= 0)
         {
             Debug.Log("Boss Die");
-            playerController.BackgroundBGM("Stage");
+            //playerController.BackgroundBGM("Stage");
             bossPanel.SetActive(false);
             Destroy(gameObject);
         }

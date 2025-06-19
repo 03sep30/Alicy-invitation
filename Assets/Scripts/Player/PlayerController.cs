@@ -93,16 +93,19 @@ public class PlayerController : MonoBehaviour
         transform.position = playerHealth.SpawnPoint.position;
         rb.interpolation = RigidbodyInterpolation.Interpolate;
 
+        if (!playerHealth.bossStage)
+            BackgroundBGM("Stage");
+
         //_input = GetComponent<StarterAssetsInputs>();
 
-        //foreach (var feature in rendererData.rendererFeatures)
-        //{
-        //    if (feature.name == "Blit")
-        //    {
-        //        blitFeature = feature;
-        //        break;
-        //    }
-        //}
+            //foreach (var feature in rendererData.rendererFeatures)
+            //{
+            //    if (feature.name == "Blit")
+            //    {
+            //        blitFeature = feature;
+            //        break;
+            //    }
+            //}
     }
 
     void Update()

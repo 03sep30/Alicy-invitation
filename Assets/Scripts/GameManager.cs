@@ -36,6 +36,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        SetResolution();
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N))
@@ -48,37 +53,59 @@ public class GameManager : MonoBehaviour
             {
                 case 1:
                     nextSceneName = "TitleScene";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 2:
                     nextSceneName = "CutScene1";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 3:
                     nextSceneName = "Main_1";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 4:
                     nextSceneName = "CutScene2";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 5:
                     nextSceneName = "Main_2";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 6:
                     nextSceneName = "Main_2BossHatMan_Map";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 7:
                     nextSceneName = "Main_2BossCat_Map";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
                 case 8:
                     nextSceneName = "CutScene3";
-                    LoadingManager.LoadScene(nextSceneName);
+                    SceneManager.LoadScene(nextSceneName);
                     break;
             }
+        }
+    }
+
+    public void SetResolution()
+    {
+        int setWidth = 1920;
+        int setHeight = 1080;
+
+        int deviceWidth = Screen.width;
+        int deviceHeight = Screen.height;
+
+        Screen.SetResolution(setWidth, (int)(((float)deviceHeight / deviceWidth) * setWidth), true);
+
+        if ((float)setWidth / setHeight < (float)deviceWidth / deviceHeight)
+        {
+            float newWidth = ((float)setWidth / setHeight) / ((float)deviceWidth / deviceHeight);
+            Camera.main.rect = new Rect((1f - newWidth) / 2f, 0f, newWidth, 1f);
+        }
+        else
+        {
+            float newHeight = ((float)deviceWidth / deviceHeight) / ((float)setWidth / setHeight);
+            Camera.main.rect = new Rect(0f, (1f - newHeight) / 2f, 1f, newHeight);
         }
     }
 }

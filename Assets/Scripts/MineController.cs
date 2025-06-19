@@ -7,7 +7,7 @@ public class MineController : MonoBehaviour
     public Transform target;
 
     [Header("Ghost")]
-    public GameObject ghostPrefab;
+    public GameObject[] ghostPrefabs;
     public Transform throwPoint;
     public float ghostSpeed;
     public bool ghostMine = false;
@@ -45,8 +45,9 @@ public class MineController : MonoBehaviour
 
         if (target != null)
         {
-            GameObject lollipop = Instantiate(ghostPrefab, throwPoint.position, Quaternion.identity);
-            Rigidbody rb = lollipop.GetComponent<Rigidbody>();
+            int n = Random.Range(0, ghostPrefabs.Length);
+            GameObject lollipop = Instantiate(ghostPrefabs[n], throwPoint.position, Quaternion.identity);
+            Rigidbody rb = lollipop.GetComponentInChildren<Rigidbody>();
 
             Vector3 targetPos = target.position;
             Vector3 direction = (targetPos - throwPoint.position).normalized;

@@ -42,7 +42,7 @@ public class TTSController : MonoBehaviour
         {
             if (nextScene)
             {
-                LoadingManager.LoadScene(sceneName);
+                SceneManager.LoadScene(sceneName);
             }
             isPlayingSequence = false;
         }

@@ -9,6 +9,6 @@ public class LoadSceneObj : MonoBehaviour
 
     public void LoadScene()
     {
-        LoadingManager.LoadScene(sceneName);
+        SceneManager.LoadScene(sceneName);
     }
 }

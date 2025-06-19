@@ -34,7 +34,7 @@ public class CutsceneManager : MonoBehaviour
 
         if (nextScene)
         {
-            LoadingManager.LoadScene(sceneName);
+            SceneManager.LoadScene(sceneName);
         }
     }
 }
