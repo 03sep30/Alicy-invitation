@@ -7357,7 +7357,7 @@ Animator:
   m_GameObject: {fileID: 1142586198}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ed181a4365c27489eb21022a33285399, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -11474,6 +11474,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3012516928042636626, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
   m_PrefabInstance: {fileID: 1736537235}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1736537239 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5971265737618109890, guid: a86972aef50cf4bc59f133ebde1774c8, type: 3}
+  m_PrefabInstance: {fileID: 1736537235}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1749542957 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2311529546499669086, guid: e340565bca6d70547a058b252cbe8fd3, type: 3}
@@ -15321,24 +15326,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 1736537239}
+    - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: lightPillarRandomOffset
       value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: lightPillarRandomMaxOffsetX
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: lightPillarRandomMaxOffsetZ
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: lightPillarRandomMinOffsetX
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 7253349251739206897, guid: 96074389988d1467398d378f1407f258, type: 3}
       propertyPath: lightPillarRandomMinOffsetZ
-      value: -2
+      value: -3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

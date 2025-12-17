@@ -99,6 +99,12 @@ public class PlayerController : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Main_2BossHatMan_Map")
             BackgroundBGM("HatMan");
 
+        if (SceneManager.GetActiveScene().name == "Main_2BossCat_Map")
+        {
+            BackgroundBGM("Cheshire");
+            playerHealth.bossStage = true;
+        }    
+
         //_input = GetComponent<StarterAssetsInputs>();
 
         //foreach (var feature in rendererData.rendererFeatures)
@@ -115,6 +121,14 @@ public class PlayerController : MonoBehaviour
     {
         if (GameManager.Instance.cheshireActive)
             cheshire.SetActive(true);
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (!playerHealth.bossStage)
+            {
+                transform.position = playerHealth.SpawnPoint.position;
+            }
+        }
         if (playerUI != null)
         {
             playerUI.UpdateStatusUI(GameManager.Instance.currentSize);
@@ -159,14 +173,6 @@ public class PlayerController : MonoBehaviour
         {
             settingPanel.gameObject.SetActive(!isPanelActive);
             isPanelActive = settingPanel.activeSelf;
-        }
-    }
-
-    private void FixedUpdate()
-    {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            transform.position = playerHealth.SpawnPoint.position;
         }
     }
 

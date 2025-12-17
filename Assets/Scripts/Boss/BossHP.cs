@@ -21,21 +21,15 @@ public class BossHP : MonoBehaviour
     public TextMeshProUGUI timeHPText;
     public GameObject bossPanel;
 
-    protected PlayerController playerController;
-    private PlayerHealth playerHealth;
+    [SerializeField] protected PlayerController playerController;
+    [SerializeField] private PlayerHealth playerHealth;
 
     void Start()
     {
-        playerController = FindObjectOfType<PlayerController>();
-        playerHealth = FindObjectOfType<PlayerHealth>();
-        playerHealth.boss = this;
-
-        playerController.BackgroundBGM(bossName);
-
-        playerHealth.bossStage = true;
-        currentTimeHP = maxTimeHP;
-        timeHPSlider.value = maxTimeHP;
-        currentHitTime = 0;
+        if (bossName == "Cheshire")
+        {
+            StartBoss();
+        }
     }
 
     void Update()
@@ -86,9 +80,24 @@ public class BossHP : MonoBehaviour
         }
     }
 
+    public void StartBoss()
+    {
+        playerController = FindObjectOfType<PlayerController>();
+        playerHealth = FindObjectOfType<PlayerHealth>();
+        playerHealth.boss = this;
+        playerHealth.bossStage = true;
+
+        playerController.BackgroundBGM(bossName);
+
+        playerHealth.bossStage = true;
+        currentTimeHP = maxTimeHP;
+        timeHPSlider.value = maxTimeHP;
+        currentHitTime = 0;
+    }
+
     public void ResetBoss()
     {
-        currentTimeHP = maxTimeHP;
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()

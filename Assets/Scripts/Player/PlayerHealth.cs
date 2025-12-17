@@ -47,6 +47,7 @@ public class PlayerHealth : MonoBehaviour
     public GameObject bossPanel;
 
     public bool bossStage = false;
+    public bool isRespawning = false;
 
     void Start()
     {
@@ -133,17 +134,33 @@ public class PlayerHealth : MonoBehaviour
 
     public void Die()
     {
+        if (isDie) return;
+
         Debug.Log("Die");
         isDie = true;
+        isRespawning = true;
 
-        if (bossStage && boss != null)
+        Debug.Log("boss null? " + (boss == null));
+
+        if (boss != null)
         {
-            boss.isPaused = true;
-            bossStage = false;
-            boss.ResetBoss();
-            if (lastBossAreaTrigger != null && lastBossAreaTrigger.activeInHierarchy == false)
-                lastBossAreaTrigger.SetActive(true);
+            if (boss.bossName == "Cheshire")
+            {
+                boss.isPaused = true;
+                bossStage = false;
+                
+            }
+            else
+            {
+                boss.isPaused = true;
+                bossStage = false;
+                boss.ResetBoss();
+                boss = null;
+            }
         }
+
+        if (lastBossAreaTrigger != null && lastBossAreaTrigger.activeInHierarchy == false)
+            lastBossAreaTrigger.SetActive(true);
 
         if (GameManager.Instance.currentHealthType == HealthType.Heart)
         {
@@ -197,6 +214,12 @@ public class PlayerHealth : MonoBehaviour
             playerController.crushing = false;
             
             hidePanel.SetActive(true);
+            if (boss != null && boss.bossName == "Cheshire")
+            {
+                boss.StartBoss();
+            }
+
+            isRespawning = false;
             isDie = false;
         }
     }

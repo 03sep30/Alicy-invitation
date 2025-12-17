@@ -14,6 +14,8 @@ public class BossAreaTrigger : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             PlayerHealth playerHealth = other.gameObject.GetComponentInChildren<PlayerHealth>();
+            if (playerHealth == null) return;
+            if (playerHealth.isRespawning) return;
             PlayerUI playerUI = other.gameObject.GetComponent<PlayerUI>();
             PlayerController playerController = other.gameObject.GetComponent<PlayerController>();
 
@@ -30,7 +32,11 @@ public class BossAreaTrigger : MonoBehaviour
                         GameManager.Instance.currentHealthType = HealthType.Heart;
                         GameManager.Instance.maxHeartHP = 5;
                         //playerUI.UpdateHeartUI();
+                        BossHP bossHP = bossObj.GetComponent<BossHP>();
+                        playerController.bossHP = bossHP;
+                        playerHealth.boss = bossHP;
                         bossObj.SetActive(true);
+                        bossHP.StartBoss();
                     }
                     else
                     {
@@ -44,7 +50,11 @@ public class BossAreaTrigger : MonoBehaviour
                         GameManager.Instance.currentHealthType = HealthType.Heart;
                         GameManager.Instance.maxHeartHP = 5;
                         //playerUI.UpdateHeartUI();
+                        BossHP bossHP = bossObj.GetComponent<BossHP>();
+                        playerController.bossHP = bossHP;
+                        playerHealth.boss = bossHP;
                         bossObj.SetActive(true);
+                        bossHP.StartBoss();
                     }
                     else
                     {
@@ -58,7 +68,11 @@ public class BossAreaTrigger : MonoBehaviour
                         GameManager.Instance.currentHealthType = HealthType.Heart;
                         GameManager.Instance.maxHeartHP = 5;
                         //playerUI.UpdateHeartUI();
+                        BossHP bossHP = bossObj.GetComponent<BossHP>();
+                        playerController.bossHP = bossHP;
+                        playerHealth.boss = bossHP;
                         bossObj.SetActive(true);
+                        bossHP.StartBoss();
                     }
                     else
                     {
